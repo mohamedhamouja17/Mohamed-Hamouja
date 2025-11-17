@@ -21,6 +21,35 @@ const categoryIcons: Record<Category, React.FC<{className: string}>> = {
   'App Icons': AppIcon,
 };
 
+const categoryStyles: Record<Exclude<Category, 'Home'>, { active: string; inactive: string; icon: string; }> = {
+    'PC': {
+      active: 'bg-blue-500 text-white shadow-blue-500/30',
+      inactive: 'bg-[#2a2a2a] text-gray-300 hover:bg-[#3a3a3a] hover:text-white',
+      icon: 'text-blue-400'
+    },
+    'Phone': {
+      active: 'bg-indigo-500 text-white shadow-indigo-500/30',
+      inactive: 'bg-[#2a2a2a] text-gray-300 hover:bg-[#3a3a3a] hover:text-white',
+      icon: 'text-indigo-400'
+    },
+    'Tablet': {
+      active: 'bg-purple-500 text-white shadow-purple-500/30',
+      inactive: 'bg-[#2a2a2a] text-gray-300 hover:bg-[#3a3a3a] hover:text-white',
+      icon: 'text-purple-400'
+    },
+    'TV': {
+      active: 'bg-red-500 text-white shadow-red-500/30',
+      inactive: 'bg-[#2a2a2a] text-gray-300 hover:bg-[#3a3a3a] hover:text-white',
+      icon: 'text-red-400'
+    },
+    'App Icons': {
+      active: 'bg-orange-500 text-white shadow-orange-500/30',
+      inactive: 'bg-[#2a2a2a] text-gray-300 hover:bg-[#3a3a3a] hover:text-white',
+      icon: 'text-orange-400'
+    },
+  };
+
+
 const CategoryNav: React.FC<CategoryNavProps> = ({ activeCategory, setActiveCategory }) => {
   const homeCategory = CATEGORIES[0];
   const otherCategories = CATEGORIES.slice(1);
@@ -44,22 +73,23 @@ const CategoryNav: React.FC<CategoryNavProps> = ({ activeCategory, setActiveCate
         </button>
       </div>
 
-      <ul className="flex items-center justify-center gap-3 sm:gap-5 md:gap-8 border-b border-gray-700 pb-3">
+      <ul className="flex items-center justify-center flex-wrap gap-3 sm:gap-4 md:gap-5">
         {otherCategories.map((category) => {
           const IconComponent = categoryIcons[category];
           const isActive = activeCategory === category;
+          const styles = categoryStyles[category as Exclude<Category, 'Home'>];
           return (
             <li key={category}>
               <button
                 onClick={() => setActiveCategory(category)}
-                className={`flex items-center gap-1.5 text-xs sm:text-sm font-medium transition-colors pb-3 border-b-2 ${
+                className={`flex items-center gap-1.5 text-xs sm:text-sm font-medium transition-all duration-300 rounded-lg px-4 py-2 transform hover:scale-105 shadow-lg ${
                   isActive
-                    ? 'text-blue-400 border-blue-400'
-                    : 'text-gray-400 hover:text-white border-transparent'
+                    ? styles.active
+                    : styles.inactive
                 }`}
                 aria-current={isActive ? 'page' : undefined}
               >
-                <IconComponent className="h-4 w-4" />
+                <IconComponent className={`h-4 w-4 transition-colors ${!isActive ? styles.icon : ''}`} />
                 <span>{category.toUpperCase()}</span>
               </button>
             </li>
