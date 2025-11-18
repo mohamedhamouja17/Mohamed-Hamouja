@@ -32,7 +32,9 @@ const ContentGrid: React.FC<ContentGridProps> = ({ activeCategory, setActiveCate
   }
 
   let gridClasses: string;
-  if (activeCategory === 'PC' || activeCategory === 'Tablet') {
+  if (activeCategory === 'PC') {
+    gridClasses = "mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6";
+  } else if (activeCategory === 'Tablet') {
     gridClasses = "mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6";
   } else if (activeCategory === 'TV') {
     gridClasses = "mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6";
