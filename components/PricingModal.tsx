@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { CloseIcon } from './icons/CloseIcon';
 import { KeyIcon } from './icons/KeyIcon';
@@ -10,12 +11,12 @@ interface PricingModalProps {
   onClose: () => void;
 }
 
-const funFeatures = [
-  { icon: KeyIcon, text: "A whole year of unlimited fun!" },
-  { icon: DiamondIcon, text: "Super special 8K wallpapers" },
-  { icon: DevicesIcon, text: "Perfect for all your screens" },
-  { icon: SparklesIcon, text: "Awesome icons for every device" },
-  { icon: ShieldCheckIcon, text: "New cool stuff every week!" },
+const subscriptionFeatures = [
+  { icon: KeyIcon, text: "Full Year of Unlimited Access (365 Days)" },
+  { icon: DiamondIcon, text: "Exclusive Wallpaper Vault (Up to 8K)" },
+  { icon: DevicesIcon, text: "Integrated Icon Bundle (All OS)" },
+  { icon: SparklesIcon, text: "Brand-new designs added every week" },
+  { icon: ShieldCheckIcon, text: "Fast and Secure high-speed downloads" },
 ];
 
 const PricingModal: React.FC<PricingModalProps> = ({ onClose }) => {
@@ -32,7 +33,7 @@ const PricingModal: React.FC<PricingModalProps> = ({ onClose }) => {
       aria-modal="true"
       role="dialog"
     >
-      <div className="bg-amber-50 rounded-2xl shadow-2xl w-full max-w-sm sm:max-w-md p-6 sm:p-8 text-gray-900 relative animate-fade-in-scale max-h-[90vh] overflow-y-auto custom-scrollbar border-4 border-yellow-300">
+      <div className="bg-amber-50 rounded-2xl shadow-2xl w-full max-w-sm sm:max-w-md p-6 sm:p-8 text-gray-900 relative animate-fade-in-scale max-h-[90vh] overflow-y-auto custom-scrollbar border-4 border-yellow-400">
         <button 
           onClick={onClose} 
           className="absolute top-4 right-4 sm:top-6 sm:right-6 text-gray-400 hover:text-gray-800 transition-colors z-10"
@@ -43,33 +44,39 @@ const PricingModal: React.FC<PricingModalProps> = ({ onClose }) => {
 
         <div className="text-center mb-8">
             <h2 
-              className="text-2xl sm:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-amber-500"
+              className="text-2xl sm:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-600 to-amber-600"
               style={{ fontFamily: "'Baloo 2', cursive" }}
             >
-                Walzoo Fun Club Pass!
+                The Golden Annual Subscription Offer
             </h2>
-          <p className="text-gray-500 mt-2 text-sm sm:text-base">Get all the coolest wallpapers and icons for your devices!</p>
+          <p className="text-gray-600 mt-3 text-sm sm:text-base leading-relaxed">
+            Are you ready to personalize every device you own with exclusive, ultra-high-quality content?
+          </p>
         </div>
 
-        <div className="bg-white p-6 rounded-lg border border-yellow-300 flex flex-col items-center">
-            <ul className="space-y-4 mb-8 text-base w-full">
-              {funFeatures.map((feature, index) => (
-                <li key={index} className="flex items-center gap-4">
-                  <feature.icon className="h-6 w-6 text-yellow-500 flex-shrink-0" />
-                  <span className="text-gray-700">{feature.text}</span>
+        <div className="bg-white p-6 rounded-xl border border-yellow-200 flex flex-col items-center shadow-sm">
+            <ul className="space-y-4 mb-8 text-sm sm:text-base w-full">
+              {subscriptionFeatures.map((feature, index) => (
+                <li key={index} className="flex items-start gap-3">
+                  <feature.icon className="h-5 w-5 text-yellow-500 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-700 font-medium">{feature.text}</span>
                 </li>
               ))}
             </ul>
             
-            <p className="text-gray-500 text-sm">Join now and get all this for:</p>
-            <p className="my-2">
-                <span className="text-4xl sm:text-5xl font-bold text-gray-800">$12.40</span>
-                <span className="text-gray-500 text-lg"> / Year</span>
-            </p>
-            <p className="text-orange-500 text-sm font-semibold mb-6">(That's like, a super-duper deal!)</p>
+            <div className="text-center mb-4">
+                <p className="text-gray-500 text-sm mb-1">Subscribe now and get all this for:</p>
+                <div className="flex items-baseline justify-center gap-1">
+                    <span className="text-4xl sm:text-5xl font-extrabold text-gray-900 tracking-tight">$12.40</span>
+                    <span className="text-gray-500 font-medium">/ Year</span>
+                </div>
+                <p className="text-orange-600 text-xs sm:text-sm font-bold mt-2 bg-orange-50 px-3 py-1 rounded-full inline-block">
+                    Less than $1.04 per month—massive savings!
+                </p>
+            </div>
             
-            <button className="w-full mt-4 bg-gradient-to-r from-yellow-400 to-amber-500 hover:from-yellow-500 hover:to-amber-600 text-black font-bold py-3.5 rounded-lg transition-all transform hover:scale-105 shadow-lg shadow-yellow-500/30">
-                Get Your Fun Pass!
+            <button className="w-full bg-gradient-to-r from-yellow-400 via-amber-500 to-yellow-400 hover:from-yellow-500 hover:via-amber-600 hover:to-yellow-500 text-white font-bold py-4 rounded-xl transition-all transform hover:scale-[1.02] shadow-lg shadow-amber-500/30 uppercase tracking-wide text-sm sm:text-base">
+                Subscribe Now
             </button>
         </div>
 
@@ -83,7 +90,7 @@ const PricingModal: React.FC<PricingModalProps> = ({ onClose }) => {
           }
            /* Custom scrollbar for webkit browsers */
           .custom-scrollbar::-webkit-scrollbar {
-            width: 8px;
+            width: 6px;
           }
           .custom-scrollbar::-webkit-scrollbar-track {
             background: transparent;
