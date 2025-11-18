@@ -37,7 +37,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ activeCategory }) => {
           className="w-full bg-white border border-gray-200 rounded-lg py-3 pl-12 pr-4 text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-400 transition-shadow"
         />
       </div>
-      {activeCategory !== 'Cute Icons' && (
+      {activeCategory !== 'App Icons' && (
         <div className="relative">
           <select className="appearance-none w-full sm:w-auto bg-white border border-gray-200 rounded-lg py-3 pl-4 pr-10 text-gray-800 focus:outline-none focus:ring-2 focus:ring-orange-400 cursor-pointer">
             {filterCategories.map((category) => (

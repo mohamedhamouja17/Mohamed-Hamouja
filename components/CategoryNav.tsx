@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { type Category, CATEGORIES } from '../types';
 import { DesktopIcon } from './icons/DesktopIcon';
@@ -14,35 +15,35 @@ interface CategoryNavProps {
 
 const categoryIcons: Record<Category, React.FC<{className: string}>> = {
   'Home': HomeIcon,
-  'Desktop Fun': DesktopIcon,
-  'Phone Fun': PhoneIcon,
-  'Tablet Fun': TabletIcon,
-  'Big Screen Fun': TvIcon,
-  'Cute Icons': AppIcon,
+  'Desktop': DesktopIcon,
+  'Phone': PhoneIcon,
+  'Tablet': TabletIcon,
+  'TV': TvIcon,
+  'App Icons': AppIcon,
 };
 
 const categoryStyles: Record<Exclude<Category, 'Home'>, { active: string; inactive: string; icon: string; }> = {
-    'Desktop Fun': {
+    'Desktop': {
       active: 'bg-sky-500 text-white shadow-sky-500/40',
       inactive: 'bg-white text-gray-700 hover:bg-sky-100',
       icon: 'text-sky-500'
     },
-    'Phone Fun': {
+    'Phone': {
       active: 'bg-green-500 text-white shadow-green-500/40',
       inactive: 'bg-white text-gray-700 hover:bg-green-100',
       icon: 'text-green-500'
     },
-    'Tablet Fun': {
+    'Tablet': {
       active: 'bg-purple-500 text-white shadow-purple-500/40',
       inactive: 'bg-white text-gray-700 hover:bg-purple-100',
       icon: 'text-purple-500'
     },
-    'Big Screen Fun': {
+    'TV': {
       active: 'bg-red-500 text-white shadow-red-500/40',
       inactive: 'bg-white text-gray-700 hover:bg-red-100',
       icon: 'text-red-500'
     },
-    'Cute Icons': {
+    'App Icons': {
       active: 'bg-pink-500 text-white shadow-pink-500/40',
       inactive: 'bg-white text-gray-700 hover:bg-pink-100',
       icon: 'text-pink-500'
