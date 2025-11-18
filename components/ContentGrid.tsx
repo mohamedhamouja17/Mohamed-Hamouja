@@ -19,7 +19,7 @@ const ContentGrid: React.FC<ContentGridProps> = ({ activeCategory, setActiveCate
     return <HomePageContent onSubscribeClick={onSubscribeClick} />;
   }
 
-  if (activeCategory === 'App Icons') {
+  if (activeCategory === 'Cute Icons') {
     const filteredPacks = ICON_PACK_DATA.filter(pack => pack.os === activeOs);
     return (
       <>
@@ -32,17 +32,17 @@ const ContentGrid: React.FC<ContentGridProps> = ({ activeCategory, setActiveCate
   }
 
   let gridClasses: string;
-  if (activeCategory === 'PC') {
+  if (activeCategory === 'Desktop Fun') {
     gridClasses = "mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6";
-  } else if (activeCategory === 'Tablet') {
+  } else if (activeCategory === 'Tablet Fun') {
     gridClasses = "mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6";
-  } else if (activeCategory === 'TV') {
+  } else if (activeCategory === 'Big Screen Fun') {
     gridClasses = "mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6";
-  } else { // For 'Phone'
+  } else { // For 'Phone Fun'
     gridClasses = "mt-10 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6";
   }
   
-  const wallpapers = WALLPAPER_DATA[activeCategory as Exclude<Category, 'App Icons' | 'Home'>];
+  const wallpapers = WALLPAPER_DATA[activeCategory as Exclude<Category, 'Cute Icons' | 'Home'>];
 
   return (
     <div className={gridClasses}>

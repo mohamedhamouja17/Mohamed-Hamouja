@@ -7,12 +7,12 @@ const generateWallpapers = (count: number, width: number, height: number): Wallp
   }));
 };
 
-export const WALLPAPER_DATA: Record<Exclude<Category, 'App Icons'>, Wallpaper[]> = {
+export const WALLPAPER_DATA: Record<Exclude<Category, 'Cute Icons'>, Wallpaper[]> = {
   Home: generateWallpapers(12, 600, 400),
-  PC: generateWallpapers(12, 600, 340),
-  Phone: generateWallpapers(10, 300, 600),
-  Tablet: generateWallpapers(12, 400, 500),
-  TV: generateWallpapers(12, 800, 450),
+  'Desktop Fun': generateWallpapers(12, 600, 340),
+  'Phone Fun': generateWallpapers(10, 300, 600),
+  'Tablet Fun': generateWallpapers(12, 400, 500),
+  'Big Screen Fun': generateWallpapers(12, 800, 450),
 };
 
 export const ICON_PACK_DATA: IconPack[] = [

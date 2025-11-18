@@ -14,38 +14,38 @@ interface CategoryNavProps {
 
 const categoryIcons: Record<Category, React.FC<{className: string}>> = {
   'Home': HomeIcon,
-  'PC': DesktopIcon,
-  'Phone': PhoneIcon,
-  'Tablet': TabletIcon,
-  'TV': TvIcon,
-  'App Icons': AppIcon,
+  'Desktop Fun': DesktopIcon,
+  'Phone Fun': PhoneIcon,
+  'Tablet Fun': TabletIcon,
+  'Big Screen Fun': TvIcon,
+  'Cute Icons': AppIcon,
 };
 
 const categoryStyles: Record<Exclude<Category, 'Home'>, { active: string; inactive: string; icon: string; }> = {
-    'PC': {
-      active: 'bg-blue-500 text-white shadow-blue-500/30',
-      inactive: 'bg-[#2a2a2a] text-gray-300 hover:bg-[#3a3a3a] hover:text-white',
-      icon: 'text-blue-400'
+    'Desktop Fun': {
+      active: 'bg-sky-500 text-white shadow-sky-500/40',
+      inactive: 'bg-white text-gray-700 hover:bg-sky-100',
+      icon: 'text-sky-500'
     },
-    'Phone': {
-      active: 'bg-indigo-500 text-white shadow-indigo-500/30',
-      inactive: 'bg-[#2a2a2a] text-gray-300 hover:bg-[#3a3a3a] hover:text-white',
-      icon: 'text-indigo-400'
+    'Phone Fun': {
+      active: 'bg-green-500 text-white shadow-green-500/40',
+      inactive: 'bg-white text-gray-700 hover:bg-green-100',
+      icon: 'text-green-500'
     },
-    'Tablet': {
-      active: 'bg-purple-500 text-white shadow-purple-500/30',
-      inactive: 'bg-[#2a2a2a] text-gray-300 hover:bg-[#3a3a3a] hover:text-white',
-      icon: 'text-purple-400'
+    'Tablet Fun': {
+      active: 'bg-purple-500 text-white shadow-purple-500/40',
+      inactive: 'bg-white text-gray-700 hover:bg-purple-100',
+      icon: 'text-purple-500'
     },
-    'TV': {
-      active: 'bg-red-500 text-white shadow-red-500/30',
-      inactive: 'bg-[#2a2a2a] text-gray-300 hover:bg-[#3a3a3a] hover:text-white',
-      icon: 'text-red-400'
+    'Big Screen Fun': {
+      active: 'bg-red-500 text-white shadow-red-500/40',
+      inactive: 'bg-white text-gray-700 hover:bg-red-100',
+      icon: 'text-red-500'
     },
-    'App Icons': {
-      active: 'bg-orange-500 text-white shadow-orange-500/30',
-      inactive: 'bg-[#2a2a2a] text-gray-300 hover:bg-[#3a3a3a] hover:text-white',
-      icon: 'text-orange-400'
+    'Cute Icons': {
+      active: 'bg-pink-500 text-white shadow-pink-500/40',
+      inactive: 'bg-white text-gray-700 hover:bg-pink-100',
+      icon: 'text-pink-500'
     },
   };
 
@@ -63,8 +63,8 @@ const CategoryNav: React.FC<CategoryNavProps> = ({ activeCategory, setActiveCate
           onClick={() => setActiveCategory(homeCategory)}
           className={`flex items-center gap-2.5 text-sm sm:text-base font-semibold transition-all duration-300 px-4 py-2 sm:px-6 sm:py-3 rounded-xl shadow-lg transform hover:scale-105 ${
             isHomeActive
-              ? 'bg-blue-500 text-white'
-              : 'bg-[#2a2a2a] text-gray-300 hover:bg-[#3a3a3a]'
+              ? 'bg-orange-500 text-white shadow-orange-500/40'
+              : 'bg-white text-gray-700 hover:bg-orange-100'
           }`}
           aria-current={isHomeActive ? 'page' : undefined}
         >

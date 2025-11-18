@@ -24,12 +24,15 @@ function App() {
   };
 
   return (
-    <div className="bg-[#1a1a1a] text-gray-300 min-h-screen font-sans">
+    <div className="bg-sky-50 text-gray-800 min-h-screen font-sans">
       <div className="container mx-auto px-4 sm:px-6 lg:px-12 py-6 flex flex-col min-h-screen">
-        <Header onRegisterClick={handleAuthModalToggle} onSubscribeClick={handlePricingModalToggle} />
+        <Header 
+          onRegisterClick={handleAuthModalToggle} 
+          onSubscribeClick={handlePricingModalToggle}
+        />
         <main className="mt-8 flex-grow">
           <CategoryNav activeCategory={activeCategory} setActiveCategory={setActiveCategory} />
-          {activeCategory !== 'Home' && activeCategory !== 'App Icons' && <SearchBar activeCategory={activeCategory} />}
+          {activeCategory !== 'Home' && activeCategory !== 'Cute Icons' && <SearchBar activeCategory={activeCategory} />}
           <ContentGrid 
             activeCategory={activeCategory} 
             setActiveCategory={setActiveCategory} 
