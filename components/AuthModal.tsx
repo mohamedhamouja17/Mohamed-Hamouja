@@ -1,11 +1,18 @@
-
 import React, { useState } from 'react';
 import { UserIcon } from './icons/UserIcon';
 import { AtIcon } from './icons/AtIcon';
 import { LockIcon } from './icons/LockIcon';
 import { CloseIcon } from './icons/CloseIcon';
+import { GoogleIcon } from './icons/GoogleIcon';
 import { auth } from '../firebase';
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile, type AuthError } from 'firebase/auth';
+import { 
+  createUserWithEmailAndPassword, 
+  signInWithEmailAndPassword, 
+  updateProfile, 
+  GoogleAuthProvider, 
+  signInWithPopup,
+  type AuthError 
+} from 'firebase/auth';
 
 interface AuthModalProps {
   onClose: () => void;
@@ -24,6 +31,30 @@ const AuthModal: React.FC<AuthModalProps> = ({ onClose }) => {
   const handleBackdropClick = (e: React.MouseEvent<HTMLDivElement>) => {
     if (e.target === e.currentTarget) {
       onClose();
+    }
+  };
+
+  const handleGoogleSignIn = async () => {
+    setError(null);
+    setLoading(true);
+    try {
+      const provider = new GoogleAuthProvider();
+      await signInWithPopup(auth, provider);
+      onClose();
+    } catch (err: unknown) {
+       console.error("Google auth error:", err);
+       const authError = err as AuthError;
+       let errorMessage = 'Failed to sign in with Google.';
+       
+       if (authError.code === 'auth/popup-closed-by-user') {
+         errorMessage = 'Sign in was cancelled.';
+       } else if (authError.message) {
+         errorMessage = authError.message;
+       }
+
+       setError(errorMessage);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -154,6 +185,25 @@ const AuthModal: React.FC<AuthModalProps> = ({ onClose }) => {
                 >
                   {loading ? 'Logging in...' : 'Login'}
                 </button>
+                
+                <div className="relative my-6">
+                  <div className="absolute inset-0 flex items-center">
+                    <div className="w-full border-t border-gray-300"></div>
+                  </div>
+                  <div className="relative flex justify-center text-sm">
+                    <span className="px-2 bg-white text-gray-500">Or continue with</span>
+                  </div>
+                </div>
+
+                <button
+                  type="button"
+                  onClick={handleGoogleSignIn}
+                  disabled={loading}
+                  className="w-full flex items-center justify-center gap-3 bg-white border border-gray-300 text-gray-700 font-bold py-3 rounded-lg hover:bg-gray-50 transition-all transform hover:scale-105 disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100 shadow-sm"
+                >
+                  <GoogleIcon className="h-5 w-5" />
+                  <span>Google</span>
+                </button>
               </form>
             ) : (
               <form className="space-y-6" onSubmit={handleSubmit}>
@@ -209,6 +259,25 @@ const AuthModal: React.FC<AuthModalProps> = ({ onClose }) => {
                   className="w-full bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white font-bold py-3 rounded-lg transition-all transform hover:scale-105 disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100"
                 >
                   {loading ? 'Creating Account...' : 'Create Account'}
+                </button>
+
+                <div className="relative my-6">
+                  <div className="absolute inset-0 flex items-center">
+                    <div className="w-full border-t border-gray-300"></div>
+                  </div>
+                  <div className="relative flex justify-center text-sm">
+                    <span className="px-2 bg-white text-gray-500">Or continue with</span>
+                  </div>
+                </div>
+
+                <button
+                  type="button"
+                  onClick={handleGoogleSignIn}
+                  disabled={loading}
+                  className="w-full flex items-center justify-center gap-3 bg-white border border-gray-300 text-gray-700 font-bold py-3 rounded-lg hover:bg-gray-50 transition-all transform hover:scale-105 disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100 shadow-sm"
+                >
+                  <GoogleIcon className="h-5 w-5" />
+                  <span>Google</span>
                 </button>
               </form>
             )}
