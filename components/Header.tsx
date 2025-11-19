@@ -2,6 +2,7 @@
 import React from 'react';
 import { KidsIcon } from './icons/KidsIcon';
 import { UserIcon } from './icons/UserIcon';
+import { LogoutIcon } from './icons/LogoutIcon';
 import { SubscribeIcon } from './icons/SubscribeIcon';
 import { type User } from 'firebase/auth';
 
@@ -35,7 +36,7 @@ const Header: React.FC<HeaderProps> = ({ user, onRegisterClick, onSubscribeClick
                   className="flex items-center justify-center sm:gap-2 text-sm font-bold text-gray-600 hover:text-red-500 transition-colors rounded-full sm:rounded-xl w-10 h-10 sm:w-auto sm:px-4 sm:py-2"
                   aria-label="Logout"
                 >
-                  <UserIcon className="h-5 w-5" />
+                  <LogoutIcon className="h-5 w-5" />
                   <span className="hidden sm:inline">Logout</span>
                 </button>
             </div>
