@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { KidsIcon } from './icons/KidsIcon';
+import { TigerClawsIcon } from './icons/TigerClawsIcon';
 import { UserIcon } from './icons/UserIcon';
 import { LogoutIcon } from './icons/LogoutIcon';
 import { SubscribeIcon } from './icons/SubscribeIcon';
@@ -17,7 +17,7 @@ const Header: React.FC<HeaderProps> = ({ user, onRegisterClick, onSubscribeClick
   return (
     <header className="flex justify-between items-center">
       <div className="flex items-center gap-2">
-        <KidsIcon className="h-8 w-8 text-yellow-500" />
+        <TigerClawsIcon className="h-8 w-8 text-yellow-500" />
         <span 
           className="text-lg sm:text-2xl font-bold tracking-wider text-orange-500" 
           style={{ fontFamily: "'Baloo 2', cursive" }}
