@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { TigerClawsIcon } from './icons/TigerClawsIcon';
 import { UserIcon } from './icons/UserIcon';
@@ -11,12 +10,17 @@ interface HeaderProps {
   onRegisterClick: () => void;
   onSubscribeClick: () => void;
   onLogoutClick: () => void;
+  onLogoClick: () => void;
 }
 
-const Header: React.FC<HeaderProps> = ({ user, onRegisterClick, onSubscribeClick, onLogoutClick }) => {
+const Header: React.FC<HeaderProps> = ({ user, onRegisterClick, onSubscribeClick, onLogoutClick, onLogoClick }) => {
   return (
     <header className="flex justify-between items-center">
-      <div className="flex items-center gap-2">
+      <button 
+        onClick={onLogoClick}
+        className="flex items-center gap-2 hover:opacity-80 transition-opacity"
+        aria-label="Go to Home"
+      >
         <TigerClawsIcon className="h-8 w-8 text-yellow-500" />
         <span 
           className="text-lg sm:text-2xl font-bold tracking-wider text-orange-500" 
@@ -24,7 +28,7 @@ const Header: React.FC<HeaderProps> = ({ user, onRegisterClick, onSubscribeClick
         >
           WALZOO
         </span>
-      </div>
+      </button>
       <div className="flex items-center gap-2 sm:gap-3">
         {user ? (
             <div className="flex items-center gap-2">

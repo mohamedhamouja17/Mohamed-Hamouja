@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { EmailIcon } from './icons/EmailIcon';
 import { TwitterIcon } from './icons/TwitterIcon';
@@ -6,7 +5,11 @@ import { InstagramIcon } from './icons/InstagramIcon';
 import { FacebookIcon } from './icons/FacebookIcon';
 import { BlogIcon } from './icons/BlogIcon';
 
-const Footer: React.FC = () => {
+interface FooterProps {
+  onBlogClick?: () => void;
+}
+
+const Footer: React.FC<FooterProps> = ({ onBlogClick }) => {
   return (
     <footer className="mt-16 pt-8 border-t border-sky-200">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -48,7 +51,12 @@ const Footer: React.FC = () => {
              </li>
              <li className="flex items-center gap-3">
                <BlogIcon className="h-4 w-4 text-gray-500" />
-               <a href="#" className="text-gray-600 hover:text-gray-900 transition-colors">Blog</a>
+               <button 
+                onClick={onBlogClick}
+                className="text-gray-600 hover:text-gray-900 transition-colors"
+               >
+                 Blog
+               </button>
              </li>
           </ul>
         </div>
