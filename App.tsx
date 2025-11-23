@@ -8,13 +8,18 @@ import Footer from './components/Footer';
 import AuthModal from './components/AuthModal';
 import PricingModal from './components/PricingModal';
 import BlogPage from './components/BlogPage';
+import AboutPage from './components/AboutPage';
+import PrivacyPage from './components/PrivacyPage';
+import TermsPage from './components/TermsPage';
 import { type Category } from './types';
 import { auth } from './firebase';
 import { onAuthStateChanged, signOut, type User } from 'firebase/auth';
 
+type View = 'gallery' | 'blog' | 'about' | 'privacy' | 'terms';
+
 function App() {
   const [activeCategory, setActiveCategory] = useState<Category>('Home');
-  const [currentView, setCurrentView] = useState<'gallery' | 'blog'>('gallery');
+  const [currentView, setCurrentView] = useState<View>('gallery');
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
   const [isPricingModalOpen, setIsPricingModalOpen] = useState(false);
   const [user, setUser] = useState<User | null>(null);
@@ -53,6 +58,48 @@ function App() {
     window.scrollTo(0, 0);
   };
 
+  const handleNavigateToAbout = () => {
+    setCurrentView('about');
+    window.scrollTo(0, 0);
+  };
+
+  const handleNavigateToPrivacy = () => {
+    setCurrentView('privacy');
+    window.scrollTo(0, 0);
+  };
+
+  const handleNavigateToTerms = () => {
+    setCurrentView('terms');
+    window.scrollTo(0, 0);
+  };
+
+  const renderContent = () => {
+    switch (currentView) {
+      case 'blog':
+        return <BlogPage />;
+      case 'about':
+        return <AboutPage />;
+      case 'privacy':
+        return <PrivacyPage />;
+      case 'terms':
+        return <TermsPage />;
+      case 'gallery':
+      default:
+        return (
+          <>
+            <CategoryNav activeCategory={activeCategory} setActiveCategory={setActiveCategory} />
+            {activeCategory !== 'Home' && activeCategory !== 'App Icons' && <SearchBar activeCategory={activeCategory} />}
+            <ContentGrid 
+              activeCategory={activeCategory} 
+              setActiveCategory={setActiveCategory} 
+              onSubscribeClick={handlePricingModalToggle} 
+            />
+            {activeCategory !== 'Home' && <Pagination />}
+          </>
+        );
+    }
+  };
+
   return (
     <div className="bg-sky-50 text-gray-800 min-h-screen font-sans">
       <div className="container mx-auto px-4 sm:px-6 lg:px-12 py-6 flex flex-col min-h-screen">
@@ -64,22 +111,14 @@ function App() {
           onLogoClick={handleNavigateToHome}
         />
         <main className="mt-8 flex-grow">
-          {currentView === 'gallery' ? (
-            <>
-              <CategoryNav activeCategory={activeCategory} setActiveCategory={setActiveCategory} />
-              {activeCategory !== 'Home' && activeCategory !== 'App Icons' && <SearchBar activeCategory={activeCategory} />}
-              <ContentGrid 
-                activeCategory={activeCategory} 
-                setActiveCategory={setActiveCategory} 
-                onSubscribeClick={handlePricingModalToggle} 
-              />
-              {activeCategory !== 'Home' && <Pagination />}
-            </>
-          ) : (
-            <BlogPage />
-          )}
+          {renderContent()}
         </main>
-        <Footer onBlogClick={handleNavigateToBlog} />
+        <Footer 
+          onBlogClick={handleNavigateToBlog} 
+          onAboutClick={handleNavigateToAbout}
+          onPrivacyClick={handleNavigateToPrivacy}
+          onTermsClick={handleNavigateToTerms}
+        />
       </div>
       {isAuthModalOpen && <AuthModal onClose={handleAuthModalToggle} />}
       {isPricingModalOpen && <PricingModal onClose={handlePricingModalToggle} />}
