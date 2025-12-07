@@ -29,19 +29,19 @@ const CategoryNav: React.FC<CategoryNavProps> = ({ activeCategory, setActiveCate
   const HomeIconComponent = categoryIcons[homeCategory];
 
   return (
-    <nav className="mt-10 lg:mt-14 flex flex-col items-center">
-      <div className="flex flex-wrap justify-center gap-4 lg:gap-6 mb-6 lg:mb-10 relative z-30">
+    <nav className="mt-6 sm:mt-10 lg:mt-14 flex flex-col items-center">
+      <div className="flex flex-wrap justify-center gap-2 sm:gap-4 lg:gap-6 mb-6 lg:mb-10 relative z-30">
         
         {/* Home Button */}
         <button
           onClick={() => setActiveCategory(homeCategory)}
-          className={`flex items-center gap-2.5 lg:gap-3 text-sm sm:text-base lg:text-lg font-semibold transition-all duration-300 px-4 py-2 sm:px-6 sm:py-3 lg:px-8 lg:py-3 rounded-xl shadow-lg transform hover:scale-105 ${
+          className={`flex items-center gap-1.5 sm:gap-2.5 lg:gap-3 text-xs sm:text-base lg:text-lg font-semibold transition-all duration-300 px-3 py-2 sm:px-6 sm:py-3 lg:px-8 lg:py-3 rounded-xl shadow-lg transform hover:scale-105 ${
             isHomeActive
               ? 'bg-orange-500 text-white shadow-orange-500/40'
               : 'bg-white text-gray-700 hover:bg-orange-100'
           }`}
         >
-          <HomeIconComponent className="h-5 w-5 lg:h-6 lg:w-6" />
+          <HomeIconComponent className="h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6" />
           <span>{homeCategory.toUpperCase()}</span>
         </button>
 
@@ -49,16 +49,16 @@ const CategoryNav: React.FC<CategoryNavProps> = ({ activeCategory, setActiveCate
         <div className="relative">
           <button
             onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-            className={`flex items-center gap-2.5 lg:gap-3 text-sm sm:text-base lg:text-lg font-semibold transition-all duration-300 px-4 py-2 sm:px-6 sm:py-3 lg:px-8 lg:py-3 rounded-xl shadow-lg transform hover:scale-105 ${
+            className={`flex items-center gap-1.5 sm:gap-2.5 lg:gap-3 text-xs sm:text-base lg:text-lg font-semibold transition-all duration-300 px-3 py-2 sm:px-6 sm:py-3 lg:px-8 lg:py-3 rounded-xl shadow-lg transform hover:scale-105 ${
                 !isHomeActive ? 'bg-orange-100 text-orange-600' : 'bg-white text-gray-700 hover:bg-orange-100'
             }`}
           >
-            <CategoryIcon className="h-5 w-5 lg:h-6 lg:w-6" />
+            <CategoryIcon className="h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6" />
             <span>CATEGORY</span>
           </button>
 
           {isDropdownOpen && (
-            <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-4 w-60 bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden py-2 animate-fade-in">
+            <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 sm:mt-4 w-56 sm:w-60 bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden py-2 animate-fade-in z-50">
               <ul className="flex flex-col">
                 {otherCategories.map((category) => {
                   const IconComponent = categoryIcons[category];
@@ -70,12 +70,12 @@ const CategoryNav: React.FC<CategoryNavProps> = ({ activeCategory, setActiveCate
                           setActiveCategory(category);
                           setIsDropdownOpen(false);
                         }}
-                        className={`w-full flex items-center gap-4 px-6 py-4 text-left transition-colors hover:bg-gray-50 ${
+                        className={`w-full flex items-center gap-3 sm:gap-4 px-4 sm:px-6 py-3 sm:py-4 text-left transition-colors hover:bg-gray-50 ${
                             isActive ? 'bg-orange-50 text-orange-600' : 'text-gray-700'
                         }`}
                       >
-                        <IconComponent className={`h-5 w-5 ${isActive ? 'text-orange-500' : 'text-gray-400'}`} />
-                        <span className={`text-lg font-medium ${isActive ? 'font-bold' : ''}`}>{category}</span>
+                        <IconComponent className={`h-4 w-4 sm:h-5 sm:w-5 ${isActive ? 'text-orange-500' : 'text-gray-400'}`} />
+                        <span className={`text-sm sm:text-lg font-medium ${isActive ? 'font-bold' : ''}`}>{category}</span>
                       </button>
                     </li>
                   );
@@ -88,9 +88,9 @@ const CategoryNav: React.FC<CategoryNavProps> = ({ activeCategory, setActiveCate
         {/* Blog Button */}
         <button
           onClick={onBlogClick}
-          className="flex items-center gap-2.5 lg:gap-3 text-sm sm:text-base lg:text-lg font-semibold transition-all duration-300 px-4 py-2 sm:px-6 sm:py-3 lg:px-8 lg:py-3 rounded-xl shadow-lg transform hover:scale-105 bg-white text-gray-700 hover:bg-orange-100"
+          className="flex items-center gap-1.5 sm:gap-2.5 lg:gap-3 text-xs sm:text-base lg:text-lg font-semibold transition-all duration-300 px-3 py-2 sm:px-6 sm:py-3 lg:px-8 lg:py-3 rounded-xl shadow-lg transform hover:scale-105 bg-white text-gray-700 hover:bg-orange-100"
         >
-          <BlogIcon className="h-5 w-5 lg:h-6 lg:w-6" />
+          <BlogIcon className="h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6" />
           <span>BLOG</span>
         </button>
       </div>

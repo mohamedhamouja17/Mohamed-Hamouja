@@ -18,7 +18,7 @@ const Header: React.FC<HeaderProps> = ({ onLogoClick, onSupportClick }) => {
       >
         <TigerClawsIcon className="h-8 w-8 text-yellow-500" />
         <span 
-          className="text-lg sm:text-2xl font-bold tracking-wider text-orange-500" 
+          className="text-xl sm:text-2xl font-bold tracking-wider text-orange-500" 
           style={{ fontFamily: "'Baloo 2', cursive" }}
         >
           WALZOO
@@ -28,15 +28,15 @@ const Header: React.FC<HeaderProps> = ({ onLogoClick, onSupportClick }) => {
       <button
         onClick={onSupportClick}
         className="
-            group flex items-center gap-2.5 px-6 py-2.5 
+            group flex items-center gap-1.5 sm:gap-2.5 px-3 py-2 sm:px-6 sm:py-2.5 
             bg-white hover:bg-rose-50
             border-2 border-rose-100 hover:border-rose-200
             rounded-full shadow-sm hover:shadow-lg hover:shadow-rose-100
             transition-all duration-300 ease-in-out transform hover:-translate-y-0.5
         "
       >
-         <span className="font-bold text-sm sm:text-base text-gray-700 group-hover:text-rose-600 transition-colors">Support</span>
-         <HeartIcon className="h-5 w-5 text-rose-400 group-hover:text-rose-500 group-hover:scale-110 transition-transform duration-300" />
+         <span className="font-bold text-xs sm:text-sm md:text-base text-gray-700 group-hover:text-rose-600 transition-colors">Support</span>
+         <HeartIcon className="h-4 w-4 sm:h-5 sm:w-5 text-rose-400 group-hover:text-rose-500 group-hover:scale-110 transition-transform duration-300" />
       </button>
     </header>
   );
