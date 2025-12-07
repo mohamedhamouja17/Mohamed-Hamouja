@@ -1,14 +1,14 @@
 
 import React from 'react';
 import { TigerClawsIcon } from './icons/TigerClawsIcon';
+import { HeartIcon } from './icons/HeartIcon';
 
 interface HeaderProps {
   onLogoClick: () => void;
-  onBlogClick: () => void;
-  onContactClick: () => void;
+  onSupportClick: () => void;
 }
 
-const Header: React.FC<HeaderProps> = ({ onLogoClick, onBlogClick, onContactClick }) => {
+const Header: React.FC<HeaderProps> = ({ onLogoClick, onSupportClick }) => {
   return (
     <header className="flex justify-between items-center">
       <button 
@@ -25,20 +25,19 @@ const Header: React.FC<HeaderProps> = ({ onLogoClick, onBlogClick, onContactClic
         </span>
       </button>
 
-      <nav className="flex items-center gap-4 sm:gap-8">
-        <button 
-          onClick={onBlogClick}
-          className="text-gray-600 hover:text-orange-500 font-semibold transition-colors text-base sm:text-lg"
-        >
-          Blog
-        </button>
-        <button 
-          onClick={onContactClick}
-          className="text-gray-600 hover:text-orange-500 font-semibold transition-colors text-base sm:text-lg"
-        >
-          Contact
-        </button>
-      </nav>
+      <button
+        onClick={onSupportClick}
+        className="
+            group flex items-center gap-2.5 px-6 py-2.5 
+            bg-white hover:bg-rose-50
+            border-2 border-rose-100 hover:border-rose-200
+            rounded-full shadow-sm hover:shadow-lg hover:shadow-rose-100
+            transition-all duration-300 ease-in-out transform hover:-translate-y-0.5
+        "
+      >
+         <span className="font-bold text-sm sm:text-base text-gray-700 group-hover:text-rose-600 transition-colors">Support</span>
+         <HeartIcon className="h-5 w-5 text-rose-400 group-hover:text-rose-500 group-hover:scale-110 transition-transform duration-300" />
+      </button>
     </header>
   );
 };

@@ -96,7 +96,11 @@ function App() {
       default:
         return (
           <>
-            <CategoryNav activeCategory={activeCategory} setActiveCategory={setActiveCategory} />
+            <CategoryNav 
+              activeCategory={activeCategory} 
+              setActiveCategory={setActiveCategory}
+              onBlogClick={handleNavigateToBlog}
+            />
             {activeCategory !== 'Home' && <SearchBar activeCategory={activeCategory} />}
             <ContentGrid 
               activeCategory={activeCategory} 
@@ -114,8 +118,7 @@ function App() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-12 py-6 flex flex-col min-h-screen">
         <Header 
           onLogoClick={handleNavigateToHome}
-          onBlogClick={handleNavigateToBlog}
-          onContactClick={handleNavigateToContact}
+          onSupportClick={handlePricingModalToggle}
         />
         <main className="mt-8 flex-grow">
           {renderContent()}
