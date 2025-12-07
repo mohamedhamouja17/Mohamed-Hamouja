@@ -32,9 +32,9 @@ const CategoryNav: React.FC<CategoryNavProps> = ({ activeCategory, setActiveCate
   const isSubCategoryActive = otherCategories.includes(activeCategory);
 
   return (
-    <nav className="mt-6 sm:mt-10 flex flex-col items-center w-full z-40">
+    <nav className="mt-8 flex flex-col items-center w-full z-40 relative">
       {/* Main Navigation Row */}
-      <div className="flex flex-wrap justify-center items-center gap-2 sm:gap-4">
+      <div className="flex flex-wrap justify-center items-center gap-3 sm:gap-6 bg-white/60 backdrop-blur-md p-3 rounded-3xl border border-white/60 shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
         
         {/* Home Button */}
         <button
@@ -43,72 +43,83 @@ const CategoryNav: React.FC<CategoryNavProps> = ({ activeCategory, setActiveCate
             setIsDropdownOpen(false);
           }}
           className={`
-            flex items-center gap-2 px-4 py-2 sm:px-6 sm:py-3 rounded-xl shadow-md transition-all duration-300 transform hover:scale-105
+            group relative flex items-center gap-2.5 px-6 py-3 rounded-2xl transition-all duration-300 overflow-hidden
             ${isHomeActive 
-              ? 'bg-orange-500 text-white shadow-orange-500/30' 
-              : 'bg-white text-gray-700 hover:bg-orange-50'}
+              ? 'text-white shadow-lg shadow-orange-500/25 ring-2 ring-orange-500 ring-offset-2 ring-offset-sky-50' 
+              : 'bg-white text-gray-600 hover:text-orange-600 shadow-sm hover:shadow-md border border-gray-50'}
           `}
         >
-          <HomeIconComponent className="h-5 w-5" />
-          <span className="font-bold text-sm sm:text-base">HOME</span>
+          {isHomeActive && (
+              <div className="absolute inset-0 bg-gradient-to-r from-orange-500 to-amber-500" />
+          )}
+          <div className="relative z-10 flex items-center gap-2.5">
+            <HomeIconComponent className={`h-5 w-5 ${!isHomeActive && 'group-hover:scale-110 transition-transform'}`} />
+            <span className="font-extrabold text-sm sm:text-base tracking-wide uppercase">Home</span>
+          </div>
         </button>
 
         {/* Category Toggle Button */}
         <button
           onClick={() => setIsDropdownOpen(!isDropdownOpen)}
           className={`
-            flex items-center gap-2 px-4 py-2 sm:px-6 sm:py-3 rounded-xl shadow-md transition-all duration-300 transform hover:scale-105
+            group relative flex items-center gap-2.5 px-6 py-3 rounded-2xl transition-all duration-300
             ${(isSubCategoryActive || isDropdownOpen)
-              ? 'bg-orange-100 text-orange-600 ring-2 ring-orange-200' 
-              : 'bg-white text-gray-700 hover:bg-orange-50'}
+              ? 'bg-white text-orange-600 shadow-lg shadow-orange-100 ring-2 ring-orange-400 ring-offset-2 ring-offset-sky-50' 
+              : 'bg-white text-gray-600 hover:text-orange-600 shadow-sm hover:shadow-md border border-gray-50'}
           `}
         >
-          <CategoryIcon className="h-5 w-5" />
-          <span className="font-bold text-sm sm:text-base">CATEGORY</span>
+          <CategoryIcon className={`h-5 w-5 ${!isSubCategoryActive && 'group-hover:scale-110 transition-transform'}`} />
+          <span className="font-extrabold text-sm sm:text-base tracking-wide uppercase">Category</span>
         </button>
 
         {/* Blog Button */}
         <button
           onClick={onBlogClick}
-          className="flex items-center gap-2 px-4 py-2 sm:px-6 sm:py-3 rounded-xl shadow-md transition-all duration-300 transform hover:scale-105 bg-white text-gray-700 hover:bg-orange-50"
+          className="group flex items-center gap-2.5 px-6 py-3 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 bg-white text-gray-600 hover:text-orange-600 border border-gray-50"
         >
-          <BlogIcon className="h-5 w-5" />
-          <span className="font-bold text-sm sm:text-base">BLOG</span>
+          <BlogIcon className="h-5 w-5 group-hover:scale-110 transition-transform" />
+          <span className="font-extrabold text-sm sm:text-base tracking-wide uppercase">Blog</span>
         </button>
       </div>
 
-      {/* Expandable Categories Panel (Appears at the bottom) */}
+      {/* Expandable Categories Panel - Beautiful Floating Dock Style */}
       <div 
         className={`
-          w-full max-w-2xl overflow-hidden transition-all duration-500 ease-in-out
-          ${isDropdownOpen ? 'max-h-48 opacity-100 mt-6' : 'max-h-0 opacity-0 mt-0'}
+          w-full flex justify-center
+          transition-all duration-500 cubic-bezier(0.4, 0, 0.2, 1)
+          ${isDropdownOpen 
+            ? 'max-h-40 opacity-100 mt-5 translate-y-0' 
+            : 'max-h-0 opacity-0 mt-0 -translate-y-4 pointer-events-none'}
         `}
       >
-        <div className="bg-white/80 backdrop-blur-md rounded-2xl shadow-xl border border-white p-3 sm:p-5 mx-auto w-[95%] sm:w-full">
-            <div className="flex flex-wrap justify-center gap-3 sm:gap-4">
-                {otherCategories.map((category) => {
-                  const IconComponent = categoryIcons[category];
-                  const isActive = activeCategory === category;
-                  return (
-                      <button
-                        key={category}
-                        onClick={() => {
-                          setActiveCategory(category);
-                          setIsDropdownOpen(false); // Close panel after selection
-                        }}
-                        className={`
-                            flex items-center gap-2 px-4 py-2 sm:px-5 sm:py-2.5 rounded-lg transition-all duration-300
-                            ${isActive 
-                                ? 'bg-orange-500 text-white shadow-lg shadow-orange-500/30' 
-                                : 'bg-white text-gray-600 hover:bg-orange-50 shadow-sm border border-gray-100'}
-                        `}
-                      >
-                        <IconComponent className="h-4 w-4 sm:h-5 sm:w-5" />
-                        <span className="font-semibold text-sm sm:text-base">{category.toUpperCase()}</span>
-                      </button>
-                  );
-                })}
-            </div>
+        <div className="bg-white p-2.5 rounded-2xl shadow-xl shadow-orange-500/10 border border-orange-100/50 flex flex-wrap justify-center gap-2 sm:gap-3 max-w-2xl mx-auto transform transition-transform hover:scale-[1.01]">
+            {otherCategories.map((category) => {
+                const IconComponent = categoryIcons[category];
+                const isActive = activeCategory === category;
+                return (
+                    <button
+                    key={category}
+                    onClick={() => {
+                        setActiveCategory(category);
+                        setIsDropdownOpen(false);
+                    }}
+                    className={`
+                        relative flex items-center gap-2.5 px-5 py-2.5 sm:px-6 sm:py-3 rounded-xl transition-all duration-300 group
+                        ${isActive 
+                            ? 'text-white shadow-md shadow-orange-500/20' 
+                            : 'text-gray-500 hover:bg-orange-50 hover:text-orange-600'}
+                    `}
+                    >
+                    {isActive && (
+                        <div className="absolute inset-0 bg-gradient-to-r from-orange-400 to-amber-500 rounded-xl" />
+                    )}
+                    <div className="relative z-10 flex items-center gap-2">
+                        <IconComponent className={`h-5 w-5 transition-transform duration-300 ${isActive ? 'scale-110' : 'group-hover:scale-110'}`} />
+                        <span className="font-bold text-sm sm:text-base tracking-wide uppercase">{category}</span>
+                    </div>
+                    </button>
+                );
+            })}
         </div>
       </div>
     </nav>
