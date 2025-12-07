@@ -8,12 +8,13 @@ import Pagination from './components/Pagination';
 import Footer from './components/Footer';
 import AuthModal from './components/AuthModal';
 import PricingModal from './components/PricingModal';
+import DownloadModal from './components/DownloadModal';
 import BlogPage from './components/BlogPage';
 import AboutPage from './components/AboutPage';
 import PrivacyPage from './components/PrivacyPage';
 import TermsPage from './components/TermsPage';
 import ContactPage from './components/ContactPage';
-import { type Category } from './types';
+import { type Category, type Wallpaper } from './types';
 import { auth } from './firebase';
 import { onAuthStateChanged, signOut, type User } from 'firebase/auth';
 
@@ -25,6 +26,10 @@ function App() {
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
   const [isPricingModalOpen, setIsPricingModalOpen] = useState(false);
   const [user, setUser] = useState<User | null>(null);
+
+  // Download Modal State
+  const [isDownloadModalOpen, setIsDownloadModalOpen] = useState(false);
+  const [downloadItemUrl, setDownloadItemUrl] = useState<string>('');
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -39,6 +44,16 @@ function App() {
   
   const handlePricingModalToggle = () => {
     setIsPricingModalOpen(!isPricingModalOpen);
+  };
+
+  const handleOpenDownloadModal = (wallpaper: Wallpaper) => {
+    setDownloadItemUrl(wallpaper.imageUrl);
+    setIsDownloadModalOpen(true);
+  };
+
+  const handleCloseDownloadModal = () => {
+    setIsDownloadModalOpen(false);
+    setDownloadItemUrl('');
   };
 
   const handleLogout = async () => {
@@ -105,7 +120,8 @@ function App() {
             <ContentGrid 
               activeCategory={activeCategory} 
               setActiveCategory={setActiveCategory} 
-              onSubscribeClick={handlePricingModalToggle} 
+              onSubscribeClick={handlePricingModalToggle}
+              onDownloadClick={handleOpenDownloadModal}
             />
             {activeCategory !== 'Home' && <Pagination />}
           </>
@@ -132,6 +148,11 @@ function App() {
       </div>
       {isAuthModalOpen && <AuthModal onClose={handleAuthModalToggle} />}
       {isPricingModalOpen && <PricingModal onClose={handlePricingModalToggle} />}
+      <DownloadModal 
+        isOpen={isDownloadModalOpen} 
+        onClose={handleCloseDownloadModal} 
+        imageUrl={downloadItemUrl} 
+      />
     </div>
   );
 }

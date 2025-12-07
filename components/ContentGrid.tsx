@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { type Category } from '../types';
+import { type Category, type Wallpaper } from '../types';
 import { WALLPAPER_DATA } from '../constants';
 import WallpaperCard from './WallpaperCard';
 import HomePageContent from './HomePageContent';
@@ -9,11 +9,12 @@ interface ContentGridProps {
   activeCategory: Category;
   setActiveCategory: (category: Category) => void;
   onSubscribeClick: () => void;
+  onDownloadClick: (wallpaper: Wallpaper) => void;
 }
 
-const ContentGrid: React.FC<ContentGridProps> = ({ activeCategory, setActiveCategory, onSubscribeClick }) => {
+const ContentGrid: React.FC<ContentGridProps> = ({ activeCategory, setActiveCategory, onSubscribeClick, onDownloadClick }) => {
   if (activeCategory === 'Home') {
-    return <HomePageContent onSubscribeClick={onSubscribeClick} />;
+    return <HomePageContent onSubscribeClick={onSubscribeClick} onDownloadClick={onDownloadClick} />;
   }
 
   let gridClasses: string;
@@ -29,7 +30,13 @@ const ContentGrid: React.FC<ContentGridProps> = ({ activeCategory, setActiveCate
 
   return (
     <div className={gridClasses}>
-      {wallpapers.map(wallpaper => <WallpaperCard key={wallpaper.id} wallpaper={wallpaper} />)}
+      {wallpapers.map(wallpaper => (
+        <WallpaperCard 
+          key={wallpaper.id} 
+          wallpaper={wallpaper} 
+          onDownloadClick={onDownloadClick}
+        />
+      ))}
     </div>
   );
 };
