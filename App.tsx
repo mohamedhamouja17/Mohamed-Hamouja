@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import Header from './components/Header';
 import CategoryNav from './components/CategoryNav';
@@ -11,11 +12,12 @@ import BlogPage from './components/BlogPage';
 import AboutPage from './components/AboutPage';
 import PrivacyPage from './components/PrivacyPage';
 import TermsPage from './components/TermsPage';
+import ContactPage from './components/ContactPage';
 import { type Category } from './types';
 import { auth } from './firebase';
 import { onAuthStateChanged, signOut, type User } from 'firebase/auth';
 
-type View = 'gallery' | 'blog' | 'about' | 'privacy' | 'terms';
+type View = 'gallery' | 'blog' | 'about' | 'privacy' | 'terms' | 'contact';
 
 function App() {
   const [activeCategory, setActiveCategory] = useState<Category>('Home');
@@ -58,6 +60,11 @@ function App() {
     window.scrollTo(0, 0);
   };
 
+  const handleNavigateToContact = () => {
+    setCurrentView('contact');
+    window.scrollTo(0, 0);
+  };
+
   const handleNavigateToAbout = () => {
     setCurrentView('about');
     window.scrollTo(0, 0);
@@ -77,6 +84,8 @@ function App() {
     switch (currentView) {
       case 'blog':
         return <BlogPage />;
+      case 'contact':
+        return <ContactPage />;
       case 'about':
         return <AboutPage />;
       case 'privacy':
@@ -88,7 +97,7 @@ function App() {
         return (
           <>
             <CategoryNav activeCategory={activeCategory} setActiveCategory={setActiveCategory} />
-            {activeCategory !== 'Home' && activeCategory !== 'App Icons' && <SearchBar activeCategory={activeCategory} />}
+            {activeCategory !== 'Home' && <SearchBar activeCategory={activeCategory} />}
             <ContentGrid 
               activeCategory={activeCategory} 
               setActiveCategory={setActiveCategory} 
@@ -104,11 +113,9 @@ function App() {
     <div className="bg-sky-50 text-gray-800 min-h-screen font-sans">
       <div className="container mx-auto px-4 sm:px-6 lg:px-12 py-6 flex flex-col min-h-screen">
         <Header 
-          user={user}
-          onRegisterClick={handleAuthModalToggle} 
-          onSubscribeClick={handlePricingModalToggle}
-          onLogoutClick={handleLogout}
           onLogoClick={handleNavigateToHome}
+          onBlogClick={handleNavigateToBlog}
+          onContactClick={handleNavigateToContact}
         />
         <main className="mt-8 flex-grow">
           {renderContent()}

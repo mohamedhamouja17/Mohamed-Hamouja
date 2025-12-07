@@ -1,19 +1,14 @@
+
 import React from 'react';
 import { TigerClawsIcon } from './icons/TigerClawsIcon';
-import { UserIcon } from './icons/UserIcon';
-import { LogoutIcon } from './icons/LogoutIcon';
-import { SubscribeIcon } from './icons/SubscribeIcon';
-import { type User } from 'firebase/auth';
 
 interface HeaderProps {
-  user: User | null;
-  onRegisterClick: () => void;
-  onSubscribeClick: () => void;
-  onLogoutClick: () => void;
   onLogoClick: () => void;
+  onBlogClick: () => void;
+  onContactClick: () => void;
 }
 
-const Header: React.FC<HeaderProps> = ({ user, onRegisterClick, onSubscribeClick, onLogoutClick, onLogoClick }) => {
+const Header: React.FC<HeaderProps> = ({ onLogoClick, onBlogClick, onContactClick }) => {
   return (
     <header className="flex justify-between items-center">
       <button 
@@ -29,40 +24,21 @@ const Header: React.FC<HeaderProps> = ({ user, onRegisterClick, onSubscribeClick
           WALZOO
         </span>
       </button>
-      <div className="flex items-center gap-2 sm:gap-3">
-        {user ? (
-            <div className="flex items-center gap-2">
-                <span className="hidden md:block text-sm font-bold text-orange-600 mr-2" style={{ fontFamily: "'Baloo 2', cursive" }}>
-                    Hi, {user.displayName?.split(' ')[0] || 'Friend'}!
-                </span>
-                <button 
-                  onClick={onLogoutClick}
-                  className="flex items-center justify-center sm:gap-2 text-sm font-bold text-gray-600 hover:text-red-500 transition-colors rounded-full sm:rounded-xl w-10 h-10 sm:w-auto sm:px-4 sm:py-2"
-                  aria-label="Logout"
-                >
-                  <LogoutIcon className="h-5 w-5" />
-                  <span className="hidden sm:inline">Logout</span>
-                </button>
-            </div>
-        ) : (
-            <button 
-              onClick={onRegisterClick}
-              className="flex items-center justify-center sm:gap-2 text-sm font-bold text-gray-600 hover:text-orange-500 transition-colors rounded-full sm:rounded-xl w-10 h-10 sm:w-auto sm:px-4 sm:py-2"
-              aria-label="Open registration or login modal"
-            >
-              <UserIcon className="h-5 w-5" />
-              <span className="hidden sm:inline">Register</span>
-            </button>
-        )}
+
+      <nav className="flex items-center gap-4 sm:gap-8">
         <button 
-          onClick={onSubscribeClick}
-          className="flex items-center justify-center gap-2 bg-orange-500 hover:bg-orange-600 text-white text-sm font-bold rounded-full sm:rounded-xl transition-colors w-10 h-10 sm:w-auto sm:h-auto sm:px-4 sm:py-2 shadow-lg shadow-orange-500/30 transform hover:scale-105"
-          aria-label="Subscribe"
+          onClick={onBlogClick}
+          className="text-gray-600 hover:text-orange-500 font-semibold transition-colors text-base sm:text-lg"
         >
-          <SubscribeIcon className="h-5 w-5" />
-          <span className="hidden sm:inline">Subscribe</span>
+          Blog
         </button>
-      </div>
+        <button 
+          onClick={onContactClick}
+          className="text-gray-600 hover:text-orange-500 font-semibold transition-colors text-base sm:text-lg"
+        >
+          Contact
+        </button>
+      </nav>
     </header>
   );
 };

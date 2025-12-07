@@ -1,5 +1,5 @@
 
-export const CATEGORIES = ['Home', 'Desktop', 'Phone', 'Tablet', 'TV', 'App Icons'] as const;
+export const CATEGORIES = ['Home', 'Desktop', 'Phone', 'Tablet'] as const;
 export type Category = typeof CATEGORIES[number];
 
 export const OPERATING_SYSTEMS = ['Android', 'iOS', 'Windows', 'Mac'] as const;

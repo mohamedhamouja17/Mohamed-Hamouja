@@ -1,8 +1,7 @@
 
 import React from 'react';
-import { WALLPAPER_DATA, ICON_PACK_DATA } from '../constants';
+import { WALLPAPER_DATA } from '../constants';
 import WallpaperCard from './WallpaperCard';
-import IconPackCard from './IconPackCard';
 import SubscriptionCTA from './SubscriptionCTA';
 
 interface HomePageContentProps {
@@ -51,31 +50,11 @@ const HomePageContent: React.FC<HomePageContentProps> = ({ onSubscribeClick }) =
         </div>
       </HomeSection>
 
-      <HomeSection title="TV Wallpapers">
-        <div className="flex overflow-x-auto space-x-6 pb-4 custom-scrollbar">
-          {WALLPAPER_DATA['TV'].slice(0, 6).map(wallpaper => (
-             <div key={wallpaper.id} className="w-80 sm:w-96 flex-shrink-0">
-              <WallpaperCard wallpaper={wallpaper} showDownloadButton={false} />
-            </div>
-          ))}
-        </div>
-      </HomeSection>
-      
       <HomeSection title="Tablet Wallpapers">
         <div className="flex overflow-x-auto space-x-6 pb-4 custom-scrollbar">
           {WALLPAPER_DATA['Tablet'].slice(0, 6).map(wallpaper => (
              <div key={wallpaper.id} className="w-60 sm:w-64 flex-shrink-0">
               <WallpaperCard wallpaper={wallpaper} showDownloadButton={false} />
-            </div>
-          ))}
-        </div>
-      </HomeSection>
-
-      <HomeSection title="App Icons">
-        <div className="flex overflow-x-auto space-x-6 pb-4 custom-scrollbar">
-          {ICON_PACK_DATA.slice(0, 6).map(pack => (
-             <div key={pack.id} className="w-64 sm:w-72 flex-shrink-0">
-              <IconPackCard pack={pack} showDownloadButton={false} />
             </div>
           ))}
         </div>

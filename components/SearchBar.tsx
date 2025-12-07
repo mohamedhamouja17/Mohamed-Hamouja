@@ -37,16 +37,14 @@ const SearchBar: React.FC<SearchBarProps> = ({ activeCategory }) => {
           className="w-full bg-white border border-gray-200 rounded-lg py-3 pl-12 pr-4 text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-400 transition-shadow"
         />
       </div>
-      {activeCategory !== 'App Icons' && (
-        <div className="relative">
-          <select className="appearance-none w-full sm:w-auto bg-white border border-gray-200 rounded-lg py-3 pl-4 pr-10 text-gray-800 focus:outline-none focus:ring-2 focus:ring-orange-400 cursor-pointer">
-            {filterCategories.map((category) => (
-              <option key={category} value={category}>{category}</option>
-            ))}
-          </select>
-          <ChevronDownIcon className="absolute right-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400 pointer-events-none" />
-        </div>
-      )}
+      <div className="relative">
+        <select className="appearance-none w-full sm:w-auto bg-white border border-gray-200 rounded-lg py-3 pl-4 pr-10 text-gray-800 focus:outline-none focus:ring-2 focus:ring-orange-400 cursor-pointer">
+          {filterCategories.map((category) => (
+            <option key={category} value={category}>{category}</option>
+          ))}
+        </select>
+        <ChevronDownIcon className="absolute right-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400 pointer-events-none" />
+      </div>
     </div>
   );
 };
