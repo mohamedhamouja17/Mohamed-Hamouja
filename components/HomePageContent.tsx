@@ -1,6 +1,7 @@
 
 import React from 'react';
 import SubscriptionCTA from './SubscriptionCTA';
+import PhoneWallpaperSlideshow from './PhoneWallpaperSlideshow';
 import { type Wallpaper } from '../types';
 
 interface HomePageContentProps {
@@ -8,7 +9,7 @@ interface HomePageContentProps {
   onDownloadClick: (wallpaper: Wallpaper) => void;
 }
 
-const HomePageContent: React.FC<HomePageContentProps> = ({ onSubscribeClick }) => {
+const HomePageContent: React.FC<HomePageContentProps> = ({ onSubscribeClick, onDownloadClick }) => {
   return (
     <div className="mt-10">
       <div className="text-center mb-12 max-w-4xl mx-auto px-4">
@@ -19,6 +20,9 @@ const HomePageContent: React.FC<HomePageContentProps> = ({ onSubscribeClick }) =
           Discover high-quality backgrounds for Mobile, Tablet, and Desktop — updated daily.
         </p>
       </div>
+
+      <PhoneWallpaperSlideshow onDownloadClick={onDownloadClick} />
+
       <SubscriptionCTA onSubscribeClick={onSubscribeClick} />
     </div>
   );
