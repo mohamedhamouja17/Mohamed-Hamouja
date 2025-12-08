@@ -3,6 +3,7 @@ import React from 'react';
 import SubscriptionCTA from './SubscriptionCTA';
 import PhoneWallpaperSlideshow from './PhoneWallpaperSlideshow';
 import DesktopWallpaperSlideshow from './DesktopWallpaperSlideshow';
+import TabletWallpaperSlideshow from './TabletWallpaperSlideshow';
 import { type Wallpaper } from '../types';
 
 interface HomePageContentProps {
@@ -24,6 +25,8 @@ const HomePageContent: React.FC<HomePageContentProps> = ({ onSubscribeClick, onD
 
       <PhoneWallpaperSlideshow onDownloadClick={onDownloadClick} />
       
+      <TabletWallpaperSlideshow onDownloadClick={onDownloadClick} />
+
       <DesktopWallpaperSlideshow onDownloadClick={onDownloadClick} />
 
       <SubscriptionCTA onSubscribeClick={onSubscribeClick} />
