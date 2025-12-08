@@ -30,27 +30,31 @@ const PhoneWallpaperSlideshow: React.FC<PhoneWallpaperSlideshowProps> = ({ onDow
 
   return (
     <div className="mt-12 relative px-4 max-w-7xl mx-auto">
-      <div className="flex items-center justify-between mb-6 px-2">
-        <h2 className="text-2xl sm:text-3xl font-bold text-gray-800" style={{ fontFamily: "'Baloo 2', cursive" }}>
+      <div className="relative flex flex-col sm:flex-row items-center justify-center mb-10 px-2">
+        <h2 
+            className="text-4xl sm:text-5xl font-extrabold text-blue-600 text-center tracking-wide z-10" 
+            style={{ fontFamily: "'Baloo 2', cursive" }}
+        >
            Phone Wallpapers
         </h2>
+        
         {/* Navigation Arrows */}
-        <div className="flex gap-2">
+        <div className="flex gap-3 mt-4 sm:mt-0 sm:absolute sm:right-0 z-20">
             <button 
                 onClick={() => scroll('left')}
-                className="p-2 rounded-full bg-white shadow hover:shadow-md border border-gray-100 hover:bg-orange-50 transition-colors group"
+                className="p-3 rounded-full bg-white shadow-md border border-gray-100 hover:bg-blue-50 hover:border-blue-100 transition-all group active:scale-95"
                 aria-label="Scroll left"
             >
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-400 group-hover:text-orange-500 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-400 group-hover:text-blue-500 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
                 </svg>
             </button>
             <button 
                 onClick={() => scroll('right')}
-                className="p-2 rounded-full bg-white shadow hover:shadow-md border border-gray-100 hover:bg-orange-50 transition-colors group"
+                className="p-3 rounded-full bg-white shadow-md border border-gray-100 hover:bg-blue-50 hover:border-blue-100 transition-all group active:scale-95"
                 aria-label="Scroll right"
             >
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-400 group-hover:text-orange-500 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-400 group-hover:text-blue-500 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
                 </svg>
             </button>
@@ -66,7 +70,8 @@ const PhoneWallpaperSlideshow: React.FC<PhoneWallpaperSlideshowProps> = ({ onDow
             <div key={wallpaper.id} className="min-w-[280px] sm:min-w-[320px] snap-center transform transition-transform duration-300 hover:scale-[1.01]">
                 <WallpaperCard 
                     wallpaper={wallpaper} 
-                    onDownloadClick={onDownloadClick} 
+                    onDownloadClick={onDownloadClick}
+                    showDownloadButton={false}
                 />
             </div>
         ))}
