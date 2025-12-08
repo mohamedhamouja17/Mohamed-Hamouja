@@ -26,8 +26,8 @@ const TabletWallpaperSlideshow: React.FC<TabletWallpaperSlideshowProps> = ({ onD
   };
 
   return (
-    <div className="mt-16 relative px-4 max-w-7xl mx-auto hidden sm:block">
-      <div className="relative flex items-center justify-center mb-10 px-2">
+    <div className="mt-16 relative px-4 max-w-7xl mx-auto">
+      <div className="relative flex flex-col sm:flex-row items-center justify-center mb-10 px-2">
         <h2 
             className="text-4xl sm:text-5xl font-extrabold text-blue-600 text-center tracking-wide z-10" 
             style={{ fontFamily: "'Baloo 2', cursive" }}
@@ -36,7 +36,7 @@ const TabletWallpaperSlideshow: React.FC<TabletWallpaperSlideshowProps> = ({ onD
         </h2>
         
         {/* Navigation Arrows */}
-        <div className="absolute right-4 z-20 flex gap-3">
+        <div className="flex gap-3 mt-4 sm:mt-0 sm:absolute sm:right-0 z-20">
             <button 
                 onClick={() => scroll('left')}
                 className="p-3 rounded-full bg-white shadow-md border border-gray-100 hover:bg-blue-50 hover:border-blue-100 transition-all group active:scale-95"
@@ -64,7 +64,7 @@ const TabletWallpaperSlideshow: React.FC<TabletWallpaperSlideshowProps> = ({ onD
         style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
       >
         {wallpapers.map((wallpaper) => (
-            <div key={wallpaper.id} className="min-w-[400px] snap-center transform transition-transform duration-300 hover:scale-[1.01]">
+            <div key={wallpaper.id} className="min-w-[280px] sm:min-w-[400px] snap-center transform transition-transform duration-300 hover:scale-[1.01]">
                 <WallpaperCard 
                     wallpaper={wallpaper} 
                     onDownloadClick={onDownloadClick}

@@ -26,8 +26,8 @@ const DesktopWallpaperSlideshow: React.FC<DesktopWallpaperSlideshowProps> = ({ o
   };
 
   return (
-    <div className="mt-16 relative px-4 max-w-[1600px] mx-auto hidden md:block">
-      <div className="relative flex items-center justify-center mb-10 px-2">
+    <div className="mt-16 relative px-4 max-w-[1600px] mx-auto">
+      <div className="relative flex flex-col sm:flex-row items-center justify-center mb-10 px-2">
         <h2 
             className="text-4xl sm:text-5xl font-extrabold text-blue-600 text-center tracking-wide z-10" 
             style={{ fontFamily: "'Baloo 2', cursive" }}
@@ -36,7 +36,7 @@ const DesktopWallpaperSlideshow: React.FC<DesktopWallpaperSlideshowProps> = ({ o
         </h2>
         
         {/* Navigation Arrows */}
-        <div className="absolute right-4 z-20 flex gap-3">
+        <div className="flex gap-3 mt-4 sm:mt-0 sm:absolute sm:right-4 z-20">
             <button 
                 onClick={() => scroll('left')}
                 className="p-3 rounded-full bg-white shadow-md border border-gray-100 hover:bg-blue-50 hover:border-blue-100 transition-all group active:scale-95"
@@ -60,11 +60,11 @@ const DesktopWallpaperSlideshow: React.FC<DesktopWallpaperSlideshowProps> = ({ o
       
       <div 
         ref={scrollContainerRef}
-        className="flex gap-8 overflow-x-auto pb-8 pt-2 px-2 snap-x snap-mandatory"
+        className="flex gap-4 sm:gap-8 overflow-x-auto pb-8 pt-2 px-2 snap-x snap-mandatory"
         style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
       >
         {wallpapers.map((wallpaper) => (
-            <div key={wallpaper.id} className="min-w-[600px] snap-center transform transition-transform duration-300 hover:scale-[1.01]">
+            <div key={wallpaper.id} className="min-w-[300px] sm:min-w-[600px] snap-center transform transition-transform duration-300 hover:scale-[1.01]">
                 <WallpaperCard 
                     wallpaper={wallpaper} 
                     onDownloadClick={onDownloadClick}
