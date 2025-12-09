@@ -1,11 +1,8 @@
 
 import React from 'react';
 import { CloseIcon } from './icons/CloseIcon';
-import { KeyIcon } from './icons/KeyIcon';
-import { DiamondIcon } from './icons/DiamondIcon';
-import { FilesIcon } from './icons/FilesIcon';
 import { SparklesIcon } from './icons/SparklesIcon';
-import { ShieldCheckIcon } from './icons/ShieldCheckIcon';
+import { HeartIcon } from './icons/HeartIcon';
 
 interface PricingModalProps {
   onClose: () => void;
@@ -35,53 +32,29 @@ const PricingModal: React.FC<PricingModalProps> = ({ onClose }) => {
         </button>
 
         <div className="pt-10 pb-6 px-6 text-center">
+            <div className="inline-flex items-center justify-center p-3 bg-orange-100 rounded-full mb-4">
+               <SparklesIcon className="h-8 w-8 text-orange-500" />
+            </div>
             <h2 className="text-2xl sm:text-3xl font-bold text-amber-500 leading-tight mb-3">
-                The Golden Annual Subscription Offer
+                Everything is Free!
             </h2>
-            <p className="text-gray-600 text-sm sm:text-base font-medium leading-relaxed px-2">
-                Are you ready to personalize every device you own with exclusive, ultra-high-quality content?
+            <p className="text-gray-600 text-sm sm:text-base font-medium leading-relaxed px-4">
+                We believe high-quality art should be accessible to everyone. There are no subscriptions, no hidden fees, and no premium tiers.
             </p>
         </div>
 
         <div className="mx-4 sm:mx-6 mb-6 bg-white rounded-2xl p-6 shadow-sm border border-yellow-100">
-            <ul className="space-y-5 text-gray-700 mb-8">
-                <li className="flex items-center gap-4">
-                    <KeyIcon className="h-6 w-6 text-amber-400 flex-shrink-0" />
-                    <span className="font-semibold text-sm sm:text-base">Full Year of Unlimited Access (365 Days)</span>
-                </li>
-                <li className="flex items-center gap-4">
-                    <DiamondIcon className="h-6 w-6 text-amber-400 flex-shrink-0" />
-                    <span className="font-semibold text-sm sm:text-base">Exclusive Wallpaper Vault (Up to 4K)</span>
-                </li>
-                <li className="flex items-center gap-4">
-                    <FilesIcon className="h-6 w-6 text-amber-400 flex-shrink-0" />
-                    <span className="font-semibold text-sm sm:text-base">Integrated Icon Bundle (All OS)</span>
-                </li>
-                <li className="flex items-center gap-4">
-                    <SparklesIcon className="h-6 w-6 text-amber-400 flex-shrink-0" />
-                    <span className="font-semibold text-sm sm:text-base">Brand-new designs added every week</span>
-                </li>
-                <li className="flex items-center gap-4">
-                    <ShieldCheckIcon className="h-6 w-6 text-amber-400 flex-shrink-0" />
-                    <span className="font-semibold text-sm sm:text-base">Fast and Secure high-speed downloads</span>
-                </li>
-            </ul>
+            <p className="text-gray-700 text-center mb-6 leading-relaxed">
+                Enjoy unlimited downloads of our 4K wallpapers and icon packs. If you enjoy our content, sharing Walzoo with your friends is the best way to support us!
+            </p>
             
             <div className="text-center">
-                <p className="text-gray-500 text-sm mb-2 font-medium">Subscribe now and get all this for:</p>
-                <div className="flex items-baseline justify-center gap-1 mb-4">
-                    <span className="text-5xl font-extrabold text-gray-900">$12.40</span>
-                    <span className="text-gray-500 text-lg font-medium">/ Year</span>
-                </div>
-                
-                <div className="inline-block bg-orange-50 px-4 py-2 rounded-full mb-6 border border-orange-100">
-                    <p className="text-orange-600 text-xs sm:text-sm font-bold">
-                        Less than $1.04 per month—massive savings!
-                    </p>
-                </div>
-
-                <button className="w-full bg-gradient-to-r from-amber-400 to-orange-500 hover:from-amber-500 hover:to-orange-600 text-white font-bold py-4 rounded-xl transition-all transform hover:scale-[1.02] shadow-md uppercase tracking-wider text-sm sm:text-base">
-                    SUBSCRIBE NOW
+                <button 
+                    onClick={onClose}
+                    className="w-full bg-gradient-to-r from-amber-400 to-orange-500 hover:from-amber-500 hover:to-orange-600 text-white font-bold py-4 rounded-xl transition-all transform hover:scale-[1.02] shadow-md uppercase tracking-wider text-sm sm:text-base flex items-center justify-center gap-2"
+                >
+                    <HeartIcon className="h-5 w-5" />
+                    <span>Start Exploring</span>
                 </button>
             </div>
         </div>

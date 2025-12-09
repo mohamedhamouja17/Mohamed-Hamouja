@@ -4,9 +4,9 @@ import { type Wallpaper } from '../types';
 import WallpaperCard from './WallpaperCard';
 
 const PHONE_WALLPAPERS: Wallpaper[] = [
-  { id: 101, imageUrl: "https://picsum.photos/300/600?random=1" },
-  { id: 102, imageUrl: "https://picsum.photos/300/600?random=2" },
-  { id: 103, imageUrl: "https://picsum.photos/300/600?random=3" },
+  { id: 101, imageUrl: "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=300&h=600&auto=format&fit=crop" },
+  { id: 102, imageUrl: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=300&h=600&auto=format&fit=crop" },
+  { id: 103, imageUrl: "https://images.unsplash.com/photo-1493246507139-91e8fad9978e?q=80&w=300&h=600&auto=format&fit=crop" },
 ];
 
 interface PhoneWallpaperSlideshowProps {
@@ -19,7 +19,7 @@ const PhoneWallpaperSlideshow: React.FC<PhoneWallpaperSlideshowProps> = ({ onDow
   const scroll = (direction: 'left' | 'right') => {
     if (scrollContainerRef.current) {
         const { current } = scrollContainerRef;
-        const scrollAmount = 320; 
+        const scrollAmount = 280; 
         if (direction === 'left') {
             current.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
         } else {
@@ -67,7 +67,7 @@ const PhoneWallpaperSlideshow: React.FC<PhoneWallpaperSlideshowProps> = ({ onDow
         style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
       >
         {PHONE_WALLPAPERS.map((wallpaper) => (
-            <div key={wallpaper.id} className="min-w-[280px] sm:min-w-[320px] snap-center transform transition-transform duration-300 hover:scale-[1.01]">
+            <div key={wallpaper.id} className="min-w-[220px] sm:min-w-[260px] snap-center transform transition-transform duration-300 hover:scale-[1.01]">
                 <WallpaperCard 
                     wallpaper={wallpaper} 
                     onDownloadClick={onDownloadClick}

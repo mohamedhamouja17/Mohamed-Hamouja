@@ -11,7 +11,7 @@ interface HomePageContentProps {
   onDownloadClick: (wallpaper: Wallpaper) => void;
 }
 
-const HomePageContent: React.FC<HomePageContentProps> = ({ onSubscribeClick, onDownloadClick }) => {
+const HomePageContent: React.FC<HomePageContentProps> = ({ onDownloadClick }) => {
   return (
     <div className="mt-10">
       <div className="text-center mb-12 max-w-4xl mx-auto px-4">
