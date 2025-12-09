@@ -9,9 +9,10 @@ interface FooterProps {
   onAboutClick: () => void;
   onPrivacyClick: () => void;
   onTermsClick: () => void;
+  onContactClick: () => void;
 }
 
-const Footer: React.FC<FooterProps> = ({ onBlogClick, onAboutClick, onPrivacyClick, onTermsClick }) => {
+const Footer: React.FC<FooterProps> = ({ onBlogClick, onAboutClick, onPrivacyClick, onTermsClick, onContactClick }) => {
   return (
     <footer className="mt-16 pt-8 border-t border-sky-200">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -27,6 +28,7 @@ const Footer: React.FC<FooterProps> = ({ onBlogClick, onAboutClick, onPrivacyCli
           <ul className="space-y-3">
             <li><button onClick={onAboutClick} className="text-gray-600 hover:text-gray-900 transition-colors text-left">About</button></li>
             <li><button onClick={onBlogClick} className="text-gray-600 hover:text-gray-900 transition-colors text-left">Blog</button></li>
+            <li><button onClick={onContactClick} className="text-gray-600 hover:text-gray-900 transition-colors text-left">Contact</button></li>
           </ul>
         </div>
         
@@ -36,7 +38,7 @@ const Footer: React.FC<FooterProps> = ({ onBlogClick, onAboutClick, onPrivacyCli
           <ul className="space-y-3">
              <li className="flex items-center gap-3">
                <EmailIcon className="h-4 w-4 text-gray-500" />
-               <a href="#" className="text-gray-600 hover:text-gray-900 transition-colors">Email</a>
+               <a href="mailto:walzoo@hotmail.com" className="text-gray-600 hover:text-gray-900 transition-colors">walzoo@hotmail.com</a>
              </li>
              <li className="flex items-center gap-3">
                <TwitterIcon className="h-4 w-4 text-gray-500" />

@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 const ContactPage: React.FC = () => {
@@ -41,7 +40,7 @@ const ContactPage: React.FC = () => {
                 </p>
                 <div className="space-y-3">
                     <p className="flex items-center gap-3 text-gray-700">
-                        <span className="font-semibold">Email:</span> support@walzoo.com
+                        <span className="font-semibold">Email:</span> walzoo@hotmail.com
                     </p>
                     <p className="flex items-center gap-3 text-gray-700">
                         <span className="font-semibold">Hours:</span> Mon-Fri, 9am - 5pm EST

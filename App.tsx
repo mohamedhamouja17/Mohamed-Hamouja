@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import Header from './components/Header';
 import CategoryNav from './components/CategoryNav';
@@ -144,6 +143,7 @@ function App() {
           onAboutClick={handleNavigateToAbout}
           onPrivacyClick={handleNavigateToPrivacy}
           onTermsClick={handleNavigateToTerms}
+          onContactClick={handleNavigateToContact}
         />
       </div>
       {isAuthModalOpen && <AuthModal onClose={handleAuthModalToggle} />}
