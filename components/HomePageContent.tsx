@@ -29,7 +29,7 @@ const HomePageContent: React.FC<HomePageContentProps> = ({ onSubscribeClick, onD
 
       <DesktopWallpaperSlideshow onDownloadClick={onDownloadClick} />
 
-      <SubscriptionCTA onSubscribeClick={onSubscribeClick} />
+      <SubscriptionCTA />
     </div>
   );
 };

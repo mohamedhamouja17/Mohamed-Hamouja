@@ -4,9 +4,9 @@ import { type Wallpaper } from '../types';
 import WallpaperCard from './WallpaperCard';
 
 const PHONE_WALLPAPERS: Wallpaper[] = [
-  { id: 101, imageUrl: "https://img.sanishtech.com/u/1ce5cff40fdcdeadbfec17d0c4e7f960.png" },
-  { id: 102, imageUrl: "https://img.sanishtech.com/u/ac6db561ec7f59fad27ffacd1a809970.png" },
-  { id: 103, imageUrl: "https://img.sanishtech.com/u/1fca88d62f06407dc8830c1de6bbb54f.png" },
+  { id: 101, imageUrl: "https://picsum.photos/300/600?random=1" },
+  { id: 102, imageUrl: "https://picsum.photos/300/600?random=2" },
+  { id: 103, imageUrl: "https://picsum.photos/300/600?random=3" },
 ];
 
 interface PhoneWallpaperSlideshowProps {
