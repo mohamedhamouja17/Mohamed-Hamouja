@@ -69,12 +69,12 @@ const AboutPage: React.FC = () => {
         {/* Call to Action */}
         <div className="p-8 sm:p-12 text-center bg-gradient-to-r from-orange-500 to-amber-600 text-white relative overflow-hidden">
           <div className="relative z-10">
-            <h2 className="text-2xl sm:text-3xl font-bold mb-4">Join the Walzoo Club</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold mb-4">Join the Walzoo Community</h2>
             <p className="text-orange-100 mb-8 max-w-xl mx-auto text-lg">
-               Unlock the full potential of your devices with our Golden Annual Subscription. Unlimited downloads, exclusive access, and more.
+               Unlock the full potential of your devices with our massive library. Everything is completely free—unlimited downloads, no hidden fees.
             </p>
             <div className="inline-block bg-white/20 backdrop-blur-sm rounded-xl px-6 py-3 border border-white/30">
-               <p className="font-bold text-xl">Only $12.40 / Year</p>
+               <p className="font-bold text-xl">100% Free for Everyone</p>
             </div>
           </div>
           {/* Decorative Circle */}
