@@ -7,6 +7,11 @@ const PHONE_WALLPAPERS: Wallpaper[] = [
   { id: 101, imageUrl: "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=300&h=600&auto=format&fit=crop" },
   { id: 102, imageUrl: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=300&h=600&auto=format&fit=crop" },
   { id: 103, imageUrl: "https://images.unsplash.com/photo-1493246507139-91e8fad9978e?q=80&w=300&h=600&auto=format&fit=crop" },
+  { id: 104, imageUrl: "https://images.unsplash.com/photo-1512314889357-e157c22f938d?q=80&w=300&h=600&auto=format&fit=crop" },
+  { id: 105, imageUrl: "https://images.unsplash.com/photo-1557683311-eac922347aa1?q=80&w=300&h=600&auto=format&fit=crop" },
+  { id: 106, imageUrl: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=300&h=600&auto=format&fit=crop" },
+  { id: 107, imageUrl: "https://images.unsplash.com/photo-1523712999610-f77fbcfc3843?q=80&w=300&h=600&auto=format&fit=crop" },
+  { id: 108, imageUrl: "https://images.unsplash.com/photo-1501862700950-18382cd41497?q=80&w=300&h=600&auto=format&fit=crop" },
 ];
 
 interface PhoneWallpaperSlideshowProps {
