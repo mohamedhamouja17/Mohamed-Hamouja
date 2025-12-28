@@ -33,56 +33,58 @@ const CategoryNav: React.FC<CategoryNavProps> = ({ activeCategory, setActiveCate
 
   return (
     <nav className="mt-8 flex flex-col items-center w-full z-40 relative">
-      {/* Main Navigation Row */}
-      <div className="flex flex-wrap justify-center items-center gap-3 sm:gap-6 bg-white/60 backdrop-blur-md p-3 rounded-3xl border border-white/60 shadow-[0_8px_30px_rgb(0,0,0,0.04)]">
-        
-        {/* Home Button */}
-        <button
-          onClick={() => {
-            setActiveCategory(homeCategory);
-            setIsDropdownOpen(false);
-          }}
-          className={`
-            group relative flex items-center gap-2.5 px-6 py-3 rounded-2xl transition-all duration-300 overflow-hidden
-            ${isHomeActive 
-              ? 'text-white shadow-lg shadow-orange-500/25 ring-2 ring-orange-500 ring-offset-2 ring-offset-sky-50' 
-              : 'bg-white text-gray-600 hover:text-orange-600 shadow-sm hover:shadow-md border border-gray-50'}
-          `}
-        >
-          {isHomeActive && (
-              <div className="absolute inset-0 bg-gradient-to-r from-orange-500 to-amber-500" />
-          )}
-          <div className="relative z-10 flex items-center gap-2.5">
-            <HomeIconComponent className={`h-5 w-5 ${!isHomeActive && 'group-hover:scale-110 transition-transform'}`} />
-            <span className="font-extrabold text-sm sm:text-base tracking-wide uppercase">Home</span>
-          </div>
-        </button>
+      {/* Main Navigation Row - Made horizontal on mobile using flex-nowrap and overflow-x-auto */}
+      <div className="w-full flex justify-center">
+        <div className="flex flex-nowrap items-center gap-2 sm:gap-6 bg-white/60 backdrop-blur-md p-2 sm:p-3 rounded-3xl border border-white/60 shadow-[0_8px_30px_rgb(0,0,0,0.04)] overflow-x-auto no-scrollbar max-w-full">
+          
+          {/* Home Button */}
+          <button
+            onClick={() => {
+              setActiveCategory(homeCategory);
+              setIsDropdownOpen(false);
+            }}
+            className={`
+              group relative flex flex-shrink-0 items-center gap-1.5 sm:gap-2.5 px-4 sm:px-6 py-2.5 sm:py-3 rounded-2xl transition-all duration-300 overflow-hidden
+              ${isHomeActive 
+                ? 'text-white shadow-lg shadow-orange-500/25 ring-2 ring-orange-500 ring-offset-2 ring-offset-sky-50' 
+                : 'bg-white text-gray-600 hover:text-orange-600 shadow-sm hover:shadow-md border border-gray-50'}
+            `}
+          >
+            {isHomeActive && (
+                <div className="absolute inset-0 bg-gradient-to-r from-orange-500 to-amber-500" />
+            )}
+            <div className="relative z-10 flex items-center gap-1.5 sm:gap-2.5">
+              <HomeIconComponent className={`h-4 w-4 sm:h-5 sm:w-5 ${!isHomeActive && 'group-hover:scale-110 transition-transform'}`} />
+              <span className="font-extrabold text-xs sm:text-base tracking-wide uppercase whitespace-nowrap">Home</span>
+            </div>
+          </button>
 
-        {/* Category Toggle Button */}
-        <button
-          onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-          className={`
-            group relative flex items-center gap-2.5 px-6 py-3 rounded-2xl transition-all duration-300
-            ${(isSubCategoryActive || isDropdownOpen)
-              ? 'bg-white text-orange-600 shadow-lg shadow-orange-100 ring-2 ring-orange-400 ring-offset-2 ring-offset-sky-50' 
-              : 'bg-white text-gray-600 hover:text-orange-600 shadow-sm hover:shadow-md border border-gray-50'}
-          `}
-        >
-          <CategoryIcon className={`h-5 w-5 ${!isSubCategoryActive && 'group-hover:scale-110 transition-transform'}`} />
-          <span className="font-extrabold text-sm sm:text-base tracking-wide uppercase">Category</span>
-        </button>
+          {/* Category Toggle Button */}
+          <button
+            onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+            className={`
+              group relative flex flex-shrink-0 items-center gap-1.5 sm:gap-2.5 px-4 sm:px-6 py-2.5 sm:py-3 rounded-2xl transition-all duration-300
+              ${(isSubCategoryActive || isDropdownOpen)
+                ? 'bg-white text-orange-600 shadow-lg shadow-orange-100 ring-2 ring-orange-400 ring-offset-2 ring-offset-sky-50' 
+                : 'bg-white text-gray-600 hover:text-orange-600 shadow-sm hover:shadow-md border border-gray-50'}
+            `}
+          >
+            <CategoryIcon className={`h-4 w-4 sm:h-5 sm:w-5 ${!isSubCategoryActive && 'group-hover:scale-110 transition-transform'}`} />
+            <span className="font-extrabold text-xs sm:text-base tracking-wide uppercase whitespace-nowrap">Category</span>
+          </button>
 
-        {/* Blog Button */}
-        <button
-          onClick={onBlogClick}
-          className="group flex items-center gap-2.5 px-6 py-3 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 bg-white text-gray-600 hover:text-orange-600 border border-gray-50"
-        >
-          <BlogIcon className="h-5 w-5 group-hover:scale-110 transition-transform" />
-          <span className="font-extrabold text-sm sm:text-base tracking-wide uppercase">Blog</span>
-        </button>
+          {/* Blog Button */}
+          <button
+            onClick={onBlogClick}
+            className="group flex flex-shrink-0 items-center gap-1.5 sm:gap-2.5 px-4 sm:px-6 py-2.5 sm:py-3 rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 bg-white text-gray-600 hover:text-orange-600 border border-gray-50"
+          >
+            <BlogIcon className="h-4 w-4 sm:h-5 sm:w-5 group-hover:scale-110 transition-transform" />
+            <span className="font-extrabold text-xs sm:text-base tracking-wide uppercase whitespace-nowrap">Blog</span>
+          </button>
+        </div>
       </div>
 
-      {/* Expandable Categories Panel - Beautiful Floating Dock Style */}
+      {/* Expandable Categories Panel */}
       <div 
         className={`
           w-full flex justify-center

@@ -82,22 +82,23 @@ const WallpaperPageView: React.FC<WallpaperPageViewProps> = ({ wallpaper, onBack
             <DownloadSection imageUrl={wallpaper.imageUrl} />
           )}
 
-          <div className="mt-12 grid grid-cols-2 sm:grid-cols-4 gap-4 border-t border-gray-100 pt-8 text-center">
-            <div className="p-2">
-              <p className="text-gray-400 text-[10px] uppercase tracking-widest mb-1">Dimensions</p>
-              <p className="font-bold text-gray-800 text-sm sm:text-base">{wallpaper.width} x {wallpaper.height}</p>
+          {/* Improved "Ratings" (Specs) display - Changed to horizontal on mobile via grid-cols-4 and text size adjustments */}
+          <div className="mt-12 grid grid-cols-4 gap-1 sm:gap-4 border-t border-gray-100 pt-8 text-center">
+            <div className="p-1 sm:p-2">
+              <p className="text-gray-400 text-[8px] sm:text-[10px] uppercase tracking-widest mb-1 truncate">Dimensions</p>
+              <p className="font-bold text-gray-800 text-[10px] sm:text-base">{wallpaper.width}x{wallpaper.height}</p>
             </div>
-            <div className="p-2">
-              <p className="text-gray-400 text-[10px] uppercase tracking-widest mb-1">Format</p>
-              <p className="font-bold text-gray-800 text-sm sm:text-base">Ultra HD WebP</p>
+            <div className="p-1 sm:p-2">
+              <p className="text-gray-400 text-[8px] sm:text-[10px] uppercase tracking-widest mb-1 truncate">Format</p>
+              <p className="font-bold text-gray-800 text-[10px] sm:text-base">Ultra HD</p>
             </div>
-            <div className="p-2">
-              <p className="text-gray-400 text-[10px] uppercase tracking-widest mb-1">DPI</p>
-              <p className="font-bold text-gray-800 text-sm sm:text-base">300 Optimized</p>
+            <div className="p-1 sm:p-2">
+              <p className="text-gray-400 text-[8px] sm:text-[10px] uppercase tracking-widest mb-1 truncate">DPI</p>
+              <p className="font-bold text-gray-800 text-[10px] sm:text-base">300 Opt.</p>
             </div>
-            <div className="p-2">
-              <p className="text-gray-400 text-[10px] uppercase tracking-widest mb-1">Usage</p>
-              <p className="font-bold text-green-600 text-sm sm:text-base">Commercial Free</p>
+            <div className="p-1 sm:p-2">
+              <p className="text-gray-400 text-[8px] sm:text-[10px] uppercase tracking-widest mb-1 truncate">Usage</p>
+              <p className="font-bold text-green-600 text-[10px] sm:text-base">Free</p>
             </div>
           </div>
         </div>
