@@ -84,7 +84,7 @@ const CategoryNav: React.FC<CategoryNavProps> = ({ activeCategory, setActiveCate
         </div>
       </div>
 
-      {/* Expandable Categories Panel */}
+      {/* Expandable Categories Panel - Updated to flex-nowrap and horizontal layout on mobile */}
       <div 
         className={`
           w-full flex justify-center
@@ -94,7 +94,7 @@ const CategoryNav: React.FC<CategoryNavProps> = ({ activeCategory, setActiveCate
             : 'max-h-0 opacity-0 mt-0 -translate-y-4 pointer-events-none'}
         `}
       >
-        <div className="bg-white p-2.5 rounded-2xl shadow-xl shadow-orange-500/10 border border-orange-100/50 flex flex-wrap justify-center gap-2 sm:gap-3 max-w-2xl mx-auto transform transition-transform hover:scale-[1.01]">
+        <div className="bg-white/80 backdrop-blur-sm p-2 rounded-2xl shadow-xl shadow-orange-500/5 border border-orange-100/30 flex flex-nowrap items-center justify-center gap-1.5 sm:gap-3 max-w-full overflow-x-auto no-scrollbar mx-auto transform transition-transform">
             {otherCategories.map((category) => {
                 const IconComponent = categoryIcons[category];
                 const isActive = activeCategory === category;
@@ -106,7 +106,7 @@ const CategoryNav: React.FC<CategoryNavProps> = ({ activeCategory, setActiveCate
                         setIsDropdownOpen(false);
                     }}
                     className={`
-                        relative flex items-center gap-2.5 px-5 py-2.5 sm:px-6 sm:py-3 rounded-xl transition-all duration-300 group
+                        relative flex flex-shrink-0 items-center gap-2 px-4 py-2.5 sm:px-6 sm:py-3 rounded-xl transition-all duration-300 group
                         ${isActive 
                             ? 'text-white shadow-md shadow-orange-500/20' 
                             : 'text-gray-500 hover:bg-orange-50 hover:text-orange-600'}
@@ -116,8 +116,8 @@ const CategoryNav: React.FC<CategoryNavProps> = ({ activeCategory, setActiveCate
                         <div className="absolute inset-0 bg-gradient-to-r from-orange-400 to-amber-500 rounded-xl" />
                     )}
                     <div className="relative z-10 flex items-center gap-2">
-                        <IconComponent className={`h-5 w-5 transition-transform duration-300 ${isActive ? 'scale-110' : 'group-hover:scale-110'}`} />
-                        <span className="font-bold text-sm sm:text-base tracking-wide uppercase">{category}</span>
+                        <IconComponent className={`h-4 w-4 sm:h-5 sm:w-5 transition-transform duration-300 ${isActive ? 'scale-110' : 'group-hover:scale-110'}`} />
+                        <span className="font-bold text-[10px] sm:text-sm tracking-widest uppercase whitespace-nowrap">{category}</span>
                     </div>
                     </button>
                 );
