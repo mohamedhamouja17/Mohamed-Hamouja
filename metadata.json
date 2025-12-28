@@ -1,5 +1,7 @@
 {
   "name": "Walzoo - Free Wallpaper & Icon Hub",
   "description": "A visually stunning web application for browsing and discovering high-quality wallpapers for various devices. 100% Free for everyone - no subscriptions required.",
-  "requestFramePermissions": []
+  "requestFramePermissions": [
+    "geolocation"
+  ]
 }
