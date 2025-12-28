@@ -7,11 +7,10 @@ import TabletWallpaperSlideshow from './TabletWallpaperSlideshow';
 import { type Wallpaper } from '../types';
 
 interface HomePageContentProps {
-  onSubscribeClick: () => void;
-  onDownloadClick: (wallpaper: Wallpaper) => void;
+  onWallpaperSelect: (wallpaper: Wallpaper) => void;
 }
 
-const HomePageContent: React.FC<HomePageContentProps> = ({ onDownloadClick }) => {
+const HomePageContent: React.FC<HomePageContentProps> = ({ onWallpaperSelect }) => {
   return (
     <div className="mt-10">
       <div className="text-center mb-12 max-w-4xl mx-auto px-4">
@@ -19,15 +18,15 @@ const HomePageContent: React.FC<HomePageContentProps> = ({ onDownloadClick }) =>
           Download Stunning 4K Wallpapers for All Your Devices
         </h1>
         <p className="text-lg sm:text-xl text-gray-600 leading-relaxed">
-          Discover high-quality backgrounds for Mobile, Tablet, and Desktop — updated daily.
+          Discover high-quality backgrounds for Mobile, Tablet, and Desktop — 100% Free.
         </p>
       </div>
 
-      <PhoneWallpaperSlideshow onDownloadClick={onDownloadClick} />
+      <PhoneWallpaperSlideshow onWallpaperSelect={onWallpaperSelect} />
       
-      <TabletWallpaperSlideshow onDownloadClick={onDownloadClick} />
+      <TabletWallpaperSlideshow onWallpaperSelect={onWallpaperSelect} />
 
-      <DesktopWallpaperSlideshow onDownloadClick={onDownloadClick} />
+      <DesktopWallpaperSlideshow onWallpaperSelect={onWallpaperSelect} />
 
       <SubscriptionCTA />
     </div>

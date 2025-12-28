@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import Header from './components/Header';
 import CategoryNav from './components/CategoryNav';
@@ -7,7 +8,7 @@ import Pagination from './components/Pagination';
 import Footer from './components/Footer';
 import AuthModal from './components/AuthModal';
 import PricingModal from './components/PricingModal';
-import DownloadModal from './components/DownloadModal';
+import WallpaperPageView from './components/WallpaperPageView';
 import BlogPage from './components/BlogPage';
 import AboutPage from './components/AboutPage';
 import PrivacyPage from './components/PrivacyPage';
@@ -15,20 +16,17 @@ import TermsPage from './components/TermsPage';
 import ContactPage from './components/ContactPage';
 import { type Category, type Wallpaper } from './types';
 import { auth } from './firebase';
-import { onAuthStateChanged, signOut, type User } from 'firebase/auth';
+import { onAuthStateChanged, type User } from 'firebase/auth';
 
-type View = 'gallery' | 'blog' | 'about' | 'privacy' | 'terms' | 'contact';
+type View = 'gallery' | 'blog' | 'about' | 'privacy' | 'terms' | 'contact' | 'wallpaper-detail';
 
 function App() {
   const [activeCategory, setActiveCategory] = useState<Category>('Home');
   const [currentView, setCurrentView] = useState<View>('gallery');
+  const [selectedWallpaper, setSelectedWallpaper] = useState<Wallpaper | null>(null);
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
   const [isPricingModalOpen, setIsPricingModalOpen] = useState(false);
   const [user, setUser] = useState<User | null>(null);
-
-  // Download Modal State
-  const [isDownloadModalOpen, setIsDownloadModalOpen] = useState(false);
-  const [downloadItemUrl, setDownloadItemUrl] = useState<string>('');
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
@@ -37,65 +35,34 @@ function App() {
     return () => unsubscribe();
   }, []);
 
-  const handleAuthModalToggle = () => {
-    setIsAuthModalOpen(!isAuthModalOpen);
-  };
-  
-  const handlePricingModalToggle = () => {
-    setIsPricingModalOpen(!isPricingModalOpen);
-  };
-
-  const handleOpenDownloadModal = (wallpaper: Wallpaper) => {
-    setDownloadItemUrl(wallpaper.imageUrl);
-    setIsDownloadModalOpen(true);
-  };
-
-  const handleCloseDownloadModal = () => {
-    setIsDownloadModalOpen(false);
-    setDownloadItemUrl('');
-  };
-
-  const handleLogout = async () => {
-    try {
-      await signOut(auth);
-    } catch (error) {
-      console.error("Error signing out: ", error);
-    }
-  };
-
   const handleNavigateToHome = () => {
     setCurrentView('gallery');
     setActiveCategory('Home');
+    setSelectedWallpaper(null);
     window.scrollTo(0, 0);
   };
 
-  const handleNavigateToBlog = () => {
-    setCurrentView('blog');
+  const handleSelectWallpaper = (wallpaper: Wallpaper) => {
+    setSelectedWallpaper(wallpaper);
+    setCurrentView('wallpaper-detail');
     window.scrollTo(0, 0);
   };
 
-  const handleNavigateToContact = () => {
-    setCurrentView('contact');
-    window.scrollTo(0, 0);
-  };
-
-  const handleNavigateToAbout = () => {
-    setCurrentView('about');
-    window.scrollTo(0, 0);
-  };
-
-  const handleNavigateToPrivacy = () => {
-    setCurrentView('privacy');
-    window.scrollTo(0, 0);
-  };
-
-  const handleNavigateToTerms = () => {
-    setCurrentView('terms');
+  const navigateToView = (view: View) => {
+    setCurrentView(view);
+    setSelectedWallpaper(null);
     window.scrollTo(0, 0);
   };
 
   const renderContent = () => {
     switch (currentView) {
+      case 'wallpaper-detail':
+        return selectedWallpaper ? (
+          <WallpaperPageView 
+            wallpaper={selectedWallpaper} 
+            onBack={() => setCurrentView('gallery')} 
+          />
+        ) : <p>Error loading wallpaper.</p>;
       case 'blog':
         return <BlogPage />;
       case 'contact':
@@ -113,14 +80,12 @@ function App() {
             <CategoryNav 
               activeCategory={activeCategory} 
               setActiveCategory={setActiveCategory}
-              onBlogClick={handleNavigateToBlog}
+              onBlogClick={() => navigateToView('blog')}
             />
             {activeCategory !== 'Home' && <SearchBar activeCategory={activeCategory} />}
             <ContentGrid 
               activeCategory={activeCategory} 
-              setActiveCategory={setActiveCategory} 
-              onSubscribeClick={handlePricingModalToggle}
-              onDownloadClick={handleOpenDownloadModal}
+              onWallpaperSelect={handleSelectWallpaper}
             />
             {activeCategory !== 'Home' && <Pagination />}
           </>
@@ -129,30 +94,25 @@ function App() {
   };
 
   return (
-    <div className="bg-sky-50 text-gray-800 min-h-screen font-sans">
+    <div className="bg-sky-50 text-gray-800 min-h-screen font-sans selection:bg-orange-200">
       <div className="container mx-auto px-4 sm:px-6 lg:px-12 py-6 flex flex-col min-h-screen">
         <Header 
           onLogoClick={handleNavigateToHome}
-          onSupportClick={handlePricingModalToggle}
+          onSupportClick={() => setIsPricingModalOpen(true)}
         />
         <main className="mt-8 flex-grow">
           {renderContent()}
         </main>
         <Footer 
-          onBlogClick={handleNavigateToBlog} 
-          onAboutClick={handleNavigateToAbout}
-          onPrivacyClick={handleNavigateToPrivacy}
-          onTermsClick={handleNavigateToTerms}
-          onContactClick={handleNavigateToContact}
+          onBlogClick={() => navigateToView('blog')} 
+          onAboutClick={() => navigateToView('about')}
+          onPrivacyClick={() => navigateToView('privacy')}
+          onTermsClick={() => navigateToView('terms')}
+          onContactClick={() => navigateToView('contact')}
         />
       </div>
-      {isAuthModalOpen && <AuthModal onClose={handleAuthModalToggle} />}
-      {isPricingModalOpen && <PricingModal onClose={handlePricingModalToggle} />}
-      <DownloadModal 
-        isOpen={isDownloadModalOpen} 
-        onClose={handleCloseDownloadModal} 
-        imageUrl={downloadItemUrl} 
-      />
+      {isAuthModalOpen && <AuthModal onClose={() => setIsAuthModalOpen(false)} />}
+      {isPricingModalOpen && <PricingModal onClose={() => setIsPricingModalOpen(false)} />}
     </div>
   );
 }

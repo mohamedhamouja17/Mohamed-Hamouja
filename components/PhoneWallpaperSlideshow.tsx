@@ -2,29 +2,20 @@
 import React, { useRef } from 'react';
 import { type Wallpaper } from '../types';
 import WallpaperCard from './WallpaperCard';
-
-const PHONE_WALLPAPERS: Wallpaper[] = [
-  { id: 101, imageUrl: "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?q=80&w=300&h=600&auto=format&fit=crop" },
-  { id: 102, imageUrl: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=300&h=600&auto=format&fit=crop" },
-  { id: 103, imageUrl: "https://images.unsplash.com/photo-1493246507139-91e8fad9978e?q=80&w=300&h=600&auto=format&fit=crop" },
-  { id: 104, imageUrl: "https://images.unsplash.com/photo-1512314889357-e157c22f938d?q=80&w=300&h=600&auto=format&fit=crop" },
-  { id: 105, imageUrl: "https://images.unsplash.com/photo-1557683311-eac922347aa1?q=80&w=300&h=600&auto=format&fit=crop" },
-  { id: 106, imageUrl: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=300&h=600&auto=format&fit=crop" },
-  { id: 107, imageUrl: "https://images.unsplash.com/photo-1523712999610-f77fbcfc3843?q=80&w=300&h=600&auto=format&fit=crop" },
-  { id: 108, imageUrl: "https://images.unsplash.com/photo-1501862700950-18382cd41497?q=80&w=300&h=600&auto=format&fit=crop" },
-];
+import { WALLPAPER_DATA } from '../constants';
 
 interface PhoneWallpaperSlideshowProps {
-  onDownloadClick: (wallpaper: Wallpaper) => void;
+  onWallpaperSelect: (wallpaper: Wallpaper) => void;
 }
 
-const PhoneWallpaperSlideshow: React.FC<PhoneWallpaperSlideshowProps> = ({ onDownloadClick }) => {
+const PhoneWallpaperSlideshow: React.FC<PhoneWallpaperSlideshowProps> = ({ onWallpaperSelect }) => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
+  const wallpapers = WALLPAPER_DATA['Phone'].slice(0, 10); // Show a few more
 
   const scroll = (direction: 'left' | 'right') => {
     if (scrollContainerRef.current) {
         const { current } = scrollContainerRef;
-        const scrollAmount = 280; 
+        const scrollAmount = current.clientWidth * 0.8; 
         if (direction === 'left') {
             current.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
         } else {
@@ -35,53 +26,25 @@ const PhoneWallpaperSlideshow: React.FC<PhoneWallpaperSlideshowProps> = ({ onDow
 
   return (
     <div className="mt-12 relative px-4 max-w-7xl mx-auto">
-      <div className="relative flex flex-col sm:flex-row items-center justify-center mb-10 px-2">
-        <h2 
-            className="text-4xl sm:text-5xl font-extrabold text-blue-600 text-center tracking-wide z-10" 
-            style={{ fontFamily: "'Baloo 2', cursive" }}
-        >
+      <div className="relative flex flex-col sm:flex-row items-center justify-between mb-8 px-2">
+        <h2 className="text-3xl font-extrabold text-gray-900 tracking-tight" style={{ fontFamily: "'Baloo 2', cursive" }}>
            Phone Wallpapers
         </h2>
-        
-        {/* Navigation Arrows */}
-        <div className="flex gap-3 mt-4 sm:mt-0 sm:absolute sm:right-0 z-20">
-            <button 
-                onClick={() => scroll('left')}
-                className="p-3 rounded-full bg-white shadow-md border border-gray-100 hover:bg-blue-50 hover:border-blue-100 transition-all group active:scale-95"
-                aria-label="Scroll left"
-            >
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-400 group-hover:text-blue-500 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
-                </svg>
+        <div className="flex gap-2 mt-4 sm:mt-0">
+            <button onClick={() => scroll('left')} className="p-2 rounded-full bg-white shadow-sm border border-gray-100 hover:bg-orange-50 hover:text-orange-500 transition-all text-gray-400">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" /></svg>
             </button>
-            <button 
-                onClick={() => scroll('right')}
-                className="p-3 rounded-full bg-white shadow-md border border-gray-100 hover:bg-blue-50 hover:border-blue-100 transition-all group active:scale-95"
-                aria-label="Scroll right"
-            >
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-gray-400 group-hover:text-blue-500 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-                </svg>
+            <button onClick={() => scroll('right')} className="p-2 rounded-full bg-white shadow-sm border border-gray-100 hover:bg-orange-50 hover:text-orange-500 transition-all text-gray-400">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" /></svg>
             </button>
         </div>
       </div>
-      
-      <div 
-        ref={scrollContainerRef}
-        className="flex gap-6 overflow-x-auto pb-8 pt-2 px-2 snap-x snap-mandatory"
-        style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-      >
-        {PHONE_WALLPAPERS.map((wallpaper) => (
-            <div key={wallpaper.id} className="min-w-[220px] sm:min-w-[260px] snap-center transform transition-transform duration-300 hover:scale-[1.01]">
-                <WallpaperCard 
-                    wallpaper={wallpaper} 
-                    onDownloadClick={onDownloadClick}
-                    showDownloadButton={false}
-                />
+      <div ref={scrollContainerRef} className="flex gap-4 overflow-x-auto pb-8 pt-2 px-2 snap-x snap-mandatory no-scrollbar">
+        {wallpapers.map((wallpaper) => (
+            <div key={wallpaper.id} className="min-w-[180px] sm:min-w-[220px] max-w-[220px] snap-center">
+                <WallpaperCard wallpaper={wallpaper} onViewClick={onWallpaperSelect} />
             </div>
         ))}
-        {/* Spacer for right padding visual */}
-        <div className="min-w-[1px]"></div>
       </div>
     </div>
   );

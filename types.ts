@@ -7,7 +7,13 @@ export type OperatingSystem = typeof OPERATING_SYSTEMS[number];
 
 export interface Wallpaper {
   id: number;
+  slug: string;
+  title: string;
+  description: string;
   imageUrl: string;
+  category: Category;
+  width: number;
+  height: number;
 }
 
 export interface IconPack {
