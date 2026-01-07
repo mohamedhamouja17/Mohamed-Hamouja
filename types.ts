@@ -11,7 +11,8 @@ export interface Wallpaper {
   title: string;
   description: string;
   imageUrl: string;
-  category: Category;
+  category: Category;      // Device Category (Desktop, Phone, etc.)
+  subCategory: string;   // Folder Category (e.g., Aesthetic, Nature)
   width: number;
   height: number;
 }

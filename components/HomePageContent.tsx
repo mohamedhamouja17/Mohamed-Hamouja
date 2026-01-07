@@ -8,6 +8,9 @@ interface HomePageContentProps {
 }
 
 const HomePageContent: React.FC<HomePageContentProps> = ({ onWallpaperSelect }) => {
+  // Constructed promo image using R2 rules
+  const promoImageUrl = "https://pub-92d8986bb0cc46a58160f8926467ee4e.r2.dev/desktop/Aesthetic/promo-banner.jpg";
+
   return (
     <div className="mt-10">
       <div className="text-center mb-8 max-w-4xl mx-auto px-4">
@@ -20,11 +23,15 @@ const HomePageContent: React.FC<HomePageContentProps> = ({ onWallpaperSelect }) 
       </div>
 
       <div className="max-w-6xl mx-auto px-4 mb-12">
-        <div className="rounded-3xl overflow-hidden shadow-xl border border-white/50 transition-transform hover:scale-[1.01] duration-500">
+        <div className="rounded-3xl overflow-hidden shadow-xl border border-white/50 transition-transform hover:scale-[1.01] duration-500 bg-gray-100">
           <img 
-            src="https://pub-141831e61e69445289222976a15b6fb3.r2.dev/Image_to_url_V2/WALZOO-WALLPAPER-imagetourl.cloud-1766944607220-9ks1r4.png" 
+            src={promoImageUrl} 
             alt="Walzoo Wallpaper Collection Preview" 
-            className="w-full h-auto object-cover"
+            className="w-full h-auto object-cover min-h-[200px]"
+            onError={(e) => {
+              // Fallback if the specific promo banner doesn't exist yet in R2
+              (e.target as HTMLImageElement).src = "https://pub-92d8986bb0cc46a58160f8926467ee4e.r2.dev/desktop/Aesthetic/desktop-v1.jpg";
+            }}
           />
         </div>
       </div>

@@ -12,17 +12,16 @@ interface WallpaperPageViewProps {
 const WallpaperPageView: React.FC<WallpaperPageViewProps> = ({ wallpaper, onBack }) => {
   const [showDownload, setShowDownload] = useState(false);
 
-  // Determine aspect ratio based on category to match device types
   const getAspectRatioClass = () => {
     switch (wallpaper.category) {
       case 'Phone':
-        return 'aspect-[9/19.5] max-w-[320px] mx-auto'; // Tall vertical ratio
+        return 'aspect-[9/19.5] max-w-[320px] mx-auto';
       case 'Tablet':
-        return 'aspect-[3/4] max-w-[480px] mx-auto';    // Tablet portrait ratio
+        return 'aspect-[3/4] max-w-[480px] mx-auto';
       case 'Desktop':
       case 'Home':
       default:
-        return 'aspect-[16/9] w-full';                // Widescreen landscape
+        return 'aspect-[16/9] w-full';
     }
   };
 
@@ -48,7 +47,7 @@ const WallpaperPageView: React.FC<WallpaperPageViewProps> = ({ wallpaper, onBack
               loading="lazy"
             />
             <div className="absolute top-3 right-3 bg-black/40 backdrop-blur-md text-white text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-tighter">
-              {wallpaper.width >= 3840 || wallpaper.height >= 3840 ? '4K Ultra HD' : 'HD Ready'}
+              {wallpaper.width >= 3840 ? '4K UHD' : 'HD READY'}
             </div>
           </div>
         </div>
@@ -81,27 +80,26 @@ const WallpaperPageView: React.FC<WallpaperPageViewProps> = ({ wallpaper, onBack
           ) : (
             <DownloadSection 
                deviceType={wallpaper.category} 
-               categoryName="Aesthetic" // Fallback category, can be dynamic if available in wallpaper object
+               categoryName={wallpaper.subCategory}
                imageName={wallpaper.slug}
             />
           )}
 
-          {/* Improved "Ratings" (Specs) display */}
           <div className="mt-12 grid grid-cols-4 gap-1 sm:gap-4 border-t border-gray-100 pt-8 text-center">
             <div className="p-1 sm:p-2">
-              <p className="text-gray-400 text-[8px] sm:text-[10px] uppercase tracking-widest mb-1 truncate">Dimensions</p>
+              <p className="text-gray-400 text-[8px] sm:text-[10px] uppercase tracking-widest mb-1">Res</p>
               <p className="font-bold text-gray-800 text-[10px] sm:text-base">{wallpaper.width}x{wallpaper.height}</p>
             </div>
             <div className="p-1 sm:p-2">
-              <p className="text-gray-400 text-[8px] sm:text-[10px] uppercase tracking-widest mb-1 truncate">Format</p>
+              <p className="text-gray-400 text-[8px] sm:text-[10px] uppercase tracking-widest mb-1">Type</p>
               <p className="font-bold text-gray-800 text-[10px] sm:text-base">Ultra HD</p>
             </div>
             <div className="p-1 sm:p-2">
-              <p className="text-gray-400 text-[8px] sm:text-[10px] uppercase tracking-widest mb-1 truncate">DPI</p>
-              <p className="font-bold text-gray-800 text-[10px] sm:text-base">300 Opt.</p>
+              <p className="text-gray-400 text-[8px] sm:text-[10px] uppercase tracking-widest mb-1">Storage</p>
+              <p className="font-bold text-gray-800 text-[10px] sm:text-base">Direct R2</p>
             </div>
             <div className="p-1 sm:p-2">
-              <p className="text-gray-400 text-[8px] sm:text-[10px] uppercase tracking-widest mb-1 truncate">Usage</p>
+              <p className="text-gray-400 text-[8px] sm:text-[10px] uppercase tracking-widest mb-1">License</p>
               <p className="font-bold text-green-600 text-[10px] sm:text-base">Free</p>
             </div>
           </div>
