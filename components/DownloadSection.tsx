@@ -2,15 +2,30 @@
 import React, { useState, useEffect } from 'react';
 import { DownloadIcon } from './icons/DownloadIcon';
 
-interface DownloadSectionProps { imageUrl: string; }
+/**
+ * CONFIGURATION: Edit these defaults if needed.
+ * These are fallback values if props are missing.
+ */
+const R2_BASE_URL = "https://pub-92d8986bb0cc46a58160f8926467ee4e.r2.dev";
+const COUNTDOWN_SECONDS = 20;
 
-const DownloadSection: React.FC<DownloadSectionProps> = ({ imageUrl }) => {
-  const [timeLeft, setTimeLeft] = useState(20);
+interface DownloadSectionProps { 
+  deviceType: string;    // e.g., 'phone'
+  categoryName: string;  // e.g., 'Nature'
+  imageName: string;     // e.g., 'forest-landscape-01'
+}
+
+const DownloadSection: React.FC<DownloadSectionProps> = ({ 
+  deviceType, 
+  categoryName, 
+  imageName 
+}) => {
+  const [timeLeft, setTimeLeft] = useState(COUNTDOWN_SECONDS);
   const [isReady, setIsReady] = useState(false);
   const [location, setLocation] = useState<string>('Detecting location...');
 
   useEffect(() => {
-    // Timer set to 20 seconds
+    // Timer Logic
     if (timeLeft > 0) {
       const timer = setInterval(() => setTimeLeft(prev => prev - 1), 1000);
       return () => clearInterval(timer);
@@ -20,6 +35,7 @@ const DownloadSection: React.FC<DownloadSectionProps> = ({ imageUrl }) => {
   }, [timeLeft]);
 
   useEffect(() => {
+    // Simulated Security Check / IP Detection
     const fetchLocation = async () => {
       try {
         const response = await fetch('https://ipapi.co/json/');
@@ -37,128 +53,89 @@ const DownloadSection: React.FC<DownloadSectionProps> = ({ imageUrl }) => {
   }, []);
 
   const handleFinalDownload = () => {
+    // Construct the URL dynamically only on click to save R2 Class B operations
+    // Structure: {R2_URL}/{deviceType}/{categoryName}/{imageName}.jpg
+    const finalUrl = `${R2_BASE_URL}/${deviceType.toLowerCase()}/${categoryName}/${imageName}.jpg`;
+    
     const link = document.createElement('a');
-    link.href = imageUrl;
-    link.download = 'walzoo-wallpaper.jpg';
+    link.href = finalUrl;
+    link.target = "_blank";
+    link.download = `${imageName}.jpg`;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
   };
 
-  // SVG Circle calculations
-  const radius = 50;
-  const strokeWidth = 8;
-  const normalizedRadius = radius - strokeWidth / 2;
-  const circumference = normalizedRadius * 2 * Math.PI;
-  const strokeDashoffset = circumference - ((20 - timeLeft) / 20) * circumference;
-
   return (
-    <div className="mt-8 p-4 sm:p-10 bg-[#FAFBFC] rounded-[2.5rem] border border-orange-100/50 shadow-sm animate-fade-in">
+    <div className="mt-8 p-6 sm:p-10 bg-white rounded-[2rem] border-2 border-orange-50 shadow-xl animate-fade-in max-w-2xl mx-auto">
       <div className="flex flex-col items-center">
-        <h3 className="text-xl font-bold text-gray-700 mb-8">
-          Preparing your high-quality wallpaper...
-        </h3>
-
-        {/* Ad Box */}
-        <div className="w-full max-w-2xl bg-[#F3F4F6]/50 rounded-2xl mb-10 flex flex-col items-center justify-center border border-gray-200 py-12 relative overflow-hidden group">
-          <span className="text-[10px] font-bold uppercase tracking-widest text-gray-400 absolute top-4">ADVERTISEMENT</span>
-          <div className="text-gray-400 text-sm px-10 text-center leading-relaxed">
-            Your download supports our free service. 
-            <br />
-            <span className="italic text-xs">Please wait while the file is encrypted for security.</span>
+        
+        {/* Adsterra Non-skippable Video Ad Placeholder */}
+        <div className="w-full bg-black rounded-2xl mb-8 flex flex-col items-center justify-center min-h-[250px] relative overflow-hidden group shadow-inner">
+          <div className="absolute top-4 left-4 bg-orange-500/80 text-[10px] font-bold text-white px-2 py-0.5 rounded-sm uppercase tracking-widest z-10">
+            Sponsored Video
+          </div>
+          
+          {/* PLACE ADSTERRA CODE HERE */}
+          <div className="flex flex-col items-center justify-center p-8 text-center">
+             <div className="mb-4 text-orange-400">
+               <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 animate-pulse" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
+                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+               </svg>
+             </div>
+             <p className="text-gray-400 text-sm font-medium">Video Ad Loading...</p>
+             <p className="text-gray-500 text-xs mt-2 italic px-4">Wait 20 seconds to unlock your high-quality 4K download.</p>
           </div>
         </div>
 
-        {!isReady ? (
-          <div className="flex flex-col items-center gap-8">
-            {/* Enhanced Counter UI */}
-            <div className="relative inline-flex items-center justify-center">
-              <svg 
-                height={radius * 2} 
-                width={radius * 2} 
-                className="transform -rotate-90 drop-shadow-sm"
-              >
-                {/* Background Ring */}
-                <circle
-                  stroke="#F3F4F6"
-                  fill="transparent"
-                  strokeWidth={strokeWidth}
-                  r={normalizedRadius}
-                  cx={radius}
-                  cy={radius}
-                />
-                {/* Progress Ring with Gradient */}
-                <defs>
-                  <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#FB923C" />
-                    <stop offset="100%" stopColor="#F97316" />
-                  </linearGradient>
-                </defs>
-                <circle
-                  stroke="url(#gradient)"
-                  fill="transparent"
-                  strokeWidth={strokeWidth}
-                  strokeDasharray={circumference + ' ' + circumference}
-                  style={{ strokeDashoffset, strokeLinecap: 'round' }}
-                  r={normalizedRadius}
-                  cx={radius}
-                  cy={radius}
-                  className="transition-all duration-1000 ease-linear"
-                />
-              </svg>
-              {/* Central Number */}
-              <span className="absolute text-4xl font-bold text-gray-800 tracking-tighter">
-                {timeLeft}
-              </span>
-            </div>
-            
-            <div className="text-center">
-              <p className="text-gray-500 font-bold text-base mb-3">
-                Your secure link will be ready in {timeLeft} seconds.
-              </p>
-              {/* Location Display */}
-              <div className="inline-flex items-center justify-center gap-2 bg-white px-4 py-1.5 rounded-full border border-gray-100 shadow-sm transform hover:scale-105 transition-transform duration-300">
-                <div className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-orange-500"></span>
-                </div>
-                <span className="text-[11px] font-extrabold text-gray-600 uppercase tracking-widest">
-                  {location}
-                </span>
-              </div>
-            </div>
-          </div>
-        ) : (
-          <div className="w-full text-center animate-bounce-in">
-             <div className="mb-6 flex flex-col items-center">
-                <div className="bg-green-100 p-4 rounded-full mb-3 shadow-inner">
-                   <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-                   </svg>
-                </div>
-                <p className="text-green-600 font-extrabold text-2xl mb-1 tracking-tight">Link Securely Generated!</p>
-                <p className="text-gray-400 text-sm font-medium">Verified from {location}</p>
-             </div>
-             
-             <button
+        {/* Messaging Section */}
+        <div className="text-center mb-8">
+          <h3 className="text-xl font-bold text-gray-800 mb-2">
+            {isReady ? "Download Link Ready!" : "Preparing your high-quality download..."}
+          </h3>
+          <p className="text-gray-500 text-sm">
+            {isReady 
+              ? `Verified connection from ${location}` 
+              : `Please wait ${timeLeft} seconds while we secure your file.`}
+          </p>
+        </div>
+
+        {/* Dynamic Single-Button Logic */}
+        <div className="w-full flex flex-col items-center">
+          {!isReady ? (
+            <button
+              disabled
+              className="w-full flex items-center justify-center gap-3 bg-gray-100 text-gray-400 font-bold py-5 px-8 rounded-2xl cursor-not-allowed border border-gray-200 transition-all"
+            >
+              <div className="h-5 w-5 border-2 border-gray-300 border-t-gray-500 animate-spin rounded-full"></div>
+              <span>Unlocking in {timeLeft}s...</span>
+            </button>
+          ) : (
+            <button
               onClick={handleFinalDownload}
-              className="w-full max-w-sm mx-auto flex items-center justify-center gap-3 bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white font-bold py-5 px-8 rounded-2xl shadow-xl shadow-orange-500/20 transition-all transform hover:scale-[1.02] active:scale-95 text-lg"
+              className="w-full flex items-center justify-center gap-3 bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white font-bold py-5 px-8 rounded-2xl shadow-2xl shadow-orange-500/30 transition-all transform hover:scale-[1.02] active:scale-95 text-lg"
             >
               <DownloadIcon className="h-7 w-7" />
-              <span>Save Wallpaper Now</span>
+              <span>Download Wallpaper (4K)</span>
             </button>
-          </div>
-        )}
+          )}
+        </div>
+
+        {/* Trust Badge */}
+        <div className="mt-6 inline-flex items-center gap-2 px-4 py-1.5 bg-green-50 rounded-full border border-green-100">
+          <div className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></div>
+          <span className="text-[10px] font-bold text-green-700 uppercase tracking-widest">Secure Cloudflare R2 Connection</span>
+        </div>
       </div>
       
       <style>{`
-        @keyframes bounce-in {
-          0% { opacity: 0; transform: scale(0.9); }
-          50% { opacity: 1; transform: scale(1.05); }
-          100% { opacity: 1; transform: scale(1); }
+        @keyframes fade-in {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-        .animate-bounce-in {
-          animation: bounce-in 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        .animate-fade-in {
+            animation: fade-in 0.4s ease-out forwards;
         }
       `}</style>
     </div>

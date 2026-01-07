@@ -79,10 +79,14 @@ const WallpaperPageView: React.FC<WallpaperPageViewProps> = ({ wallpaper, onBack
               <span>Download Free Wallpaper</span>
             </button>
           ) : (
-            <DownloadSection imageUrl={wallpaper.imageUrl} />
+            <DownloadSection 
+               deviceType={wallpaper.category} 
+               categoryName="Aesthetic" // Fallback category, can be dynamic if available in wallpaper object
+               imageName={wallpaper.slug}
+            />
           )}
 
-          {/* Improved "Ratings" (Specs) display - Changed to horizontal on mobile via grid-cols-4 and text size adjustments */}
+          {/* Improved "Ratings" (Specs) display */}
           <div className="mt-12 grid grid-cols-4 gap-1 sm:gap-4 border-t border-gray-100 pt-8 text-center">
             <div className="p-1 sm:p-2">
               <p className="text-gray-400 text-[8px] sm:text-[10px] uppercase tracking-widest mb-1 truncate">Dimensions</p>
