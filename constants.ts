@@ -22,39 +22,35 @@ export const SUB_CATEGORIES = [
   'Kids'
 ];
 
-const generateWallpapers = (count: number, width: number, height: number, category: Category): Wallpaper[] => {
-  return Array.from({ length: count }, (_, i) => {
-    const id = i + 1;
-    // EXACT Device Folder Names: Desktop, Phone, Tablet
-    const deviceFolder = (category === 'Home' ? 'Desktop' : category);
-    
-    // Cycle through categories: Space, Nature, etc.
-    const themeFolder = SUB_CATEGORIES[i % SUB_CATEGORIES.length];
-    const imageName = `${deviceFolder.toLowerCase()}-v${id}`;
-    
-    // STRICT PATTERN: ${baseURL}/${Device}/${Category}/${imageName}.png
-    const imageUrl = `${R2_BASE_URL}/${deviceFolder}/${themeFolder}/${imageName}.png`;
-    
-    return {
-      id,
-      slug: imageName,
-      title: `${themeFolder} #${id}`,
-      description: `Premium 4K ${deviceFolder} background from our ${themeFolder} collection. Optimized for high-resolution displays.`,
-      imageUrl,
-      category,      // This tracks device type
-      subCategory: themeFolder, // This tracks the theme (Nature, Cars, etc)
-      width,
-      height,
-      extension: 'png'
-    };
-  });
-};
+/**
+ * Manual list of all wallpaper assets hosted on Cloudflare R2.
+ * To add new images, simply append a new object to this array.
+ */
+export const MY_IMAGES: Wallpaper[] = [
+  {
+    id: 1,
+    slug: "porsche-718-gt4rs-white-red-rims",
+    title: "Porsche 718 GT4RS",
+    description: "High-performance Porsche 718 GT4RS in white with striking red rims. Captured in stunning 4K detail.",
+    imageUrl: `${R2_BASE_URL}/Desktop/Cars/porsche-718-gt4rs-white-red-rims.png`,
+    category: 'Desktop',
+    subCategory: 'Cars',
+    width: 3840,
+    height: 2160,
+    extension: 'png'
+  },
+  // Add more manual entries here following the same structure
+];
 
+/**
+ * Maps categories to their respective filtered arrays.
+ * This ensures the gallery only shows relevant items per device type.
+ */
 export const WALLPAPER_DATA: Record<Category, Wallpaper[]> = {
-  'Home': generateWallpapers(12, 1920, 1080, 'Home'),
-  'Desktop': generateWallpapers(20, 3840, 2160, 'Desktop'),
-  'Phone': generateWallpapers(20, 1290, 2796, 'Phone'),
-  'Tablet': generateWallpapers(20, 1536, 2048, 'Tablet'),
+  'Home': MY_IMAGES, // Home can show everything or a featured selection
+  'Desktop': MY_IMAGES.filter(img => img.category === 'Desktop'),
+  'Phone': MY_IMAGES.filter(img => img.category === 'Phone'),
+  'Tablet': MY_IMAGES.filter(img => img.category === 'Tablet'),
 };
 
 export const ICON_PACK_DATA = [];
