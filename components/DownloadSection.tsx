@@ -2,14 +2,14 @@
 import React, { useState, useEffect } from 'react';
 import { DownloadIcon } from './icons/DownloadIcon';
 
-const R2_BASE_URL = "https://your-custom-domain.com";
+const R2_BASE_URL = "https://cdn.walzoo.com";
 const COUNTDOWN_SECONDS = 20;
 
 interface DownloadSectionProps { 
   deviceType: string;    
   categoryName: string;  
   imageName: string;     
-  extension: string; // Passed from parent (detected or metadata)
+  extension: string;
 }
 
 const DownloadSection: React.FC<DownloadSectionProps> = ({ 
@@ -45,19 +45,25 @@ const DownloadSection: React.FC<DownloadSectionProps> = ({
     fetchLocation();
   }, []);
 
+  /**
+   * BLOB METHOD: Downloads the file directly via browser memory.
+   * This is enabled by the '*' CORS policy on your R2 bucket.
+   */
   const handleFinalDownload = async () => {
-    // STRICT DYNAMIC URL CONSTRUCTION with dynamic extension and CAPITALIZED device type
-    // Pattern: ${baseURL}/${deviceType}/${category}/${imageName}.${extension}
-    // We use deviceType as passed (Home mapped to Desktop in constants, others are Phone/Tablet)
+    // STRICT CASE SENSITIVE PATH: /Device/Category/
+    // folder and categoryName are already capitalized from constants.ts
     const folder = deviceType === 'Home' ? 'Desktop' : deviceType;
     const finalUrl = `${R2_BASE_URL}/${folder}/${categoryName}/${imageName}.${extension}`;
     
     setIsDownloading(true);
     
     try {
-      // BLOB FETCH METHOD for direct downloading
-      const response = await fetch(finalUrl);
-      if (!response.ok) throw new Error('Network response was not ok');
+      const response = await fetch(finalUrl, {
+        method: 'GET',
+        mode: 'cors',
+      });
+      
+      if (!response.ok) throw new Error(`HTTP Error: ${response.status}`);
       
       const blob = await response.blob();
       const blobUrl = window.URL.createObjectURL(blob);
@@ -68,12 +74,12 @@ const DownloadSection: React.FC<DownloadSectionProps> = ({
       document.body.appendChild(link);
       link.click();
       
-      // Cleanup
+      // Cleanup browser memory to prevent leaks
       window.URL.revokeObjectURL(blobUrl);
       document.body.removeChild(link);
     } catch (error) {
-      console.error("Download failed, falling back to direct link:", error);
-      // Fallback: Open in new tab if blob fetch fails (e.g. CORS issues)
+      console.error("Direct download failed, attempting fallback:", error);
+      // Fallback: Opens in new tab if the fetch fails (CORS/Network error)
       window.open(finalUrl, '_blank');
     } finally {
       setIsDownloading(false);
@@ -98,7 +104,7 @@ const DownloadSection: React.FC<DownloadSectionProps> = ({
                </svg>
              </div>
              <p className="text-gray-400 text-sm font-medium">Video Ad Loading...</p>
-             <p className="text-gray-500 text-xs mt-2 italic px-4">Watch to unlock your high-quality 4K R2 download.</p>
+             <p className="text-gray-500 text-xs mt-2 italic px-4">Watch to unlock your high-quality 4K download.</p>
           </div>
         </div>
 
@@ -109,7 +115,7 @@ const DownloadSection: React.FC<DownloadSectionProps> = ({
           <p className="text-gray-500 text-sm">
             {isReady 
               ? `Verified download node: ${location}` 
-              : `Securing direct R2 link... ${timeLeft}s remaining.`}
+              : `Securing direct link... ${timeLeft}s remaining.`}
           </p>
         </div>
 
@@ -133,14 +139,14 @@ const DownloadSection: React.FC<DownloadSectionProps> = ({
               ) : (
                 <DownloadIcon className="h-7 w-7" />
               )}
-              <span>{isDownloading ? 'Downloading...' : `Download Original (${extension.toUpperCase()})`}</span>
+              <span>{isDownloading ? 'Downloading...' : `Download ${extension.toUpperCase()}`}</span>
             </button>
           )}
         </div>
 
         <div className="mt-6 inline-flex items-center gap-2 px-4 py-1.5 bg-green-50 rounded-full border border-green-100">
           <div className="w-1.5 h-1.5 bg-green-500 rounded-full animate-pulse"></div>
-          <span className="text-[10px] font-bold text-green-700 uppercase tracking-widest">Powered by Cloudflare R2</span>
+          <span className="text-[10px] font-bold text-green-700 uppercase tracking-widest">Secured via cdn.walzoo.com</span>
         </div>
       </div>
     </div>

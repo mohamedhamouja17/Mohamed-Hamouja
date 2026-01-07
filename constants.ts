@@ -1,7 +1,7 @@
 
 import { type Wallpaper, type Category } from './types';
 
-const R2_BASE_URL = "https://your-custom-domain.com";
+const R2_BASE_URL = "https://cdn.walzoo.com";
 
 export const SUB_CATEGORIES = [
   'Space',
@@ -24,7 +24,7 @@ export const SUB_CATEGORIES = [
 
 /**
  * Manual list of all wallpaper assets hosted on Cloudflare R2.
- * To add new images, simply append a new object to this array.
+ * Folders are case-sensitive: /Desktop/Cars/
  */
 export const MY_IMAGES: Wallpaper[] = [
   {
@@ -39,15 +39,14 @@ export const MY_IMAGES: Wallpaper[] = [
     height: 2160,
     extension: 'png'
   },
-  // Add more manual entries here following the same structure
+  // Add more manual entries here following the same /Device/Category/Name structure
 ];
 
 /**
  * Maps categories to their respective filtered arrays.
- * This ensures the gallery only shows relevant items per device type.
  */
 export const WALLPAPER_DATA: Record<Category, Wallpaper[]> = {
-  'Home': MY_IMAGES, // Home can show everything or a featured selection
+  'Home': MY_IMAGES, 
   'Desktop': MY_IMAGES.filter(img => img.category === 'Desktop'),
   'Phone': MY_IMAGES.filter(img => img.category === 'Phone'),
   'Tablet': MY_IMAGES.filter(img => img.category === 'Tablet'),
