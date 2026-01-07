@@ -12,12 +12,14 @@ interface DownloadModalProps {
 const DownloadModal: React.FC<DownloadModalProps> = ({ isOpen, onClose, imageUrl }) => {
   const [timeLeft, setTimeLeft] = useState(15);
   const [canDownload, setCanDownload] = useState(false);
+  const [isDownloading, setIsDownloading] = useState(false);
 
   useEffect(() => {
     if (isOpen) {
       // Reset state when modal opens
       setTimeLeft(15);
       setCanDownload(false);
+      setIsDownloading(false);
 
       const timer = setInterval(() => {
         setTimeLeft((prev) => {
@@ -34,18 +36,42 @@ const DownloadModal: React.FC<DownloadModalProps> = ({ isOpen, onClose, imageUrl
     }
   }, [isOpen]);
 
-  const handleDownload = () => {
-    // Create a temporary anchor to trigger download
-    const link = document.createElement('a');
-    link.href = imageUrl;
-    link.target = '_blank';
-    link.download = 'wallpaper.jpg';
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+  const handleDownload = async () => {
+    if (isDownloading) return;
     
-    // Optional: Close modal after download starts
-    // onClose(); 
+    setIsDownloading(true);
+    try {
+      // Use fetch to get the image as a blob
+      // mode: 'cors' works because the R2 bucket has CORS '*' enabled
+      const response = await fetch(imageUrl, {
+        method: 'GET',
+        mode: 'cors',
+      });
+
+      if (!response.ok) throw new Error('Network response was not ok');
+
+      const blob = await response.blob();
+      const blobUrl = window.URL.createObjectURL(blob);
+      
+      // Extract filename from URL or default
+      const filename = imageUrl.split('/').pop() || 'walzoo-wallpaper.png';
+
+      const link = document.createElement('a');
+      link.href = blobUrl;
+      link.download = filename;
+      document.body.appendChild(link);
+      link.click();
+      
+      // Cleanup
+      document.body.removeChild(link);
+      window.URL.revokeObjectURL(blobUrl);
+    } catch (error) {
+      console.error("Download failed, using fallback:", error);
+      // Fallback: opens in a new tab if blob fetch fails
+      window.open(imageUrl, '_blank');
+    } finally {
+      setIsDownloading(false);
+    }
   };
 
   if (!isOpen) return null;
@@ -97,10 +123,15 @@ const DownloadModal: React.FC<DownloadModalProps> = ({ isOpen, onClose, imageUrl
                 <p className="text-green-600 font-semibold mb-3">Your download is ready!</p>
                 <button
                   onClick={handleDownload}
-                  className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white font-bold py-3.5 px-6 rounded-xl shadow-lg shadow-orange-500/30 transition-all transform hover:scale-[1.02] active:scale-95"
+                  disabled={isDownloading}
+                  className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white font-bold py-3.5 px-6 rounded-xl shadow-lg shadow-orange-500/30 transition-all transform hover:scale-[1.02] active:scale-95 disabled:opacity-75"
                 >
-                  <DownloadIcon className="h-5 w-5" />
-                  <span>Download Now</span>
+                  {isDownloading ? (
+                    <div className="h-5 w-5 border-2 border-white/30 border-t-white animate-spin rounded-full"></div>
+                  ) : (
+                    <DownloadIcon className="h-5 w-5" />
+                  )}
+                  <span>{isDownloading ? 'Processing...' : 'Download Now'}</span>
                 </button>
               </div>
             )}
