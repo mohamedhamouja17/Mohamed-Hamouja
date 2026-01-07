@@ -1,7 +1,7 @@
 
 import { type Wallpaper, type Category } from './types';
 
-const R2_BASE_URL = "https://pub-92d8986bb0cc46a58160f8926467ee4e.r2.dev";
+const R2_BASE_URL = "https://your-custom-domain.com";
 
 export const SUB_CATEGORIES = [
   'Space',

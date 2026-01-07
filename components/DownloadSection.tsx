@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { DownloadIcon } from './icons/DownloadIcon';
 
-const R2_BASE_URL = "https://pub-92d8986bb0cc46a58160f8926467ee4e.r2.dev";
+const R2_BASE_URL = "https://your-custom-domain.com";
 const COUNTDOWN_SECONDS = 20;
 
 interface DownloadSectionProps { 
@@ -20,6 +20,7 @@ const DownloadSection: React.FC<DownloadSectionProps> = ({
 }) => {
   const [timeLeft, setTimeLeft] = useState(COUNTDOWN_SECONDS);
   const [isReady, setIsReady] = useState(false);
+  const [isDownloading, setIsDownloading] = useState(false);
   const [location, setLocation] = useState<string>('Detecting node...');
 
   useEffect(() => {
@@ -44,19 +45,39 @@ const DownloadSection: React.FC<DownloadSectionProps> = ({
     fetchLocation();
   }, []);
 
-  const handleFinalDownload = () => {
-    // STRICT DYNAMIC URL CONSTRUCTION with dynamic extension
+  const handleFinalDownload = async () => {
+    // STRICT DYNAMIC URL CONSTRUCTION with dynamic extension and CAPITALIZED device type
     // Pattern: ${baseURL}/${deviceType}/${category}/${imageName}.${extension}
-    const type = deviceType.toLowerCase();
-    const finalUrl = `${R2_BASE_URL}/${type}/${categoryName}/${imageName}.${extension}`;
+    // We use deviceType as passed (Home mapped to Desktop in constants, others are Phone/Tablet)
+    const folder = deviceType === 'Home' ? 'Desktop' : deviceType;
+    const finalUrl = `${R2_BASE_URL}/${folder}/${categoryName}/${imageName}.${extension}`;
     
-    const link = document.createElement('a');
-    link.href = finalUrl;
-    link.target = "_blank";
-    link.download = `${imageName}.${extension}`;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    setIsDownloading(true);
+    
+    try {
+      // BLOB FETCH METHOD for direct downloading
+      const response = await fetch(finalUrl);
+      if (!response.ok) throw new Error('Network response was not ok');
+      
+      const blob = await response.blob();
+      const blobUrl = window.URL.createObjectURL(blob);
+      
+      const link = document.createElement('a');
+      link.href = blobUrl;
+      link.download = `${imageName}.${extension}`;
+      document.body.appendChild(link);
+      link.click();
+      
+      // Cleanup
+      window.URL.revokeObjectURL(blobUrl);
+      document.body.removeChild(link);
+    } catch (error) {
+      console.error("Download failed, falling back to direct link:", error);
+      // Fallback: Open in new tab if blob fetch fails (e.g. CORS issues)
+      window.open(finalUrl, '_blank');
+    } finally {
+      setIsDownloading(false);
+    }
   };
 
   return (
@@ -104,10 +125,15 @@ const DownloadSection: React.FC<DownloadSectionProps> = ({
           ) : (
             <button
               onClick={handleFinalDownload}
+              disabled={isDownloading}
               className="w-full flex items-center justify-center gap-3 bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white font-bold py-5 px-8 rounded-2xl shadow-2xl shadow-orange-500/30 transition-all transform hover:scale-[1.02] active:scale-95 text-lg"
             >
-              <DownloadIcon className="h-7 w-7" />
-              <span>Download Original ({extension.toUpperCase()})</span>
+              {isDownloading ? (
+                <div className="h-7 w-7 border-2 border-white/30 border-t-white animate-spin rounded-full"></div>
+              ) : (
+                <DownloadIcon className="h-7 w-7" />
+              )}
+              <span>{isDownloading ? 'Downloading...' : `Download Original (${extension.toUpperCase()})`}</span>
             </button>
           )}
         </div>
