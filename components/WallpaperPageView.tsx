@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { type Wallpaper } from '../types';
 import DownloadSection from './DownloadSection';
 import { ChevronDownIcon } from './icons/ChevronDownIcon';
@@ -11,6 +11,21 @@ interface WallpaperPageViewProps {
 
 const WallpaperPageView: React.FC<WallpaperPageViewProps> = ({ wallpaper, onBack }) => {
   const [showDownload, setShowDownload] = useState(false);
+  const [currentUrl, setCurrentUrl] = useState(wallpaper.imageUrl);
+  const [detectedExtension, setDetectedExtension] = useState(wallpaper.extension);
+  const [hasTriedSwap, setHasTriedSwap] = useState(false);
+
+  // If the initial URL fails, try the alternative extension automatically
+  const handleImageError = () => {
+    if (!hasTriedSwap) {
+      const otherExt = detectedExtension === 'jpg' ? 'png' : 'jpg';
+      const newUrl = currentUrl.replace(`.${detectedExtension}`, `.${otherExt}`);
+      
+      setCurrentUrl(newUrl);
+      setDetectedExtension(otherExt);
+      setHasTriedSwap(true);
+    }
+  };
 
   const getAspectRatioClass = () => {
     switch (wallpaper.category) {
@@ -41,13 +56,17 @@ const WallpaperPageView: React.FC<WallpaperPageViewProps> = ({ wallpaper, onBack
         <div className="bg-gray-50 p-4 sm:p-8 flex justify-center items-center min-h-[40vh]">
           <div className={`relative shadow-2xl rounded-2xl overflow-hidden border-4 border-white transition-all duration-500 ${getAspectRatioClass()}`}>
             <img 
-              src={wallpaper.imageUrl} 
+              src={currentUrl} 
               alt={wallpaper.title}
-              className="w-full h-full object-cover block"
+              className="w-full h-full object-cover block bg-gray-200"
               loading="lazy"
+              onError={handleImageError}
             />
             <div className="absolute top-3 right-3 bg-black/40 backdrop-blur-md text-white text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-tighter">
               {wallpaper.width >= 3840 ? '4K UHD' : 'HD READY'}
+            </div>
+            <div className="absolute bottom-3 left-3 bg-orange-500/80 backdrop-blur-md text-white text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-tighter">
+              {detectedExtension.toUpperCase()}
             </div>
           </div>
         </div>
@@ -82,6 +101,7 @@ const WallpaperPageView: React.FC<WallpaperPageViewProps> = ({ wallpaper, onBack
                deviceType={wallpaper.category} 
                categoryName={wallpaper.subCategory}
                imageName={wallpaper.slug}
+               extension={detectedExtension}
             />
           )}
 
@@ -91,8 +111,8 @@ const WallpaperPageView: React.FC<WallpaperPageViewProps> = ({ wallpaper, onBack
               <p className="font-bold text-gray-800 text-[10px] sm:text-base">{wallpaper.width}x{wallpaper.height}</p>
             </div>
             <div className="p-1 sm:p-2">
-              <p className="text-gray-400 text-[8px] sm:text-[10px] uppercase tracking-widest mb-1">Type</p>
-              <p className="font-bold text-gray-800 text-[10px] sm:text-base">Ultra HD</p>
+              <p className="text-gray-400 text-[8px] sm:text-[10px] uppercase tracking-widest mb-1">Format</p>
+              <p className="font-bold text-gray-800 text-[10px] sm:text-base">{detectedExtension.toUpperCase()}</p>
             </div>
             <div className="p-1 sm:p-2">
               <p className="text-gray-400 text-[8px] sm:text-[10px] uppercase tracking-widest mb-1">Storage</p>

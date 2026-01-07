@@ -9,12 +9,14 @@ interface DownloadSectionProps {
   deviceType: string;    
   categoryName: string;  
   imageName: string;     
+  extension: string; // Passed from parent (detected or metadata)
 }
 
 const DownloadSection: React.FC<DownloadSectionProps> = ({ 
   deviceType, 
   categoryName, 
-  imageName 
+  imageName,
+  extension
 }) => {
   const [timeLeft, setTimeLeft] = useState(COUNTDOWN_SECONDS);
   const [isReady, setIsReady] = useState(false);
@@ -43,15 +45,15 @@ const DownloadSection: React.FC<DownloadSectionProps> = ({
   }, []);
 
   const handleFinalDownload = () => {
-    // STRICT DYNAMIC URL CONSTRUCTION
-    // Pattern: ${baseURL}/${deviceType}/${category}/${imageName}.jpg
+    // STRICT DYNAMIC URL CONSTRUCTION with dynamic extension
+    // Pattern: ${baseURL}/${deviceType}/${category}/${imageName}.${extension}
     const type = deviceType.toLowerCase();
-    const finalUrl = `${R2_BASE_URL}/${type}/${categoryName}/${imageName}.jpg`;
+    const finalUrl = `${R2_BASE_URL}/${type}/${categoryName}/${imageName}.${extension}`;
     
     const link = document.createElement('a');
     link.href = finalUrl;
     link.target = "_blank";
-    link.download = `${imageName}.jpg`;
+    link.download = `${imageName}.${extension}`;
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -81,7 +83,7 @@ const DownloadSection: React.FC<DownloadSectionProps> = ({
 
         <div className="text-center mb-8">
           <h3 className="text-xl font-bold text-gray-800 mb-2">
-            {isReady ? "Your 4K Download is Ready!" : "Preparing high-quality file..."}
+            {isReady ? `Your 4K ${extension.toUpperCase()} is Ready!` : "Preparing high-quality file..."}
           </h3>
           <p className="text-gray-500 text-sm">
             {isReady 
@@ -105,7 +107,7 @@ const DownloadSection: React.FC<DownloadSectionProps> = ({
               className="w-full flex items-center justify-center gap-3 bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white font-bold py-5 px-8 rounded-2xl shadow-2xl shadow-orange-500/30 transition-all transform hover:scale-[1.02] active:scale-95 text-lg"
             >
               <DownloadIcon className="h-7 w-7" />
-              <span>Download Original 4K (.jpg)</span>
+              <span>Download Original ({extension.toUpperCase()})</span>
             </button>
           )}
         </div>

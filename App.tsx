@@ -22,6 +22,7 @@ type View = 'gallery' | 'blog' | 'about' | 'privacy' | 'terms' | 'contact' | 'wa
 
 function App() {
   const [activeCategory, setActiveCategory] = useState<Category>('Home');
+  const [activeSubCategory, setActiveSubCategory] = useState<string>('All');
   const [currentView, setCurrentView] = useState<View>('gallery');
   const [selectedWallpaper, setSelectedWallpaper] = useState<Wallpaper | null>(null);
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
@@ -35,9 +36,17 @@ function App() {
     return () => unsubscribe();
   }, []);
 
+  // Reset sub-category when changing device type
+  const handleSetCategory = (cat: Category) => {
+    setActiveCategory(cat);
+    setActiveSubCategory('All');
+    setCurrentView('gallery');
+  };
+
   const handleNavigateToHome = () => {
     setCurrentView('gallery');
     setActiveCategory('Home');
+    setActiveSubCategory('All');
     setSelectedWallpaper(null);
     window.scrollTo(0, 0);
   };
@@ -79,12 +88,18 @@ function App() {
           <>
             <CategoryNav 
               activeCategory={activeCategory} 
-              setActiveCategory={setActiveCategory}
+              setActiveCategory={handleSetCategory}
               onBlogClick={() => navigateToView('blog')}
             />
-            {activeCategory !== 'Home' && <SearchBar activeCategory={activeCategory} />}
+            {activeCategory !== 'Home' && (
+              <SearchBar 
+                activeSubCategory={activeSubCategory} 
+                onSubCategoryChange={setActiveSubCategory} 
+              />
+            )}
             <ContentGrid 
               activeCategory={activeCategory} 
+              activeSubCategory={activeSubCategory}
               onWallpaperSelect={handleSelectWallpaper}
             />
             {activeCategory !== 'Home' && <Pagination />}

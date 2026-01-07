@@ -2,16 +2,16 @@
 import React from 'react';
 import { SearchIcon } from './icons/SearchIcon';
 import { ChevronDownIcon } from './icons/ChevronDownIcon';
-import { type Category } from '../types';
 import { SUB_CATEGORIES } from '../constants';
 
 const filterCategories = ['All', ...SUB_CATEGORIES];
 
 interface SearchBarProps {
-  activeCategory: Category;
+  activeSubCategory: string;
+  onSubCategoryChange: (category: string) => void;
 }
 
-const SearchBar: React.FC<SearchBarProps> = ({ activeCategory }) => {
+const SearchBar: React.FC<SearchBarProps> = ({ activeSubCategory, onSubCategoryChange }) => {
   return (
     <div className="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
       <div className="relative flex-grow">
@@ -23,7 +23,11 @@ const SearchBar: React.FC<SearchBarProps> = ({ activeCategory }) => {
         />
       </div>
       <div className="relative min-w-[160px]">
-        <select className="appearance-none w-full bg-white border border-gray-200 rounded-2xl py-3.5 pl-5 pr-12 text-gray-800 focus:outline-none focus:ring-2 focus:ring-orange-400 cursor-pointer shadow-sm font-semibold text-sm">
+        <select 
+          value={activeSubCategory}
+          onChange={(e) => onSubCategoryChange(e.target.value)}
+          className="appearance-none w-full bg-white border border-gray-200 rounded-2xl py-3.5 pl-5 pr-12 text-gray-800 focus:outline-none focus:ring-2 focus:ring-orange-400 cursor-pointer shadow-sm font-semibold text-sm"
+        >
           {filterCategories.map((category) => (
             <option key={category} value={category}>{category}</option>
           ))}

@@ -15,6 +15,7 @@ export interface Wallpaper {
   subCategory: string;   // Folder Category (e.g., Aesthetic, Nature)
   width: number;
   height: number;
+  extension: 'jpg' | 'png'; // Support for both formats
 }
 
 export interface IconPack {

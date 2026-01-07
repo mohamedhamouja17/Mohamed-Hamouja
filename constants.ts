@@ -25,37 +25,36 @@ export const SUB_CATEGORIES = [
 const generateWallpapers = (count: number, width: number, height: number, category: Category): Wallpaper[] => {
   return Array.from({ length: count }, (_, i) => {
     const id = i + 1;
-    // Map 'Home' category to 'desktop' for URL construction
-    const devicePath = (category === 'Home' ? 'desktop' : category.toLowerCase());
+    // EXACT Device Folder Names: Desktop, Phone, Tablet
+    const deviceFolder = (category === 'Home' ? 'Desktop' : category);
     
-    // Cycle through the new sub-categories provided by the user
-    const subCategory = SUB_CATEGORIES[i % SUB_CATEGORIES.length];
-    const imageName = `${devicePath}-v${id}`;
+    // Cycle through categories: Space, Nature, etc.
+    const themeFolder = SUB_CATEGORIES[i % SUB_CATEGORIES.length];
+    const imageName = `${deviceFolder.toLowerCase()}-v${id}`;
     
-    // Pattern: ${baseURL}/${deviceType}/${category}/${imageName}.jpg
-    // Note: In R2 storage, folder names are usually clean strings. 
-    // We'll use the subCategory directly but in a real app, these might be slugified.
-    const imageUrl = `${R2_BASE_URL}/${devicePath}/${subCategory}/${imageName}.jpg`;
+    // STRICT PATTERN: ${baseURL}/${Device}/${Category}/${imageName}.png
+    const imageUrl = `${R2_BASE_URL}/${deviceFolder}/${themeFolder}/${imageName}.png`;
     
     return {
       id,
       slug: imageName,
-      title: `${subCategory} #${id}`,
-      description: `Premium 4K ${category} background from our ${subCategory} collection. Optimized for high-resolution displays.`,
+      title: `${themeFolder} #${id}`,
+      description: `Premium 4K ${deviceFolder} background from our ${themeFolder} collection. Optimized for high-resolution displays.`,
       imageUrl,
-      category,
-      subCategory,
+      category,      // This tracks device type
+      subCategory: themeFolder, // This tracks the theme (Nature, Cars, etc)
       width,
-      height
+      height,
+      extension: 'png'
     };
   });
 };
 
 export const WALLPAPER_DATA: Record<Category, Wallpaper[]> = {
   'Home': generateWallpapers(12, 1920, 1080, 'Home'),
-  'Desktop': generateWallpapers(12, 3840, 2160, 'Desktop'),
-  'Phone': generateWallpapers(12, 1290, 2796, 'Phone'),
-  'Tablet': generateWallpapers(12, 1536, 2048, 'Tablet'),
+  'Desktop': generateWallpapers(20, 3840, 2160, 'Desktop'),
+  'Phone': generateWallpapers(20, 1290, 2796, 'Phone'),
+  'Tablet': generateWallpapers(20, 1536, 2048, 'Tablet'),
 };
 
 export const ICON_PACK_DATA = [];
