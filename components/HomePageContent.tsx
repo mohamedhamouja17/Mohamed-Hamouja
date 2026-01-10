@@ -1,8 +1,4 @@
 import React from 'react';
-import SubscriptionCTA from './SubscriptionCTA.tsx';
-import PhoneWallpaperSlideshow from './PhoneWallpaperSlideshow.tsx';
-import DesktopWallpaperSlideshow from './DesktopWallpaperSlideshow.tsx';
-import TabletWallpaperSlideshow from './TabletWallpaperSlideshow.tsx';
 import { type Wallpaper } from '../types.ts';
 
 interface HomePageContentProps {
@@ -21,45 +17,6 @@ const HomePageContent: React.FC<HomePageContentProps> = ({ onWallpaperSelect }) 
           Discover high-quality backgrounds for Mobile, Tablet, and Desktop — 100% Free.
         </p>
       </div>
-
-      {/* Main CTA */}
-      <SubscriptionCTA />
-
-      {/* Section: Desktop */}
-      <section>
-        <div className="flex items-center justify-between px-4 mb-4">
-            <h2 className="text-2xl font-bold text-gray-800 flex items-center gap-2">
-                <span className="w-8 h-1 bg-orange-500 rounded-full"></span>
-                Desktop Backgrounds
-            </h2>
-            <p className="text-sm text-gray-400 font-semibold uppercase tracking-widest">Ultra HD 4K</p>
-        </div>
-        <DesktopWallpaperSlideshow onWallpaperSelect={onWallpaperSelect} />
-      </section>
-
-      {/* Section: Mobile */}
-      <section>
-        <div className="flex items-center justify-between px-4 mb-4">
-            <h2 className="text-2xl font-bold text-gray-800 flex items-center gap-2">
-                <span className="w-8 h-1 bg-orange-500 rounded-full"></span>
-                Phone Wallpapers
-            </h2>
-            <p className="text-sm text-gray-400 font-semibold uppercase tracking-widest">OLED Optimized</p>
-        </div>
-        <PhoneWallpaperSlideshow onWallpaperSelect={onWallpaperSelect} />
-      </section>
-
-      {/* Section: Tablet */}
-      <section>
-        <div className="flex items-center justify-between px-4 mb-4">
-            <h2 className="text-2xl font-bold text-gray-800 flex items-center gap-2">
-                <span className="w-8 h-1 bg-orange-500 rounded-full"></span>
-                Tablet Art
-            </h2>
-            <p className="text-sm text-gray-400 font-semibold uppercase tracking-widest">Hi-Res Displays</p>
-        </div>
-        <TabletWallpaperSlideshow onWallpaperSelect={onWallpaperSelect} />
-      </section>
     </div>
   );
 };
