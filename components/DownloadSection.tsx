@@ -18,16 +18,16 @@ const DownloadSection: React.FC<DownloadSectionProps> = ({
   extension
 }) => {
   const [timeLeft, setTimeLeft] = useState(COUNTDOWN_SECONDS);
-  const [isReady, setIsReady] = useState(false);
+  const [isTimerFinished, setIsTimerFinished] = useState(false);
   const [isDownloading, setIsDownloading] = useState(false);
   const [location, setLocation] = useState<string>('Detecting node...');
 
   useEffect(() => {
     if (timeLeft > 0) {
-      const timer = setInterval(() => setTimeLeft(prev => prev - 1), 1000);
-      return () => clearInterval(timer);
+      const timer = setTimeout(() => setTimeLeft(prev => prev - 1), 1000);
+      return () => clearTimeout(timer);
     } else {
-      setIsReady(true);
+      setIsTimerFinished(true);
     }
   }, [timeLeft]);
 
@@ -44,37 +44,29 @@ const DownloadSection: React.FC<DownloadSectionProps> = ({
     fetchLocation();
   }, []);
 
-  /**
-   * DIRECT BLOB DOWNLOAD:
-   * 1. Fetch the image from the custom domain.
-   * 2. Convert the response to a binary Blob.
-   * 3. Create a local URL and trigger a virtual click on a hidden anchor tag.
-   */
-  const handleFinalDownload = async () => {
+  const handleManualDownload = async () => {
+    if (!isTimerFinished || isDownloading) return;
+    
     const folder = deviceType === 'Home' ? 'Desktop' : deviceType;
-    // Ensure no accidental spaces in the URL components
     const cleanImageName = imageName.trim();
     const cleanCategory = categoryName.trim();
-    const finalUrl = `${R2_BASE_URL}/${folder}/${cleanCategory}/${cleanImageName}.${extension}`;
+    
+    // Construct URL with cache-busting to force fresh CORS evaluation
+    const timestamp = new Date().getTime();
+    const finalUrl = `${R2_BASE_URL}/${folder}/${cleanCategory}/${cleanImageName}.${extension}?download=true&t=${timestamp}`;
     
     setIsDownloading(true);
     
     try {
-      // Step 1: Fetch the content
-      const response = await fetch(finalUrl, {
-        method: 'GET',
-        mode: 'cors', // Requires CORS '*' on cdn.walzoo.com
-      });
+      // Fetch the asset as a blob. We remove 'mode: cors' to let the browser use defaults
+      // which often resolves 'Failed to fetch' issues on misconfigured CDNs.
+      const response = await fetch(finalUrl);
       
       if (!response.ok) throw new Error(`Fetch failed with status: ${response.status}`);
       
-      // Step 2: Convert to Blob
       const blob = await response.blob();
-      
-      // Step 3: Create temporary local URL
       const blobUrl = window.URL.createObjectURL(blob);
       
-      // Step 4: Trigger Download via hidden anchor
       const link = document.createElement('a');
       link.href = blobUrl;
       link.download = `${cleanImageName}.${extension}`;
@@ -82,12 +74,19 @@ const DownloadSection: React.FC<DownloadSectionProps> = ({
       link.click();
       
       // Cleanup
-      window.URL.revokeObjectURL(blobUrl);
-      document.body.removeChild(link);
+      setTimeout(() => {
+        window.URL.revokeObjectURL(blobUrl);
+        document.body.removeChild(link);
+      }, 100);
+
     } catch (error) {
-      console.error("Blob download failed, falling back to new tab:", error);
-      // Fallback: This usually happens if CORS is not correctly configured on the server
-      window.open(finalUrl, '_blank');
+      console.error("Manual download failed, falling back to new tab:", error);
+      // Fallback: Open in new tab if CORS prevents Blob creation
+      const fallbackLink = document.createElement('a');
+      fallbackLink.href = finalUrl;
+      fallbackLink.target = '_blank';
+      fallbackLink.rel = 'noopener noreferrer';
+      fallbackLink.click();
     } finally {
       setIsDownloading(false);
     }
@@ -111,33 +110,30 @@ const DownloadSection: React.FC<DownloadSectionProps> = ({
                </svg>
              </div>
              <p className="text-gray-400 text-sm font-medium">Video Ad Loading...</p>
-             <p className="text-gray-500 text-xs mt-2 italic px-4">Watch to unlock your high-quality 4K download.</p>
+             <p className="text-gray-500 text-xs mt-2 italic px-4">Support us by viewing this ad while your high-quality download prepares.</p>
           </div>
         </div>
 
         <div className="text-center mb-8">
           <h3 className="text-xl font-bold text-gray-800 mb-2">
-            {isReady ? `Your 4K ${extension.toUpperCase()} is Ready!` : "Preparing high-quality file..."}
+            {isTimerFinished ? `Your 4K ${extension.toUpperCase()} is Ready!` : "Preparing high-quality file..."}
           </h3>
           <p className="text-gray-500 text-sm">
-            {isReady 
+            {isTimerFinished 
               ? `Verified download node: ${location}` 
               : `Securing direct link... ${timeLeft}s remaining.`}
           </p>
         </div>
 
         <div className="w-full flex flex-col items-center">
-          {!isReady ? (
-            <button
-              disabled
-              className="w-full flex items-center justify-center gap-3 bg-gray-100 text-gray-400 font-bold py-5 px-8 rounded-2xl cursor-not-allowed border border-gray-200"
-            >
+          {!isTimerFinished ? (
+            <div className="w-full flex items-center justify-center gap-3 bg-gray-100 text-gray-400 font-bold py-5 px-8 rounded-2xl border border-gray-200">
               <div className="h-5 w-5 border-2 border-gray-300 border-t-gray-500 animate-spin rounded-full"></div>
               <span>Download Locked ({timeLeft}s)</span>
-            </button>
+            </div>
           ) : (
             <button
-              onClick={handleFinalDownload}
+              onClick={handleManualDownload}
               disabled={isDownloading}
               className="w-full flex items-center justify-center gap-3 bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white font-bold py-5 px-8 rounded-2xl shadow-2xl shadow-orange-500/30 transition-all transform hover:scale-[1.02] active:scale-95 text-lg"
             >

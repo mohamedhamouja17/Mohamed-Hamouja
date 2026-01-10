@@ -10,21 +10,21 @@ interface DownloadModalProps {
 
 const DownloadModal: React.FC<DownloadModalProps> = ({ isOpen, onClose, imageUrl }) => {
   const [timeLeft, setTimeLeft] = useState(15);
-  const [canDownload, setCanDownload] = useState(false);
+  const [isTimerFinished, setIsTimerFinished] = useState(false);
   const [isDownloading, setIsDownloading] = useState(false);
 
   useEffect(() => {
     if (isOpen) {
       // Reset state when modal opens
       setTimeLeft(15);
-      setCanDownload(false);
+      setIsTimerFinished(false);
       setIsDownloading(false);
 
       const timer = setInterval(() => {
         setTimeLeft((prev) => {
           if (prev <= 1) {
             clearInterval(timer);
-            setCanDownload(true);
+            setIsTimerFinished(true);
             return 0;
           }
           return prev - 1;
@@ -35,30 +35,25 @@ const DownloadModal: React.FC<DownloadModalProps> = ({ isOpen, onClose, imageUrl
     }
   }, [isOpen]);
 
-  const handleDownload = async () => {
-    if (isDownloading) return;
+  const handleManualDownload = async () => {
+    if (!isTimerFinished || isDownloading) return;
     
     setIsDownloading(true);
     try {
-      // Ensure the image URL is clean
       const cleanUrl = imageUrl.trim();
+      // Add timestamp to force fresh CORS evaluation
+      const timestamp = new Date().getTime();
+      const fetchUrl = cleanUrl.includes('?') 
+        ? `${cleanUrl}&download=1&t=${timestamp}` 
+        : `${cleanUrl}?download=1&t=${timestamp}`;
 
-      // Step 1: Fetch the image as a blob
-      const response = await fetch(cleanUrl, {
-        method: 'GET',
-        mode: 'cors',
-      });
+      const response = await fetch(fetchUrl);
 
       if (!response.ok) throw new Error('Network response was not ok');
 
-      // Step 2: Convert to blob
       const blob = await response.blob();
-      
-      // Step 3: Create temporary local URL
       const blobUrl = window.URL.createObjectURL(blob);
-      
-      // Step 4: Extract filename and trigger download
-      const filename = cleanUrl.split('/').pop() || 'walzoo-wallpaper.png';
+      const filename = cleanUrl.split('/').pop()?.split('?')[0] || 'walzoo-wallpaper.png';
 
       const link = document.createElement('a');
       link.href = blobUrl;
@@ -66,13 +61,14 @@ const DownloadModal: React.FC<DownloadModalProps> = ({ isOpen, onClose, imageUrl
       document.body.appendChild(link);
       link.click();
       
-      // Cleanup browser memory
-      document.body.removeChild(link);
-      window.URL.revokeObjectURL(blobUrl);
+      setTimeout(() => {
+        document.body.removeChild(link);
+        window.URL.revokeObjectURL(blobUrl);
+      }, 100);
     } catch (error) {
-      console.error("Direct download failed, falling back to new tab:", error);
-      // Fallback: opens in a new tab if blob fetch fails
-      window.open(imageUrl, '_blank');
+      console.error("Manual download failed, falling back to new tab:", error);
+      // Direct opening fallback if CORS/Fetch fails
+      window.open(imageUrl, '_blank', 'noopener,noreferrer');
     } finally {
       setIsDownloading(false);
     }
@@ -113,7 +109,7 @@ const DownloadModal: React.FC<DownloadModalProps> = ({ isOpen, onClose, imageUrl
 
           {/* Countdown / Download Section */}
           <div className="w-full min-h-[80px] flex flex-col items-center justify-center">
-            {!canDownload ? (
+            {!isTimerFinished ? (
               <div className="space-y-2 animate-pulse">
                 <div className="h-12 w-12 rounded-full border-4 border-orange-200 border-t-orange-500 animate-spin mx-auto mb-2"></div>
                 <p className="text-gray-600 font-medium">
@@ -125,7 +121,7 @@ const DownloadModal: React.FC<DownloadModalProps> = ({ isOpen, onClose, imageUrl
               <div className="w-full animate-fade-in">
                 <p className="text-green-600 font-semibold mb-3">Your download is ready!</p>
                 <button
-                  onClick={handleDownload}
+                  onClick={handleManualDownload}
                   disabled={isDownloading}
                   className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white font-bold py-3.5 px-6 rounded-xl shadow-lg shadow-orange-500/30 transition-all transform hover:scale-[1.02] active:scale-95 disabled:opacity-75"
                 >
