@@ -1,5 +1,5 @@
-
 import { initializeApp } from 'firebase/app';
+// Add getAuth to enable authentication
 import { getAuth } from 'firebase/auth';
 
 const firebaseConfig = {
@@ -12,5 +12,6 @@ const firebaseConfig = {
   measurementId: "G-733535BHX5"
 };
 
-const app = initializeApp(firebaseConfig);
+export const app = initializeApp(firebaseConfig);
+// Initialize and export auth instance
 export const auth = getAuth(app);

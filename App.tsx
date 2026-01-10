@@ -1,12 +1,10 @@
-
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Header from './components/Header.tsx';
 import CategoryNav from './components/CategoryNav.tsx';
 import SearchBar from './components/SearchBar.tsx';
 import ContentGrid from './components/ContentGrid.tsx';
 import Pagination from './components/Pagination.tsx';
 import Footer from './components/Footer.tsx';
-import AuthModal from './components/AuthModal.tsx';
 import PricingModal from './components/PricingModal.tsx';
 import WallpaperPageView from './components/WallpaperPageView.tsx';
 import BlogPage from './components/BlogPage.tsx';
@@ -15,8 +13,6 @@ import PrivacyPage from './components/PrivacyPage.tsx';
 import TermsPage from './components/TermsPage.tsx';
 import ContactPage from './components/ContactPage.tsx';
 import { type Category, type Wallpaper } from './types.ts';
-import { auth } from './firebase.ts';
-import { onAuthStateChanged, type User } from 'firebase/auth';
 
 type View = 'gallery' | 'blog' | 'about' | 'privacy' | 'terms' | 'contact' | 'wallpaper-detail';
 
@@ -25,16 +21,7 @@ function App() {
   const [activeSubCategory, setActiveSubCategory] = useState<string>('All');
   const [currentView, setCurrentView] = useState<View>('gallery');
   const [selectedWallpaper, setSelectedWallpaper] = useState<Wallpaper | null>(null);
-  const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
   const [isPricingModalOpen, setIsPricingModalOpen] = useState(false);
-  const [user, setUser] = useState<User | null>(null);
-
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-      setUser(currentUser);
-    });
-    return () => unsubscribe();
-  }, []);
 
   // Reset sub-category when changing device type
   const handleSetCategory = (cat: Category) => {
@@ -126,7 +113,6 @@ function App() {
           onContactClick={() => navigateToView('contact')}
         />
       </div>
-      {isAuthModalOpen && <AuthModal onClose={() => setIsAuthModalOpen(false)} />}
       {isPricingModalOpen && <PricingModal onClose={() => setIsPricingModalOpen(false)} />}
     </div>
   );
