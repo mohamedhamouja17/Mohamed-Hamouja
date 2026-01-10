@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { type Wallpaper } from '../types';
+import { type Wallpaper } from '../types.ts';
 
 interface WallpaperCardProps {
   wallpaper: Wallpaper;

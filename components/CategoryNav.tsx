@@ -1,12 +1,11 @@
-
 import React, { useState } from 'react';
-import { type Category, CATEGORIES } from '../types';
-import { DesktopIcon } from './icons/DesktopIcon';
-import { PhoneIcon } from './icons/PhoneIcon';
-import { TabletIcon } from './icons/TabletIcon';
-import { HomeIcon } from './icons/HomeIcon';
-import { CategoryIcon } from './icons/CategoryIcon';
-import { BlogIcon } from './icons/BlogIcon';
+import { type Category, CATEGORIES } from '../types.ts';
+import { DesktopIcon } from './icons/DesktopIcon.tsx';
+import { PhoneIcon } from './icons/PhoneIcon.tsx';
+import { TabletIcon } from './icons/TabletIcon.tsx';
+import { HomeIcon } from './icons/HomeIcon.tsx';
+import { CategoryIcon } from './icons/CategoryIcon.tsx';
+import { BlogIcon } from './icons/BlogIcon.tsx';
 
 interface CategoryNavProps {
   activeCategory: Category;

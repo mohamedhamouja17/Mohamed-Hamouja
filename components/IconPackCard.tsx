@@ -1,6 +1,6 @@
 import React from 'react';
-import { type IconPack } from '../types';
-import { DownloadIcon } from './icons/DownloadIcon';
+import { type IconPack } from '../types.ts';
+import { DownloadIcon } from './icons/DownloadIcon.tsx';
 
 interface IconPackCardProps {
   pack: IconPack;

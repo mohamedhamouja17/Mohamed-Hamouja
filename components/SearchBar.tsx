@@ -1,8 +1,7 @@
-
 import React from 'react';
-import { SearchIcon } from './icons/SearchIcon';
-import { ChevronDownIcon } from './icons/ChevronDownIcon';
-import { SUB_CATEGORIES } from '../constants';
+import { SearchIcon } from './icons/SearchIcon.tsx';
+import { ChevronDownIcon } from './icons/ChevronDownIcon.tsx';
+import { SUB_CATEGORIES } from '../constants.ts';
 
 const filterCategories = ['All', ...SUB_CATEGORIES];
 

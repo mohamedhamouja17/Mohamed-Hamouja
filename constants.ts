@@ -1,5 +1,4 @@
-
-import { type Wallpaper, type Category } from './types';
+import { type Wallpaper, type Category } from './types.ts';
 
 const R2_BASE_URL = "https://cdn.walzoo.com";
 
@@ -22,10 +21,6 @@ export const SUB_CATEGORIES = [
   'Kids'
 ];
 
-/**
- * Manual list of all wallpaper assets hosted on Cloudflare R2.
- * Folders are case-sensitive: /Desktop/Cars/
- */
 export const MY_IMAGES: Wallpaper[] = [
   {
     id: 1,
@@ -39,12 +34,56 @@ export const MY_IMAGES: Wallpaper[] = [
     height: 2160,
     extension: 'png'
   },
-  // Add more manual entries here following the same /Device/Category/Name structure
+  {
+    id: 2,
+    slug: "neon-city-night-vibes",
+    title: "Cyberpunk Cityscape",
+    description: "A futuristic neon city drenched in rain, perfect for high-resolution desktop setups.",
+    imageUrl: `https://picsum.photos/seed/cyber/3840/2160`,
+    category: 'Desktop',
+    subCategory: 'Digital Art',
+    width: 3840,
+    height: 2160,
+    extension: 'jpg'
+  },
+  {
+    id: 3,
+    slug: "iphone-aesthetic-gradient",
+    title: "Aesthetic Mesh Gradient",
+    description: "Soft, flowing colors designed specifically for mobile OLED screens.",
+    imageUrl: `https://picsum.photos/seed/mobile1/1080/1920`,
+    category: 'Phone',
+    subCategory: 'Abstract',
+    width: 1080,
+    height: 1920,
+    extension: 'jpg'
+  },
+  {
+    id: 4,
+    slug: "misty-forest-vertical",
+    title: "Misty Morning Forest",
+    description: "Serene morning fog rolling through a dense pine forest, optimized for iPhone and Android.",
+    imageUrl: `https://picsum.photos/seed/mobile2/1080/1920`,
+    category: 'Phone',
+    subCategory: 'Nature',
+    width: 1080,
+    height: 1920,
+    extension: 'jpg'
+  },
+  {
+    id: 5,
+    slug: "tablet-minimal-mountains",
+    title: "Minimalist Mountains",
+    description: "Clean vector-style mountain range for tablets and iPads.",
+    imageUrl: `https://picsum.photos/seed/tablet1/2048/2732`,
+    category: 'Tablet',
+    subCategory: 'Minimalist',
+    width: 2048,
+    height: 2732,
+    extension: 'jpg'
+  }
 ];
 
-/**
- * Maps categories to their respective filtered arrays.
- */
 export const WALLPAPER_DATA: Record<Category, Wallpaper[]> = {
   'Home': MY_IMAGES, 
   'Desktop': MY_IMAGES.filter(img => img.category === 'Desktop'),

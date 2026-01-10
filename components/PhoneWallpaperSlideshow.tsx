@@ -1,8 +1,7 @@
-
 import React from 'react';
-import { type Wallpaper } from '../types';
-import WallpaperCard from './WallpaperCard';
-import { WALLPAPER_DATA } from '../constants';
+import { type Wallpaper } from '../types.ts';
+import WallpaperCard from './WallpaperCard.tsx';
+import { WALLPAPER_DATA } from '../constants.ts';
 
 interface PhoneWallpaperSlideshowProps {
   onWallpaperSelect: (wallpaper: Wallpaper) => void;

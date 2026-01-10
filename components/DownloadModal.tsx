@@ -1,7 +1,6 @@
-
 import React, { useState, useEffect } from 'react';
-import { CloseIcon } from './icons/CloseIcon';
-import { DownloadIcon } from './icons/DownloadIcon';
+import { CloseIcon } from './icons/CloseIcon.tsx';
+import { DownloadIcon } from './icons/DownloadIcon.tsx';
 
 interface DownloadModalProps {
   isOpen: boolean;
@@ -41,20 +40,25 @@ const DownloadModal: React.FC<DownloadModalProps> = ({ isOpen, onClose, imageUrl
     
     setIsDownloading(true);
     try {
-      // Use fetch to get the image as a blob
-      // mode: 'cors' works because the R2 bucket has CORS '*' enabled
-      const response = await fetch(imageUrl, {
+      // Ensure the image URL is clean
+      const cleanUrl = imageUrl.trim();
+
+      // Step 1: Fetch the image as a blob
+      const response = await fetch(cleanUrl, {
         method: 'GET',
         mode: 'cors',
       });
 
       if (!response.ok) throw new Error('Network response was not ok');
 
+      // Step 2: Convert to blob
       const blob = await response.blob();
+      
+      // Step 3: Create temporary local URL
       const blobUrl = window.URL.createObjectURL(blob);
       
-      // Extract filename from URL or default
-      const filename = imageUrl.split('/').pop() || 'walzoo-wallpaper.png';
+      // Step 4: Extract filename and trigger download
+      const filename = cleanUrl.split('/').pop() || 'walzoo-wallpaper.png';
 
       const link = document.createElement('a');
       link.href = blobUrl;
@@ -62,11 +66,11 @@ const DownloadModal: React.FC<DownloadModalProps> = ({ isOpen, onClose, imageUrl
       document.body.appendChild(link);
       link.click();
       
-      // Cleanup
+      // Cleanup browser memory
       document.body.removeChild(link);
       window.URL.revokeObjectURL(blobUrl);
     } catch (error) {
-      console.error("Download failed, using fallback:", error);
+      console.error("Direct download failed, falling back to new tab:", error);
       // Fallback: opens in a new tab if blob fetch fails
       window.open(imageUrl, '_blank');
     } finally {
@@ -98,13 +102,12 @@ const DownloadModal: React.FC<DownloadModalProps> = ({ isOpen, onClose, imageUrl
             Download Content
           </h2>
 
-          {/* Ad Block */}
+          {/* Ad Block Placeholder */}
           <div className="w-full h-64 bg-gray-100 border-2 border-dashed border-gray-300 rounded-lg flex flex-col items-center justify-center mb-6 relative overflow-hidden group">
             <span className="text-gray-400 font-semibold tracking-widest text-sm uppercase mb-2">Advertisement</span>
             <div className="text-xs text-gray-400 px-8">
               Support us by viewing this ad while we prepare your download.
             </div>
-            {/* Simulation of ad content */}
             <div className="absolute inset-0 bg-gradient-to-tr from-gray-50 to-gray-100 opacity-50 pointer-events-none"></div>
           </div>
 

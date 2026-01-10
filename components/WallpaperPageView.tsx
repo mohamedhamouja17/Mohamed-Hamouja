@@ -1,8 +1,8 @@
 
 import React, { useState, useEffect } from 'react';
-import { type Wallpaper } from '../types';
-import DownloadSection from './DownloadSection';
-import { ChevronDownIcon } from './icons/ChevronDownIcon';
+import { type Wallpaper } from '../types.ts';
+import DownloadSection from './DownloadSection.tsx';
+import { ChevronDownIcon } from './icons/ChevronDownIcon.tsx';
 
 interface WallpaperPageViewProps {
   wallpaper: Wallpaper;

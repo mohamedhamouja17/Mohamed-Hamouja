@@ -1,9 +1,9 @@
 
 import React from 'react';
-import { type Category, type Wallpaper } from '../types';
-import { WALLPAPER_DATA } from '../constants';
-import WallpaperCard from './WallpaperCard';
-import HomePageContent from './HomePageContent';
+import { type Category, type Wallpaper } from '../types.ts';
+import { WALLPAPER_DATA } from '../constants.ts';
+import WallpaperCard from './WallpaperCard.tsx';
+import HomePageContent from './HomePageContent.tsx';
 
 interface ContentGridProps {
   activeCategory: Category;

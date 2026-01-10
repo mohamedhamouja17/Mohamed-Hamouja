@@ -1,5 +1,5 @@
 import React from 'react';
-import { type OperatingSystem, OPERATING_SYSTEMS } from '../types';
+import { type OperatingSystem, OPERATING_SYSTEMS } from '../types.ts';
 
 interface AppIconsSubNavProps {
   activeOs: OperatingSystem;

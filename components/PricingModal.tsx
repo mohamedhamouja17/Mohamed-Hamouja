@@ -1,8 +1,7 @@
-
 import React from 'react';
-import { CloseIcon } from './icons/CloseIcon';
-import { SparklesIcon } from './icons/SparklesIcon';
-import { HeartIcon } from './icons/HeartIcon';
+import { CloseIcon } from './icons/CloseIcon.tsx';
+import { SparklesIcon } from './icons/SparklesIcon.tsx';
+import { HeartIcon } from './icons/HeartIcon.tsx';
 
 interface PricingModalProps {
   onClose: () => void;

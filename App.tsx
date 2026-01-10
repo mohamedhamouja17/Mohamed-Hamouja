@@ -1,21 +1,21 @@
 
 import React, { useState, useEffect } from 'react';
-import Header from './components/Header';
-import CategoryNav from './components/CategoryNav';
-import SearchBar from './components/SearchBar';
-import ContentGrid from './components/ContentGrid';
-import Pagination from './components/Pagination';
-import Footer from './components/Footer';
-import AuthModal from './components/AuthModal';
-import PricingModal from './components/PricingModal';
-import WallpaperPageView from './components/WallpaperPageView';
-import BlogPage from './components/BlogPage';
-import AboutPage from './components/AboutPage';
-import PrivacyPage from './components/PrivacyPage';
-import TermsPage from './components/TermsPage';
-import ContactPage from './components/ContactPage';
-import { type Category, type Wallpaper } from './types';
-import { auth } from './firebase';
+import Header from './components/Header.tsx';
+import CategoryNav from './components/CategoryNav.tsx';
+import SearchBar from './components/SearchBar.tsx';
+import ContentGrid from './components/ContentGrid.tsx';
+import Pagination from './components/Pagination.tsx';
+import Footer from './components/Footer.tsx';
+import AuthModal from './components/AuthModal.tsx';
+import PricingModal from './components/PricingModal.tsx';
+import WallpaperPageView from './components/WallpaperPageView.tsx';
+import BlogPage from './components/BlogPage.tsx';
+import AboutPage from './components/AboutPage.tsx';
+import PrivacyPage from './components/PrivacyPage.tsx';
+import TermsPage from './components/TermsPage.tsx';
+import ContactPage from './components/ContactPage.tsx';
+import { type Category, type Wallpaper } from './types.ts';
+import { auth } from './firebase.ts';
 import { onAuthStateChanged, type User } from 'firebase/auth';
 
 type View = 'gallery' | 'blog' | 'about' | 'privacy' | 'terms' | 'contact' | 'wallpaper-detail';

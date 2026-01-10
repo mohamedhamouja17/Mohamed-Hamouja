@@ -1,7 +1,6 @@
-
 import React from 'react';
-import { TigerClawsIcon } from './icons/TigerClawsIcon';
-import { HeartIcon } from './icons/HeartIcon';
+import { TigerClawsIcon } from './icons/TigerClawsIcon.tsx';
+import { HeartIcon } from './icons/HeartIcon.tsx';
 
 interface HeaderProps {
   onLogoClick: () => void;

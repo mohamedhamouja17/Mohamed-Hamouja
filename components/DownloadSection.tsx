@@ -1,6 +1,5 @@
-
 import React, { useState, useEffect } from 'react';
-import { DownloadIcon } from './icons/DownloadIcon';
+import { DownloadIcon } from './icons/DownloadIcon.tsx';
 
 const R2_BASE_URL = "https://cdn.walzoo.com";
 const COUNTDOWN_SECONDS = 20;
@@ -46,40 +45,48 @@ const DownloadSection: React.FC<DownloadSectionProps> = ({
   }, []);
 
   /**
-   * BLOB METHOD: Downloads the file directly via browser memory.
-   * This is enabled by the '*' CORS policy on your R2 bucket.
+   * DIRECT BLOB DOWNLOAD:
+   * 1. Fetch the image from the custom domain.
+   * 2. Convert the response to a binary Blob.
+   * 3. Create a local URL and trigger a virtual click on a hidden anchor tag.
    */
   const handleFinalDownload = async () => {
-    // STRICT CASE SENSITIVE PATH: /Device/Category/
-    // folder and categoryName are already capitalized from constants.ts
     const folder = deviceType === 'Home' ? 'Desktop' : deviceType;
-    const finalUrl = `${R2_BASE_URL}/${folder}/${categoryName}/${imageName}.${extension}`;
+    // Ensure no accidental spaces in the URL components
+    const cleanImageName = imageName.trim();
+    const cleanCategory = categoryName.trim();
+    const finalUrl = `${R2_BASE_URL}/${folder}/${cleanCategory}/${cleanImageName}.${extension}`;
     
     setIsDownloading(true);
     
     try {
+      // Step 1: Fetch the content
       const response = await fetch(finalUrl, {
         method: 'GET',
-        mode: 'cors',
+        mode: 'cors', // Requires CORS '*' on cdn.walzoo.com
       });
       
-      if (!response.ok) throw new Error(`HTTP Error: ${response.status}`);
+      if (!response.ok) throw new Error(`Fetch failed with status: ${response.status}`);
       
+      // Step 2: Convert to Blob
       const blob = await response.blob();
+      
+      // Step 3: Create temporary local URL
       const blobUrl = window.URL.createObjectURL(blob);
       
+      // Step 4: Trigger Download via hidden anchor
       const link = document.createElement('a');
       link.href = blobUrl;
-      link.download = `${imageName}.${extension}`;
+      link.download = `${cleanImageName}.${extension}`;
       document.body.appendChild(link);
       link.click();
       
-      // Cleanup browser memory to prevent leaks
+      // Cleanup
       window.URL.revokeObjectURL(blobUrl);
       document.body.removeChild(link);
     } catch (error) {
-      console.error("Direct download failed, attempting fallback:", error);
-      // Fallback: Opens in new tab if the fetch fails (CORS/Network error)
+      console.error("Blob download failed, falling back to new tab:", error);
+      // Fallback: This usually happens if CORS is not correctly configured on the server
       window.open(finalUrl, '_blank');
     } finally {
       setIsDownloading(false);
@@ -90,7 +97,7 @@ const DownloadSection: React.FC<DownloadSectionProps> = ({
     <div className="mt-8 p-6 sm:p-10 bg-white rounded-[2rem] border-2 border-orange-50 shadow-xl animate-fade-in max-w-2xl mx-auto">
       <div className="flex flex-col items-center">
         
-        {/* Adsterra Placeholder */}
+        {/* Ad Placeholder */}
         <div className="w-full bg-black rounded-2xl mb-8 flex flex-col items-center justify-center min-h-[250px] relative overflow-hidden group shadow-inner">
           <div className="absolute top-4 left-4 bg-orange-500/80 text-[10px] font-bold text-white px-2 py-0.5 rounded-sm uppercase tracking-widest z-10">
             Sponsored Content

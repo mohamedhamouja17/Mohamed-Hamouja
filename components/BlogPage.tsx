@@ -1,5 +1,5 @@
 import React from 'react';
-import { TigerClawsIcon } from './icons/TigerClawsIcon';
+import { TigerClawsIcon } from './icons/TigerClawsIcon.tsx';
 
 const BLOG_POSTS = [
   {

@@ -1,10 +1,9 @@
-
 import React from 'react';
-import { TigerClawsIcon } from './icons/TigerClawsIcon';
-import { DiamondIcon } from './icons/DiamondIcon';
-import { SparklesIcon } from './icons/SparklesIcon';
-import { DesktopIcon } from './icons/DesktopIcon';
-import { PhoneIcon } from './icons/PhoneIcon';
+import { TigerClawsIcon } from './icons/TigerClawsIcon.tsx';
+import { DiamondIcon } from './icons/DiamondIcon.tsx';
+import { SparklesIcon } from './icons/SparklesIcon.tsx';
+import { DesktopIcon } from './icons/DesktopIcon.tsx';
+import { PhoneIcon } from './icons/PhoneIcon.tsx';
 
 const AboutPage: React.FC = () => {
   return (

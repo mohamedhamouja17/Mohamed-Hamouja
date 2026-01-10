@@ -1,8 +1,8 @@
 import React from 'react';
-import { EmailIcon } from './icons/EmailIcon';
-import { TwitterIcon } from './icons/TwitterIcon';
-import { InstagramIcon } from './icons/InstagramIcon';
-import { FacebookIcon } from './icons/FacebookIcon';
+import { EmailIcon } from './icons/EmailIcon.tsx';
+import { TwitterIcon } from './icons/TwitterIcon.tsx';
+import { InstagramIcon } from './icons/InstagramIcon.tsx';
+import { FacebookIcon } from './icons/FacebookIcon.tsx';
 
 interface FooterProps {
   onBlogClick: () => void;

@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { UserIcon } from './icons/UserIcon';
-import { AtIcon } from './icons/AtIcon';
-import { LockIcon } from './icons/LockIcon';
-import { CloseIcon } from './icons/CloseIcon';
-import { GoogleIcon } from './icons/GoogleIcon';
-import { auth } from '../firebase';
+import { UserIcon } from './icons/UserIcon.tsx';
+import { AtIcon } from './icons/AtIcon.tsx';
+import { LockIcon } from './icons/LockIcon.tsx';
+import { CloseIcon } from './icons/CloseIcon.tsx';
+import { GoogleIcon } from './icons/GoogleIcon.tsx';
+import { auth } from '../firebase.ts';
 import { 
   createUserWithEmailAndPassword, 
   signInWithEmailAndPassword, 
