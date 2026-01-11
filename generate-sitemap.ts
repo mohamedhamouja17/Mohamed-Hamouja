@@ -1,6 +1,5 @@
 import fs from 'fs';
 import path from 'path';
-import process from 'process';
 import { MY_IMAGES } from './constants.ts';
 
 /**
@@ -50,6 +49,7 @@ ${allRoutes
 </urlset>`;
 
   // Define target output path: ./dist/sitemap.xml
+  // Use global process.cwd() which is correctly typed in Node.js environments
   const distDir = path.resolve(process.cwd(), 'dist');
 
   // Ensure the distribution directory exists before writing
@@ -65,6 +65,7 @@ ${allRoutes
     console.log(`✅ Sitemap successfully generated at: ${outputPath}`);
   } catch (err) {
     console.error('❌ Error writing sitemap file:', err);
+    // Use global process.exit() which is correctly typed in Node.js environments
     process.exit(1);
   }
 };
