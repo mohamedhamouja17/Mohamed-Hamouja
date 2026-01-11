@@ -1,6 +1,5 @@
 import fs from 'fs';
 import path from 'path';
-// Fix: Import process explicitly to resolve type issues in environments with conflicting global definitions
 import process from 'process';
 import { MY_IMAGES } from './constants.ts';
 
@@ -51,7 +50,6 @@ ${allRoutes
 </urlset>`;
 
   // Define target output path: ./dist/sitemap.xml
-  // Fix: Explicitly use process.cwd() from the imported process module to avoid type errors
   const distDir = path.resolve(process.cwd(), 'dist');
 
   // Ensure the distribution directory exists before writing
@@ -67,7 +65,6 @@ ${allRoutes
     console.log(`✅ Sitemap successfully generated at: ${outputPath}`);
   } catch (err) {
     console.error('❌ Error writing sitemap file:', err);
-    // Fix: Explicitly use process.exit() from the imported process module to avoid type errors
     process.exit(1);
   }
 };

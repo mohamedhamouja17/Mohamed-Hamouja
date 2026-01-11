@@ -5,8 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build && npm run postbuild",
-    "postbuild": "node --loader ts-node/esm generate-sitemap.ts",
+    "build": "vite build && npm run sitemap",
     "sitemap": "node --loader ts-node/esm generate-sitemap.ts"
   },
   "dependencies": {
