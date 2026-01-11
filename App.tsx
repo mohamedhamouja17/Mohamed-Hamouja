@@ -76,7 +76,6 @@ function App() {
             <CategoryNav 
               activeCategory={activeCategory} 
               setActiveCategory={handleSetCategory}
-              onBlogClick={() => navigateToView('blog')}
             />
             {activeCategory !== 'Home' && (
               <SearchBar 
