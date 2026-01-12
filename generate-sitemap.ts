@@ -1,5 +1,7 @@
 import fs from 'fs';
 import path from 'path';
+// Fix: Import process explicitly to resolve typing issues where 'cwd' and 'exit' are missing from the global Process type
+import process from 'process';
 import { MY_IMAGES } from './constants.ts';
 
 /**
@@ -49,9 +51,9 @@ ${allRoutes
 </urlset>`;
 
   // Define target output path: ./dist/sitemap.xml
-  // Fixed: Cast process to any to access cwd() when Node types are restricted
-  const outputPath = path.join((process as any).cwd(), 'dist', 'sitemap.xml');
-  const distDir = path.dirname(outputPath);
+  // Fix: Property 'cwd' does not exist on type 'Process'. Explicitly importing 'process' ensures correct Node.js types.
+  const distDir = path.join(process.cwd(), 'dist');
+  const outputPath = path.join(distDir, 'sitemap.xml');
 
   // Ensure the distribution directory exists before writing
   if (!fs.existsSync(distDir)) {
@@ -64,8 +66,8 @@ ${allRoutes
     console.log(`✅ Sitemap successfully generated at: ${outputPath}`);
   } catch (err) {
     console.error('❌ Error writing sitemap file:', err);
-    // Fixed: Cast process to any to access exit() when Node types are restricted
-    (process as any).exit(1);
+    // Fix: Property 'exit' does not exist on type 'Process'. Explicitly importing 'process' ensures correct Node.js types.
+    process.exit(1);
   }
 };
 
