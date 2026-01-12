@@ -1,7 +1,6 @@
-
 import fs from 'fs';
 import path from 'path';
-// Fix: named imports 'cwd' and 'exit' are not available from the 'process' module; import the process object instead.
+// Fix: Import the default process object to access cwd() and exit() methods
 import process from 'process';
 import { MY_IMAGES } from './constants.ts';
 
@@ -52,7 +51,7 @@ ${allRoutes
 </urlset>`;
 
   // Define target output path: ./public/sitemap.xml
-  // Fix: Use process.cwd() to resolve the project root correctly
+  // Fix: Using process.cwd() instead of named export cwd()
   const sitemapPath = path.join(process.cwd(), 'public', 'sitemap.xml');
   const publicDir = path.dirname(sitemapPath);
 
@@ -67,7 +66,7 @@ ${allRoutes
     console.log(`✅ Sitemap successfully generated at: ${sitemapPath}`);
   } catch (err) {
     console.error('❌ Error writing sitemap file:', err);
-    // Fix: Use process.exit() to terminate with an error code
+    // Fix: Using process.exit() instead of named export exit()
     process.exit(1);
   }
 };
