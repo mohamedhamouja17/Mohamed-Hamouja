@@ -49,8 +49,9 @@ ${allRoutes
 </urlset>`;
 
   // Define target output path: ./dist/sitemap.xml
-  // Use global process.cwd() which is correctly typed in Node.js environments
-  const distDir = path.resolve(process.cwd(), 'dist');
+  // Fixed: Cast process to any to access cwd() when Node types are restricted
+  const outputPath = path.join((process as any).cwd(), 'dist', 'sitemap.xml');
+  const distDir = path.dirname(outputPath);
 
   // Ensure the distribution directory exists before writing
   if (!fs.existsSync(distDir)) {
@@ -58,15 +59,13 @@ ${allRoutes
     fs.mkdirSync(distDir, { recursive: true });
   }
 
-  const outputPath = path.join(distDir, 'sitemap.xml');
-  
   try {
     fs.writeFileSync(outputPath, sitemap, 'utf8');
     console.log(`✅ Sitemap successfully generated at: ${outputPath}`);
   } catch (err) {
     console.error('❌ Error writing sitemap file:', err);
-    // Use global process.exit() which is correctly typed in Node.js environments
-    process.exit(1);
+    // Fixed: Cast process to any to access exit() when Node types are restricted
+    (process as any).exit(1);
   }
 };
 

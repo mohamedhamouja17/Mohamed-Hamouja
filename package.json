@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build && npm run sitemap",
-    "sitemap": "node --loader ts-node/esm generate-sitemap.ts"
+    "sitemap": "npx ts-node --esm generate-sitemap.ts"
   },
   "dependencies": {
     "react": "^19.0.0",
