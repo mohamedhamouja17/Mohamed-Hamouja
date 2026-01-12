@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
-// Fix: Import default process instead of named exports which might not be available
-import process from 'process';
+// Fix: Use star import for the process module to ensure proper typing of Node.js-specific methods like cwd and exit
+import * as process from 'process';
 import { MY_IMAGES } from './constants.ts';
 
 /**
@@ -50,7 +50,7 @@ ${allRoutes
   .join('\n')}
 </urlset>`;
 
-  // Fix: Use process.cwd() instead of the named export cwd()
+  // Fix: Access cwd() through the star-imported process module to resolve Property 'cwd' does not exist on type 'Process'
   const sitemapPath = path.join(process.cwd(), 'public', 'sitemap.xml');
   const publicDir = path.dirname(sitemapPath);
 
@@ -65,7 +65,7 @@ ${allRoutes
     console.log(`✅ Sitemap successfully generated at: ${sitemapPath}`);
   } catch (err) {
     console.error('❌ Error writing sitemap file:', err);
-    // Fix: Use process.exit() instead of the named export exit()
+    // Fix: Access exit() through the star-imported process module to resolve Property 'exit' does not exist on type 'Process'
     process.exit(1);
   }
 };

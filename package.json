@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "npm run sitemap && vite build",
-    "sitemap": "npx ts-node --esm ./generate-sitemap.ts"
+    "sitemap": "tsx generate-sitemap.ts",
+    "preview": "vite preview"
   },
   "dependencies": {
     "react": "^19.0.0",
@@ -17,7 +18,7 @@
     "@types/node": "^20.0.0",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
-    "ts-node": "^10.9.1",
+    "tsx": "^4.7.1",
     "typescript": "^5.3.3",
     "vite": "^6.0.0"
   }
