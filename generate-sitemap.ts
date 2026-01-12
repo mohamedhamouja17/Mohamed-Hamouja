@@ -50,9 +50,11 @@ ${allRoutes
   .join('\n')}
 </urlset>`;
 
-  // Fix: Access cwd() through the star-imported process module to resolve Property 'cwd' does not exist on type 'Process'
-  const sitemapPath = path.join(process.cwd(), 'public', 'sitemap.xml');
-  const publicDir = path.dirname(sitemapPath);
+  // Define paths for both public/sitemap.xml and root sitemap.xml
+  const publicSitemapPath = path.join(process.cwd(), 'public', 'sitemap.xml');
+  const rootSitemapPath = path.join(process.cwd(), 'sitemap.xml');
+  
+  const publicDir = path.dirname(publicSitemapPath);
 
   // Ensure the public directory exists before writing
   if (!fs.existsSync(publicDir)) {
@@ -61,11 +63,15 @@ ${allRoutes
   }
 
   try {
-    fs.writeFileSync(sitemapPath, sitemap, 'utf8');
-    console.log(`✅ Sitemap successfully generated at: ${sitemapPath}`);
+    // Write to public/sitemap.xml
+    fs.writeFileSync(publicSitemapPath, sitemap, 'utf8');
+    console.log(`✅ Sitemap successfully generated at: ${publicSitemapPath}`);
+    
+    // Write to root sitemap.xml
+    fs.writeFileSync(rootSitemapPath, sitemap, 'utf8');
+    console.log(`✅ Sitemap successfully copied to root at: ${rootSitemapPath}`);
   } catch (err) {
-    console.error('❌ Error writing sitemap file:', err);
-    // Fix: Access exit() through the star-imported process module to resolve Property 'exit' does not exist on type 'Process'
+    console.error('❌ Error writing sitemap files:', err);
     process.exit(1);
   }
 };
