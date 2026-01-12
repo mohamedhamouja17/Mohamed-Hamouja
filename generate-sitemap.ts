@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-// Fix: Use named imports from 'process' to avoid type collision with the global Process interface
+// Use named imports for process methods to ensure they are correctly typed and avoid shadowing the global process object
 import { cwd, exit } from 'process';
 import { MY_IMAGES } from './constants.ts';
 
@@ -50,16 +50,16 @@ ${allRoutes
   .join('\n')}
 </urlset>`;
 
-  // Define target output path: ./dist/sitemap.xml
-  // Fix: Use cwd() instead of process.cwd() to resolve type error on Process interface
-  const sitemapPath = path.join(cwd(), 'dist', 'sitemap.xml');
-  const distDir = path.dirname(sitemapPath);
+  // Define target output path: ./public/sitemap.xml
+  // Saving to 'public' ensures Vercel serves it correctly as a static asset
+  // Use the imported cwd() function directly to resolve typing issues
+  const sitemapPath = path.join(cwd(), 'public', 'sitemap.xml');
+  const publicDir = path.dirname(sitemapPath);
 
-  // Ensure the distribution directory exists before writing
-  // This is critical for Vercel builds where the folder might not exist yet
-  if (!fs.existsSync(distDir)) {
-    console.log('Dist directory not found. Creating it...');
-    fs.mkdirSync(distDir, { recursive: true });
+  // Ensure the public directory exists before writing
+  if (!fs.existsSync(publicDir)) {
+    console.log('Public directory not found. Creating it...');
+    fs.mkdirSync(publicDir, { recursive: true });
   }
 
   try {
@@ -67,7 +67,7 @@ ${allRoutes
     console.log(`✅ Sitemap successfully generated at: ${sitemapPath}`);
   } catch (err) {
     console.error('❌ Error writing sitemap file:', err);
-    // Fix: Use exit(1) instead of process.exit(1) to resolve type error on Process interface
+    // Use the imported exit() function directly to resolve typing issues
     exit(1);
   }
 };

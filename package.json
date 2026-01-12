@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && npm run sitemap",
+    "build": "npm run sitemap && vite build",
     "sitemap": "npx ts-node --esm ./generate-sitemap.ts"
   },
   "dependencies": {
