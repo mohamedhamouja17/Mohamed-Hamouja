@@ -1,7 +1,8 @@
+
 import fs from 'fs';
 import path from 'path';
-// Use named imports for process methods to ensure they are correctly typed and avoid shadowing the global process object
-import { cwd, exit } from 'process';
+// Use the default import for process to access its methods reliably across different environments
+import process from 'process';
 import { MY_IMAGES } from './constants.ts';
 
 /**
@@ -11,7 +12,7 @@ import { MY_IMAGES } from './constants.ts';
  * It maps static application routes and dynamic wallpaper detail pages.
  */
 
-const BASE_URL = 'https://mohamed-hamouja.vercel.app';
+const BASE_URL = 'https://walzoo.com';
 
 // Application static routes
 const staticRoutes = [
@@ -52,8 +53,8 @@ ${allRoutes
 
   // Define target output path: ./public/sitemap.xml
   // Saving to 'public' ensures Vercel serves it correctly as a static asset
-  // Use the imported cwd() function directly to resolve typing issues
-  const sitemapPath = path.join(cwd(), 'public', 'sitemap.xml');
+  // Fix: Use process.cwd() instead of direct named import
+  const sitemapPath = path.join(process.cwd(), 'public', 'sitemap.xml');
   const publicDir = path.dirname(sitemapPath);
 
   // Ensure the public directory exists before writing
@@ -67,8 +68,8 @@ ${allRoutes
     console.log(`✅ Sitemap successfully generated at: ${sitemapPath}`);
   } catch (err) {
     console.error('❌ Error writing sitemap file:', err);
-    // Use the imported exit() function directly to resolve typing issues
-    exit(1);
+    // Fix: Use process.exit() instead of direct named import
+    process.exit(1);
   }
 };
 
