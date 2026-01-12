@@ -1,7 +1,7 @@
 
 import fs from 'fs';
 import path from 'path';
-// Use the default import for process to access its methods reliably across different environments
+// Fix: named imports 'cwd' and 'exit' are not available from the 'process' module; import the process object instead.
 import process from 'process';
 import { MY_IMAGES } from './constants.ts';
 
@@ -52,8 +52,7 @@ ${allRoutes
 </urlset>`;
 
   // Define target output path: ./public/sitemap.xml
-  // Saving to 'public' ensures Vercel serves it correctly as a static asset
-  // Fix: Use process.cwd() instead of direct named import
+  // Fix: Use process.cwd() to resolve the project root correctly
   const sitemapPath = path.join(process.cwd(), 'public', 'sitemap.xml');
   const publicDir = path.dirname(sitemapPath);
 
@@ -68,7 +67,7 @@ ${allRoutes
     console.log(`✅ Sitemap successfully generated at: ${sitemapPath}`);
   } catch (err) {
     console.error('❌ Error writing sitemap file:', err);
-    // Fix: Use process.exit() instead of direct named import
+    // Fix: Use process.exit() to terminate with an error code
     process.exit(1);
   }
 };
