@@ -58,7 +58,7 @@ const WallpaperPageView: React.FC<WallpaperPageViewProps> = ({ wallpaper, onBack
             <img 
               src={currentUrl} 
               alt={wallpaper.title}
-              className="w-full h-full object-cover block bg-gray-200"
+              className="w-full h-full object-cover block bg-gray-200 pointer-events-none"
               loading="lazy"
               onError={handleImageError}
             />
