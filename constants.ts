@@ -33,6 +33,18 @@ export const MY_IMAGES: Wallpaper[] = [
     width: 3840,
     height: 2160,
     extension: 'png'
+  },
+  {
+    id: 2,
+    slug: "deer-silhouette-full-moon",
+    title: "Deer Silhouette Full Moon",
+    description: "A stunning deer silhouette under a full moon in a night field.",
+    imageUrl: "https://pub-92d8986bb0cc46a58160f8926467ee4e.r2.dev/Phone/Animals/deer-silhouette-full-moon-antlers-night-field.png",
+    category: "Phone",
+    subCategory: "Animals",
+    width: 1080,
+    height: 1920,
+    extension: "png"
   }
 ];
 
