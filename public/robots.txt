@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://walzoo.com/sitemap.xml
+Sitemap: https://walzoo.com/sitemap-images.xml
