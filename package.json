@@ -5,8 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "npm run sitemap && vite build",
-    "sitemap": "tsx generate-sitemap.ts",
+    "build": "vite build",
     "preview": "vite preview"
   },
   "dependencies": {
