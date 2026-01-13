@@ -33,7 +33,10 @@ const WallpaperCard: React.FC<WallpaperCardProps> = ({ wallpaper, onViewClick })
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 bg-gray-100"
           loading="lazy"
         />
-        <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+        {/* Invisible Overlay Shield */}
+        <div className="absolute inset-0 z-10 bg-transparent select-none" aria-hidden="true"></div>
+
+        <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-20">
             <div className="bg-white/90 backdrop-blur-sm p-2 rounded-full shadow-lg transform scale-75 group-hover:scale-100 transition-transform duration-300">
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-orange-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
@@ -41,7 +44,7 @@ const WallpaperCard: React.FC<WallpaperCardProps> = ({ wallpaper, onViewClick })
                 </svg>
             </div>
         </div>
-        <div className="absolute bottom-2 left-2 px-2 py-0.5 bg-black/50 backdrop-blur-sm text-[8px] text-white rounded font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">
+        <div className="absolute bottom-2 left-2 px-2 py-0.5 bg-black/50 backdrop-blur-sm text-[8px] text-white rounded font-bold uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity z-30">
             {wallpaper.subCategory}
         </div>
       </div>

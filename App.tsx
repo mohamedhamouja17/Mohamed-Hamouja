@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+
+import React, { useState, useEffect } from 'react';
 import Header from './components/Header.tsx';
 import CategoryNav from './components/CategoryNav.tsx';
 import SearchBar from './components/SearchBar.tsx';
@@ -22,6 +23,17 @@ function App() {
   const [currentView, setCurrentView] = useState<View>('gallery');
   const [selectedWallpaper, setSelectedWallpaper] = useState<Wallpaper | null>(null);
   const [isPricingModalOpen, setIsPricingModalOpen] = useState(false);
+
+  // Disable right-click context menu globally
+  useEffect(() => {
+    const handleContextMenu = (e: MouseEvent) => {
+      e.preventDefault();
+    };
+    document.addEventListener('contextmenu', handleContextMenu);
+    return () => {
+      document.removeEventListener('contextmenu', handleContextMenu);
+    };
+  }, []);
 
   // Reset sub-category when changing device type
   const handleSetCategory = (cat: Category) => {

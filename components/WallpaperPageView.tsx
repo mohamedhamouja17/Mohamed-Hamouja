@@ -62,10 +62,13 @@ const WallpaperPageView: React.FC<WallpaperPageViewProps> = ({ wallpaper, onBack
               loading="lazy"
               onError={handleImageError}
             />
-            <div className="absolute top-3 right-3 bg-black/40 backdrop-blur-md text-white text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-tighter">
+            {/* Invisible Overlay Shield */}
+            <div className="absolute inset-0 z-10 bg-transparent select-none" aria-hidden="true"></div>
+            
+            <div className="absolute top-3 right-3 bg-black/40 backdrop-blur-md text-white text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-tighter z-20">
               {wallpaper.width >= 3840 ? '4K UHD' : 'HD READY'}
             </div>
-            <div className="absolute bottom-3 left-3 bg-orange-500/80 backdrop-blur-md text-white text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-tighter">
+            <div className="absolute bottom-3 left-3 bg-orange-500/80 backdrop-blur-md text-white text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-tighter z-20">
               {detectedExtension.toUpperCase()}
             </div>
           </div>
