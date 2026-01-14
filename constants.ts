@@ -45,6 +45,18 @@ export const MY_IMAGES: Wallpaper[] = [
     width: 1080,
     height: 1920,
     extension: "png"
+  },
+  {
+    id: 3,
+    slug: "porsche-911-gt3rs-abandoned-warehouse",
+    title: "Porsche 911 GT3RS Abandoned Warehouse",
+    description: "A stunning Porsche 911 GT3RS captured in an atmospheric abandoned warehouse setting. High-quality 4K Tablet Wallpaper.",
+    imageUrl: "https://pub-92d8986bb0cc46a58160f8926467ee4e.r2.dev/Tablet/Cars/porsche-911-gt3rs-abandoned-warehouse.png",
+    category: 'Tablet',
+    subCategory: 'Cars',
+    width: 2732,
+    height: 2048,
+    extension: 'png'
   }
 ];
 
