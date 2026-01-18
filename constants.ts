@@ -97,10 +97,10 @@ export const MY_IMAGES: Wallpaper[] = [
 ];
 
 export const WALLPAPER_DATA: Record<Category, Wallpaper[]> = {
-  'Home': MY_IMAGES, 
-  'Desktop': MY_IMAGES.filter(img => img.category === 'Desktop'),
-  'Phone': MY_IMAGES.filter(img => img.category === 'Phone'),
-  'Tablet': MY_IMAGES.filter(img => img.category === 'Tablet'),
+  'Home': [...MY_IMAGES].reverse(), 
+  'Desktop': MY_IMAGES.filter(img => img.category === 'Desktop').reverse(),
+  'Phone': MY_IMAGES.filter(img => img.category === 'Phone').reverse(),
+  'Tablet': MY_IMAGES.filter(img => img.category === 'Tablet').reverse(),
 };
 
 export const ICON_PACK_DATA = [];

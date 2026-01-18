@@ -1,6 +1,8 @@
+
 import fs from 'fs';
 import path from 'path';
-import * as process from 'process';
+// Use default import for process to ensure the correctly typed process object is used instead of a namespace
+import process from 'process';
 import { MY_IMAGES } from './constants.ts';
 
 /**
@@ -62,7 +64,9 @@ ${MY_IMAGES.map(img => {
 </urlset>`;
 
   const paths = {
+    // Fix: Access cwd() from the imported process object
     publicSitemap: path.join(process.cwd(), 'public', 'sitemap.xml'),
+    // Fix: Access cwd() from the imported process object
     rootSitemap: path.join(process.cwd(), 'sitemap.xml')
   };
   
@@ -78,6 +82,7 @@ ${MY_IMAGES.map(img => {
     console.log(`✅ Consolidated sitemap successfully generated at /public/sitemap.xml`);
   } catch (err) {
     console.error('❌ Error writing sitemap file:', err);
+    // Fix: Use process.exit() to stop the script on error
     process.exit(1);
   }
 };
