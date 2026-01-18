@@ -93,6 +93,30 @@ export const MY_IMAGES: Wallpaper[] = [
     width: 3840,
     height: 2160,
     extension: 'png'
+  },
+  {
+    id: 7,
+    slug: "white-british-shorthair-cat-portrait",
+    title: "White British Shorthair Cat Portrait",
+    description: "A stunning portrait of a white British Shorthair cat with bright eyes. High-quality 4K Phone wallpaper.",
+    imageUrl: `${R2_BASE_URL}/Phone/Animals/white-british-shorthair-cat-portrait.png`,
+    category: 'Phone',
+    subCategory: 'Animals',
+    width: 1080,
+    height: 2340,
+    extension: 'png'
+  },
+  {
+    id: 8,
+    slug: "white-british-shorthair-cat-portrait-tablet",
+    title: "White British Shorthair Cat Portrait Tablet",
+    description: "A high-resolution tablet wallpaper featuring a beautiful white British Shorthair cat in 4K detail.",
+    imageUrl: `${R2_BASE_URL}/Tablet/Animals/white-british-shorthair-cat-portrait-tablet.png`,
+    category: 'Tablet',
+    subCategory: 'Animals',
+    width: 2048,
+    height: 2732,
+    extension: 'png'
   }
 ];
 

@@ -1,8 +1,8 @@
 
 import fs from 'fs';
 import path from 'path';
-// Use default import for process to ensure the correctly typed process object is used instead of a namespace
-import process from 'process';
+// Use namespace import for process to ensure properties like cwd and exit are correctly typed and available in ESM
+import * as process from 'process';
 import { MY_IMAGES } from './constants.ts';
 
 /**
@@ -64,9 +64,9 @@ ${MY_IMAGES.map(img => {
 </urlset>`;
 
   const paths = {
-    // Fix: Access cwd() from the imported process object
+    // Fix: Access cwd() from the correctly typed process namespace
     publicSitemap: path.join(process.cwd(), 'public', 'sitemap.xml'),
-    // Fix: Access cwd() from the imported process object
+    // Fix: Access cwd() from the correctly typed process namespace
     rootSitemap: path.join(process.cwd(), 'sitemap.xml')
   };
   
@@ -82,7 +82,7 @@ ${MY_IMAGES.map(img => {
     console.log(`✅ Consolidated sitemap successfully generated at /public/sitemap.xml`);
   } catch (err) {
     console.error('❌ Error writing sitemap file:', err);
-    // Fix: Use process.exit() to stop the script on error
+    // Fix: Use process.exit() from the namespace to stop the script on error with correct typing
     process.exit(1);
   }
 };
