@@ -57,6 +57,42 @@ export const MY_IMAGES: Wallpaper[] = [
     width: 2732,
     height: 2048,
     extension: 'png'
+  },
+  {
+    id: 4,
+    slug: "chevrolet-corvette-c8-olive-green",
+    title: "Chevrolet Corvette C8 Olive Green",
+    description: "Exotic Chevrolet Corvette C8 in a unique olive green finish. Stunning 4K automotive wallpaper for Desktop.",
+    imageUrl: `${R2_BASE_URL}/Desktop/Cars/chevrolet-corvette-c8-olive-green.png`,
+    category: 'Desktop',
+    subCategory: 'Cars',
+    width: 3840,
+    height: 2160,
+    extension: 'png'
+  },
+  {
+    id: 5,
+    slug: "mercedes-benz-g-class-emerald-green",
+    title: "Mercedes-Benz G-Class Emerald Green",
+    description: "Luxury Mercedes-Benz G-Class (G-Wagon) in an elegant emerald green finish. High-resolution 4K Desktop background.",
+    imageUrl: `${R2_BASE_URL}/Desktop/Cars/mercedes-benz-g-class-emerald-green.png`,
+    category: 'Desktop',
+    subCategory: 'Cars',
+    width: 3840,
+    height: 2160,
+    extension: 'png'
+  },
+  {
+    id: 6,
+    slug: "ferrari-488-pista-spider-red",
+    title: "Ferrari 488 Pista Spider Red",
+    description: "Breathtaking Ferrari 488 Pista Spider in classic racing red. Ultimate 4K supercar wallpaper for high-end displays.",
+    imageUrl: `${R2_BASE_URL}/Desktop/Cars/ferrari-488-pista-spider-red.png`,
+    category: 'Desktop',
+    subCategory: 'Cars',
+    width: 3840,
+    height: 2160,
+    extension: 'png'
   }
 ];
 

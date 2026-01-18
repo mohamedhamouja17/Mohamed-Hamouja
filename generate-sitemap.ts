@@ -23,8 +23,8 @@ const staticRoutes = [
 ];
 
 const generateSitemap = () => {
-  // Use the fixed date requested by the user
-  const today = '2026-01-15';
+  // Today's date for new content
+  const today = '2026-01-18';
   
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
@@ -43,9 +43,13 @@ ${staticRoutes
   </url>`;
   })
   .join('\n')}
-${MY_IMAGES.map(img => `  <url>
+${MY_IMAGES.map(img => {
+  // Use a heuristic or manual check for older items if precise differential dates are needed
+  // For the script, we'll use 'today' as the default for simplicity unless explicitly mapped
+  const date = img.id <= 3 ? '2026-01-15' : today;
+  return `  <url>
     <loc>${BASE_URL}/wallpaper/${img.slug}</loc>
-    <lastmod>${today}</lastmod>
+    <lastmod>${date}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -53,7 +57,8 @@ ${MY_IMAGES.map(img => `  <url>
       <image:title>${img.title.replace(/&/g, '&amp;')}</image:title>
       <image:caption>${img.description.replace(/&/g, '&amp;')}</image:caption>
     </image:image>
-  </url>`).join('\n')}
+  </url>`;
+}).join('\n')}
 </urlset>`;
 
   const paths = {

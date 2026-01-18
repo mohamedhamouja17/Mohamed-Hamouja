@@ -3,37 +3,37 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://walzoo.com</loc>
-    <lastmod>2026-01-15</lastmod>
+    <lastmod>2026-01-18</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://walzoo.com/blog</loc>
-    <lastmod>2026-01-15</lastmod>
+    <lastmod>2026-01-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://walzoo.com/about</loc>
-    <lastmod>2026-01-15</lastmod>
+    <lastmod>2026-01-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://walzoo.com/privacy</loc>
-    <lastmod>2026-01-15</lastmod>
+    <lastmod>2026-01-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://walzoo.com/terms</loc>
-    <lastmod>2026-01-15</lastmod>
+    <lastmod>2026-01-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://walzoo.com/contact</loc>
-    <lastmod>2026-01-15</lastmod>
+    <lastmod>2026-01-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -68,6 +68,39 @@
       <image:loc>https://cdn.walzoo.com/Tablet/Cars/porsche-911-gt3rs-abandoned-warehouse.png</image:loc>
       <image:title>Porsche 911 GT3RS Abandoned Warehouse</image:title>
       <image:caption>A stunning Porsche 911 GT3RS captured in an atmospheric abandoned warehouse setting. High-quality 4K Tablet Wallpaper.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/chevrolet-corvette-c8-olive-green</loc>
+    <lastmod>2026-01-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Desktop/Cars/chevrolet-corvette-c8-olive-green.png</image:loc>
+      <image:title>Chevrolet Corvette C8 Olive Green</image:title>
+      <image:caption>Exotic Chevrolet Corvette C8 in a unique olive green finish. Stunning 4K automotive wallpaper for Desktop.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/mercedes-benz-g-class-emerald-green</loc>
+    <lastmod>2026-01-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Desktop/Cars/mercedes-benz-g-class-emerald-green.png</image:loc>
+      <image:title>Mercedes-Benz G-Class Emerald Green</image:title>
+      <image:caption>Luxury Mercedes-Benz G-Class (G-Wagon) in an elegant emerald green finish. High-resolution 4K Desktop background.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/ferrari-488-pista-spider-red</loc>
+    <lastmod>2026-01-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Desktop/Cars/ferrari-488-pista-spider-red.png</image:loc>
+      <image:title>Ferrari 488 Pista Spider Red</image:title>
+      <image:caption>Breathtaking Ferrari 488 Pista Spider in classic racing red. Ultimate 4K supercar wallpaper for high-end displays.</image:caption>
     </image:image>
   </url>
 </urlset>
