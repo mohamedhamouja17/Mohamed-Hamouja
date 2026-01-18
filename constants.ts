@@ -117,6 +117,30 @@ export const MY_IMAGES: Wallpaper[] = [
     width: 2048,
     height: 2732,
     extension: 'png'
+  },
+  {
+    id: 9,
+    slug: "abstract-3d-waves-pastel",
+    title: "Abstract 3D Waves Pastel",
+    description: "Soft pastel-colored 3D waves create a calming abstract background. High-quality 4K Phone wallpaper.",
+    imageUrl: `${R2_BASE_URL}/Phone/Abstract/abstract-3d-waves-pastel.png`,
+    category: 'Phone',
+    subCategory: 'Abstract',
+    width: 1080,
+    height: 2340,
+    extension: 'png'
+  },
+  {
+    id: 10,
+    slug: "abstract-3d-waves-pastel-tablet",
+    title: "Abstract 3D Waves Pastel Tablet",
+    description: "Premium abstract wallpaper featuring elegant 3D pastel waves. Stunning 4K background for Tablet displays.",
+    imageUrl: `${R2_BASE_URL}/Tablet/Abstract/abstract-3d-waves-pastel-tablet.png`,
+    category: 'Tablet',
+    subCategory: 'Abstract',
+    width: 2048,
+    height: 2732,
+    extension: 'png'
   }
 ];
 

@@ -125,4 +125,26 @@
       <image:caption>A high-resolution tablet wallpaper featuring a beautiful white British Shorthair cat in 4K detail.</image:caption>
     </image:image>
   </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/abstract-3d-waves-pastel</loc>
+    <lastmod>2026-01-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Phone/Abstract/abstract-3d-waves-pastel.png</image:loc>
+      <image:title>Abstract 3D Waves Pastel</image:title>
+      <image:caption>Soft pastel-colored 3D waves create a calming abstract background. High-quality 4K Phone wallpaper.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/abstract-3d-waves-pastel-tablet</loc>
+    <lastmod>2026-01-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Tablet/Abstract/abstract-3d-waves-pastel-tablet.png</image:loc>
+      <image:title>Abstract 3D Waves Pastel Tablet</image:title>
+      <image:caption>Premium abstract wallpaper featuring elegant 3D pastel waves. Stunning 4K background for Tablet displays.</image:caption>
+    </image:image>
+  </url>
 </urlset>
