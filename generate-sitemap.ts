@@ -24,8 +24,8 @@ const staticRoutes = [
 ];
 
 const generateSitemap = () => {
-  // Today's date for new content
-  const today = '2026-01-18';
+  // Today's date for current content update signal
+  const today = '2026-01-20';
   
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
@@ -36,18 +36,26 @@ ${staticRoutes
     const priority = route === '/' ? '1.0' : '0.8';
     const changefreq = route === '/' ? 'daily' : 'weekly';
     
+    // Specifically update the Home page date to signal activity
+    const date = route === '/' ? today : '2026-01-18';
+    
     return `  <url>
     <loc>${loc}</loc>
-    <lastmod>${today}</lastmod>
+    <lastmod>${date}</lastmod>
     <changefreq>${changefreq}</changefreq>
     <priority>${priority}</priority>
   </url>`;
   })
   .join('\n')}
 ${MY_IMAGES.map(img => {
-  // Use a heuristic or manual check for older items if precise differential dates are needed
-  // For the script, we'll use 'today' as the default for simplicity unless explicitly mapped
-  const date = img.id <= 3 ? '2026-01-15' : today;
+  // Preserve historical dates based on upload blocks
+  let date = today;
+  if (img.id <= 3) {
+    date = '2026-01-15';
+  } else if (img.id <= 10) {
+    date = '2026-01-18';
+  }
+  
   return `  <url>
     <loc>${BASE_URL}/wallpaper/${img.slug}</loc>
     <lastmod>${date}</lastmod>
