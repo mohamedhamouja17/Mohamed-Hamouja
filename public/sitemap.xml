@@ -3,7 +3,7 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://walzoo.com</loc>
-    <lastmod>2026-01-20</lastmod>
+    <lastmod>2026-01-19</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -145,6 +145,17 @@
       <image:loc>https://cdn.walzoo.com/Tablet/Abstract/abstract-3d-waves-pastel-tablet.png</image:loc>
       <image:title>Abstract 3D Waves Pastel Tablet</image:title>
       <image:caption>Premium abstract wallpaper featuring elegant 3D pastel waves. Stunning 4K background for Tablet displays.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/abstract-wooden-spiral-helical-design</loc>
+    <lastmod>2026-01-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Phone/Abstract/abstract-wooden-spiral-helical-design.webp</image:loc>
+      <image:title>Abstract Wooden Spiral Helical Design</image:title>
+      <image:caption>Elegant wooden textures meet complex mathematical geometry in this stunning helical spiral 3D design.</image:caption>
     </image:image>
   </url>
 </urlset>

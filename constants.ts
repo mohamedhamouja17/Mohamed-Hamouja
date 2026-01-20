@@ -141,6 +141,18 @@ export const MY_IMAGES: Wallpaper[] = [
     width: 2048,
     height: 2732,
     extension: 'png'
+  },
+  {
+    id: 11,
+    slug: "abstract-wooden-spiral-helical-design",
+    title: "Abstract Wooden Spiral Helical Design",
+    description: "Elegant wooden textures meet complex mathematical geometry in this stunning helical spiral 3D design.",
+    imageUrl: `${R2_BASE_URL}/Phone/Abstract/abstract-wooden-spiral-helical-design.webp`,
+    category: 'Phone',
+    subCategory: 'Abstract',
+    width: 1080,
+    height: 2340,
+    extension: 'webp'
   }
 ];
 

@@ -24,8 +24,8 @@ const staticRoutes = [
 ];
 
 const generateSitemap = () => {
-  // Today's date for current content update signal
-  const today = '2026-01-20';
+  // Today's date for current content update signal as requested
+  const today = '2026-01-19';
   
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
@@ -36,7 +36,7 @@ ${staticRoutes
     const priority = route === '/' ? '1.0' : '0.8';
     const changefreq = route === '/' ? 'daily' : 'weekly';
     
-    // Specifically update the Home page date to signal activity
+    // Freeze historical dates for static pages, only update home
     const date = route === '/' ? today : '2026-01-18';
     
     return `  <url>
@@ -48,12 +48,14 @@ ${staticRoutes
   })
   .join('\n')}
 ${MY_IMAGES.map(img => {
-  // Preserve historical dates based on upload blocks
+  // Preserve historical dates based on upload blocks to protect indexing
   let date = today;
   if (img.id <= 3) {
     date = '2026-01-15';
   } else if (img.id <= 10) {
     date = '2026-01-18';
+  } else {
+    date = today;
   }
   
   return `  <url>
