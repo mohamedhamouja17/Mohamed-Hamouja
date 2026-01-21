@@ -3,7 +3,7 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://walzoo.com</loc>
-    <lastmod>2026-01-19</lastmod>
+    <lastmod>2026-01-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -156,6 +156,72 @@
       <image:loc>https://cdn.walzoo.com/Phone/Abstract/abstract-wooden-spiral-helical-design.webp</image:loc>
       <image:title>Abstract Wooden Spiral Helical Design</image:title>
       <image:caption>Elegant wooden textures meet complex mathematical geometry in this stunning helical spiral 3D design.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/earth-orbit-space-curvature-sunlight</loc>
+    <lastmod>2026-01-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Desktop/Space/earth-orbit-space-curvature-sunlight.webp</image:loc>
+      <image:title>Earth Orbit Space Curvature</image:title>
+      <image:caption>Breathtaking view of Earth's curvature from space, featuring vibrant sunlight reflecting off the atmosphere.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/sunset-mountain-peak-river-forest</loc>
+    <lastmod>2026-01-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Desktop/Nature/sunset-mountain-peak-river-forest.webp</image:loc>
+      <image:title>Sunset Mountain Peak River</image:title>
+      <image:caption>Majestic mountain peaks overlooking a winding river and dense forest during a vivid golden hour sunset.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/city-skyline-puddle-reflection</loc>
+    <lastmod>2026-01-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Phone/Cities%20%26%20Landmarks/city-skyline-puddle-reflection-vertical.webp</image:loc>
+      <image:title>City Skyline Puddle Reflection</image:title>
+      <image:caption>A moody, vertical urban landscape showing a modern city skyline reflected in a street puddle after rain.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/abstract-golden-smoke-swirl-dark</loc>
+    <lastmod>2026-01-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Phone/Abstract/abstract-golden-smoke-swirl-dark.webp</image:loc>
+      <image:title>Abstract Golden Smoke Swirl</image:title>
+      <image:caption>Ethereal golden smoke swirls elegantly against a deep, dark minimalist background for a premium aesthetic.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/zen-balanced-stones-lake-serenity</loc>
+    <lastmod>2026-01-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Tablet/Minimalist/zen-balanced-stones-lake-serenity.webp</image:loc>
+      <image:title>Zen Balanced Stones Lake</image:title>
+      <image:caption>A calming minimalist wallpaper featuring balanced zen stones on the edge of a serene, misty lake.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/cyberpunk-matrix-digital-corridor</loc>
+    <lastmod>2026-01-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Tablet/Technology/cyberpunk-matrix-digital-corridor.webp</image:loc>
+      <image:title>Cyberpunk Matrix Digital Corridor</image:title>
+      <image:caption>Immersive futuristic corridor featuring glowing matrix-style code and neon cyberpunk digital elements.</image:caption>
     </image:image>
   </url>
 </urlset>

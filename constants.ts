@@ -153,6 +153,78 @@ export const MY_IMAGES: Wallpaper[] = [
     width: 1080,
     height: 2340,
     extension: 'webp'
+  },
+  {
+    id: 12,
+    slug: "earth-orbit-space-curvature-sunlight",
+    title: "Earth Orbit Space Curvature",
+    description: "Breathtaking view of Earth's curvature from space, featuring vibrant sunlight reflecting off the atmosphere.",
+    imageUrl: `${R2_BASE_URL}/Desktop/Space/earth-orbit-space-curvature-sunlight.webp`,
+    category: 'Desktop',
+    subCategory: 'Space',
+    width: 3840,
+    height: 2160,
+    extension: 'webp'
+  },
+  {
+    id: 13,
+    slug: "sunset-mountain-peak-river-forest",
+    title: "Sunset Mountain Peak River",
+    description: "Majestic mountain peaks overlooking a winding river and dense forest during a vivid golden hour sunset.",
+    imageUrl: `${R2_BASE_URL}/Desktop/Nature/sunset-mountain-peak-river-forest.webp`,
+    category: 'Desktop',
+    subCategory: 'Nature',
+    width: 3840,
+    height: 2160,
+    extension: 'webp'
+  },
+  {
+    id: 14,
+    slug: "city-skyline-puddle-reflection",
+    title: "City Skyline Puddle Reflection",
+    description: "A moody, vertical urban landscape showing a modern city skyline reflected in a street puddle after rain.",
+    imageUrl: `${R2_BASE_URL}/Phone/Cities%20%26%20Landmarks/city-skyline-puddle-reflection-vertical.webp`,
+    category: 'Phone',
+    subCategory: 'Cities & Landmarks',
+    width: 1080,
+    height: 2340,
+    extension: 'webp'
+  },
+  {
+    id: 15,
+    slug: "abstract-golden-smoke-swirl-dark",
+    title: "Abstract Golden Smoke Swirl",
+    description: "Ethereal golden smoke swirls elegantly against a deep, dark minimalist background for a premium aesthetic.",
+    imageUrl: `${R2_BASE_URL}/Phone/Abstract/abstract-golden-smoke-swirl-dark.webp`,
+    category: 'Phone',
+    subCategory: 'Abstract',
+    width: 1080,
+    height: 2340,
+    extension: 'webp'
+  },
+  {
+    id: 16,
+    slug: "zen-balanced-stones-lake-serenity",
+    title: "Zen Balanced Stones Lake",
+    description: "A calming minimalist wallpaper featuring balanced zen stones on the edge of a serene, misty lake.",
+    imageUrl: `${R2_BASE_URL}/Tablet/Minimalist/zen-balanced-stones-lake-serenity.webp`,
+    category: 'Tablet',
+    subCategory: 'Minimalist',
+    width: 2048,
+    height: 2732,
+    extension: 'webp'
+  },
+  {
+    id: 17,
+    slug: "cyberpunk-matrix-digital-corridor",
+    title: "Cyberpunk Matrix Digital Corridor",
+    description: "Immersive futuristic corridor featuring glowing matrix-style code and neon cyberpunk digital elements.",
+    imageUrl: `${R2_BASE_URL}/Tablet/Technology/cyberpunk-matrix-digital-corridor.webp`,
+    category: 'Tablet',
+    subCategory: 'Technology',
+    width: 2048,
+    height: 2732,
+    extension: 'webp'
   }
 ];
 
