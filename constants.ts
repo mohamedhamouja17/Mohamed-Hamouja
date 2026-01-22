@@ -225,6 +225,78 @@ export const MY_IMAGES: Wallpaper[] = [
     width: 2048,
     height: 2732,
     extension: 'webp'
+  },
+  {
+    id: 18,
+    slug: "stylized-urban-cityscape-illustration",
+    title: "Stylized Urban Cityscape",
+    description: "A vibrant and artistic illustration of a futuristic urban cityscape with unique stylized architecture.",
+    imageUrl: `${R2_BASE_URL}/Desktop/Digital%20Art/stylized-urban-cityscape-illustration.webp`,
+    category: 'Desktop',
+    subCategory: 'Digital Art',
+    width: 3840,
+    height: 2160,
+    extension: 'webp'
+  },
+  {
+    id: 19,
+    slug: "playstation-symbols-neon",
+    title: "PlayStation Symbols Neon",
+    description: "Iconic PlayStation controller symbols glowing in a dark setting with vibrant neon blue and pink lighting.",
+    imageUrl: `${R2_BASE_URL}/Desktop/Gaming/playstation-symbols-neon.webp`,
+    category: 'Desktop',
+    subCategory: 'Gaming',
+    width: 3840,
+    height: 2160,
+    extension: 'webp'
+  },
+  {
+    id: 20,
+    slug: "majestic-elephant-portrait",
+    title: "Majestic Elephant Portrait",
+    description: "A powerful and detailed portrait of a majestic elephant, highlighting the texture and wisdom of this magnificent animal.",
+    imageUrl: `${R2_BASE_URL}/Phone/Animals/majestic-elephant-portrait.webp`,
+    category: 'Phone',
+    subCategory: 'Animals',
+    width: 1080,
+    height: 2340,
+    extension: 'webp'
+  },
+  {
+    id: 21,
+    slug: "shelby-mustang-gt350r-red-racing-stripes",
+    title: "Shelby Mustang GT350R",
+    description: "High-performance Shelby Mustang GT350R in a sleek finish with classic bold red racing stripes.",
+    imageUrl: `${R2_BASE_URL}/Phone/Cars/shelby-mustang-gt350r-red-racing-stripes.webp`,
+    category: 'Phone',
+    subCategory: 'Cars',
+    width: 1080,
+    height: 2340,
+    extension: 'webp'
+  },
+  {
+    id: 22,
+    slug: "autumn-park-orange-leaves",
+    title: "Autumn Park Orange Leaves",
+    description: "A beautiful park scene captured during peak autumn, featuring golden-orange leaves and a peaceful atmosphere.",
+    imageUrl: `${R2_BASE_URL}/Tablet/Seasons/autumn-park-orange-leaves.webp`,
+    category: 'Tablet',
+    subCategory: 'Seasons',
+    width: 2048,
+    height: 2732,
+    extension: 'webp'
+  },
+  {
+    id: 23,
+    slug: "urban-basketball-court-rain-city-lights",
+    title: "Urban Basketball Court Rain",
+    description: "Atmospheric urban basketball court at night, glistening with rain reflections under city street lights.",
+    imageUrl: `${R2_BASE_URL}/Tablet/Sports/urban-basketball-court-rain-city-lights.webp`,
+    category: 'Tablet',
+    subCategory: 'Sports',
+    width: 2048,
+    height: 2732,
+    extension: 'webp'
   }
 ];
 

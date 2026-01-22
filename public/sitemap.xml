@@ -3,7 +3,7 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://walzoo.com</loc>
-    <lastmod>2026-01-21</lastmod>
+    <lastmod>2026-01-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -222,6 +222,72 @@
       <image:loc>https://cdn.walzoo.com/Tablet/Technology/cyberpunk-matrix-digital-corridor.webp</image:loc>
       <image:title>Cyberpunk Matrix Digital Corridor</image:title>
       <image:caption>Immersive futuristic corridor featuring glowing matrix-style code and neon cyberpunk digital elements.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/stylized-urban-cityscape-illustration</loc>
+    <lastmod>2026-01-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Desktop/Digital%20Art/stylized-urban-cityscape-illustration.webp</image:loc>
+      <image:title>Stylized Urban Cityscape</image:title>
+      <image:caption>A vibrant and artistic illustration of a futuristic urban cityscape with unique stylized architecture.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/playstation-symbols-neon</loc>
+    <lastmod>2026-01-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Desktop/Gaming/playstation-symbols-neon.webp</image:loc>
+      <image:title>PlayStation Symbols Neon</image:title>
+      <image:caption>Iconic PlayStation controller symbols glowing in a dark setting with vibrant neon blue and pink lighting.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/majestic-elephant-portrait</loc>
+    <lastmod>2026-01-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Phone/Animals/majestic-elephant-portrait.webp</image:loc>
+      <image:title>Majestic Elephant Portrait</image:title>
+      <image:caption>A powerful and detailed portrait of a majestic elephant, highlighting the texture and wisdom of this magnificent animal.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/shelby-mustang-gt350r-red-racing-stripes</loc>
+    <lastmod>2026-01-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Phone/Cars/shelby-mustang-gt350r-red-racing-stripes.webp</image:loc>
+      <image:title>Shelby Mustang GT350R</image:title>
+      <image:caption>High-performance Shelby Mustang GT350R in a sleek finish with classic bold red racing stripes.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/autumn-park-orange-leaves</loc>
+    <lastmod>2026-01-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Tablet/Seasons/autumn-park-orange-leaves.webp</image:loc>
+      <image:title>Autumn Park Orange Leaves</image:title>
+      <image:caption>A beautiful park scene captured during peak autumn, featuring golden-orange leaves and a peaceful atmosphere.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/urban-basketball-court-rain-city-lights</loc>
+    <lastmod>2026-01-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Tablet/Sports/urban-basketball-court-rain-city-lights.webp</image:loc>
+      <image:title>Urban Basketball Court Rain</image:title>
+      <image:caption>Atmospheric urban basketball court at night, glistening with rain reflections under city street lights.</image:caption>
     </image:image>
   </url>
 </urlset>
