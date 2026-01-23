@@ -297,6 +297,78 @@ export const MY_IMAGES: Wallpaper[] = [
     width: 2048,
     height: 2732,
     extension: 'webp'
+  },
+  {
+    id: 24,
+    slug: "ronin-samurai-sunset",
+    title: "Ronin Samurai Sunset",
+    description: "A lone Ronin samurai stands against a dramatic, fiery sunset in this beautiful anime-style digital illustration.",
+    imageUrl: `${R2_BASE_URL}/Desktop/Anime/ronin-samurai-sunset.webp`,
+    category: 'Desktop',
+    subCategory: 'Anime',
+    width: 3840,
+    height: 2160,
+    extension: 'webp'
+  },
+  {
+    id: 25,
+    slug: "never-give-up-motivational-typography",
+    title: "Never Give Up Motivational Typography",
+    description: "Powerful motivational typography featuring the phrase 'Never Give Up' in a bold, modern desktop wallpaper design.",
+    imageUrl: `${R2_BASE_URL}/Desktop/Quotes/never-give-up-motivational-typography.webp`,
+    category: 'Desktop',
+    subCategory: 'Quotes',
+    width: 3840,
+    height: 2160,
+    extension: 'webp'
+  },
+  {
+    id: 26,
+    slug: "ancient-greek-parthenon-temple-sunset",
+    title: "Ancient Greek Parthenon Temple",
+    description: "The historic Parthenon temple in Athens, Greece, captured during a stunning golden hour sunset. High-quality phone wallpaper.",
+    imageUrl: `${R2_BASE_URL}/Phone/Culture/ancient-greek-parthenon-temple-sunset.webp`,
+    category: 'Phone',
+    subCategory: 'Culture',
+    width: 1080,
+    height: 2340,
+    extension: 'webp'
+  },
+  {
+    id: 27,
+    slug: "animated-black-cat-peace-sign",
+    title: "Animated Black Cat Peace Sign",
+    description: "A cute and quirky animated black cat flashing a peace sign. Fun and artistic wallpaper for your mobile device.",
+    imageUrl: `${R2_BASE_URL}/Phone/Kids/animated-black-cat-peace-sign.webp`,
+    category: 'Phone',
+    subCategory: 'Kids',
+    width: 1080,
+    height: 2340,
+    extension: 'webp'
+  },
+  {
+    id: 28,
+    slug: "alpine-lake-cabin-mountain-reflection",
+    title: "Alpine Lake Cabin Mountain Reflection",
+    description: "Serene alpine lake featuring a cozy wooden cabin and crystal-clear mountain reflections. Perfect 4K tablet background.",
+    imageUrl: `${R2_BASE_URL}/Tablet/Nature/alpine-lake-cabin-mountain-reflection.webp`,
+    category: 'Tablet',
+    subCategory: 'Nature',
+    width: 2048,
+    height: 2732,
+    extension: 'webp'
+  },
+  {
+    id: 29,
+    slug: "milky-way-galaxy-night-sky",
+    title: "Milky Way Galaxy Night Sky",
+    description: "Stunning long-exposure shot of the Milky Way galaxy stretching across a star-filled night sky. 4K space wallpaper for tablets.",
+    imageUrl: `${R2_BASE_URL}/Tablet/Space/milky-way-galaxy-night-sky.webp`,
+    category: 'Tablet',
+    subCategory: 'Space',
+    width: 2048,
+    height: 2732,
+    extension: 'webp'
   }
 ];
 

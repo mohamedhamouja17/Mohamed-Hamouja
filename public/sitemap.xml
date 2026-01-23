@@ -3,7 +3,7 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://walzoo.com</loc>
-    <lastmod>2026-01-22</lastmod>
+    <lastmod>2026-01-23</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -288,6 +288,72 @@
       <image:loc>https://cdn.walzoo.com/Tablet/Sports/urban-basketball-court-rain-city-lights.webp</image:loc>
       <image:title>Urban Basketball Court Rain</image:title>
       <image:caption>Atmospheric urban basketball court at night, glistening with rain reflections under city street lights.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/ronin-samurai-sunset</loc>
+    <lastmod>2026-01-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Desktop/Anime/ronin-samurai-sunset.webp</image:loc>
+      <image:title>Ronin Samurai Sunset</image:title>
+      <image:caption>A lone Ronin samurai stands against a dramatic, fiery sunset in this beautiful anime-style digital illustration.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/never-give-up-motivational-typography</loc>
+    <lastmod>2026-01-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Desktop/Quotes/never-give-up-motivational-typography.webp</image:loc>
+      <image:title>Never Give Up Motivational Typography</image:title>
+      <image:caption>Powerful motivational typography featuring the phrase 'Never Give Up' in a bold, modern desktop wallpaper design.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/ancient-greek-parthenon-temple-sunset</loc>
+    <lastmod>2026-01-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Phone/Culture/ancient-greek-parthenon-temple-sunset.webp</image:loc>
+      <image:title>Ancient Greek Parthenon Temple</image:title>
+      <image:caption>The historic Parthenon temple in Athens, Greece, captured during a stunning golden hour sunset. High-quality phone wallpaper.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/animated-black-cat-peace-sign</loc>
+    <lastmod>2026-01-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Phone/Kids/animated-black-cat-peace-sign.webp</image:loc>
+      <image:title>Animated Black Cat Peace Sign</image:title>
+      <image:caption>A cute and quirky animated black cat flashing a peace sign. Fun and artistic wallpaper for your mobile device.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/alpine-lake-cabin-mountain-reflection</loc>
+    <lastmod>2026-01-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Tablet/Nature/alpine-lake-cabin-mountain-reflection.webp</image:loc>
+      <image:title>Alpine Lake Cabin Mountain Reflection</image:title>
+      <image:caption>Serene alpine lake featuring a cozy wooden cabin and crystal-clear mountain reflections. Perfect 4K tablet background.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/milky-way-galaxy-night-sky</loc>
+    <lastmod>2026-01-23</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Tablet/Space/milky-way-galaxy-night-sky.webp</image:loc>
+      <image:title>Milky Way Galaxy Night Sky</image:title>
+      <image:caption>Stunning long-exposure shot of the Milky Way galaxy stretching across a star-filled night sky. 4K space wallpaper for tablets.</image:caption>
     </image:image>
   </url>
 </urlset>
