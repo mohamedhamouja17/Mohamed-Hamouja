@@ -25,7 +25,7 @@ const staticRoutes = [
 
 const generateSitemap = () => {
   // Today's date for current content update signal as requested
-  const today = '2026-01-23';
+  const today = '2026-01-24';
   
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
@@ -60,6 +60,10 @@ ${MY_IMAGES.map(img => {
     date = '2026-01-21';
   } else if (img.id <= 23) {
     date = '2026-01-22';
+  } else if (img.id <= 29) {
+    date = '2026-01-23';
+  } else if (img.id <= 34) {
+    date = '2026-01-24';
   } else {
     date = today;
   }

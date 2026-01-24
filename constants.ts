@@ -369,6 +369,78 @@ export const MY_IMAGES: Wallpaper[] = [
     width: 2048,
     height: 2732,
     extension: 'webp'
+  },
+  {
+    id: 30,
+    slug: "minimalist-botanical-pattern-desktop",
+    title: "Minimalist Botanical Pattern",
+    description: "A clean and elegant minimalist botanical pattern with soft natural tones, perfect for a modern desktop aesthetic.",
+    imageUrl: `${R2_BASE_URL}/Desktop/Abstract/minimalist-botanical-pattern-desktop.webp`,
+    category: 'Desktop',
+    subCategory: 'Abstract',
+    width: 3840,
+    height: 2160,
+    extension: 'webp'
+  },
+  {
+    id: 31,
+    slug: "minimalist-dripping-sun-vector-abstract",
+    title: "Dripping Sun Vector Abstract",
+    description: "A creative vector illustration of a dripping sun, blending minimalist geometry with abstract artistic flair for your phone.",
+    imageUrl: `${R2_BASE_URL}/Phone/Minimalist/minimalist-dripping-sun-vector-abstract.webp`,
+    category: 'Phone',
+    subCategory: 'Minimalist',
+    width: 1080,
+    height: 2340,
+    extension: 'webp'
+  },
+  {
+    id: 32,
+    slug: "cyber-security-fingerprint-digital-lightning",
+    title: "Cyber Security Digital Fingerprint",
+    description: "Intricate digital fingerprint scan with glowing lightning effects, symbolizing high-tech cyber security and data protection.",
+    imageUrl: `${R2_BASE_URL}/Phone/Technology/cyber-security-fingerprint-digital-lightning.webp`,
+    category: 'Phone',
+    subCategory: 'Technology',
+    width: 1080,
+    height: 2340,
+    extension: 'webp'
+  },
+  {
+    id: 33,
+    slug: "minimalist-botanical-pattern-navy-white",
+    title: "Navy & White Botanical Pattern",
+    description: "Sophisticated navy and white botanical design with a minimalist touch. High-resolution art for tablet screens.",
+    imageUrl: `${R2_BASE_URL}/Tablet/Digital%20Art/minimalist-botanical-pattern-navy-white.webp`,
+    category: 'Tablet',
+    subCategory: 'Digital Art',
+    width: 2048,
+    height: 2732,
+    extension: 'webp'
+  },
+  {
+    id: 34,
+    slug: "gaming-symbols-stone-totem-forest",
+    title: "Gaming Symbols Stone Totem",
+    description: "Mystical stone totem carved with gaming symbols, hidden deep within an enchanted forest setting. Perfect for tablet gaming setups.",
+    imageUrl: `${R2_BASE_URL}/Tablet/Gaming/gaming-symbols-stone-totem-forest.webp`,
+    category: 'Tablet',
+    subCategory: 'Gaming',
+    width: 2048,
+    height: 2732,
+    extension: 'webp'
+  },
+  {
+    id: 35,
+    slug: "roman-colosseum-aerial-night-lights",
+    title: "Roman Colosseum Aerial Night",
+    description: "A breathtaking aerial view of the Roman Colosseum at night, illuminated by city lights in the heart of Rome. Stunning 4K desktop wallpaper.",
+    imageUrl: `${R2_BASE_URL}/Desktop/Cities%20%26%20Landmarks/roman-colosseum-aerial-night-lights.webp`,
+    category: 'Desktop',
+    subCategory: 'Cities & Landmarks',
+    width: 3840,
+    height: 2160,
+    extension: 'webp'
   }
 ];
 
