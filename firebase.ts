@@ -1,6 +1,6 @@
 import { initializeApp } from 'firebase/app';
-// Add getAuth to enable authentication
 import { getAuth } from 'firebase/auth';
+import { getFirestore } from 'firebase/firestore';
 
 const firebaseConfig = {
   apiKey: "AIzaSyCXP45xTDcFnduCQkKhjvYWmRh85hHYoQE",
@@ -13,5 +13,5 @@ const firebaseConfig = {
 };
 
 export const app = initializeApp(firebaseConfig);
-// Initialize and export auth instance
 export const auth = getAuth(app);
+export const db = getFirestore(app);

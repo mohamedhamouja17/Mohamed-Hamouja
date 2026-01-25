@@ -1,19 +1,19 @@
 import fs from 'fs';
 import path from 'path';
-// Use named imports for process to ensure properties like cwd and exit are correctly typed and available in ESM
-import { cwd, exit } from 'process';
-import { MY_IMAGES } from './constants.ts';
+// Fix: Import the process object instead of named exports to avoid module resolution errors
+import process from 'process';
+import { SUB_CATEGORIES } from './constants.ts';
 
 /**
  * generate-sitemap.ts
  * 
- * This script generates a single consolidated sitemap.xml file for search engines.
- * It includes both URL locations and image metadata for SEO efficiency.
+ * Reset version: Generates a sitemap for the site skeleton.
+ * Includes Home, Static pages, and the 16 core categories.
  */
 
 const BASE_URL = 'https://walzoo.com';
+const today = '2026-01-24';
 
-// Application static routes
 const staticRoutes = [
   '/',
   '/blog',
@@ -24,85 +24,44 @@ const staticRoutes = [
 ];
 
 const generateSitemap = () => {
-  // Today's date for current content update signal as requested
-  const today = '2026-01-24';
-  
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${staticRoutes
-  .map(route => {
-    const loc = `${BASE_URL}${route === '/' ? '' : route}`;
-    const priority = route === '/' ? '1.0' : '0.8';
-    const changefreq = route === '/' ? 'daily' : 'weekly';
-    
-    // Freeze historical dates for static pages, only update home
-    const date = route === '/' ? today : '2026-01-18';
-    
-    return `  <url>
-    <loc>${loc}</loc>
-    <lastmod>${date}</lastmod>
-    <changefreq>${changefreq}</changefreq>
-    <priority>${priority}</priority>
-  </url>`;
-  })
+  .map(route => `  <url>
+    <loc>${BASE_URL}${route === '/' ? '' : route}</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>${route === '/' ? 'daily' : 'weekly'}</changefreq>
+    <priority>${route === '/' ? '1.0' : '0.8'}</priority>
+  </url>`)
   .join('\n')}
-${MY_IMAGES.map(img => {
-  // Preserve historical dates based on upload blocks to protect indexing
-  let date = today;
-  if (img.id <= 3) {
-    date = '2026-01-15';
-  } else if (img.id <= 10) {
-    date = '2026-01-18';
-  } else if (img.id === 11) {
-    date = '2026-01-19';
-  } else if (img.id <= 17) {
-    date = '2026-01-21';
-  } else if (img.id <= 23) {
-    date = '2026-01-22';
-  } else if (img.id <= 29) {
-    date = '2026-01-23';
-  } else if (img.id <= 34) {
-    date = '2026-01-24';
-  } else {
-    date = today;
-  }
-  
+${SUB_CATEGORIES.map(cat => {
+  const slug = cat.toLowerCase().replace(/ & /g, '-').replace(/ /g, '-');
   return `  <url>
-    <loc>${BASE_URL}/wallpaper/${img.slug}</loc>
-    <lastmod>${date}</lastmod>
+    <loc>${BASE_URL}/category/${slug}</loc>
+    <lastmod>${today}</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>${img.imageUrl}</image:loc>
-      <image:title>${img.title.replace(/&/g, '&amp;')}</image:title>
-      <image:caption>${img.description.replace(/&/g, '&amp;')}</image:caption>
-    </image:image>
+    <priority>0.7</priority>
   </url>`;
 }).join('\n')}
 </urlset>`;
 
+  // Fix: Call process.cwd() method instead of the missing named export
   const paths = {
-    // Fix: Access cwd() from named import to ensure correct Node.js typing
-    publicSitemap: path.join(cwd(), 'public', 'sitemap.xml'),
-    // Fix: Access cwd() from named import to ensure correct Node.js typing
-    rootSitemap: path.join(cwd(), 'sitemap.xml')
+    publicSitemap: path.join(process.cwd(), 'public', 'sitemap.xml'),
+    rootSitemap: path.join(process.cwd(), 'sitemap.xml')
   };
   
   const publicDir = path.dirname(paths.publicSitemap);
-
-  if (!fs.existsSync(publicDir)) {
-    fs.mkdirSync(publicDir, { recursive: true });
-  }
+  if (!fs.existsSync(publicDir)) fs.mkdirSync(publicDir, { recursive: true });
 
   try {
     fs.writeFileSync(paths.publicSitemap, sitemap, 'utf8');
     fs.writeFileSync(paths.rootSitemap, sitemap, 'utf8');
-    console.log(`✅ Consolidated sitemap successfully generated at /public/sitemap.xml`);
+    console.log(`✅ Fresh sitemap generated with 16 categories and static routes.`);
   } catch (err) {
-    console.error('❌ Error writing sitemap file:', err);
-    // Fix: Use exit() from named import to stop the script on error with correct typing
-    exit(1);
+    console.error('❌ Error writing sitemap:', err);
+    // Fix: Call process.exit(1) instead of the missing named export
+    process.exit(1);
   }
 };
 
