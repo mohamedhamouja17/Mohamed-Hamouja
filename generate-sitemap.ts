@@ -59,10 +59,10 @@ ${MY_IMAGES.map(img => `  <url>
   </url>`).join('\n')}
 </urlset>`;
 
-  // Accessing cwd() on the global process object to resolve type errors
+  // Accessing cwd() on the global process object via type casting to resolve type errors
   const paths = {
-    publicSitemap: path.join(process.cwd(), 'public', 'sitemap.xml'),
-    rootSitemap: path.join(process.cwd(), 'sitemap.xml')
+    publicSitemap: path.join((process as any).cwd(), 'public', 'sitemap.xml'),
+    rootSitemap: path.join((process as any).cwd(), 'sitemap.xml')
   };
   
   const publicDir = path.dirname(paths.publicSitemap);
@@ -74,8 +74,8 @@ ${MY_IMAGES.map(img => `  <url>
     console.log(`✅ Fresh sitemap generated with 16 categories, static routes, and ${MY_IMAGES.length} wallpapers.`);
   } catch (err) {
     console.error('❌ Error writing sitemap:', err);
-    // Accessing exit() on the global process object to resolve type errors
-    process.exit(1);
+    // Accessing exit() on the global process object via type casting to resolve type errors
+    (process as any).exit(1);
   }
 };
 
