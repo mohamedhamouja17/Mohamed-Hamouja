@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://walzoo.com</loc>
-    <lastmod>2026-01-24</lastmod>
+    <lastmod>2026-01-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -44,7 +45,7 @@
   <url><loc>https://walzoo.com/category/technology</loc><lastmod>2026-01-24</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://walzoo.com/category/digital-art</loc><lastmod>2026-01-24</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://walzoo.com/category/gaming</loc><lastmod>2026-01-24</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://walzoo.com/category/animals</loc><lastmod>2026-01-24</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://walzoo.com/category/animals</loc><lastmod>2026-01-24</lastmod><changefreq>weekly</priority><priority>0.7</priority></url>
   <url><loc>https://walzoo.com/category/cars</loc><lastmod>2026-01-24</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://walzoo.com/category/seasons</loc><lastmod>2026-01-24</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://walzoo.com/category/sports</loc><lastmod>2026-01-24</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
@@ -52,4 +53,70 @@
   <url><loc>https://walzoo.com/category/anime</loc><lastmod>2026-01-24</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://walzoo.com/category/culture</loc><lastmod>2026-01-24</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://walzoo.com/category/kids</loc><lastmod>2026-01-24</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/aerial-beach-palm-trees-turquoise-water</loc>
+    <lastmod>2026-01-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Desktop/Nature/aerial-beach-palm-trees-turquoise-water.webp</image:loc>
+      <image:title>Aerial Beach Palm Trees</image:title>
+      <image:caption>A stunning aerial view of a tropical beach with palm trees and turquoise water. High-quality 4K Nature wallpaper.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/saturn-rings-black-and-white-minimalist</loc>
+    <lastmod>2026-01-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Desktop/Space/saturn-rings-black-and-white-minimalist.webp</image:loc>
+      <image:title>Saturn Rings Minimalist</image:title>
+      <image:caption>A striking black and white minimalist view of Saturn's iconic rings in deep space. Perfect for clean desktop setups.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/blue-teal-slate-stone-wall-pattern</loc>
+    <lastmod>2026-01-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Phone/Abstract/blue-teal-slate-stone-wall-pattern.webp</image:loc>
+      <image:title>Blue Teal Slate Stone</image:title>
+      <image:caption>An abstract and textured pattern of blue and teal slate stones, offering a rugged yet modern aesthetic for your phone.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/eiffel-tower-paris-street-view</loc>
+    <lastmod>2026-01-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Phone/Cities%20%26%20Landmarks/eiffel-tower-paris-street-view.webp</image:loc>
+      <image:title>Eiffel Tower Street View</image:title>
+      <image:caption>A classic street view of the Eiffel Tower in Paris, capturing the romantic atmosphere of the city in high resolution.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/classic-teal-stripe-pattern-linen</loc>
+    <lastmod>2026-01-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Tablet/Minimalist/classic-teal-stripe-pattern-linen.webp</image:loc>
+      <image:title>Classic Teal Stripe Pattern</image:title>
+      <image:caption>A minimalist teal stripe pattern on a linen-like texture, ideal for a clean and professional tablet background.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/cyber-circuit-cat-gold-lights</loc>
+    <lastmod>2026-01-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Tablet/Technology/cyber-circuit-cat-gold-lights.webp</image:loc>
+      <image:title>Cyber Circuit Cat</image:title>
+      <image:caption>A futuristic digital cat design featuring glowing gold circuits and neon technology elements. 4K Tablet art.</image:caption>
+    </image:image>
+  </url>
 </urlset>
