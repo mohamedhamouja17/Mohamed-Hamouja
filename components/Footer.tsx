@@ -3,6 +3,10 @@ import { EmailIcon } from './icons/EmailIcon.tsx';
 import { TwitterIcon } from './icons/TwitterIcon.tsx';
 import { InstagramIcon } from './icons/InstagramIcon.tsx';
 import { FacebookIcon } from './icons/FacebookIcon.tsx';
+import { TikTokIcon } from './icons/TikTokIcon.tsx';
+import { YouTubeIcon } from './icons/YouTubeIcon.tsx';
+import { PinterestIcon } from './icons/PinterestIcon.tsx';
+import { BlueskyIcon } from './icons/BlueskyIcon.tsx';
 
 interface FooterProps {
   onBlogClick: () => void;
@@ -26,31 +30,47 @@ const Footer: React.FC<FooterProps> = ({ onBlogClick, onAboutClick, onPrivacyCli
         <div className="text-sm">
           <h3 className="font-bold text-base text-gray-800 mb-4">Quick Links</h3>
           <ul className="space-y-3">
-            <li><button onClick={onAboutClick} className="text-gray-600 hover:text-gray-900 transition-colors text-left">About</button></li>
-            <li><button onClick={onBlogClick} className="text-gray-600 hover:text-gray-900 transition-colors text-left">Blog</button></li>
-            <li><button onClick={onContactClick} className="text-gray-600 hover:text-gray-900 transition-colors text-left">Contact</button></li>
+            <li><button onClick={onAboutClick} className="text-gray-600 hover:text-gray-900 transition-colors text-left font-medium">About</button></li>
+            <li><button onClick={onBlogClick} className="text-gray-600 hover:text-gray-900 transition-colors text-left font-medium">Blog</button></li>
+            <li><button onClick={onContactClick} className="text-gray-600 hover:text-gray-900 transition-colors text-left font-medium">Contact</button></li>
           </ul>
         </div>
         
-        {/* Contact */}
+        {/* Social & Contact */}
         <div className="text-sm">
-          <h3 className="font-bold text-base text-gray-800 mb-4">Contact</h3>
-          <ul className="space-y-3">
+          <h3 className="font-bold text-base text-gray-800 mb-4">Follow Us</h3>
+          <ul className="space-y-2.5">
              <li className="flex items-center gap-3">
                <EmailIcon className="h-4 w-4 text-gray-500" />
                <a href="mailto:walzoo@hotmail.com" className="text-gray-600 hover:text-gray-900 transition-colors">walzoo@hotmail.com</a>
              </li>
              <li className="flex items-center gap-3">
+               <FacebookIcon className="h-4 w-4 text-gray-500" />
+               <a href="https://www.facebook.com/profile.php?id=61587330201337&sk=directory_contact_info" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-gray-900 transition-colors">Facebook</a>
+             </li>
+             <li className="flex items-center gap-3">
                <TwitterIcon className="h-4 w-4 text-gray-500" />
-               <a href="#" className="text-gray-600 hover:text-gray-900 transition-colors">Twitter</a>
+               <a href="https://x.com/WalzooWallpaper" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-gray-900 transition-colors">X (Twitter)</a>
              </li>
              <li className="flex items-center gap-3">
                <InstagramIcon className="h-4 w-4 text-gray-500" />
-               <a href="#" className="text-gray-600 hover:text-gray-900 transition-colors">Instagram</a>
+               <a href="https://www.instagram.com/walzoo_wallpapers" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-gray-900 transition-colors">Instagram</a>
              </li>
              <li className="flex items-center gap-3">
-               <FacebookIcon className="h-4 w-4 text-gray-500" />
-               <a href="#" className="text-gray-600 hover:text-gray-900 transition-colors">Facebook</a>
+               <TikTokIcon className="h-4 w-4 text-gray-500" />
+               <a href="https://www.tiktok.com/@walzoo_wallpapers?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-gray-900 transition-colors">TikTok</a>
+             </li>
+             <li className="flex items-center gap-3">
+               <YouTubeIcon className="h-4 w-4 text-gray-500" />
+               <a href="https://www.youtube.com/channel/UCraHPPThK39ceCb_jNcKyHA" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-gray-900 transition-colors">YouTube</a>
+             </li>
+             <li className="flex items-center gap-3">
+               <PinterestIcon className="h-4 w-4 text-gray-500" />
+               <a href="https://www.pinterest.com/Walzoo_Wallpapers" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-gray-900 transition-colors">Pinterest</a>
+             </li>
+             <li className="flex items-center gap-3">
+               <BlueskyIcon className="h-4 w-4 text-gray-500" />
+               <a href="https://bsky.app/profile/walzoo-wallpaper.bsky.social" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-gray-900 transition-colors">Bluesky</a>
              </li>
           </ul>
         </div>
@@ -59,13 +79,13 @@ const Footer: React.FC<FooterProps> = ({ onBlogClick, onAboutClick, onPrivacyCli
         <div className="text-sm">
           <h3 className="font-bold text-base text-gray-800 mb-4">Legal</h3>
           <ul className="space-y-3">
-            <li><button onClick={onPrivacyClick} className="text-gray-600 hover:text-gray-900 transition-colors text-left">Privacy Policy</button></li>
-            <li><button onClick={onTermsClick} className="text-gray-600 hover:text-gray-900 transition-colors text-left">Terms of Use</button></li>
+            <li><button onClick={onPrivacyClick} className="text-gray-600 hover:text-gray-900 transition-colors text-left font-medium">Privacy Policy</button></li>
+            <li><button onClick={onTermsClick} className="text-gray-600 hover:text-gray-900 transition-colors text-left font-medium">Terms of Use</button></li>
           </ul>
         </div>
       </div>
       <div className="mt-8 pt-6 border-t border-sky-200 text-center">
-        <p className="text-gray-500 text-sm">© 2025 WALZOO, All rights reserved.</p>
+        <p className="text-gray-500 text-sm">© 2026 WALZOO, All rights reserved.</p>
       </div>
     </footer>
   );
