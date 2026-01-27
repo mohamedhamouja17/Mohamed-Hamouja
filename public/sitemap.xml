@@ -3,7 +3,7 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://walzoo.com</loc>
-    <lastmod>2026-01-26</lastmod>
+    <lastmod>2026-01-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -197,6 +197,72 @@
       <image:loc>https://cdn.walzoo.com/Tablet/Technology/cyber-circuit-cat-gold-lights.webp</image:loc>
       <image:title>Cyber Circuit Cat</image:title>
       <image:caption>A futuristic digital cat design featuring glowing gold circuits and neon technology elements. 4K Tablet art.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/neon-donuts-desert-night</loc>
+    <lastmod>2026-01-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Desktop/Digital%20Art/neon-donuts-to-go-desert-night.webp</image:loc>
+      <image:title>Neon Donuts Desert Night</image:title>
+      <image:caption>A vibrant digital art piece featuring neon donuts in a desert setting at night. Perfect for 4K desktop screens.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/neon-playstation-symbols</loc>
+    <lastmod>2026-01-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Desktop/Gaming/neon-playstation-symbols-concrete-wall.webp</image:loc>
+      <image:title>Neon PlayStation Symbols</image:title>
+      <image:caption>Glowing neon PlayStation symbols set against a dark concrete wall, ideal for any gaming setup.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/penguin-iceberg-milky-way</loc>
+    <lastmod>2026-01-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Phone/Animals/penguin-iceberg-milky-way-antarctica.webp</image:loc>
+      <image:title>Penguin Iceberg Milky Way</image:title>
+      <image:caption>A majestic penguin standing on an iceberg under the Milky Way in Antarctica. Stunning phone wallpaper.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/red-ferrari-autumn-reflection</loc>
+    <lastmod>2026-01-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Phone/Cars/red-ferrari-showroom-autumn-reflection.webp</image:loc>
+      <image:title>Red Ferrari Autumn Reflection</image:title>
+      <image:caption>A sleek red Ferrari in a showroom with beautiful autumn reflections. High-resolution car wallpaper for mobile.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/autumn-leaves-sunset-forest</loc>
+    <lastmod>2026-01-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Tablet/Seasons/autumn-leaves-sunset-forest-path.webp</image:loc>
+      <image:title>Autumn Leaves Sunset Forest</image:title>
+      <image:caption>Golden autumn leaves and a serene forest path at sunset. A peaceful seasonal background for your tablet.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/outdoor-basketball-court-night</loc>
+    <lastmod>2026-01-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Tablet/Sports/outdoor-basketball-court-night-moonlight.webp</image:loc>
+      <image:title>Outdoor Basketball Court Night</image:title>
+      <image:caption>An outdoor basketball court illuminated by moonlight at night. Dynamic sports theme for tablet screens.</image:caption>
     </image:image>
   </url>
 </urlset>

@@ -10,7 +10,8 @@ import { SUB_CATEGORIES, MY_IMAGES } from './constants.ts';
  */
 
 const BASE_URL = 'https://walzoo.com';
-const today = '2026-01-26';
+const today = '2026-01-27';
+const lastBatchDate = '2026-01-26';
 const historicalDate = '2026-01-24';
 
 const staticRoutes = [
@@ -46,9 +47,14 @@ ${SUB_CATEGORIES.map(cat => {
     <priority>0.7</priority>
   </url>`;
 }).join('\n')}
-${MY_IMAGES.map(img => `  <url>
+${MY_IMAGES.map(img => {
+  // Logic to freeze older image dates as requested
+  let imgDate = today;
+  if (img.id <= 6) imgDate = lastBatchDate;
+  
+  return `  <url>
     <loc>${BASE_URL}/wallpaper/${img.slug}</loc>
-    <lastmod>${today}</lastmod>
+    <lastmod>${imgDate}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
@@ -56,7 +62,8 @@ ${MY_IMAGES.map(img => `  <url>
       <image:title>${img.title.replace(/&/g, '&amp;')}</image:title>
       <image:caption>${img.description.replace(/&/g, '&amp;')}</image:caption>
     </image:image>
-  </url>`).join('\n')}
+  </url>`;
+}).join('\n')}
 </urlset>`;
 
   // Accessing cwd() on the global process object via type casting to resolve type errors

@@ -94,6 +94,78 @@ export const MY_IMAGES: Wallpaper[] = [
     width: 2048,
     height: 2732,
     extension: 'webp'
+  },
+  {
+    id: 7,
+    slug: "neon-donuts-desert-night",
+    title: "Neon Donuts Desert Night",
+    description: "A vibrant digital art piece featuring neon donuts in a desert setting at night. Perfect for 4K desktop screens.",
+    imageUrl: `${R2_BASE_URL}/Desktop/Digital%20Art/neon-donuts-to-go-desert-night.webp`,
+    category: 'Desktop',
+    subCategory: 'Digital Art',
+    width: 3840,
+    height: 2160,
+    extension: 'webp'
+  },
+  {
+    id: 8,
+    slug: "neon-playstation-symbols",
+    title: "Neon PlayStation Symbols",
+    description: "Glowing neon PlayStation symbols set against a dark concrete wall, ideal for any gaming setup.",
+    imageUrl: `${R2_BASE_URL}/Desktop/Gaming/neon-playstation-symbols-concrete-wall.webp`,
+    category: 'Desktop',
+    subCategory: 'Gaming',
+    width: 3840,
+    height: 2160,
+    extension: 'webp'
+  },
+  {
+    id: 9,
+    slug: "penguin-iceberg-milky-way",
+    title: "Penguin Iceberg Milky Way",
+    description: "A majestic penguin standing on an iceberg under the Milky Way in Antarctica. Stunning phone wallpaper.",
+    imageUrl: `${R2_BASE_URL}/Phone/Animals/penguin-iceberg-milky-way-antarctica.webp`,
+    category: 'Phone',
+    subCategory: 'Animals',
+    width: 1080,
+    height: 2340,
+    extension: 'webp'
+  },
+  {
+    id: 10,
+    slug: "red-ferrari-autumn-reflection",
+    title: "Red Ferrari Autumn Reflection",
+    description: "A sleek red Ferrari in a showroom with beautiful autumn reflections. High-resolution car wallpaper for mobile.",
+    imageUrl: `${R2_BASE_URL}/Phone/Cars/red-ferrari-showroom-autumn-reflection.webp`,
+    category: 'Phone',
+    subCategory: 'Cars',
+    width: 1080,
+    height: 2340,
+    extension: 'webp'
+  },
+  {
+    id: 11,
+    slug: "autumn-leaves-sunset-forest",
+    title: "Autumn Leaves Sunset Forest",
+    description: "Golden autumn leaves and a serene forest path at sunset. A peaceful seasonal background for your tablet.",
+    imageUrl: `${R2_BASE_URL}/Tablet/Seasons/autumn-leaves-sunset-forest-path.webp`,
+    category: 'Tablet',
+    subCategory: 'Seasons',
+    width: 2048,
+    height: 2732,
+    extension: 'webp'
+  },
+  {
+    id: 12,
+    slug: "outdoor-basketball-court-night",
+    title: "Outdoor Basketball Court Night",
+    description: "An outdoor basketball court illuminated by moonlight at night. Dynamic sports theme for tablet screens.",
+    imageUrl: `${R2_BASE_URL}/Tablet/Sports/outdoor-basketball-court-night-moonlight.webp`,
+    category: 'Tablet',
+    subCategory: 'Sports',
+    width: 2048,
+    height: 2732,
+    extension: 'webp'
   }
 ];
 
