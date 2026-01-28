@@ -6,12 +6,17 @@ import { SUB_CATEGORIES, MY_IMAGES } from './constants.ts';
 /**
  * generate-sitemap.ts
  * 
- * Updated version: Generates a sitemap with static routes, categories, and new dynamic wallpaper entries.
+ * Updated version: Generates a sitemap with static routes, categories, and dynamic wallpaper entries.
+ * Manages batches:
+ * Batch 1 (IDs 1-6): 2026-01-26
+ * Batch 2 (IDs 7-12): 2026-01-27
+ * Batch 3 (IDs 13-18): 2026-01-28
  */
 
 const BASE_URL = 'https://walzoo.com';
-const today = '2026-01-27';
-const lastBatchDate = '2026-01-26';
+const today = '2026-01-28';
+const batch2Date = '2026-01-27';
+const batch1Date = '2026-01-26';
 const historicalDate = '2026-01-24';
 
 const staticRoutes = [
@@ -50,7 +55,11 @@ ${SUB_CATEGORIES.map(cat => {
 ${MY_IMAGES.map(img => {
   // Logic to freeze older image dates as requested
   let imgDate = today;
-  if (img.id <= 6) imgDate = lastBatchDate;
+  if (img.id <= 6) {
+    imgDate = batch1Date;
+  } else if (img.id <= 12) {
+    imgDate = batch2Date;
+  }
   
   return `  <url>
     <loc>${BASE_URL}/wallpaper/${img.slug}</loc>

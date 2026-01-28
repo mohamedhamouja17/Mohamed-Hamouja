@@ -166,6 +166,78 @@ export const MY_IMAGES: Wallpaper[] = [
     width: 2048,
     height: 2732,
     extension: 'webp'
+  },
+  {
+    id: 13,
+    slug: "never-give-up-create-future",
+    title: "Never Give Up Quote",
+    description: "Inspirational 'Never Give Up' quote wallpaper for your desktop. High-quality 4K typography.",
+    imageUrl: `${R2_BASE_URL}/Desktop/Quotes/never-give-up-create-your-own-future.webp`,
+    category: 'Desktop',
+    subCategory: 'Quotes',
+    width: 3840,
+    height: 2160,
+    extension: 'webp'
+  },
+  {
+    id: 14,
+    slug: "samurai-warrior-tall-grass",
+    title: "Samurai Warrior in Tall Grass",
+    description: "An epic anime-style samurai warrior standing in tall grass. Stunning 4K desktop background.",
+    imageUrl: `${R2_BASE_URL}/Desktop/Anime/samurai-warrior-standing-in-tall-grass.webp`,
+    category: 'Desktop',
+    subCategory: 'Anime',
+    width: 3840,
+    height: 2160,
+    extension: 'webp'
+  },
+  {
+    id: 15,
+    slug: "parthenon-acropolis-athens-sunset",
+    title: "Parthenon Acropolis Sunset",
+    description: "A breathtaking sunset view of the Parthenon in Athens. Historical culture wallpaper for phone.",
+    imageUrl: `${R2_BASE_URL}/Phone/Culture/parthenon-acropolis-athens-sunset-view.webp`,
+    category: 'Phone',
+    subCategory: 'Culture',
+    width: 1080,
+    height: 2340,
+    extension: 'webp'
+  },
+  {
+    id: 16,
+    slug: "cute-cartoon-cat-peace-sign",
+    title: "Cute Cartoon Cat Peace Sign",
+    description: "A cute grey cartoon cat showing a peace sign. Fun and playful wallpaper for kids' phones.",
+    imageUrl: `${R2_BASE_URL}/Phone/Kids/cute-grey-cartoon-cat-peace-sign.webp`,
+    category: 'Phone',
+    subCategory: 'Kids',
+    width: 1080,
+    height: 2340,
+    extension: 'webp'
+  },
+  {
+    id: 17,
+    slug: "mountain-cabin-lake-reflection",
+    title: "Mountain Cabin Lake Reflection",
+    description: "Serene mountain cabin with a perfect lake reflection in the Dolomites. Beautiful 4K Nature tablet wallpaper.",
+    imageUrl: `${R2_BASE_URL}/Tablet/Nature/mountain-cabin-lake-reflection-dolomites.webp`,
+    category: 'Tablet',
+    subCategory: 'Nature',
+    width: 2048,
+    height: 2732,
+    extension: 'webp'
+  },
+  {
+    id: 18,
+    slug: "saturn-rings-minimalist-bw",
+    title: "Saturn Rings Minimalist B&W",
+    description: "Minimalist black and white view of Saturn's rings in space. Clean aesthetic for tablet screens.",
+    imageUrl: `${R2_BASE_URL}/Tablet/Space/saturn-rings-minimalist-bw-space.webp`,
+    category: 'Tablet',
+    subCategory: 'Space',
+    width: 2048,
+    height: 2732,
+    extension: 'webp'
   }
 ];
 

@@ -3,7 +3,7 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://walzoo.com</loc>
-    <lastmod>2026-01-27</lastmod>
+    <lastmod>2026-01-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -263,6 +263,72 @@
       <image:loc>https://cdn.walzoo.com/Tablet/Sports/outdoor-basketball-court-night-moonlight.webp</image:loc>
       <image:title>Outdoor Basketball Court Night</image:title>
       <image:caption>An outdoor basketball court illuminated by moonlight at night. Dynamic sports theme for tablet screens.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/never-give-up-create-future</loc>
+    <lastmod>2026-01-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Desktop/Quotes/never-give-up-create-your-own-future.webp</image:loc>
+      <image:title>Never Give Up Quote</image:title>
+      <image:caption>Inspirational 'Never Give Up' quote wallpaper for your desktop. High-quality 4K typography.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/samurai-warrior-tall-grass</loc>
+    <lastmod>2026-01-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Desktop/Anime/samurai-warrior-standing-in-tall-grass.webp</image:loc>
+      <image:title>Samurai Warrior in Tall Grass</image:title>
+      <image:caption>An epic anime-style samurai warrior standing in tall grass. Stunning 4K desktop background.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/parthenon-acropolis-athens-sunset</loc>
+    <lastmod>2026-01-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Phone/Culture/parthenon-acropolis-athens-sunset-view.webp</image:loc>
+      <image:title>Parthenon Acropolis Sunset</image:title>
+      <image:caption>A breathtaking sunset view of the Parthenon in Athens. Historical culture wallpaper for phone.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/cute-cartoon-cat-peace-sign</loc>
+    <lastmod>2026-01-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Phone/Kids/cute-grey-cartoon-cat-peace-sign.webp</image:loc>
+      <image:title>Cute Cartoon Cat Peace Sign</image:title>
+      <image:caption>A cute grey cartoon cat showing a peace sign. Fun and playful wallpaper for kids' phones.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/mountain-cabin-lake-reflection</loc>
+    <lastmod>2026-01-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Tablet/Nature/mountain-cabin-lake-reflection-dolomites.webp</image:loc>
+      <image:title>Mountain Cabin Lake Reflection</image:title>
+      <image:caption>Serene mountain cabin with a perfect lake reflection in the Dolomites. Beautiful 4K Nature tablet wallpaper.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/saturn-rings-minimalist-bw</loc>
+    <lastmod>2026-01-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Tablet/Space/saturn-rings-minimalist-bw-space.webp</image:loc>
+      <image:title>Saturn Rings Minimalist B&amp;W</image:title>
+      <image:caption>Minimalist black and white view of Saturn's rings in space. Clean aesthetic for tablet screens.</image:caption>
     </image:image>
   </url>
 </urlset>
