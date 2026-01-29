@@ -238,6 +238,78 @@ export const MY_IMAGES: Wallpaper[] = [
     width: 2048,
     height: 2732,
     extension: 'webp'
+  },
+  {
+    id: 19,
+    slug: "manhattan-bridge-skyline-reflection",
+    title: "Manhattan Bridge Reflection",
+    description: "Stunning 4K reflection of the Manhattan and Brooklyn Bridge skylines. Iconic city landmark wallpaper for desktop.",
+    imageUrl: `${R2_BASE_URL}/Desktop/Cities%20%26%20Landmarks/manhattan-bridge-brooklyn-bridge-skyline-reflection.webp`,
+    category: 'Desktop',
+    subCategory: 'Cities & Landmarks',
+    width: 3840,
+    height: 2160,
+    extension: 'webp'
+  },
+  {
+    id: 20,
+    slug: "abstract-acrylic-paint-swirls",
+    title: "Abstract Acrylic Swirls",
+    description: "Vibrant abstract acrylic paint swirls in blue, orange, and white. Modern 4K art for your desktop background.",
+    imageUrl: `${R2_BASE_URL}/Desktop/Abstract/abstract-acrylic-paint-swirls-blue-orange-white.webp`,
+    category: 'Desktop',
+    subCategory: 'Abstract',
+    width: 3840,
+    height: 2160,
+    extension: 'webp'
+  },
+  {
+    id: 21,
+    slug: "vertical-abstract-paint-splash",
+    title: "Vertical Abstract Splash",
+    description: "A clean and minimalist vertical abstract paint splash background for mobile. Features blue, orange, and white tones.",
+    imageUrl: `${R2_BASE_URL}/Phone/Minimalist/vertical-abstract-paint-splash-blue-orange-white-background.webp`,
+    category: 'Phone',
+    subCategory: 'Minimalist',
+    width: 1080,
+    height: 2340,
+    extension: 'webp'
+  },
+  {
+    id: 22,
+    slug: "neon-geometric-bokeh-lights",
+    title: "Neon Geometric Bokeh",
+    description: "Futuristic abstract bokeh lights with neon geometric lines. High-resolution technology theme for your phone.",
+    imageUrl: `${R2_BASE_URL}/Phone/Technology/abstract-bokeh-lights-neon-geometric-lines-mobile.webp`,
+    category: 'Phone',
+    subCategory: 'Technology',
+    width: 1080,
+    height: 2340,
+    extension: 'webp'
+  },
+  {
+    id: 23,
+    slug: "glowing-neon-glass-cubes",
+    title: "Glowing Neon Glass Cubes",
+    description: "Epic 3D abstract art of glowing neon glass cubes. Perfect gaming aesthetic for your tablet screen.",
+    imageUrl: `${R2_BASE_URL}/Tablet/Gaming/glowing-neon-glass-cubes-3d-abstract-art-tablet.webp`,
+    category: 'Tablet',
+    subCategory: 'Gaming',
+    width: 2048,
+    height: 2732,
+    extension: 'webp'
+  },
+  {
+    id: 24,
+    slug: "textured-geometric-paint-tiles",
+    title: "Textured Geometric Tiles",
+    description: "Artistic textured geometric paint tiles in vibrant orange and teal. Stylish digital art wallpaper for tablets.",
+    imageUrl: `${R2_BASE_URL}/Tablet/Digital%20Art/textured-geometric-paint-tiles-orange-teal-tablet.webp`,
+    category: 'Tablet',
+    subCategory: 'Digital Art',
+    width: 2048,
+    height: 2732,
+    extension: 'webp'
   }
 ];
 

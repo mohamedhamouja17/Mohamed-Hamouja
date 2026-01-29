@@ -3,7 +3,7 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://walzoo.com</loc>
-    <lastmod>2026-01-28</lastmod>
+    <lastmod>2026-01-29</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -329,6 +329,72 @@
       <image:loc>https://cdn.walzoo.com/Tablet/Space/saturn-rings-minimalist-bw-space.webp</image:loc>
       <image:title>Saturn Rings Minimalist B&amp;W</image:title>
       <image:caption>Minimalist black and white view of Saturn's rings in space. Clean aesthetic for tablet screens.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/manhattan-bridge-skyline-reflection</loc>
+    <lastmod>2026-01-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Desktop/Cities%20%26%20Landmarks/manhattan-bridge-brooklyn-bridge-skyline-reflection.webp</image:loc>
+      <image:title>Manhattan Bridge Reflection</image:title>
+      <image:caption>Stunning 4K reflection of the Manhattan and Brooklyn Bridge skylines. Iconic city landmark wallpaper for desktop.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/abstract-acrylic-paint-swirls</loc>
+    <lastmod>2026-01-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Desktop/Abstract/abstract-acrylic-paint-swirls-blue-orange-white.webp</image:loc>
+      <image:title>Abstract Acrylic Swirls</image:title>
+      <image:caption>Vibrant abstract acrylic paint swirls in blue, orange, and white. Modern 4K art for your desktop background.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/vertical-abstract-paint-splash</loc>
+    <lastmod>2026-01-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Phone/Minimalist/vertical-abstract-paint-splash-blue-orange-white-background.webp</image:loc>
+      <image:title>Vertical Abstract Splash</image:title>
+      <image:caption>A clean and minimalist vertical abstract paint splash background for mobile. Features blue, orange, and white tones.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/neon-geometric-bokeh-lights</loc>
+    <lastmod>2026-01-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Phone/Technology/abstract-bokeh-lights-neon-geometric-lines-mobile.webp</image:loc>
+      <image:title>Neon Geometric Bokeh</image:title>
+      <image:caption>Futuristic abstract bokeh lights with neon geometric lines. High-resolution technology theme for your phone.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/glowing-neon-glass-cubes</loc>
+    <lastmod>2026-01-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Tablet/Gaming/glowing-neon-glass-cubes-3d-abstract-art-tablet.webp</image:loc>
+      <image:title>Glowing Neon Glass Cubes</image:title>
+      <image:caption>Epic 3D abstract art of glowing neon glass cubes. Perfect gaming aesthetic for your tablet screen.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/textured-geometric-paint-tiles</loc>
+    <lastmod>2026-01-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Tablet/Digital%20Art/textured-geometric-paint-tiles-orange-teal-tablet.webp</image:loc>
+      <image:title>Textured Geometric Tiles</image:title>
+      <image:caption>Artistic textured geometric paint tiles in vibrant orange and teal. Stylish digital art wallpaper for tablets.</image:caption>
     </image:image>
   </url>
 </urlset>
