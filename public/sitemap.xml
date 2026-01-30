@@ -3,7 +3,7 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://walzoo.com</loc>
-    <lastmod>2026-01-29</lastmod>
+    <lastmod>2026-01-30</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -395,6 +395,72 @@
       <image:loc>https://cdn.walzoo.com/Tablet/Digital%20Art/textured-geometric-paint-tiles-orange-teal-tablet.webp</image:loc>
       <image:title>Textured Geometric Tiles</image:title>
       <image:caption>Artistic textured geometric paint tiles in vibrant orange and teal. Stylish digital art wallpaper for tablets.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/majestic-stallions-bw-portrait</loc>
+    <lastmod>2026-01-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Desktop/Animals/black-and-white-stallions-portrait-minimalist-desktop.webp</image:loc>
+      <image:title>Majestic Stallions B&amp;W</image:title>
+      <image:caption>A powerful black and white portrait of two wild stallions. High-definition 4K animal photography for desktop.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/manhattan-skyline-river-reflection</loc>
+    <lastmod>2026-01-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Desktop/Cars/manhattan-bridge-skyline-reflection-east-river-desktop.jpg.webp</image:loc>
+      <image:title>Manhattan River Skyline</image:title>
+      <image:caption>Breathtaking view of the Manhattan skyline reflecting in the East River at sunset. Premium 4K car-themed desktop backdrop.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/colorful-boats-aerial-shore</loc>
+    <lastmod>2026-01-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Phone/Seasons/aerial-view-colorful-wooden-boats-sandy-shore-mobile.webp</image:loc>
+      <image:title>Aerial Shore Colorful Boats</image:title>
+      <image:caption>Symmetry of colorful wooden boats on a sandy shore seen from above. A beautiful seasons-themed phone wallpaper.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/aesthetic-basketball-hoop-moonlight</loc>
+    <lastmod>2026-01-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Phone/Sports/outdoor-basketball-hoop-night-moonlight-aesthetic-mobile.webp</image:loc>
+      <image:title>Moonlight Basketball Aesthetic</image:title>
+      <image:caption>Glow of a basketball hoop against the night sky under bright moonlight. Moody sports aesthetic for mobile screens.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/soccer-action-watercolor-art</loc>
+    <lastmod>2026-01-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Tablet/Anime/watercolor-soccer-player-kicking-ball-action-art-tablet.webp</image:loc>
+      <image:title>Soccer Action Watercolor</image:title>
+      <image:caption>Artistic watercolor depiction of a soccer player in mid-kick. Dynamic action art for tablet displays.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/one-percent-better-daily-typography</loc>
+    <lastmod>2026-01-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Tablet/Quotes/one-percent-better-every-day-minimalist-typography-tablet.webp</image:loc>
+      <image:title>One Percent Better Quote</image:title>
+      <image:caption>Motivational quote 'One percent better every day' in clean minimalist typography. Inspiring tablet background.</image:caption>
     </image:image>
   </url>
 </urlset>

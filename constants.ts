@@ -310,6 +310,78 @@ export const MY_IMAGES: Wallpaper[] = [
     width: 2048,
     height: 2732,
     extension: 'webp'
+  },
+  {
+    id: 31,
+    slug: "majestic-stallions-bw-portrait",
+    title: "Majestic Stallions B&W",
+    description: "A powerful black and white portrait of two wild stallions. High-definition 4K animal photography for desktop.",
+    imageUrl: "https://cdn.walzoo.com/Desktop/Animals/black-and-white-stallions-portrait-minimalist-desktop.webp",
+    category: 'Desktop',
+    subCategory: 'Animals',
+    width: 3840,
+    height: 2160,
+    extension: 'webp'
+  },
+  {
+    id: 32,
+    slug: "manhattan-skyline-river-reflection",
+    title: "Manhattan River Skyline",
+    description: "Breathtaking view of the Manhattan skyline reflecting in the East River at sunset. Premium 4K car-themed desktop backdrop.",
+    imageUrl: "https://cdn.walzoo.com/Desktop/Cars/manhattan-bridge-skyline-reflection-east-river-desktop.jpg.webp",
+    category: 'Desktop',
+    subCategory: 'Cars',
+    width: 3840,
+    height: 2160,
+    extension: 'webp'
+  },
+  {
+    id: 33,
+    slug: "colorful-boats-aerial-shore",
+    title: "Aerial Shore Colorful Boats",
+    description: "Symmetry of colorful wooden boats on a sandy shore seen from above. A beautiful seasons-themed phone wallpaper.",
+    imageUrl: "https://cdn.walzoo.com/Phone/Seasons/aerial-view-colorful-wooden-boats-sandy-shore-mobile.webp",
+    category: 'Phone',
+    subCategory: 'Seasons',
+    width: 1080,
+    height: 2340,
+    extension: 'webp'
+  },
+  {
+    id: 34,
+    slug: "aesthetic-basketball-hoop-moonlight",
+    title: "Moonlight Basketball Aesthetic",
+    description: "Glow of a basketball hoop against the night sky under bright moonlight. Moody sports aesthetic for mobile screens.",
+    imageUrl: "https://cdn.walzoo.com/Phone/Sports/outdoor-basketball-hoop-night-moonlight-aesthetic-mobile.webp",
+    category: 'Phone',
+    subCategory: 'Sports',
+    width: 1080,
+    height: 2340,
+    extension: 'webp'
+  },
+  {
+    id: 35,
+    slug: "soccer-action-watercolor-art",
+    title: "Soccer Action Watercolor",
+    description: "Artistic watercolor depiction of a soccer player in mid-kick. Dynamic action art for tablet displays.",
+    imageUrl: "https://cdn.walzoo.com/Tablet/Anime/watercolor-soccer-player-kicking-ball-action-art-tablet.webp",
+    category: 'Tablet',
+    subCategory: 'Anime',
+    width: 2048,
+    height: 2732,
+    extension: 'webp'
+  },
+  {
+    id: 36,
+    slug: "one-percent-better-daily-typography",
+    title: "One Percent Better Quote",
+    description: "Motivational quote 'One percent better every day' in clean minimalist typography. Inspiring tablet background.",
+    imageUrl: "https://cdn.walzoo.com/Tablet/Quotes/one-percent-better-every-day-minimalist-typography-tablet.webp",
+    category: 'Tablet',
+    subCategory: 'Quotes',
+    width: 2048,
+    height: 2732,
+    extension: 'webp'
   }
 ];
 
