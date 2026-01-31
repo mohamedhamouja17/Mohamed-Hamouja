@@ -3,7 +3,7 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://walzoo.com</loc>
-    <lastmod>2026-01-30</lastmod>
+    <lastmod>2026-01-31</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -461,6 +461,72 @@
       <image:loc>https://cdn.walzoo.com/Tablet/Quotes/one-percent-better-every-day-minimalist-typography-tablet.webp</image:loc>
       <image:title>One Percent Better Quote</image:title>
       <image:caption>Motivational quote 'One percent better every day' in clean minimalist typography. Inspiring tablet background.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/flatiron-building-nyc-blue-bugatti</loc>
+    <lastmod>2026-01-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Desktop/Culture/flatiron-building-nyc-blue-bugatti-supercar-pc.webp</image:loc>
+      <image:title>NYC Flatiron &amp; Blue Bugatti</image:title>
+      <image:caption>A striking view of the Flatiron building in NYC featuring a sleek blue Bugatti supercar. High-quality 4K culture wallpaper.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/tiger-panda-friends-birthday-party</loc>
+    <lastmod>2026-01-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Desktop/Kids/cartoon-tiger-and-panda-best-friends-birthday-party-desktop.webp</image:loc>
+      <image:title>Tiger and Panda Party</image:title>
+      <image:caption>Cute cartoon tiger and panda best friends celebrating a birthday party. Fun and colorful 4K wallpaper for kids.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/earth-from-space-night-lights-minimal</loc>
+    <lastmod>2026-01-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Phone/Space/earth-from-space-night-lights-minimalist-phone.webp</image:loc>
+      <image:title>Earth Night Lights Minimalist</image:title>
+      <image:caption>A minimalist view of Earth from space at night, showing city lights glowing against the darkness. Beautiful phone background.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/hot-air-balloons-winter-valley</loc>
+    <lastmod>2026-01-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Phone/Nature/hot-air-balloons-winter-river-valley-landscape-phone.webp</image:loc>
+      <image:title>Winter Valley Hot Air Balloons</image:title>
+      <image:caption>Colorful hot air balloons drifting over a snowy winter river valley landscape. Stunning nature wallpaper for mobile.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/3d-glowing-neon-glass-cubes-art</loc>
+    <lastmod>2026-01-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Tablet/Abstract/3d-glowing-neon-glass-cubes-geometric-art-tablet.webp</image:loc>
+      <image:title>3D Glowing Neon Glass Cubes</image:title>
+      <image:caption>Intricate 3D geometric art featuring glowing neon glass cubes. A modern abstract aesthetic for your tablet.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/new-york-city-skyline-night-reflection</loc>
+    <lastmod>2026-01-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Tablet/Cities%20%26%20Landmarks/new-york-city-skyline-night-reflection-tablet.webp</image:loc>
+      <image:title>NYC Skyline Night Reflection</image:title>
+      <image:caption>The iconic New York City skyline illuminated at night with a perfect water reflection. Classic city landmark for tablets.</image:caption>
     </image:image>
   </url>
 </urlset>

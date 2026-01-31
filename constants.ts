@@ -382,6 +382,78 @@ export const MY_IMAGES: Wallpaper[] = [
     width: 2048,
     height: 2732,
     extension: 'webp'
+  },
+  {
+    id: 37,
+    slug: "flatiron-building-nyc-blue-bugatti",
+    title: "NYC Flatiron & Blue Bugatti",
+    description: "A striking view of the Flatiron building in NYC featuring a sleek blue Bugatti supercar. High-quality 4K culture wallpaper.",
+    imageUrl: "https://cdn.walzoo.com/Desktop/Culture/flatiron-building-nyc-blue-bugatti-supercar-pc.webp",
+    category: 'Desktop',
+    subCategory: 'Culture',
+    width: 3840,
+    height: 2160,
+    extension: 'webp'
+  },
+  {
+    id: 38,
+    slug: "tiger-panda-friends-birthday-party",
+    title: "Tiger and Panda Party",
+    description: "Cute cartoon tiger and panda best friends celebrating a birthday party. Fun and colorful 4K wallpaper for kids.",
+    imageUrl: "https://cdn.walzoo.com/Desktop/Kids/cartoon-tiger-and-panda-best-friends-birthday-party-desktop.webp",
+    category: 'Desktop',
+    subCategory: 'Kids',
+    width: 3840,
+    height: 2160,
+    extension: 'webp'
+  },
+  {
+    id: 39,
+    slug: "earth-from-space-night-lights-minimal",
+    title: "Earth Night Lights Minimalist",
+    description: "A minimalist view of Earth from space at night, showing city lights glowing against the darkness. Beautiful phone background.",
+    imageUrl: "https://cdn.walzoo.com/Phone/Space/earth-from-space-night-lights-minimalist-phone.webp",
+    category: 'Phone',
+    subCategory: 'Space',
+    width: 1080,
+    height: 2340,
+    extension: 'webp'
+  },
+  {
+    id: 40,
+    slug: "hot-air-balloons-winter-valley",
+    title: "Winter Valley Hot Air Balloons",
+    description: "Colorful hot air balloons drifting over a snowy winter river valley landscape. Stunning nature wallpaper for mobile.",
+    imageUrl: "https://cdn.walzoo.com/Phone/Nature/hot-air-balloons-winter-river-valley-landscape-phone.webp",
+    category: 'Phone',
+    subCategory: 'Nature',
+    width: 1080,
+    height: 2340,
+    extension: 'webp'
+  },
+  {
+    id: 41,
+    slug: "3d-glowing-neon-glass-cubes-art",
+    title: "3D Glowing Neon Glass Cubes",
+    description: "Intricate 3D geometric art featuring glowing neon glass cubes. A modern abstract aesthetic for your tablet.",
+    imageUrl: "https://cdn.walzoo.com/Tablet/Abstract/3d-glowing-neon-glass-cubes-geometric-art-tablet.webp",
+    category: 'Tablet',
+    subCategory: 'Abstract',
+    width: 2048,
+    height: 2732,
+    extension: 'webp'
+  },
+  {
+    id: 42,
+    slug: "new-york-city-skyline-night-reflection",
+    title: "NYC Skyline Night Reflection",
+    description: "The iconic New York City skyline illuminated at night with a perfect water reflection. Classic city landmark for tablets.",
+    imageUrl: "https://cdn.walzoo.com/Tablet/Cities%20%26%20Landmarks/new-york-city-skyline-night-reflection-tablet.webp",
+    category: 'Tablet',
+    subCategory: 'Cities & Landmarks',
+    width: 2048,
+    height: 2732,
+    extension: 'webp'
   }
 ];
 
