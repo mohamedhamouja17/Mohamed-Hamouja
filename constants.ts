@@ -454,6 +454,78 @@ export const MY_IMAGES: Wallpaper[] = [
     width: 2048,
     height: 2732,
     extension: 'webp'
+  },
+  {
+    id: 43,
+    slug: "autumn-trees-misty-lake-reflection",
+    title: "Misty Autumn Lake",
+    description: "Vibrant autumn trees reflecting in a misty lake. Clean minimalist 4K wallpaper for your desktop.",
+    imageUrl: `${R2_BASE_URL}/Desktop/Minimalist/colorful-autumn-trees-misty-lake-reflection-pc.webp`,
+    category: 'Desktop',
+    subCategory: 'Minimalist',
+    width: 3840,
+    height: 2160,
+    extension: 'webp'
+  },
+  {
+    id: 44,
+    slug: "golden-hexagon-honeycomb-red-glow",
+    title: "Golden Honeycomb Hexagon",
+    description: "Futuristic golden honeycomb pattern with a subtle red glow. High-tech 4K background for desktop setups.",
+    imageUrl: `${R2_BASE_URL}/Desktop/Technology/golden-honeycomb-hexagon-pattern-red-glow-pc.webp`,
+    category: 'Desktop',
+    subCategory: 'Technology',
+    width: 3840,
+    height: 2160,
+    extension: 'webp'
+  },
+  {
+    id: 45,
+    slug: "colorful-rounded-blocks-abstract",
+    title: "Colorful Rounded Blocks",
+    description: "Abstract textured pattern of colorful rounded blocks. Modern digital art for your phone screen.",
+    imageUrl: `${R2_BASE_URL}/Phone/Digital%20Art/textured-abstract-colorful-rounded-blocks-pattern-phone.webp`,
+    category: 'Phone',
+    subCategory: 'Digital Art',
+    width: 1080,
+    height: 2340,
+    extension: 'webp'
+  },
+  {
+    id: 46,
+    slug: "western-cowboy-winter-forest",
+    title: "Winter Cowboy Rider",
+    description: "A cinematic scene of a western cowboy riding through a snowy winter forest. Epic gaming theme for mobile.",
+    imageUrl: `${R2_BASE_URL}/Phone/Gaming/western-cowboy-riding-horse-winter-snow-forest-phone.webp`,
+    category: 'Phone',
+    subCategory: 'Gaming',
+    width: 1080,
+    height: 2340,
+    extension: 'webp'
+  },
+  {
+    id: 47,
+    slug: "white-lion-cubs-hugging",
+    title: "White Lion Cubs Hugging",
+    description: "Heartwarming moment of two white lion cubs hugging in the grassland. Cute animal wallpaper for tablet.",
+    imageUrl: `${R2_BASE_URL}/Tablet/Animals/white-lion-cubs-hugging-grassland-tablet.webp`,
+    category: 'Tablet',
+    subCategory: 'Animals',
+    width: 2048,
+    height: 2732,
+    extension: 'webp'
+  },
+  {
+    id: 48,
+    slug: "emerald-sportscar-cherry-blossoms",
+    title: "Emerald Sportscar & Cherry Blossoms",
+    description: "Luxurious emerald green sportscar parked among blooming cherry blossoms. Stylish car background for tablets.",
+    imageUrl: `${R2_BASE_URL}/Tablet/Cars/emerald-green-luxury-sportscar-cherry-blossoms-tablet.webp`,
+    category: 'Tablet',
+    subCategory: 'Cars',
+    width: 2048,
+    height: 2732,
+    extension: 'webp'
   }
 ];
 

@@ -3,7 +3,7 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://walzoo.com</loc>
-    <lastmod>2026-01-31</lastmod>
+    <lastmod>2026-02-01</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -527,6 +527,72 @@
       <image:loc>https://cdn.walzoo.com/Tablet/Cities%20%26%20Landmarks/new-york-city-skyline-night-reflection-tablet.webp</image:loc>
       <image:title>NYC Skyline Night Reflection</image:title>
       <image:caption>The iconic New York City skyline illuminated at night with a perfect water reflection. Classic city landmark for tablets.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/autumn-trees-misty-lake-reflection</loc>
+    <lastmod>2026-02-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Desktop/Minimalist/colorful-autumn-trees-misty-lake-reflection-pc.webp</image:loc>
+      <image:title>Misty Autumn Lake</image:title>
+      <image:caption>Vibrant autumn trees reflecting in a misty lake. Clean minimalist 4K wallpaper for your desktop.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/golden-hexagon-honeycomb-red-glow</loc>
+    <lastmod>2026-02-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Desktop/Technology/golden-honeycomb-hexagon-pattern-red-glow-pc.webp</image:loc>
+      <image:title>Golden Honeycomb Hexagon</image:title>
+      <image:caption>Futuristic golden honeycomb pattern with a subtle red glow. High-tech 4K background for desktop setups.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/colorful-rounded-blocks-abstract</loc>
+    <lastmod>2026-02-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Phone/Digital%20Art/textured-abstract-colorful-rounded-blocks-pattern-phone.webp</image:loc>
+      <image:title>Colorful Rounded Blocks</image:title>
+      <image:caption>Abstract textured pattern of colorful rounded blocks. Modern digital art for your phone screen.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/western-cowboy-winter-forest</loc>
+    <lastmod>2026-02-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Phone/Gaming/western-cowboy-riding-horse-winter-snow-forest-phone.webp</image:loc>
+      <image:title>Winter Cowboy Rider</image:title>
+      <image:caption>A cinematic scene of a western cowboy riding through a snowy winter forest. Epic gaming theme for mobile.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/white-lion-cubs-hugging</loc>
+    <lastmod>2026-02-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Tablet/Animals/white-lion-cubs-hugging-grassland-tablet.webp</image:loc>
+      <image:title>White Lion Cubs Hugging</image:title>
+      <image:caption>Heartwarming moment of two white lion cubs hugging in the grassland. Cute animal wallpaper for tablet.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/emerald-sportscar-cherry-blossoms</loc>
+    <lastmod>2026-02-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Tablet/Cars/emerald-green-luxury-sportscar-cherry-blossoms-tablet.webp</image:loc>
+      <image:title>Emerald Sportscar &amp; Cherry Blossoms</image:title>
+      <image:caption>Luxurious emerald green sportscar parked among blooming cherry blossoms. Stylish car background for tablets.</image:caption>
     </image:image>
   </url>
 </urlset>
