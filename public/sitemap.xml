@@ -3,7 +3,7 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://walzoo.com</loc>
-    <lastmod>2026-02-01</lastmod>
+    <lastmod>2026-02-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -593,6 +593,72 @@
       <image:loc>https://cdn.walzoo.com/Tablet/Cars/emerald-green-luxury-sportscar-cherry-blossoms-tablet.webp</image:loc>
       <image:title>Emerald Sportscar &amp; Cherry Blossoms</image:title>
       <image:caption>Luxurious emerald green sportscar parked among blooming cherry blossoms. Stylish car background for tablets.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/winding-autumn-forest-path</loc>
+    <lastmod>2026-02-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Desktop/Seasons/winding-autumn-forest-path-orange-leaves-fence-pc.webp</image:loc>
+      <image:title>Winding Autumn Forest Path</image:title>
+      <image:caption>A peaceful winding path through an autumn forest with vibrant orange leaves and a rustic fence. High-quality 4K Seasons wallpaper.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/basketball-court-sunlight-forest</loc>
+    <lastmod>2026-02-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Desktop/Sports/empty-basketball-court-sunlight-forest-trees-pc.webp</image:loc>
+      <image:title>Forest Basketball Court</image:title>
+      <image:caption>An empty basketball court bathed in warm sunlight, surrounded by lush forest trees. Dynamic 4K sports background.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/chinese-calligraphy-black-bg</loc>
+    <lastmod>2026-02-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Phone/Anime/chinese-calligraphy-black-background-phone.webp</image:loc>
+      <image:title>Artistic Chinese Calligraphy</image:title>
+      <image:caption>Elegant Chinese calligraphy set against a minimalist black background. Artistic anime-inspired phone wallpaper.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/focus-on-your-goal-quote</loc>
+    <lastmod>2026-02-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Phone/Quotes/focus-on-your-goal-motivational-texture-phone.webp</image:loc>
+      <image:title>Focus On Your Goal</image:title>
+      <image:caption>Motivational 'Focus on your goal' quote with a textured background. Inspiring typography for your phone.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/urban-alleyway-graffiti-art</loc>
+    <lastmod>2026-02-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Tablet/Culture/urban-alleyway-colorful-graffiti-art-tablet.webp</image:loc>
+      <image:title>Urban Graffiti Alleyway</image:title>
+      <image:caption>A vibrant urban alleyway filled with colorful graffiti art. A gritty yet artistic culture-themed tablet wallpaper.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/fluffy-white-kitten-purple-eyes</loc>
+    <lastmod>2026-02-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Tablet/Kids/fluffy-white-kitten-large-purple-eyes-tablet.webp</image:loc>
+      <image:title>Fluffy White Kitten</image:title>
+      <image:caption>A cute fluffy white kitten with large, enchanting purple eyes. Adorable wallpaper for kids' tablets.</image:caption>
     </image:image>
   </url>
 </urlset>

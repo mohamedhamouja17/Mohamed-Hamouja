@@ -526,6 +526,78 @@ export const MY_IMAGES: Wallpaper[] = [
     width: 2048,
     height: 2732,
     extension: 'webp'
+  },
+  {
+    id: 49,
+    slug: "winding-autumn-forest-path",
+    title: "Winding Autumn Forest Path",
+    description: "A peaceful winding path through an autumn forest with vibrant orange leaves and a rustic fence. High-quality 4K Seasons wallpaper.",
+    imageUrl: "https://cdn.walzoo.com/Desktop/Seasons/winding-autumn-forest-path-orange-leaves-fence-pc.webp",
+    category: 'Desktop',
+    subCategory: 'Seasons',
+    width: 3840,
+    height: 2160,
+    extension: 'webp'
+  },
+  {
+    id: 50,
+    slug: "basketball-court-sunlight-forest",
+    title: "Forest Basketball Court",
+    description: "An empty basketball court bathed in warm sunlight, surrounded by lush forest trees. Dynamic 4K sports background.",
+    imageUrl: "https://cdn.walzoo.com/Desktop/Sports/empty-basketball-court-sunlight-forest-trees-pc.webp",
+    category: 'Desktop',
+    subCategory: 'Sports',
+    width: 3840,
+    height: 2160,
+    extension: 'webp'
+  },
+  {
+    id: 51,
+    slug: "chinese-calligraphy-black-bg",
+    title: "Artistic Chinese Calligraphy",
+    description: "Elegant Chinese calligraphy set against a minimalist black background. Artistic anime-inspired phone wallpaper.",
+    imageUrl: "https://cdn.walzoo.com/Phone/Anime/chinese-calligraphy-black-background-phone.webp",
+    category: 'Phone',
+    subCategory: 'Anime',
+    width: 1080,
+    height: 2340,
+    extension: 'webp'
+  },
+  {
+    id: 52,
+    slug: "focus-on-your-goal-quote",
+    title: "Focus On Your Goal",
+    description: "Motivational 'Focus on your goal' quote with a textured background. Inspiring typography for your phone.",
+    imageUrl: "https://cdn.walzoo.com/Phone/Quotes/focus-on-your-goal-motivational-texture-phone.webp",
+    category: 'Phone',
+    subCategory: 'Quotes',
+    width: 1080,
+    height: 2340,
+    extension: 'webp'
+  },
+  {
+    id: 53,
+    slug: "urban-alleyway-graffiti-art",
+    title: "Urban Graffiti Alleyway",
+    description: "A vibrant urban alleyway filled with colorful graffiti art. A gritty yet artistic culture-themed tablet wallpaper.",
+    imageUrl: "https://cdn.walzoo.com/Tablet/Culture/urban-alleyway-colorful-graffiti-art-tablet.webp",
+    category: 'Tablet',
+    subCategory: 'Culture',
+    width: 2048,
+    height: 2732,
+    extension: 'webp'
+  },
+  {
+    id: 54,
+    slug: "fluffy-white-kitten-purple-eyes",
+    title: "Fluffy White Kitten",
+    description: "A cute fluffy white kitten with large, enchanting purple eyes. Adorable wallpaper for kids' tablets.",
+    imageUrl: "https://cdn.walzoo.com/Tablet/Kids/fluffy-white-kitten-large-purple-eyes-tablet.webp",
+    category: 'Tablet',
+    subCategory: 'Kids',
+    width: 2048,
+    height: 2732,
+    extension: 'webp'
   }
 ];
 
