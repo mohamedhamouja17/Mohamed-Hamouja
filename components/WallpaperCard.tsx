@@ -31,7 +31,6 @@ const WallpaperCard: React.FC<WallpaperCardProps> = ({ wallpaper, onViewClick })
           alt={wallpaper.title}
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 bg-gray-100 pointer-events-none"
           loading="lazy"
-          crossOrigin="anonymous"
         />
         {/* Invisible Overlay Shield */}
         <div className="absolute inset-0 z-10 bg-transparent select-none" aria-hidden="true"></div>
