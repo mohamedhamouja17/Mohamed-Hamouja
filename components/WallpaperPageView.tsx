@@ -14,11 +14,11 @@ const WallpaperPageView: React.FC<WallpaperPageViewProps> = ({ wallpaper, onBack
   const [detectedExtension, setDetectedExtension] = useState(wallpaper.extension);
   const [hasTriedSwap, setHasTriedSwap] = useState(false);
 
-  // If the initial URL fails, try the alternative extension automatically
+  // Fallback extension check (runs if the initial image source fails to load)
   const handleImageError = () => {
     if (!hasTriedSwap) {
       const otherExt = detectedExtension === 'jpg' ? 'png' : 'jpg';
-      const newUrl = currentUrl.replace(`.${detectedExtension}`, `.${otherExt}`);
+      const newUrl = wallpaper.imageUrl.replace(`.${wallpaper.extension}`, `.${otherExt}`);
       
       setCurrentUrl(newUrl);
       setDetectedExtension(otherExt);
@@ -54,16 +54,14 @@ const WallpaperPageView: React.FC<WallpaperPageViewProps> = ({ wallpaper, onBack
       <div className="bg-white rounded-3xl overflow-hidden shadow-2xl border border-gray-100">
         <div className="bg-gray-50 p-4 sm:p-8 flex justify-center items-center min-h-[40vh]">
           <div className={`relative shadow-2xl rounded-2xl overflow-hidden border-4 border-white transition-all duration-500 ${getAspectRatioClass()}`}>
+            {/* 1. Immediate Display: No crossOrigin attribute to avoid R2 CORS preview conflicts */}
             <img 
               src={currentUrl} 
               alt={wallpaper.title}
               className="w-full h-full object-cover block bg-gray-200 pointer-events-none"
-              loading="lazy"
+              loading="eager"
               onError={handleImageError}
-              crossOrigin="anonymous" 
             />
-            {/* Invisible Overlay Shield */}
-            <div className="absolute inset-0 z-10 bg-transparent select-none" aria-hidden="true"></div>
             
             <div className="absolute top-3 right-3 bg-black/40 backdrop-blur-md text-white text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-tighter z-20">
               {wallpaper.width >= 3840 ? '4K UHD' : 'HD READY'}

@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { DownloadIcon } from './icons/DownloadIcon.tsx';
 
 const COUNTDOWN_SECONDS = 20;
 
 interface DownloadSectionProps { 
-  imageUrl: string;      // Use the verified URL from parent
+  imageUrl: string;      
   imageName: string;     
   extension: string;
 }
@@ -15,64 +15,60 @@ const DownloadSection: React.FC<DownloadSectionProps> = ({
   extension
 }) => {
   const [timeLeft, setTimeLeft] = useState(COUNTDOWN_SECONDS);
-  const [isTimerFinished, setIsTimerFinished] = useState(false);
-  const [isBlobReady, setIsBlobReady] = useState(false);
   const [blobUrl, setBlobUrl] = useState<string | null>(null);
+  const [isFetching, setIsFetching] = useState(false);
   const [location, setLocation] = useState<string>('Detecting node...');
-  const [error, setError] = useState<string | null>(null);
   
-  const fetchInitiated = useRef(false);
-
-  // Timer logic
+  // 1. Independent Timer Logic (Starts immediately upon component mount)
   useEffect(() => {
     if (timeLeft > 0) {
       const timer = setTimeout(() => setTimeLeft(prev => prev - 1), 1000);
       return () => clearTimeout(timer);
-    } else {
-      setIsTimerFinished(true);
     }
   }, [timeLeft]);
 
-  // Pre-fetch logic: Fetch the verified URL passed from parent
+  // 2. Silent Background Fetch (Strictly for download, using CORS mode)
   useEffect(() => {
-    if (fetchInitiated.current || !imageUrl) return;
-    fetchInitiated.current = true;
-
+    if (!imageUrl) return;
+    
+    const controller = new AbortController();
     const fetchImageAsBlob = async () => {
+      setIsFetching(true);
       try {
-        // We add a small timestamp to avoid cache-collision issues with non-CORS img tags
+        // Cache busting (?cv=timestamp) ensures this CORS request doesn't collide with non-CORS image cache
         const fetchUrl = `${imageUrl}${imageUrl.includes('?') ? '&' : '?'}cv=${Date.now()}`;
         
         const response = await fetch(fetchUrl, {
           method: 'GET',
-          mode: 'cors', // Explicitly request CORS
+          mode: 'cors', // Required for Blob handling
+          signal: controller.signal
         });
 
-        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
         
         const blob = await response.blob();
         const url = window.URL.createObjectURL(blob);
         setBlobUrl(url);
-        setIsBlobReady(true);
-      } catch (err) {
-        console.error("Download fetch failed. Check R2 CORS settings:", err);
-        setError("Network restriction detected. Deliver via direct gateway.");
-        // Fallback to direct URL if blob pre-fetch fails (e.g. CORS not configured on R2)
-        setBlobUrl(imageUrl);
-        setIsBlobReady(true);
+      } catch (err: any) {
+        if (err.name !== 'AbortError') {
+          console.warn("Silent fetch background process restricted. Falling back to direct CDN link for download.", err);
+        }
+      } finally {
+        setIsFetching(false);
       }
     };
 
     fetchImageAsBlob();
 
     return () => {
+      controller.abort();
       if (blobUrl && blobUrl.startsWith('blob:')) {
         window.URL.revokeObjectURL(blobUrl);
       }
     };
   }, [imageUrl]);
 
-  // Node detection logic
+  // Node detection logic for UI feedback
   useEffect(() => {
     const fetchLocation = async () => {
       try {
@@ -87,14 +83,18 @@ const DownloadSection: React.FC<DownloadSectionProps> = ({
   }, []);
 
   const handleDownloadClick = () => {
-    if (!isTimerFinished || !blobUrl) return;
+    if (timeLeft > 0) return;
 
+    // Use Blob URL if successfully fetched, otherwise fallback to direct imageUrl
+    const finalUrl = blobUrl || imageUrl;
+    
     const link = document.createElement('a');
-    link.href = blobUrl;
+    link.href = finalUrl;
     link.download = `${imageName.trim()}.${extension}`;
     document.body.appendChild(link);
     link.click();
     
+    // Cleanup temporary link
     setTimeout(() => {
       if (document.body.contains(link)) {
         document.body.removeChild(link);
@@ -102,11 +102,13 @@ const DownloadSection: React.FC<DownloadSectionProps> = ({
     }, 100);
   };
 
+  const isTimerFinished = timeLeft === 0;
+
   return (
     <div className="mt-8 p-6 sm:p-10 bg-white rounded-[2rem] border-2 border-orange-50 shadow-xl animate-fade-in max-w-2xl mx-auto">
       <div className="flex flex-col items-center">
         
-        {/* Ad Placeholder */}
+        {/* Sponsored Video Placeholder */}
         <div className="w-full bg-black rounded-2xl mb-8 flex flex-col items-center justify-center min-h-[250px] relative overflow-hidden group shadow-inner">
           <div className="absolute top-4 left-4 bg-orange-500/80 text-[10px] font-bold text-white px-2 py-0.5 rounded-sm uppercase tracking-widest z-10">
             Sponsored Content
@@ -126,21 +128,21 @@ const DownloadSection: React.FC<DownloadSectionProps> = ({
 
         <div className="text-center mb-8">
           <h3 className="text-xl font-bold text-gray-800 mb-2">
-            {isTimerFinished && isBlobReady 
+            {isTimerFinished 
               ? `Your 4K ${extension.toUpperCase()} is Ready!` 
-              : isBlobReady ? "Preparing high-quality file..." : "Securing direct link..."}
+              : "Securing high-quality file..."}
           </h3>
           <p className="text-gray-500 text-sm">
-            {isTimerFinished && isBlobReady 
+            {isTimerFinished 
               ? `Verified download node: ${location}` 
-              : error ? error : `Securing direct link... ${timeLeft}s remaining.`}
+              : `Wait ${timeLeft}s for secure link generation.`}
           </p>
         </div>
 
         <div className="w-full flex flex-col items-center">
-          {(!isTimerFinished || !isBlobReady) ? (
+          {!isTimerFinished ? (
             <div className="w-full flex flex-col gap-4">
-              <div className="w-full flex items-center justify-center gap-3 bg-gray-100 text-gray-400 font-bold py-5 px-8 rounded-2xl border border-gray-200">
+              <div className="w-full flex items-center justify-center gap-3 bg-gray-100 text-gray-400 font-bold py-5 px-8 rounded-2xl border border-gray-200 cursor-not-allowed">
                 <div className="h-5 w-5 border-2 border-gray-300 border-t-gray-500 animate-spin rounded-full"></div>
                 <span>Download Locked ({timeLeft}s)</span>
               </div>
@@ -152,7 +154,7 @@ const DownloadSection: React.FC<DownloadSectionProps> = ({
                 ></div>
               </div>
               <p className="text-[10px] text-gray-400 uppercase font-bold tracking-widest text-center">
-                {isBlobReady ? "Pre-fetch Complete" : "Caching assets..."}
+                {blobUrl ? "Ready for instant delivery" : isFetching ? "Caching assets..." : "Connection established"}
               </p>
             </div>
           ) : (
