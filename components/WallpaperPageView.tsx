@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { type Wallpaper } from '../types.ts';
 import DownloadSection from './DownloadSection.tsx';
@@ -61,6 +60,7 @@ const WallpaperPageView: React.FC<WallpaperPageViewProps> = ({ wallpaper, onBack
               className="w-full h-full object-cover block bg-gray-200 pointer-events-none"
               loading="lazy"
               onError={handleImageError}
+              crossOrigin="anonymous" 
             />
             {/* Invisible Overlay Shield */}
             <div className="absolute inset-0 z-10 bg-transparent select-none" aria-hidden="true"></div>
@@ -101,8 +101,7 @@ const WallpaperPageView: React.FC<WallpaperPageViewProps> = ({ wallpaper, onBack
             </button>
           ) : (
             <DownloadSection 
-               deviceType={wallpaper.category} 
-               categoryName={wallpaper.subCategory}
+               imageUrl={currentUrl} 
                imageName={wallpaper.slug}
                extension={detectedExtension}
             />

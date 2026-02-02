@@ -1,19 +1,16 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { DownloadIcon } from './icons/DownloadIcon.tsx';
 
-const R2_BASE_URL = "https://cdn.walzoo.com";
 const COUNTDOWN_SECONDS = 20;
 
 interface DownloadSectionProps { 
-  deviceType: string;    
-  categoryName: string;  
+  imageUrl: string;      // Use the verified URL from parent
   imageName: string;     
   extension: string;
 }
 
 const DownloadSection: React.FC<DownloadSectionProps> = ({ 
-  deviceType, 
-  categoryName, 
+  imageUrl, 
   imageName,
   extension
 }) => {
@@ -36,19 +33,21 @@ const DownloadSection: React.FC<DownloadSectionProps> = ({
     }
   }, [timeLeft]);
 
-  // Pre-fetch logic: Start fetching as soon as the component mounts
+  // Pre-fetch logic: Fetch the verified URL passed from parent
   useEffect(() => {
-    if (fetchInitiated.current) return;
+    if (fetchInitiated.current || !imageUrl) return;
     fetchInitiated.current = true;
-
-    const folder = deviceType === 'Home' ? 'Desktop' : deviceType;
-    const cleanImageName = imageName.trim();
-    const cleanCategory = categoryName.trim();
-    const finalUrl = `${R2_BASE_URL}/${folder}/${cleanCategory}/${cleanImageName}.${extension}`;
 
     const fetchImageAsBlob = async () => {
       try {
-        const response = await fetch(finalUrl);
+        // We add a small timestamp to avoid cache-collision issues with non-CORS img tags
+        const fetchUrl = `${imageUrl}${imageUrl.includes('?') ? '&' : '?'}cv=${Date.now()}`;
+        
+        const response = await fetch(fetchUrl, {
+          method: 'GET',
+          mode: 'cors', // Explicitly request CORS
+        });
+
         if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
         
         const blob = await response.blob();
@@ -56,23 +55,22 @@ const DownloadSection: React.FC<DownloadSectionProps> = ({
         setBlobUrl(url);
         setIsBlobReady(true);
       } catch (err) {
-        console.error("Failed to pre-fetch wallpaper blob:", err);
-        setError("Direct link secured. Ready for standard download.");
-        // Fallback: we'll use the direct URL if blob pre-fetch fails
-        setBlobUrl(finalUrl);
+        console.error("Download fetch failed. Check R2 CORS settings:", err);
+        setError("Network restriction detected. Deliver via direct gateway.");
+        // Fallback to direct URL if blob pre-fetch fails (e.g. CORS not configured on R2)
+        setBlobUrl(imageUrl);
         setIsBlobReady(true);
       }
     };
 
     fetchImageAsBlob();
 
-    // Cleanup object URL on unmount to prevent memory leaks
     return () => {
       if (blobUrl && blobUrl.startsWith('blob:')) {
         window.URL.revokeObjectURL(blobUrl);
       }
     };
-  }, [deviceType, categoryName, imageName, extension]);
+  }, [imageUrl]);
 
   // Node detection logic
   useEffect(() => {
@@ -97,7 +95,6 @@ const DownloadSection: React.FC<DownloadSectionProps> = ({
     document.body.appendChild(link);
     link.click();
     
-    // Minimal cleanup delay
     setTimeout(() => {
       if (document.body.contains(link)) {
         document.body.removeChild(link);
@@ -148,7 +145,6 @@ const DownloadSection: React.FC<DownloadSectionProps> = ({
                 <span>Download Locked ({timeLeft}s)</span>
               </div>
               
-              {/* Progress feedback */}
               <div className="w-full bg-gray-100 h-1.5 rounded-full overflow-hidden">
                 <div 
                   className="bg-orange-400 h-full transition-all duration-500 ease-linear"
