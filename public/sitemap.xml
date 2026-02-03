@@ -3,7 +3,7 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://walzoo.com</loc>
-    <lastmod>2026-02-02</lastmod>
+    <lastmod>2026-02-03</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -659,6 +659,72 @@
       <image:loc>https://cdn.walzoo.com/Tablet/Kids/fluffy-white-kitten-large-purple-eyes-tablet.webp</image:loc>
       <image:title>Fluffy White Kitten</image:title>
       <image:caption>A cute fluffy white kitten with large, enchanting purple eyes. Adorable wallpaper for kids' tablets.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/aerial-view-boat-pond-pink-lily-pads</loc>
+    <lastmod>2026-02-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Desktop/Nature/aerial-view-boat-pond-pink-lily-pads-pc.webp</image:loc>
+      <image:title>Aerial Boat Pink Lily Pads</image:title>
+      <image:caption>A serene aerial view of a wooden boat on a pond filled with vibrant pink lily pads. High-quality 4K Nature wallpaper for desktop.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/crescent-moon-deep-space-stars-galaxies</loc>
+    <lastmod>2026-02-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Desktop/Space/crescent-moon-deep-space-stars-galaxies-pc.webp</image:loc>
+      <image:title>Crescent Moon Deep Space</image:title>
+      <image:caption>A mesmerizing view of a crescent moon surrounded by twinkling stars and distant galaxies. Perfect 4K Space background for desktop.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/yellow-train-ocean-causeway-aerial</loc>
+    <lastmod>2026-02-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Phone/Abstract/yellow-train-ocean-causeway-aerial-phone.webp</image:loc>
+      <image:title>Yellow Train Ocean Causeway</image:title>
+      <image:caption>An artistic aerial shot of a yellow train traveling along a causeway over the bright blue ocean. Stunning abstract phone wallpaper.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/snowy-mountain-peak-gold-sunlight-reflection</loc>
+    <lastmod>2026-02-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Phone/Cities%20%26%20Landmarks/snowy-mountain-peak-gold-sunlight-reflection-phone.webp</image:loc>
+      <image:title>Snowy Mountain Gold Sunlight</image:title>
+      <image:caption>A breathtaking snowy mountain peak reflecting golden sunlight at dawn. Iconic landmark wallpaper for mobile.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/blue-gold-eucalyptus-leaves-minimalist</loc>
+    <lastmod>2026-02-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Tablet/Minimalist/blue-gold-eucalyptus-leaves-minimalist-tablet.webp</image:loc>
+      <image:title>Blue Gold Eucalyptus Leaves</image:title>
+      <image:caption>Minimalist design featuring eucalyptus leaves in elegant blue and gold tones. Sophisticated background for tablets.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/smooth-colorful-river-stones-pebbles</loc>
+    <lastmod>2026-02-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Tablet/Technology/smooth-colorful-river-stones-pebbles-tablet.webp</image:loc>
+      <image:title>Smooth Colorful River Stones</image:title>
+      <image:caption>A high-detail view of smooth, colorful river stones and pebbles, highlighting natural textures. 4K technology-themed tablet wallpaper.</image:caption>
     </image:image>
   </url>
 </urlset>

@@ -598,6 +598,78 @@ export const MY_IMAGES: Wallpaper[] = [
     width: 2048,
     height: 2732,
     extension: 'webp'
+  },
+  {
+    id: 55,
+    slug: "aerial-view-boat-pond-pink-lily-pads",
+    title: "Aerial Boat Pink Lily Pads",
+    description: "A serene aerial view of a wooden boat on a pond filled with vibrant pink lily pads. High-quality 4K Nature wallpaper for desktop.",
+    imageUrl: `${R2_BASE_URL}/Desktop/Nature/aerial-view-boat-pond-pink-lily-pads-pc.webp`,
+    category: 'Desktop',
+    subCategory: 'Nature',
+    width: 3840,
+    height: 2160,
+    extension: 'webp'
+  },
+  {
+    id: 56,
+    slug: "crescent-moon-deep-space-stars-galaxies",
+    title: "Crescent Moon Deep Space",
+    description: "A mesmerizing view of a crescent moon surrounded by twinkling stars and distant galaxies. Perfect 4K Space background for desktop.",
+    imageUrl: `${R2_BASE_URL}/Desktop/Space/crescent-moon-deep-space-stars-galaxies-pc.webp`,
+    category: 'Desktop',
+    subCategory: 'Space',
+    width: 3840,
+    height: 2160,
+    extension: 'webp'
+  },
+  {
+    id: 57,
+    slug: "yellow-train-ocean-causeway-aerial",
+    title: "Yellow Train Ocean Causeway",
+    description: "An artistic aerial shot of a yellow train traveling along a causeway over the bright blue ocean. Stunning abstract phone wallpaper.",
+    imageUrl: `${R2_BASE_URL}/Phone/Abstract/yellow-train-ocean-causeway-aerial-phone.webp`,
+    category: 'Phone',
+    subCategory: 'Abstract',
+    width: 1080,
+    height: 2340,
+    extension: 'webp'
+  },
+  {
+    id: 58,
+    slug: "snowy-mountain-peak-gold-sunlight-reflection",
+    title: "Snowy Mountain Gold Sunlight",
+    description: "A breathtaking snowy mountain peak reflecting golden sunlight at dawn. Iconic landmark wallpaper for mobile.",
+    imageUrl: `${R2_BASE_URL}/Phone/Cities%20%26%20Landmarks/snowy-mountain-peak-gold-sunlight-reflection-phone.webp`,
+    category: 'Phone',
+    subCategory: 'Cities & Landmarks',
+    width: 1080,
+    height: 2340,
+    extension: 'webp'
+  },
+  {
+    id: 59,
+    slug: "blue-gold-eucalyptus-leaves-minimalist",
+    title: "Blue Gold Eucalyptus Leaves",
+    description: "Minimalist design featuring eucalyptus leaves in elegant blue and gold tones. Sophisticated background for tablets.",
+    imageUrl: `${R2_BASE_URL}/Tablet/Minimalist/blue-gold-eucalyptus-leaves-minimalist-tablet.webp`,
+    category: 'Tablet',
+    subCategory: 'Minimalist',
+    width: 2048,
+    height: 2732,
+    extension: 'webp'
+  },
+  {
+    id: 60,
+    slug: "smooth-colorful-river-stones-pebbles",
+    title: "Smooth Colorful River Stones",
+    description: "A high-detail view of smooth, colorful river stones and pebbles, highlighting natural textures. 4K technology-themed tablet wallpaper.",
+    imageUrl: `${R2_BASE_URL}/Tablet/Technology/smooth-colorful-river-stones-pebbles-tablet.webp`,
+    category: 'Tablet',
+    subCategory: 'Technology',
+    width: 2048,
+    height: 2732,
+    extension: 'webp'
   }
 ];
 
