@@ -3,7 +3,7 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://walzoo.com</loc>
-    <lastmod>2026-02-03</lastmod>
+    <lastmod>2026-02-04</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -725,6 +725,72 @@
       <image:loc>https://cdn.walzoo.com/Tablet/Technology/smooth-colorful-river-stones-pebbles-tablet.webp</image:loc>
       <image:title>Smooth Colorful River Stones</image:title>
       <image:caption>A high-detail view of smooth, colorful river stones and pebbles, highlighting natural textures. 4K technology-themed tablet wallpaper.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/abstract-green-yellow-3d-cube-grid</loc>
+    <lastmod>2026-02-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Desktop/Digital%20Art/abstract-green-yellow-3d-cube-grid-pc.webp</image:loc>
+      <image:title>Abstract Green Yellow 3D Cube Grid</image:title>
+      <image:caption>A futuristic 3D grid of green and yellow cubes. Vibrant digital art 4K wallpaper for desktop.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/neon-gamer-heartbeat-playstation-symbols</loc>
+    <lastmod>2026-02-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Desktop/Gaming/neon-gamer-heartbeat-playstation-symbols-pc.webp</image:loc>
+      <image:title>Neon Gamer Heartbeat</image:title>
+      <image:caption>Cool neon gamer heartbeat line integrated with PlayStation symbols. Ultimate 4K gaming background for desktop.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/green-gold-macaw-parrot-flight</loc>
+    <lastmod>2026-02-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Phone/Animals/green-gold-macaw-parrot-flight-phone.webp</image:loc>
+      <image:title>Green Gold Macaw in Flight</image:title>
+      <image:caption>Stunning close-up of a green and gold macaw parrot in full flight. Beautiful animal photography for your phone.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/white-orange-bugatti-chiron-reflection</loc>
+    <lastmod>2026-02-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Phone/Cars/white-orange-bugatti-chiron-reflection-phone.webp</image:loc>
+      <image:title>White Orange Bugatti Chiron</image:title>
+      <image:caption>A sleek white and orange Bugatti Chiron with perfect showroom reflections. Premium car wallpaper for mobile.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/snowy-winter-cabin-lake-reflection</loc>
+    <lastmod>2026-02-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Tablet/Seasons/snowy-winter-cabin-lake-reflection-tablet.webp</image:loc>
+      <image:title>Snowy Winter Cabin Reflection</image:title>
+      <image:caption>Cozy winter cabin covered in snow with a mirror-like lake reflection. Serene seasonal background for tablet.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/blue-white-striped-number-ten-jersey</loc>
+    <lastmod>2026-02-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Tablet/Sports/blue-white-striped-number-ten-jersey-tablet.webp</image:loc>
+      <image:title>Number Ten Football Jersey</image:title>
+      <image:caption>Iconic blue and white striped football jersey with the number ten. Classic sports-themed wallpaper for tablet.</image:caption>
     </image:image>
   </url>
 </urlset>
