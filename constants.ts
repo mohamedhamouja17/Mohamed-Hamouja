@@ -742,6 +742,78 @@ export const MY_IMAGES: Wallpaper[] = [
     width: 2048,
     height: 2732,
     extension: 'webp'
+  },
+  {
+    id: 67,
+    slug: "dream-it-do-it-motivational-wall-art",
+    title: "Dream It Do It Motivational Art",
+    description: "An inspiring 'Dream It Do It' motivational wall art for your desktop. High-quality 4K typography.",
+    imageUrl: `${R2_BASE_URL}/Desktop/Quotes/dream-it-do-it-motivational-wall-art-pc.webp`,
+    category: 'Desktop',
+    subCategory: 'Quotes',
+    width: 3840,
+    height: 2160,
+    extension: 'webp'
+  },
+  {
+    id: 68,
+    slug: "lone-samurai-warrior-smoke-embers-battlefield",
+    title: "Lone Samurai Battlefield",
+    description: "A lone samurai warrior standing on a battlefield filled with smoke and embers. Cinematic 4K Anime wallpaper.",
+    imageUrl: `${R2_BASE_URL}/Desktop/Anime/lone-samurai-warrior-smoke-embers-battlefield-pc.webp`,
+    category: 'Desktop',
+    subCategory: 'Anime',
+    width: 3840,
+    height: 2160,
+    extension: 'webp'
+  },
+  {
+    id: 69,
+    slug: "mykonos-greece-white-street-blue-doors",
+    title: "Mykonos Greece Street",
+    description: "A picturesque white street in Mykonos, Greece, featuring iconic blue doors and vibrant flowers. Beautiful phone wallpaper.",
+    imageUrl: `${R2_BASE_URL}/Phone/Culture/mykonos-greece-white-street-blue-doors-phone.webp`,
+    category: 'Phone',
+    subCategory: 'Culture',
+    width: 1080,
+    height: 2340,
+    extension: 'webp'
+  },
+  {
+    id: 70,
+    slug: "fluffy-white-puppy-yawning-red-background",
+    title: "Fluffy White Puppy Yawning",
+    description: "An adorable fluffy white puppy yawning against a bright red background. Fun and cute wallpaper for kids' phones.",
+    imageUrl: `${R2_BASE_URL}/Phone/Kids/fluffy-white-puppy-yawning-red-background-phone.webp`,
+    category: 'Phone',
+    subCategory: 'Kids',
+    width: 1080,
+    height: 2340,
+    extension: 'webp'
+  },
+  {
+    id: 71,
+    slug: "detailed-moon-craters-lunar-surface",
+    title: "Detailed Moon Surface",
+    description: "A highly detailed view of the lunar surface, showing moon craters in stunning high resolution. Perfect 4K Space background for tablets.",
+    imageUrl: `${R2_BASE_URL}/Tablet/Space/detailed-moon-craters-lunar-surface-tablet.webp`,
+    category: 'Tablet',
+    subCategory: 'Space',
+    width: 2048,
+    height: 2732,
+    extension: 'webp'
+  },
+  {
+    id: 72,
+    slug: "white-dogwood-blossoms-blue-sky",
+    title: "White Dogwood Blossoms",
+    description: "Beautiful white dogwood blossoms set against a clear blue sky. A serene and fresh nature-themed wallpaper for tablets.",
+    imageUrl: `${R2_BASE_URL}/Tablet/Nature/white-dogwood-blossoms-blue-sky-tablet.webp`,
+    category: 'Tablet',
+    subCategory: 'Nature',
+    width: 2048,
+    height: 2732,
+    extension: 'webp'
   }
 ];
 

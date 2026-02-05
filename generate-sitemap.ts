@@ -18,10 +18,12 @@ import { SUB_CATEGORIES, MY_IMAGES } from './constants.ts';
  * Batch 9 (IDs 49-54): 2026-02-02
  * Batch 10 (IDs 55-60): 2026-02-03
  * Batch 11 (IDs 61-66): 2026-02-04
+ * Batch 12 (IDs 67-72): 2026-02-05
  */
 
 const BASE_URL = 'https://walzoo.com';
-const today = '2026-02-04';
+const today = '2026-02-05';
+const batch11Date = '2026-02-04';
 const batch10Date = '2026-02-03';
 const batch9Date = '2026-02-02';
 const batch8Date = '2026-02-01';
@@ -87,6 +89,8 @@ ${MY_IMAGES.map(img => {
     imgDate = batch9Date;
   } else if (img.id <= 60) {
     imgDate = batch10Date;
+  } else if (img.id <= 66) {
+    imgDate = batch11Date;
   }
   
   return `  <url>

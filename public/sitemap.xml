@@ -3,7 +3,7 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://walzoo.com</loc>
-    <lastmod>2026-02-04</lastmod>
+    <lastmod>2026-02-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -791,6 +791,72 @@
       <image:loc>https://cdn.walzoo.com/Tablet/Sports/blue-white-striped-number-ten-jersey-tablet.webp</image:loc>
       <image:title>Number Ten Football Jersey</image:title>
       <image:caption>Iconic blue and white striped football jersey with the number ten. Classic sports-themed wallpaper for tablet.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/dream-it-do-it-motivational-wall-art</loc>
+    <lastmod>2026-02-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Desktop/Quotes/dream-it-do-it-motivational-wall-art-pc.webp</image:loc>
+      <image:title>Dream It Do It Motivational Art</image:title>
+      <image:caption>An inspiring 'Dream It Do It' motivational wall art for your desktop. High-quality 4K typography.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/lone-samurai-warrior-smoke-embers-battlefield</loc>
+    <lastmod>2026-02-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Desktop/Anime/lone-samurai-warrior-smoke-embers-battlefield-pc.webp</image:loc>
+      <image:title>Lone Samurai Battlefield</image:title>
+      <image:caption>A lone samurai warrior standing on a battlefield filled with smoke and embers. Cinematic 4K Anime wallpaper.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/mykonos-greece-white-street-blue-doors</loc>
+    <lastmod>2026-02-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Phone/Culture/mykonos-greece-white-street-blue-doors-phone.webp</image:loc>
+      <image:title>Mykonos Greece Street</image:title>
+      <image:caption>A picturesque white street in Mykonos, Greece, featuring iconic blue doors and vibrant flowers. Beautiful phone wallpaper.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/fluffy-white-puppy-yawning-red-background</loc>
+    <lastmod>2026-02-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Phone/Kids/fluffy-white-puppy-yawning-red-background-phone.webp</image:loc>
+      <image:title>Fluffy White Puppy Yawning</image:title>
+      <image:caption>An adorable fluffy white puppy yawning against a bright red background. Fun and cute wallpaper for kids' phones.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/detailed-moon-craters-lunar-surface</loc>
+    <lastmod>2026-02-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Tablet/Space/detailed-moon-craters-lunar-surface-tablet.webp</image:loc>
+      <image:title>Detailed Moon Surface</image:title>
+      <image:caption>A highly detailed view of the lunar surface, showing moon craters in stunning high resolution. Perfect 4K Space background for tablets.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/white-dogwood-blossoms-blue-sky</loc>
+    <lastmod>2026-02-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Tablet/Nature/white-dogwood-blossoms-blue-sky-tablet.webp</image:loc>
+      <image:title>White Dogwood Blossoms</image:title>
+      <image:caption>Beautiful white dogwood blossoms set against a clear blue sky. A serene and fresh nature-themed wallpaper for tablets.</image:caption>
     </image:image>
   </url>
 </urlset>
