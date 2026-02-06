@@ -36,21 +36,21 @@ const ContentGrid: React.FC<ContentGridProps> = ({
   const startIndex = (currentPage - 1) * itemsPerPage;
   const paginatedWallpapers = filteredWallpapers.slice(startIndex, startIndex + itemsPerPage);
 
-  // Responsive Grid Logic based on Category
+  // Dynamic Grid Logic based on the active device category
   const getGridClasses = () => {
-    const baseClasses = "mt-10 grid";
+    const baseClasses = "mt-10 grid animate-fade-in";
     
     if (activeCategory === 'Phone') {
-      // Per Requirement: Phone View strictly 5 columns (grid-cols-5) as shown in images
+      // Exactly 5 columns as shown in the requirement images
       return `${baseClasses} grid-cols-5 gap-2 sm:gap-4 lg:gap-6`;
     }
     
     if (activeCategory === 'Tablet') {
-      // Tablet: 4 columns
-      return `${baseClasses} grid-cols-3 sm:grid-cols-4 gap-4 sm:gap-8`;
+      // 4 columns for tablets
+      return `${baseClasses} grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-8`;
     }
     
-    // Desktop: 2 columns on large screens as per previous update
+    // Desktop: 2 columns as per previous design request
     return `${baseClasses} grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 sm:gap-10`;
   };
 

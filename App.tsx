@@ -25,6 +25,14 @@ function App() {
   const [selectedWallpaper, setSelectedWallpaper] = useState<Wallpaper | null>(null);
   const [isPricingModalOpen, setIsPricingModalOpen] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
+  const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1024);
+
+  // Handle window resizing for dynamic pagination
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   // Disable right-click context menu globally
   useEffect(() => {
@@ -37,11 +45,12 @@ function App() {
     };
   }, []);
 
-  // Determine items per page based on device category
+  // Determine items per page based on active category to match grid counts
   const itemsPerPage = useMemo(() => {
-    if (activeCategory === 'Desktop') return 12;
-    if (activeCategory === 'Tablet') return 16;
-    return 15; // Mobile (Phone)
+    if (activeCategory === 'Phone') return 15;   // 3 rows of 5
+    if (activeCategory === 'Tablet') return 16;  // 4 rows of 4
+    if (activeCategory === 'Desktop') return 12; // 6 rows of 2
+    return 10; // Default
   }, [activeCategory]);
 
   // Reset page to 1 whenever category or subcategory changes
