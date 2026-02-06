@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import Header from './components/Header.tsx';
 import CategoryNav from './components/CategoryNav.tsx';
 import SearchBar from './components/SearchBar.tsx';
@@ -14,6 +14,7 @@ import PrivacyPage from './components/PrivacyPage.tsx';
 import TermsPage from './components/TermsPage.tsx';
 import ContactPage from './components/ContactPage.tsx';
 import { type Category, type Wallpaper } from './types.ts';
+import { WALLPAPER_DATA } from './constants.ts';
 
 type View = 'gallery' | 'blog' | 'about' | 'privacy' | 'terms' | 'contact' | 'wallpaper-detail';
 
@@ -23,6 +24,7 @@ function App() {
   const [currentView, setCurrentView] = useState<View>('gallery');
   const [selectedWallpaper, setSelectedWallpaper] = useState<Wallpaper | null>(null);
   const [isPricingModalOpen, setIsPricingModalOpen] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
 
   // Disable right-click context menu globally
   useEffect(() => {
@@ -35,7 +37,28 @@ function App() {
     };
   }, []);
 
-  // Reset sub-category when changing device type
+  // Determine items per page based on device category
+  const itemsPerPage = useMemo(() => {
+    if (activeCategory === 'Desktop') return 12;
+    if (activeCategory === 'Tablet') return 16;
+    return 15; // Mobile (Phone)
+  }, [activeCategory]);
+
+  // Reset page to 1 whenever category or subcategory changes
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [activeCategory, activeSubCategory]);
+
+  // Calculate total pages for the current filtered view
+  const totalPages = useMemo(() => {
+    const deviceWallpapers = WALLPAPER_DATA[activeCategory] || [];
+    const filteredCount = activeSubCategory === 'All' 
+      ? deviceWallpapers.length 
+      : deviceWallpapers.filter(w => w.subCategory === activeSubCategory).length;
+    
+    return Math.max(1, Math.ceil(filteredCount / itemsPerPage));
+  }, [activeCategory, activeSubCategory, itemsPerPage]);
+
   const handleSetCategory = (cat: Category) => {
     setActiveCategory(cat);
     setActiveSubCategory('All');
@@ -62,6 +85,17 @@ function App() {
     window.scrollTo(0, 0);
   };
 
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+    // Smooth scroll to top of the grid area
+    const gridElement = document.getElementById('gallery-top');
+    if (gridElement) {
+      gridElement.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
   const renderContent = () => {
     switch (currentView) {
       case 'wallpaper-detail':
@@ -85,6 +119,7 @@ function App() {
       default:
         return (
           <>
+            <div id="gallery-top" className="scroll-mt-20"></div>
             <CategoryNav 
               activeCategory={activeCategory} 
               setActiveCategory={handleSetCategory}
@@ -99,8 +134,16 @@ function App() {
               activeCategory={activeCategory} 
               activeSubCategory={activeSubCategory}
               onWallpaperSelect={handleSelectWallpaper}
+              currentPage={currentPage}
+              itemsPerPage={itemsPerPage}
             />
-            {activeCategory !== 'Home' && <Pagination />}
+            {activeCategory !== 'Home' && (
+              <Pagination 
+                currentPage={currentPage} 
+                totalPages={totalPages} 
+                onPageChange={handlePageChange}
+              />
+            )}
           </>
         );
     }

@@ -9,41 +9,58 @@ interface ContentGridProps {
   activeCategory: Category;
   activeSubCategory: string;
   onWallpaperSelect: (wallpaper: Wallpaper) => void;
+  currentPage: number;
+  itemsPerPage: number;
 }
 
 const ContentGrid: React.FC<ContentGridProps> = ({ 
   activeCategory, 
   activeSubCategory, 
-  onWallpaperSelect 
+  onWallpaperSelect,
+  currentPage,
+  itemsPerPage
 }) => {
   if (activeCategory === 'Home') {
     return <HomePageContent onWallpaperSelect={onWallpaperSelect} />;
   }
 
-  // 1. Get wallpapers for the current device folder
+  // 1. Get wallpapers for the current device category
   const deviceWallpapers = WALLPAPER_DATA[activeCategory] || [];
 
-  // 2. Filter by theme (Nature, Space, etc.) if one is selected
+  // 2. Filter by subcategory theme (Nature, Space, etc.)
   const filteredWallpapers = activeSubCategory === 'All' 
     ? deviceWallpapers 
     : deviceWallpapers.filter(w => w.subCategory === activeSubCategory);
 
-  let gridClasses: string;
-  if (activeCategory === 'Desktop') {
-    gridClasses = "mt-10 grid grid-cols-1 sm:grid-cols-2 gap-8 sm:gap-10";
-  } else if (activeCategory === 'Tablet') {
-    gridClasses = "mt-10 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6";
-  } else { // For 'Phone'
-    gridClasses = "mt-10 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-6";
-  }
+  // 3. Paginate the filtered results
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const paginatedWallpapers = filteredWallpapers.slice(startIndex, startIndex + itemsPerPage);
+
+  // Responsive Grid Logic based on Category
+  const getGridClasses = () => {
+    const baseClasses = "mt-10 grid";
+    
+    if (activeCategory === 'Phone') {
+      // Per Requirement: Phone View strictly 5 columns (grid-cols-5) as shown in images
+      return `${baseClasses} grid-cols-5 gap-2 sm:gap-4 lg:gap-6`;
+    }
+    
+    if (activeCategory === 'Tablet') {
+      // Tablet: 4 columns
+      return `${baseClasses} grid-cols-3 sm:grid-cols-4 gap-4 sm:gap-8`;
+    }
+    
+    // Desktop: 2 columns on large screens as per previous update
+    return `${baseClasses} grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 sm:gap-10`;
+  };
 
   return (
     <div className="min-h-[400px]">
-      {filteredWallpapers.length > 0 ? (
-        <div className={gridClasses}>
-          {filteredWallpapers.map(wallpaper => (
+      {paginatedWallpapers.length > 0 ? (
+        <div className={getGridClasses()}>
+          {paginatedWallpapers.map(wallpaper => (
             <WallpaperCard 
-              key={`${wallpaper.id}-${wallpaper.subCategory}`} 
+              key={`${wallpaper.id}-${wallpaper.subCategory}-${wallpaper.category}`} 
               wallpaper={wallpaper} 
               onViewClick={onWallpaperSelect}
             />
@@ -57,7 +74,7 @@ const ContentGrid: React.FC<ContentGridProps> = ({
              </svg>
           </div>
           <h3 className="text-xl font-bold text-gray-800">No Wallpapers Found</h3>
-          <p className="text-gray-500 mt-2">We haven't added any {activeSubCategory} wallpapers for {activeCategory} yet.</p>
+          <p className="text-gray-500 mt-2">We haven't added any {activeSubCategory} wallpapers for {activeCategory} yet on this page.</p>
           <button 
             onClick={() => window.location.reload()}
             className="mt-6 text-orange-500 font-bold hover:underline"

@@ -1,26 +1,44 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 
-const Pagination: React.FC = () => {
-  const [currentPage, setCurrentPage] = useState(1);
-  const totalPages = 2; // This would be dynamic in a real app
+interface PaginationProps {
+  currentPage: number;
+  totalPages: number;
+  onPageChange: (page: number) => void;
+}
+
+const Pagination: React.FC<PaginationProps> = ({ currentPage, totalPages, onPageChange }) => {
+  if (totalPages <= 1) return null;
 
   return (
-    <div className="flex justify-center items-center gap-4 my-10">
+    <div className="flex justify-center items-center gap-4 my-10 animate-fade-in">
       <button 
-        onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
+        onClick={() => onPageChange(Math.max(1, currentPage - 1))}
         disabled={currentPage === 1}
-        className="px-4 py-2 bg-white rounded-lg text-gray-700 hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed transition-colors text-sm font-semibold shadow"
+        className="px-5 py-2.5 bg-white border border-gray-200 rounded-xl text-gray-700 hover:bg-orange-50 hover:text-orange-600 hover:border-orange-200 disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-white disabled:hover:text-gray-700 disabled:hover:border-gray-200 transition-all text-sm font-bold shadow-sm flex items-center gap-2"
       >
-        &lt; Previous
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" />
+        </svg>
+        <span>Previous</span>
       </button>
-      <span className="text-gray-500 text-sm">Page {currentPage} of {totalPages}</span>
+      
+      <div className="flex items-center bg-white px-4 py-2 rounded-xl border border-gray-100 shadow-sm">
+        <span className="text-gray-400 text-xs font-bold uppercase tracking-widest mr-2">Page</span>
+        <span className="text-orange-600 font-black text-sm">{currentPage}</span>
+        <span className="text-gray-300 font-medium mx-2">/</span>
+        <span className="text-gray-500 font-bold text-sm">{totalPages}</span>
+      </div>
+
       <button
-        onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))}
+        onClick={() => onPageChange(Math.min(totalPages, currentPage + 1))}
         disabled={currentPage === totalPages}
-        className="px-4 py-2 bg-white rounded-lg text-gray-700 hover:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed transition-colors text-sm font-semibold shadow"
+        className="px-5 py-2.5 bg-white border border-gray-200 rounded-xl text-gray-700 hover:bg-orange-50 hover:text-orange-600 hover:border-orange-200 disabled:opacity-30 disabled:cursor-not-allowed disabled:hover:bg-white disabled:hover:text-gray-700 disabled:hover:border-gray-200 transition-all text-sm font-bold shadow-sm flex items-center gap-2"
       >
-        Next &gt;
+        <span>Next</span>
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
+        </svg>
       </button>
     </div>
   );
