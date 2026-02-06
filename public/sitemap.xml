@@ -3,7 +3,7 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://walzoo.com</loc>
-    <lastmod>2026-02-05</lastmod>
+    <lastmod>2026-02-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -857,6 +857,72 @@
       <image:loc>https://cdn.walzoo.com/Tablet/Nature/white-dogwood-blossoms-blue-sky-tablet.webp</image:loc>
       <image:title>White Dogwood Blossoms</image:title>
       <image:caption>Beautiful white dogwood blossoms set against a clear blue sky. A serene and fresh nature-themed wallpaper for tablets.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/modern-wood-panel-blue-backlight</loc>
+    <lastmod>2026-02-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Desktop/Abstract/modern-wood-panel-wall-blue-backlight-pc.webp</image:loc>
+      <image:title>Modern Wood Panel Blue Backlight</image:title>
+      <image:caption>A sleek modern wood panel wall illuminated by a cool blue backlight. Perfect for minimalist desktop setups.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/empire-state-building-green-tram-autumn</loc>
+    <lastmod>2026-02-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Desktop/Cities%20%26%20Landmarks/empire-state-building-green-tram-autumn-pc.webp</image:loc>
+      <image:title>Empire State Autumn View</image:title>
+      <image:caption>The iconic Empire State Building framed by autumn trees and a vintage green tram. A beautiful urban landmark for your desktop.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/textured-wet-black-stone-wall</loc>
+    <lastmod>2026-02-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Phone/Minimalist/textured-wet-black-stone-wall-phone.webp</image:loc>
+      <image:title>Textured Wet Black Stone</image:title>
+      <image:caption>A clean minimalist wallpaper featuring the texture of a wet black stone wall. Subtle and elegant for mobile screens.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/abstract-neon-red-blue-energy-waves</loc>
+    <lastmod>2026-02-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Phone/Technology/abstract-neon-red-blue-energy-waves-phone.webp</image:loc>
+      <image:title>Neon Red and Blue Energy Waves</image:title>
+      <image:caption>Vibrant neon red and blue energy waves flowing in an abstract technological pattern. Dynamic background for your phone.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/abstract-cracked-surface-pink-blue-neon</loc>
+    <lastmod>2026-02-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Tablet/Digital%20Art/abstract-cracked-surface-pink-blue-neon-tablet.webp</image:loc>
+      <image:title>Neon Cracked Surface Art</image:title>
+      <image:caption>An abstract digital art piece featuring a cracked surface glowing with pink and blue neon lights. Futuristic tablet background.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/abstract-liquid-silk-orange-blue-waves</loc>
+    <lastmod>2026-02-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Tablet/Gaming/abstract-liquid-silk-orange-blue-waves-tablet.webp</image:loc>
+      <image:title>Liquid Silk Orange Blue Waves</image:title>
+      <image:caption>Smooth liquid silk waves in vibrant orange and blue. A fluid abstract aesthetic perfect for gaming tablets.</image:caption>
     </image:image>
   </url>
 </urlset>

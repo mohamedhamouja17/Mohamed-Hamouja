@@ -814,6 +814,78 @@ export const MY_IMAGES: Wallpaper[] = [
     width: 2048,
     height: 2732,
     extension: 'webp'
+  },
+  {
+    id: 73,
+    slug: "modern-wood-panel-blue-backlight",
+    title: "Modern Wood Panel Blue Backlight",
+    description: "A sleek modern wood panel wall illuminated by a cool blue backlight. Perfect for minimalist desktop setups.",
+    imageUrl: `${R2_BASE_URL}/Desktop/Abstract/modern-wood-panel-wall-blue-backlight-pc.webp`,
+    category: 'Desktop',
+    subCategory: 'Abstract',
+    width: 3840,
+    height: 2160,
+    extension: 'webp'
+  },
+  {
+    id: 74,
+    slug: "empire-state-building-green-tram-autumn",
+    title: "Empire State Autumn View",
+    description: "The iconic Empire State Building framed by autumn trees and a vintage green tram. A beautiful urban landmark for your desktop.",
+    imageUrl: `${R2_BASE_URL}/Desktop/Cities%20%26%20Landmarks/empire-state-building-green-tram-autumn-pc.webp`,
+    category: 'Desktop',
+    subCategory: 'Cities & Landmarks',
+    width: 3840,
+    height: 2160,
+    extension: 'webp'
+  },
+  {
+    id: 75,
+    slug: "textured-wet-black-stone-wall",
+    title: "Textured Wet Black Stone",
+    description: "A clean minimalist wallpaper featuring the texture of a wet black stone wall. Subtle and elegant for mobile screens.",
+    imageUrl: `${R2_BASE_URL}/Phone/Minimalist/textured-wet-black-stone-wall-phone.webp`,
+    category: 'Phone',
+    subCategory: 'Minimalist',
+    width: 1080,
+    height: 2340,
+    extension: 'webp'
+  },
+  {
+    id: 76,
+    slug: "abstract-neon-red-blue-energy-waves",
+    title: "Neon Red and Blue Energy Waves",
+    description: "Vibrant neon red and blue energy waves flowing in an abstract technological pattern. Dynamic background for your phone.",
+    imageUrl: `${R2_BASE_URL}/Phone/Technology/abstract-neon-red-blue-energy-waves-phone.webp`,
+    category: 'Phone',
+    subCategory: 'Technology',
+    width: 1080,
+    height: 2340,
+    extension: 'webp'
+  },
+  {
+    id: 77,
+    slug: "abstract-cracked-surface-pink-blue-neon",
+    title: "Neon Cracked Surface Art",
+    description: "An abstract digital art piece featuring a cracked surface glowing with pink and blue neon lights. Futuristic tablet background.",
+    imageUrl: `${R2_BASE_URL}/Tablet/Digital%20Art/abstract-cracked-surface-pink-blue-neon-tablet.webp`,
+    category: 'Tablet',
+    subCategory: 'Digital Art',
+    width: 2048,
+    height: 2732,
+    extension: 'webp'
+  },
+  {
+    id: 78,
+    slug: "abstract-liquid-silk-orange-blue-waves",
+    title: "Liquid Silk Orange Blue Waves",
+    description: "Smooth liquid silk waves in vibrant orange and blue. A fluid abstract aesthetic perfect for gaming tablets.",
+    imageUrl: `${R2_BASE_URL}/Tablet/Gaming/abstract-liquid-silk-orange-blue-waves-tablet.webp`,
+    category: 'Tablet',
+    subCategory: 'Gaming',
+    width: 2048,
+    height: 2732,
+    extension: 'webp'
   }
 ];
 
