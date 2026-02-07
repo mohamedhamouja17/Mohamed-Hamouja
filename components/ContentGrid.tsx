@@ -32,26 +32,17 @@ const ContentGrid: React.FC<ContentGridProps> = ({
     ? deviceWallpapers 
     : deviceWallpapers.filter(w => w.subCategory === activeSubCategory);
 
-  // 3. Paginate the filtered results
+  // 3. Paginate the filtered results using the dynamic itemsPerPage
   const startIndex = (currentPage - 1) * itemsPerPage;
   const paginatedWallpapers = filteredWallpapers.slice(startIndex, startIndex + itemsPerPage);
 
-  // Dynamic Grid Logic based on the active device category
+  /**
+   * REVISED: Grid logic for mobile optimization
+   * Mobile: grid-cols-2
+   * Desktop: lg:grid-cols-4
+   */
   const getGridClasses = () => {
-    const baseClasses = "mt-10 grid animate-fade-in";
-    
-    if (activeCategory === 'Phone') {
-      // Exactly 5 columns as shown in the requirement images
-      return `${baseClasses} grid-cols-5 gap-2 sm:gap-4 lg:gap-6`;
-    }
-    
-    if (activeCategory === 'Tablet') {
-      // 4 columns for tablets
-      return `${baseClasses} grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-8`;
-    }
-    
-    // Desktop: 2 columns as per previous design request
-    return `${baseClasses} grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 sm:gap-10`;
+    return "mt-10 grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 animate-fade-in";
   };
 
   return (

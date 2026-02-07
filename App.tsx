@@ -45,20 +45,23 @@ function App() {
     };
   }, []);
 
-  // Determine items per page based on active category to match grid counts
+  /**
+   * REVISED: Dynamic itemsPerPage logic
+   * Mobile: 10 images (5 rows of 2)
+   * Desktop: 12 images (3 rows of 4)
+   * Threshold: 1024px (Tailwind 'lg' breakpoint)
+   */
   const itemsPerPage = useMemo(() => {
-    if (activeCategory === 'Phone') return 15;   // 3 rows of 5
-    if (activeCategory === 'Tablet') return 16;  // 4 rows of 4
-    if (activeCategory === 'Desktop') return 12; // 6 rows of 2
-    return 10; // Default
-  }, [activeCategory]);
+    const isDesktop = windowWidth >= 1024;
+    return isDesktop ? 12 : 10;
+  }, [windowWidth]);
 
   // Reset page to 1 whenever category or subcategory changes
   useEffect(() => {
     setCurrentPage(1);
   }, [activeCategory, activeSubCategory]);
 
-  // Calculate total pages for the current filtered view
+  // Calculate total pages for the current filtered view using the dynamic itemsPerPage
   const totalPages = useMemo(() => {
     const deviceWallpapers = WALLPAPER_DATA[activeCategory] || [];
     const filteredCount = activeSubCategory === 'All' 
