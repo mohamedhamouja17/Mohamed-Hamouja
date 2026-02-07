@@ -1,3 +1,4 @@
+
 import { type Wallpaper, type Category } from './types.ts';
 
 const R2_BASE_URL = "https://cdn.walzoo.com";
@@ -883,6 +884,78 @@ export const MY_IMAGES: Wallpaper[] = [
     imageUrl: `${R2_BASE_URL}/Tablet/Gaming/abstract-liquid-silk-orange-blue-waves-tablet.webp`,
     category: 'Tablet',
     subCategory: 'Gaming',
+    width: 2048,
+    height: 2732,
+    extension: 'webp'
+  },
+  {
+    id: 79,
+    slug: "cheetah-standing-fallen-tree-savannah",
+    title: "Cheetah on Fallen Tree",
+    description: "A powerful cheetah standing on a fallen tree in the savannah. High-quality 4K animal wallpaper.",
+    imageUrl: `${R2_BASE_URL}/Desktop/Animals/cheetah-standing-fallen-tree-savannah-pc.webp`,
+    category: 'Desktop',
+    subCategory: 'Animals',
+    width: 3840,
+    height: 2160,
+    extension: 'webp'
+  },
+  {
+    id: 80,
+    slug: "grey-suv-driving-coastal-tropical-road",
+    title: "Grey SUV Coastal Road",
+    description: "A modern grey SUV driving along a scenic coastal tropical road. Premium 4K car wallpaper for desktop.",
+    imageUrl: `${R2_BASE_URL}/Desktop/Cars/grey-suv-driving-coastal-tropical-road-pc.webp`,
+    category: 'Desktop',
+    subCategory: 'Cars',
+    width: 3840,
+    height: 2160,
+    extension: 'webp'
+  },
+  {
+    id: 81,
+    slug: "snowy-mountain-peak-winter-cabin-path",
+    title: "Snowy Mountain Winter Cabin",
+    description: "A serene path leading to a cozy winter cabin under a majestic snowy mountain peak. Beautiful nature wallpaper for phone.",
+    imageUrl: `${R2_BASE_URL}/Phone/Seasons/snowy-mountain-peak-winter-cabin-path-phone.webp`,
+    category: 'Phone',
+    subCategory: 'Seasons',
+    width: 1080,
+    height: 2340,
+    extension: 'webp'
+  },
+  {
+    id: 82,
+    slug: "pile-blue-lime-green-tennis-balls",
+    title: "Pile of Tennis Balls",
+    description: "A vibrant close-up of blue and lime green tennis balls piled together. High-resolution sports theme for your phone.",
+    imageUrl: `${R2_BASE_URL}/Phone/Sports/pile-blue-lime-green-tennis-balls-phone.webp`,
+    category: 'Phone',
+    subCategory: 'Sports',
+    width: 1080,
+    height: 2340,
+    extension: 'webp'
+  },
+  {
+    id: 83,
+    slug: "motivational-comfort-zone-chess-art",
+    title: "Comfort Zone Chess Art",
+    description: "An inspiring motivational quote about the comfort zone featuring artistic chess pieces. Perfect for tablet backgrounds.",
+    imageUrl: `${R2_BASE_URL}/Tablet/Quotes/motivational-comfort-zone-chess-art-tablet.webp`,
+    category: 'Tablet',
+    subCategory: 'Quotes',
+    width: 2048,
+    height: 2732,
+    extension: 'webp'
+  },
+  {
+    id: 84,
+    slug: "anime-character-eyes-elemental-powers",
+    title: "Anime Elemental Powers",
+    description: "Stunning close-up of anime character eyes glowing with elemental powers. Epic anime art for tablets.",
+    imageUrl: `${R2_BASE_URL}/Tablet/Anime/anime-character-eyes-elemental-powers-tablet.webp`,
+    category: 'Tablet',
+    subCategory: 'Anime',
     width: 2048,
     height: 2732,
     extension: 'webp'

@@ -1,9 +1,10 @@
+
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://walzoo.com</loc>
-    <lastmod>2026-02-06</lastmod>
+    <lastmod>2026-02-07</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -923,6 +924,72 @@
       <image:loc>https://cdn.walzoo.com/Tablet/Gaming/abstract-liquid-silk-orange-blue-waves-tablet.webp</image:loc>
       <image:title>Liquid Silk Orange Blue Waves</image:title>
       <image:caption>Smooth liquid silk waves in vibrant orange and blue. A fluid abstract aesthetic perfect for gaming tablets.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/cheetah-standing-fallen-tree-savannah</loc>
+    <lastmod>2026-02-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Desktop/Animals/cheetah-standing-fallen-tree-savannah-pc.webp</image:loc>
+      <image:title>Cheetah on Fallen Tree</image:title>
+      <image:caption>A powerful cheetah standing on a fallen tree in the savannah. High-quality 4K animal wallpaper.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/grey-suv-driving-coastal-tropical-road</loc>
+    <lastmod>2026-02-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Desktop/Cars/grey-suv-driving-coastal-tropical-road-pc.webp</image:loc>
+      <image:title>Grey SUV Coastal Road</image:title>
+      <image:caption>A modern grey SUV driving along a scenic coastal tropical road. Premium 4K car wallpaper for desktop.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/snowy-mountain-peak-winter-cabin-path</loc>
+    <lastmod>2026-02-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Phone/Seasons/snowy-mountain-peak-winter-cabin-path-phone.webp</image:loc>
+      <image:title>Snowy Mountain Winter Cabin</image:title>
+      <image:caption>A serene path leading to a cozy winter cabin under a majestic snowy mountain peak. Beautiful nature wallpaper for phone.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/pile-blue-lime-green-tennis-balls</loc>
+    <lastmod>2026-02-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Phone/Sports/pile-blue-lime-green-tennis-balls-phone.webp</image:loc>
+      <image:title>Pile of Tennis Balls</image:title>
+      <image:caption>A vibrant close-up of blue and lime green tennis balls piled together. High-resolution sports theme for your phone.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/motivational-comfort-zone-chess-art</loc>
+    <lastmod>2026-02-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Tablet/Quotes/motivational-comfort-zone-chess-art-tablet.webp</image:loc>
+      <image:title>Comfort Zone Chess Art</image:title>
+      <image:caption>An inspiring motivational quote about the comfort zone featuring artistic chess pieces. Perfect for tablet backgrounds.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/anime-character-eyes-elemental-powers</loc>
+    <lastmod>2026-02-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Tablet/Anime/anime-character-eyes-elemental-powers-tablet.webp</image:loc>
+      <image:title>Anime Elemental Powers</image:title>
+      <image:caption>Stunning close-up of anime character eyes glowing with elemental powers. Epic anime art for tablets.</image:caption>
     </image:image>
   </url>
 </urlset>
