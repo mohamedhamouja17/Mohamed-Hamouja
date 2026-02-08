@@ -38,10 +38,13 @@ const ContentGrid: React.FC<ContentGridProps> = ({
 
   /**
    * REVISED: Grid logic for mobile optimization
-   * Mobile: grid-cols-2
-   * Desktop: lg:grid-cols-4
+   * Specifically for 'Desktop' category: 1 column on mobile, 2 columns on desktop
+   * For other categories (Phone/Tablet): 2 columns on mobile, 4 columns on desktop
    */
   const getGridClasses = () => {
+    if (activeCategory === 'Desktop') {
+      return "mt-10 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 animate-fade-in";
+    }
     return "mt-10 grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 animate-fade-in";
   };
 
