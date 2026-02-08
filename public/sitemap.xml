@@ -1,10 +1,9 @@
-
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://walzoo.com</loc>
-    <lastmod>2026-02-07</lastmod>
+    <lastmod>2026-02-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -990,6 +989,72 @@
       <image:loc>https://cdn.walzoo.com/Tablet/Anime/anime-character-eyes-elemental-powers-tablet.webp</image:loc>
       <image:title>Anime Elemental Powers</image:title>
       <image:caption>Stunning close-up of anime character eyes glowing with elemental powers. Epic anime art for tablets.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/lusail-katara-towers-skyline-qatar</loc>
+    <lastmod>2026-02-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Desktop/Culture/lusail-katara-towers-skyline-qatar-pc.webp</image:loc>
+      <image:title>Lusail Katara Towers Skyline</image:title>
+      <image:caption>A stunning view of the futuristic Lusail Katara Towers against the Qatar skyline. High-quality 4K Culture wallpaper.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/cute-kitten-black-hoodie-headphones</loc>
+    <lastmod>2026-02-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Desktop/Kids/cute-kitten-black-hoodie-headphones-pc.webp</image:loc>
+      <image:title>Cute Kitten in Hoodie</image:title>
+      <image:caption>An adorable kitten wearing a black hoodie and headphones. Perfect 4K Kids wallpaper for desktop.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/lone-palm-tree-turquoise-ocean-aerial</loc>
+    <lastmod>2026-02-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Phone/Nature/lone-palm-tree-turquoise-ocean-aerial-phone.webp</image:loc>
+      <image:title>Aerial Lone Palm Tree</image:title>
+      <image:caption>A breathtaking aerial view of a lone palm tree on a tropical shore with turquoise ocean water. Nature wallpaper for phone.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/detailed-lunar-surface-craters-space</loc>
+    <lastmod>2026-02-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Phone/Space/detailed-lunar-surface-craters-space-phone.webp</image:loc>
+      <image:title>Detailed Lunar Surface Craters</image:title>
+      <image:caption>A close-up view of the moon's surface showing detailed craters and lunar textures. Space wallpaper for mobile.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/colorful-woven-fabric-macro-texture</loc>
+    <lastmod>2026-02-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Tablet/Abstract/colorful-woven-fabric-macro-texture-tablet.webp</image:loc>
+      <image:title>Colorful Woven Fabric Texture</image:title>
+      <image:caption>A vibrant macro shot of woven fabric showing intricate patterns and colorful threads. Abstract art for tablets.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/traditional-chinese-pagoda-architecture</loc>
+    <lastmod>2026-02-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Tablet/Cities%20%26%20Landmarks/traditional-chinese-pagoda-architecture-tablet.webp</image:loc>
+      <image:title>Traditional Chinese Pagoda</image:title>
+      <image:caption>Beautiful traditional Chinese pagoda architecture surrounded by nature. Iconic landmarks wallpaper for tablets.</image:caption>
     </image:image>
   </url>
 </urlset>

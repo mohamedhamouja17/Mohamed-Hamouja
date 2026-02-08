@@ -959,6 +959,78 @@ export const MY_IMAGES: Wallpaper[] = [
     width: 2048,
     height: 2732,
     extension: 'webp'
+  },
+  {
+    id: 85,
+    slug: "lusail-katara-towers-skyline-qatar",
+    title: "Lusail Katara Towers Skyline",
+    description: "A stunning view of the futuristic Lusail Katara Towers against the Qatar skyline. High-quality 4K Culture wallpaper.",
+    imageUrl: `${R2_BASE_URL}/Desktop/Culture/lusail-katara-towers-skyline-qatar-pc.webp`,
+    category: 'Desktop',
+    subCategory: 'Culture',
+    width: 3840,
+    height: 2160,
+    extension: 'webp'
+  },
+  {
+    id: 86,
+    slug: "cute-kitten-black-hoodie-headphones",
+    title: "Cute Kitten in Hoodie",
+    description: "An adorable kitten wearing a black hoodie and headphones. Perfect 4K Kids wallpaper for desktop.",
+    imageUrl: `${R2_BASE_URL}/Desktop/Kids/cute-kitten-black-hoodie-headphones-pc.webp`,
+    category: 'Desktop',
+    subCategory: 'Kids',
+    width: 3840,
+    height: 2160,
+    extension: 'webp'
+  },
+  {
+    id: 87,
+    slug: "lone-palm-tree-turquoise-ocean-aerial",
+    title: "Aerial Lone Palm Tree",
+    description: "A breathtaking aerial view of a lone palm tree on a tropical shore with turquoise ocean water. Nature wallpaper for phone.",
+    imageUrl: `${R2_BASE_URL}/Phone/Nature/lone-palm-tree-turquoise-ocean-aerial-phone.webp`,
+    category: 'Phone',
+    subCategory: 'Nature',
+    width: 1080,
+    height: 2340,
+    extension: 'webp'
+  },
+  {
+    id: 88,
+    slug: "detailed-lunar-surface-craters-space",
+    title: "Detailed Lunar Surface Craters",
+    description: "A close-up view of the moon's surface showing detailed craters and lunar textures. Space wallpaper for mobile.",
+    imageUrl: `${R2_BASE_URL}/Phone/Space/detailed-lunar-surface-craters-space-phone.webp`,
+    category: 'Phone',
+    subCategory: 'Space',
+    width: 1080,
+    height: 2340,
+    extension: 'webp'
+  },
+  {
+    id: 89,
+    slug: "colorful-woven-fabric-macro-texture",
+    title: "Colorful Woven Fabric Texture",
+    description: "A vibrant macro shot of woven fabric showing intricate patterns and colorful threads. Abstract art for tablets.",
+    imageUrl: `${R2_BASE_URL}/Tablet/Abstract/colorful-woven-fabric-macro-texture-tablet.webp`,
+    category: 'Tablet',
+    subCategory: 'Abstract',
+    width: 2048,
+    height: 2732,
+    extension: 'webp'
+  },
+  {
+    id: 90,
+    slug: "traditional-chinese-pagoda-architecture",
+    title: "Traditional Chinese Pagoda",
+    description: "Beautiful traditional Chinese pagoda architecture surrounded by nature. Iconic landmarks wallpaper for tablets.",
+    imageUrl: `${R2_BASE_URL}/Tablet/Cities%20%26%20Landmarks/traditional-chinese-pagoda-architecture-tablet.webp`,
+    category: 'Tablet',
+    subCategory: 'Cities & Landmarks',
+    width: 2048,
+    height: 2732,
+    extension: 'webp'
   }
 ];
 
