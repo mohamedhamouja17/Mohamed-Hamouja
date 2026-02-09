@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { EmailIcon } from './icons/EmailIcon.tsx';
 import { TwitterIcon } from './icons/TwitterIcon.tsx';
@@ -11,34 +10,27 @@ import { BlueskyIcon } from './icons/BlueskyIcon.tsx';
 import { ThreadsIcon } from './icons/ThreadsIcon.tsx';
 
 interface FooterProps {
-  onBlogClick: () => void;
-  onAboutClick: () => void;
-  onPrivacyClick: () => void;
-  onTermsClick: () => void;
-  onContactClick: () => void;
+  onNavigate: (view: any) => void;
 }
 
-const Footer: React.FC<FooterProps> = ({ onBlogClick, onAboutClick, onPrivacyClick, onTermsClick, onContactClick }) => {
+const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
   return (
     <footer className="mt-16 pt-8 border-t border-sky-200">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-        {/* About Section */}
         <div className="text-sm">
           <h3 className="font-bold text-base text-gray-800 mb-4">About the Site</h3>
           <p className="text-gray-600 leading-relaxed">Your site for downloading high-quality wallpapers for all devices.</p>
         </div>
         
-        {/* Quick Links */}
         <div className="text-sm">
           <h3 className="font-bold text-base text-gray-800 mb-4">Quick Links</h3>
           <ul className="space-y-3">
-            <li><button onClick={onAboutClick} className="text-gray-600 hover:text-gray-900 transition-colors text-left font-medium">About</button></li>
-            <li><button onClick={onBlogClick} className="text-gray-600 hover:text-gray-900 transition-colors text-left font-medium">Blog</button></li>
-            <li><button onClick={onContactClick} className="text-gray-600 hover:text-gray-900 transition-colors text-left font-medium">Contact</button></li>
+            <li><button onClick={() => onNavigate('About')} className="text-gray-600 hover:text-gray-900 transition-colors text-left font-medium">About</button></li>
+            <li><button onClick={() => onNavigate('Blog')} className="text-gray-600 hover:text-gray-900 transition-colors text-left font-medium">Blog</button></li>
+            <li><button onClick={() => onNavigate('Contact')} className="text-gray-600 hover:text-gray-900 transition-colors text-left font-medium">Contact</button></li>
           </ul>
         </div>
         
-        {/* Social & Contact */}
         <div className="text-sm">
           <h3 className="font-bold text-base text-gray-800 mb-4">Follow Us</h3>
           <ul className="space-y-2.5">
@@ -81,12 +73,11 @@ const Footer: React.FC<FooterProps> = ({ onBlogClick, onAboutClick, onPrivacyCli
           </ul>
         </div>
         
-        {/* Legal */}
         <div className="text-sm">
           <h3 className="font-bold text-base text-gray-800 mb-4">Legal</h3>
           <ul className="space-y-3">
-            <li><button onClick={onPrivacyClick} className="text-gray-600 hover:text-gray-900 transition-colors text-left font-medium">Privacy Policy</button></li>
-            <li><button onClick={onTermsClick} className="text-gray-600 hover:text-gray-900 transition-colors text-left font-medium">Terms of Use</button></li>
+            <li><button onClick={() => onNavigate('Privacy')} className="text-gray-600 hover:text-gray-900 transition-colors text-left font-medium">Privacy Policy</button></li>
+            <li><button onClick={() => onNavigate('Terms')} className="text-gray-600 hover:text-gray-900 transition-colors text-left font-medium">Terms of Use</button></li>
           </ul>
         </div>
       </div>

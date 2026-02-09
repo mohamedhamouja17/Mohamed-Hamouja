@@ -6,7 +6,7 @@ import { TabletIcon } from './icons/TabletIcon.tsx';
 
 interface CategoryNavProps {
   activeCategory: Category;
-  setActiveCategory: (category: Category) => void;
+  onCategoryChange: (category: any) => void;
 }
 
 const categoryIcons: Record<Exclude<Category, 'Home'>, React.FC<{className: string}>> = {
@@ -15,8 +15,7 @@ const categoryIcons: Record<Exclude<Category, 'Home'>, React.FC<{className: stri
   'Tablet': TabletIcon,
 };
 
-const CategoryNav: React.FC<CategoryNavProps> = ({ activeCategory, setActiveCategory }) => {
-  // We only want Desktop, Phone, and Tablet here
+const CategoryNav: React.FC<CategoryNavProps> = ({ activeCategory, onCategoryChange }) => {
   const mainCategories = CATEGORIES.filter(c => c !== 'Home') as Exclude<Category, 'Home'>[];
 
   return (
@@ -30,7 +29,7 @@ const CategoryNav: React.FC<CategoryNavProps> = ({ activeCategory, setActiveCate
             return (
               <button
                 key={category}
-                onClick={() => setActiveCategory(category)}
+                onClick={() => onCategoryChange(category)}
                 className={`
                   group relative flex flex-shrink-0 items-center gap-1.5 sm:gap-2.5 px-5 sm:px-8 py-2.5 sm:py-3 rounded-full transition-all duration-300 overflow-hidden
                   ${isActive 

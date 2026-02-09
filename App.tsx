@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useMemo } from 'react';
 import Header from './components/Header.tsx';
 import CategoryNav from './components/CategoryNav.tsx';
@@ -16,52 +15,49 @@ import ContactPage from './components/ContactPage.tsx';
 import { type Category, type Wallpaper } from './types.ts';
 import { WALLPAPER_DATA } from './constants.ts';
 
-type View = 'gallery' | 'blog' | 'about' | 'privacy' | 'terms' | 'contact' | 'wallpaper-detail';
+type View = 'Home' | 'Desktop' | 'Phone' | 'Tablet' | 'Privacy' | 'About' | 'Blog' | 'Contact' | 'Terms' | 'Detail';
 
 function App() {
-  const [activeCategory, setActiveCategory] = useState<Category>('Home');
-  const [activeSubCategory, setActiveSubCategory] = useState<string>('All');
-  const [currentView, setCurrentView] = useState<View>('gallery');
+  const [view, setView] = useState<View>('Home');
   const [selectedWallpaper, setSelectedWallpaper] = useState<Wallpaper | null>(null);
-  const [isPricingModalOpen, setIsPricingModalOpen] = useState(false);
+  const [activeSubCategory, setActiveSubCategory] = useState<string>('All');
   const [currentPage, setCurrentPage] = useState(1);
+  const [isPricingModalOpen, setIsPricingModalOpen] = useState(false);
   const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1024);
 
-  // Handle window resizing for dynamic pagination
+  const itemsPerPage = useMemo(() => {
+    return windowWidth >= 1024 ? 12 : 10;
+  }, [windowWidth]);
+
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Disable right-click context menu globally
   useEffect(() => {
-    const handleContextMenu = (e: MouseEvent) => {
-      e.preventDefault();
-    };
-    document.addEventListener('contextmenu', handleContextMenu);
-    return () => {
-      document.removeEventListener('contextmenu', handleContextMenu);
-    };
-  }, []);
+    window.scrollTo(0, 0);
+  }, [view, selectedWallpaper]);
 
-  /**
-   * REVISED: Dynamic itemsPerPage logic
-   * Mobile: 10 images (5 rows of 2)
-   * Desktop: 12 images (3 rows of 4)
-   * Threshold: 1024px (Tailwind 'lg' breakpoint)
-   */
-  const itemsPerPage = useMemo(() => {
-    const isDesktop = windowWidth >= 1024;
-    return isDesktop ? 12 : 10;
-  }, [windowWidth]);
+  const activeCategory: Category = useMemo(() => {
+    if (['Home', 'Desktop', 'Phone', 'Tablet'].includes(view)) {
+      return view as Category;
+    }
+    return 'Home';
+  }, [view]);
 
-  // Reset page to 1 whenever category or subcategory changes
-  useEffect(() => {
+  const handleNavigate = (newView: View) => {
+    setView(newView);
+    setSelectedWallpaper(null);
+    setActiveSubCategory('All');
     setCurrentPage(1);
-  }, [activeCategory, activeSubCategory]);
+  };
 
-  // Calculate total pages for the current filtered view using the dynamic itemsPerPage
+  const handleWallpaperSelect = (wallpaper: Wallpaper) => {
+    setSelectedWallpaper(wallpaper);
+    setView('Detail');
+  };
+
   const totalPages = useMemo(() => {
     const deviceWallpapers = WALLPAPER_DATA[activeCategory] || [];
     const filteredCount = activeSubCategory === 'All' 
@@ -71,81 +67,37 @@ function App() {
     return Math.max(1, Math.ceil(filteredCount / itemsPerPage));
   }, [activeCategory, activeSubCategory, itemsPerPage]);
 
-  const handleSetCategory = (cat: Category) => {
-    setActiveCategory(cat);
-    setActiveSubCategory('All');
-    setCurrentView('gallery');
-  };
-
-  const handleNavigateToHome = () => {
-    setCurrentView('gallery');
-    setActiveCategory('Home');
-    setActiveSubCategory('All');
-    setSelectedWallpaper(null);
-    window.scrollTo(0, 0);
-  };
-
-  const handleSelectWallpaper = (wallpaper: Wallpaper) => {
-    setSelectedWallpaper(wallpaper);
-    setCurrentView('wallpaper-detail');
-    window.scrollTo(0, 0);
-  };
-
-  const navigateToView = (view: View) => {
-    setCurrentView(view);
-    setSelectedWallpaper(null);
-    window.scrollTo(0, 0);
-  };
-
-  const handlePageChange = (page: number) => {
-    setCurrentPage(page);
-    // Smooth scroll to top of the grid area
-    const gridElement = document.getElementById('gallery-top');
-    if (gridElement) {
-      gridElement.scrollIntoView({ behavior: 'smooth' });
-    } else {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-  };
-
   const renderContent = () => {
-    switch (currentView) {
-      case 'wallpaper-detail':
+    switch (view) {
+      case 'Privacy': return <PrivacyPage />;
+      case 'About': return <AboutPage />;
+      case 'Blog': return <BlogPage />;
+      case 'Contact': return <ContactPage />;
+      case 'Terms': return <TermsPage />;
+      case 'Detail': 
         return selectedWallpaper ? (
           <WallpaperPageView 
             wallpaper={selectedWallpaper} 
-            onBack={() => setCurrentView('gallery')} 
+            onBack={() => setView(selectedWallpaper.category)} 
           />
-        ) : <p>Error loading wallpaper.</p>;
-      case 'blog':
-        return <BlogPage />;
-      case 'contact':
-        return <ContactPage />;
-      case 'about':
-        return <AboutPage />;
-      case 'privacy':
-        return <PrivacyPage />;
-      case 'terms':
-        return <TermsPage />;
-      case 'gallery':
+        ) : <NavigateToHome />;
       default:
         return (
           <>
-            <div id="gallery-top" className="scroll-mt-20"></div>
-            <CategoryNav 
-              activeCategory={activeCategory} 
-              setActiveCategory={handleSetCategory}
-            />
+            <CategoryNav activeCategory={activeCategory} onCategoryChange={handleNavigate} />
             {activeCategory !== 'Home' && (
               <SearchBar 
                 activeSubCategory={activeSubCategory} 
-                onSubCategoryChange={setActiveSubCategory} 
+                onSubCategoryChange={(cat) => {
+                  setActiveSubCategory(cat);
+                  setCurrentPage(1);
+                }} 
               />
             )}
             <ContentGrid 
               activeCategory={activeCategory} 
               activeSubCategory={activeSubCategory}
-              onWallpaperSelect={handleSelectWallpaper}
+              onWallpaperSelect={handleWallpaperSelect}
               currentPage={currentPage}
               itemsPerPage={itemsPerPage}
             />
@@ -153,7 +105,7 @@ function App() {
               <Pagination 
                 currentPage={currentPage} 
                 totalPages={totalPages} 
-                onPageChange={handlePageChange}
+                onPageChange={setCurrentPage}
               />
             )}
           </>
@@ -165,23 +117,24 @@ function App() {
     <div className="bg-sky-50 text-gray-800 min-h-screen font-sans selection:bg-orange-200">
       <div className="container mx-auto px-4 sm:px-6 lg:px-12 py-6 flex flex-col min-h-screen">
         <Header 
-          onLogoClick={handleNavigateToHome}
-          onSupportClick={() => setIsPricingModalOpen(true)}
+          onSupportClick={() => setIsPricingModalOpen(true)} 
+          onLogoClick={() => handleNavigate('Home')} 
         />
+        
         <main className="mt-8 flex-grow">
           {renderContent()}
         </main>
-        <Footer 
-          onBlogClick={() => navigateToView('blog')} 
-          onAboutClick={() => navigateToView('about')}
-          onPrivacyClick={() => navigateToView('privacy')}
-          onTermsClick={() => navigateToView('terms')}
-          onContactClick={() => navigateToView('contact')}
-        />
+
+        <Footer onNavigate={handleNavigate} />
       </div>
       {isPricingModalOpen && <PricingModal onClose={() => setIsPricingModalOpen(false)} />}
     </div>
   );
 }
+
+const NavigateToHome = () => {
+  useEffect(() => { window.location.reload(); }, []);
+  return null;
+};
 
 export default App;

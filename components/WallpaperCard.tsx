@@ -3,7 +3,7 @@ import { type Wallpaper } from '../types.ts';
 
 interface WallpaperCardProps {
   wallpaper: Wallpaper;
-  onViewClick?: (wallpaper: Wallpaper) => void;
+  onViewClick: (wallpaper: Wallpaper) => void;
 }
 
 const WallpaperCard: React.FC<WallpaperCardProps> = ({ wallpaper, onViewClick }) => {
@@ -21,9 +21,9 @@ const WallpaperCard: React.FC<WallpaperCardProps> = ({ wallpaper, onViewClick })
   };
 
   return (
-    <div 
-      className="group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 ease-in-out cursor-pointer border border-gray-100 flex flex-col h-full animate-fade-in"
-      onClick={() => onViewClick && onViewClick(wallpaper)}
+    <button 
+      onClick={() => onViewClick(wallpaper)}
+      className="group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 ease-in-out cursor-pointer border border-gray-100 flex flex-col h-full animate-fade-in block w-full text-left"
     >
       <div className={`overflow-hidden relative ${getAspectRatioClass()}`}>
         <img
@@ -32,7 +32,6 @@ const WallpaperCard: React.FC<WallpaperCardProps> = ({ wallpaper, onViewClick })
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 bg-gray-100 pointer-events-none"
           loading="lazy"
         />
-        {/* Invisible Overlay Shield */}
         <div className="absolute inset-0 z-10 bg-transparent select-none" aria-hidden="true"></div>
 
         <div className="absolute inset-0 bg-black/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center z-20">
@@ -47,7 +46,7 @@ const WallpaperCard: React.FC<WallpaperCardProps> = ({ wallpaper, onViewClick })
             {wallpaper.subCategory}
         </div>
       </div>
-    </div>
+    </button>
   );
 };
 
