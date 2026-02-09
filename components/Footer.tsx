@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { EmailIcon } from './icons/EmailIcon.tsx';
 import { TwitterIcon } from './icons/TwitterIcon.tsx';
@@ -7,6 +8,7 @@ import { TikTokIcon } from './icons/TikTokIcon.tsx';
 import { YouTubeIcon } from './icons/YouTubeIcon.tsx';
 import { PinterestIcon } from './icons/PinterestIcon.tsx';
 import { BlueskyIcon } from './icons/BlueskyIcon.tsx';
+import { ThreadsIcon } from './icons/ThreadsIcon.tsx';
 
 interface FooterProps {
   onBlogClick: () => void;
@@ -55,6 +57,10 @@ const Footer: React.FC<FooterProps> = ({ onBlogClick, onAboutClick, onPrivacyCli
              <li className="flex items-center gap-3">
                <InstagramIcon className="h-4 w-4 text-gray-500" />
                <a href="https://www.instagram.com/walzoo_wallpapers" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-gray-900 transition-colors">Instagram</a>
+             </li>
+             <li className="flex items-center gap-3">
+               <ThreadsIcon className="h-4 w-4 text-gray-500" />
+               <a href="https://www.threads.com/@walzoo_wallpapers" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-gray-900 transition-colors">Threads</a>
              </li>
              <li className="flex items-center gap-3">
                <TikTokIcon className="h-4 w-4 text-gray-500" />
