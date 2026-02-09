@@ -3,7 +3,7 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://walzoo.com</loc>
-    <lastmod>2026-02-08</lastmod>
+    <lastmod>2026-02-09</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -1030,9 +1030,9 @@
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
-      <image:loc>https://cdn.walzoo.com/Phone/Space/detailed-lunar-surface-craters-space-phone.webp</image:loc>
+      <image:loc>https://cdn.walzoo.com/Phone/Space/detailed-lunar-surface-craters-space-tablet.webp</image:loc>
       <image:title>Detailed Lunar Surface Craters</image:title>
-      <image:caption>A close-up view of the moon's surface showing detailed craters and lunar textures. Space wallpaper for mobile.</image:caption>
+      <image:caption>A close-up view of the moon's surface showing detailed craters and lunar textures. Space wallpaper.</image:caption>
     </image:image>
   </url>
   <url>
@@ -1055,6 +1055,72 @@
       <image:loc>https://cdn.walzoo.com/Tablet/Cities%20%26%20Landmarks/traditional-chinese-pagoda-architecture-tablet.webp</image:loc>
       <image:title>Traditional Chinese Pagoda</image:title>
       <image:caption>Beautiful traditional Chinese pagoda architecture surrounded by nature. Iconic landmarks wallpaper for tablets.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/abstract-metallic-leaves-gradient-pattern</loc>
+    <lastmod>2026-02-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Desktop/Minimalist/abstract-metallic-leaves-gradient-pattern-pc.webp</image:loc>
+      <image:title>Abstract Metallic Leaves</image:title>
+      <image:caption>An elegant pattern of metallic leaves with a soft gradient. High-quality 4K minimalist wallpaper for desktop.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/modern-colorful-hanging-metallic-spheres</loc>
+    <lastmod>2026-02-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Desktop/Technology/modern-colorful-hanging-metallic-spheres-pc.webp</image:loc>
+      <image:title>Modern Metallic Spheres</image:title>
+      <image:caption>A futuristic display of colorful metallic spheres hanging in a modern space. High-tech 4K desktop background.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/abstract-3d-geometric-frames-colorful</loc>
+    <lastmod>2026-02-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Phone/Digital%20Art/abstract-3d-geometric-frames-colorful-phone.webp</image:loc>
+      <image:title>Abstract 3D Geometric Frames</image:title>
+      <image:caption>Vibrant 3D geometric frames in a colorful abstract arrangement. Creative digital art for your phone.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/armored-knight-kneeling-glowing-fire-sword</loc>
+    <lastmod>2026-02-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Phone/Gaming/armored-knight-kneeling-glowing-fire-sword-phone.webp</image:loc>
+      <image:title>Armored Knight Fire Sword</image:title>
+      <image:caption>Epic scene of an armored knight kneeling with a glowing fire sword. Cinematic gaming wallpaper for mobile.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/white-deer-antlers-snowy-mountain</loc>
+    <lastmod>2026-02-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Tablet/Animals/white-deer-antlers-snowy-mountain-tablet.webp</image:loc>
+      <image:title>White Deer Snowy Mountain</image:title>
+      <image:caption>A majestic white deer with impressive antlers against a snowy mountain backdrop. Beautiful nature wallpaper for tablet.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/blue-modern-supercar-modern-architecture</loc>
+    <lastmod>2026-02-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Tablet/Cars/blue-modern-supercar-modern-architecture-tablet.webp</image:loc>
+      <image:title>Blue Supercar Modern Architecture</image:title>
+      <image:caption>A sleek blue modern supercar parked in front of striking contemporary architecture. Stylish background for tablets.</image:caption>
     </image:image>
   </url>
 </urlset>

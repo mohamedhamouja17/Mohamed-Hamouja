@@ -1031,6 +1031,78 @@ export const MY_IMAGES: Wallpaper[] = [
     width: 2048,
     height: 2732,
     extension: 'webp'
+  },
+  {
+    id: 91,
+    slug: "abstract-metallic-leaves-gradient-pattern",
+    title: "Abstract Metallic Leaves",
+    description: "An elegant pattern of metallic leaves with a soft gradient. High-quality 4K minimalist wallpaper for desktop.",
+    imageUrl: `${R2_BASE_URL}/Desktop/Minimalist/abstract-metallic-leaves-gradient-pattern-pc.webp`,
+    category: 'Desktop',
+    subCategory: 'Minimalist',
+    width: 3840,
+    height: 2160,
+    extension: 'webp'
+  },
+  {
+    id: 92,
+    slug: "modern-colorful-hanging-metallic-spheres",
+    title: "Modern Metallic Spheres",
+    description: "A futuristic display of colorful metallic spheres hanging in a modern space. High-tech 4K desktop background.",
+    imageUrl: `${R2_BASE_URL}/Desktop/Technology/modern-colorful-hanging-metallic-spheres-pc.webp`,
+    category: 'Desktop',
+    subCategory: 'Technology',
+    width: 3840,
+    height: 2160,
+    extension: 'webp'
+  },
+  {
+    id: 93,
+    slug: "abstract-3d-geometric-frames-colorful",
+    title: "Abstract 3D Geometric Frames",
+    description: "Vibrant 3D geometric frames in a colorful abstract arrangement. Creative digital art for your phone.",
+    imageUrl: `${R2_BASE_URL}/Phone/Digital%20Art/abstract-3d-geometric-frames-colorful-phone.webp`,
+    category: 'Phone',
+    subCategory: 'Digital Art',
+    width: 1080,
+    height: 2340,
+    extension: 'webp'
+  },
+  {
+    id: 94,
+    slug: "armored-knight-kneeling-glowing-fire-sword",
+    title: "Armored Knight Fire Sword",
+    description: "Epic scene of an armored knight kneeling with a glowing fire sword. Cinematic gaming wallpaper for mobile.",
+    imageUrl: `${R2_BASE_URL}/Phone/Gaming/armored-knight-kneeling-glowing-fire-sword-phone.webp`,
+    category: 'Phone',
+    subCategory: 'Gaming',
+    width: 1080,
+    height: 2340,
+    extension: 'webp'
+  },
+  {
+    id: 95,
+    slug: "white-deer-antlers-snowy-mountain",
+    title: "White Deer Snowy Mountain",
+    description: "A majestic white deer with impressive antlers against a snowy mountain backdrop. Beautiful nature wallpaper for tablet.",
+    imageUrl: `${R2_BASE_URL}/Tablet/Animals/white-deer-antlers-snowy-mountain-tablet.webp`,
+    category: 'Tablet',
+    subCategory: 'Animals',
+    width: 2048,
+    height: 2732,
+    extension: 'webp'
+  },
+  {
+    id: 96,
+    slug: "blue-modern-supercar-modern-architecture",
+    title: "Blue Supercar Modern Architecture",
+    description: "A sleek blue modern supercar parked in front of striking contemporary architecture. Stylish background for tablets.",
+    imageUrl: `${R2_BASE_URL}/Tablet/Cars/blue-modern-supercar-modern-architecture-tablet.webp`,
+    category: 'Tablet',
+    subCategory: 'Cars',
+    width: 2048,
+    height: 2732,
+    extension: 'webp'
   }
 ];
 
