@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react';
+
+import React, { useState } from 'react';
 import { type Wallpaper } from '../types.ts';
 import DownloadSection from './DownloadSection.tsx';
 import { ChevronDownIcon } from './icons/ChevronDownIcon.tsx';
@@ -14,12 +15,10 @@ const WallpaperPageView: React.FC<WallpaperPageViewProps> = ({ wallpaper, onBack
   const [detectedExtension, setDetectedExtension] = useState(wallpaper.extension);
   const [hasTriedSwap, setHasTriedSwap] = useState(false);
 
-  // Fallback extension check (runs if the initial image source fails to load)
   const handleImageError = () => {
     if (!hasTriedSwap) {
       const otherExt = detectedExtension === 'jpg' ? 'png' : 'jpg';
       const newUrl = wallpaper.imageUrl.replace(`.${wallpaper.extension}`, `.${otherExt}`);
-      
       setCurrentUrl(newUrl);
       setDetectedExtension(otherExt);
       setHasTriedSwap(true);
@@ -54,7 +53,6 @@ const WallpaperPageView: React.FC<WallpaperPageViewProps> = ({ wallpaper, onBack
       <div className="bg-white rounded-3xl overflow-hidden shadow-2xl border border-gray-100">
         <div className="bg-gray-50 p-4 sm:p-8 flex justify-center items-center min-h-[40vh]">
           <div className={`relative shadow-2xl rounded-2xl overflow-hidden border-4 border-white transition-all duration-500 ${getAspectRatioClass()}`}>
-            {/* 1. Immediate Display: No crossOrigin attribute to avoid R2 CORS preview conflicts */}
             <img 
               src={currentUrl} 
               alt={wallpaper.title}
@@ -62,7 +60,6 @@ const WallpaperPageView: React.FC<WallpaperPageViewProps> = ({ wallpaper, onBack
               loading="eager"
               onError={handleImageError}
             />
-            
             <div className="absolute top-3 right-3 bg-black/40 backdrop-blur-md text-white text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-tighter z-20">
               {wallpaper.width >= 3840 ? '4K UHD' : 'HD READY'}
             </div>

@@ -1,4 +1,6 @@
+
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { EmailIcon } from './icons/EmailIcon.tsx';
 import { TwitterIcon } from './icons/TwitterIcon.tsx';
 import { InstagramIcon } from './icons/InstagramIcon.tsx';
@@ -9,11 +11,7 @@ import { PinterestIcon } from './icons/PinterestIcon.tsx';
 import { BlueskyIcon } from './icons/BlueskyIcon.tsx';
 import { ThreadsIcon } from './icons/ThreadsIcon.tsx';
 
-interface FooterProps {
-  onNavigate: (view: string) => void;
-}
-
-const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
+const Footer: React.FC = () => {
   return (
     <footer className="mt-16 pt-8 border-t border-sky-200">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -25,9 +23,9 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
         <div className="text-sm">
           <h3 className="font-bold text-base text-gray-800 mb-4">Quick Links</h3>
           <ul className="space-y-3">
-            <li><button onClick={() => onNavigate('About')} className="text-gray-600 hover:text-gray-900 transition-colors text-left font-medium block">About</button></li>
-            <li><button onClick={() => onNavigate('Blog')} className="text-gray-600 hover:text-gray-900 transition-colors text-left font-medium block">Blog</button></li>
-            <li><button onClick={() => onNavigate('Contact')} className="text-gray-600 hover:text-gray-900 transition-colors text-left font-medium block">Contact</button></li>
+            <li><Link to="/about" className="text-gray-600 hover:text-gray-900 transition-colors text-left font-medium block">About</Link></li>
+            <li><Link to="/blog" className="text-gray-600 hover:text-gray-900 transition-colors text-left font-medium block">Blog</Link></li>
+            <li><Link to="/contact" className="text-gray-600 hover:text-gray-900 transition-colors text-left font-medium block">Contact</Link></li>
           </ul>
         </div>
         
@@ -76,8 +74,8 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
         <div className="text-sm">
           <h3 className="font-bold text-base text-gray-800 mb-4">Legal</h3>
           <ul className="space-y-3">
-            <li><button onClick={() => onNavigate('Privacy')} className="text-gray-600 hover:text-gray-900 transition-colors text-left font-medium block">Privacy Policy</button></li>
-            <li><button onClick={() => onNavigate('Terms')} className="text-gray-600 hover:text-gray-900 transition-colors text-left font-medium block">Terms of Use</button></li>
+            <li><Link to="/privacy" className="text-gray-600 hover:text-gray-900 transition-colors text-left font-medium block">Privacy Policy</Link></li>
+            <li><Link to="/terms" className="text-gray-600 hover:text-gray-900 transition-colors text-left font-medium block">Terms of Use</Link></li>
           </ul>
         </div>
       </div>

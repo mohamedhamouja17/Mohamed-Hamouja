@@ -1,4 +1,6 @@
+
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import { type Category, CATEGORIES } from '../types.ts';
 import { DesktopIcon } from './icons/DesktopIcon.tsx';
 import { PhoneIcon } from './icons/PhoneIcon.tsx';
@@ -6,7 +8,6 @@ import { TabletIcon } from './icons/TabletIcon.tsx';
 
 interface CategoryNavProps {
   activeCategory: Category;
-  onCategoryChange: (category: Category) => void;
 }
 
 const categoryIcons: Record<Exclude<Category, 'Home'>, React.FC<{className: string}>> = {
@@ -15,7 +16,7 @@ const categoryIcons: Record<Exclude<Category, 'Home'>, React.FC<{className: stri
   'Tablet': TabletIcon,
 };
 
-const CategoryNav: React.FC<CategoryNavProps> = ({ activeCategory, onCategoryChange }) => {
+const CategoryNav: React.FC<CategoryNavProps> = ({ activeCategory }) => {
   const mainCategories = CATEGORIES.filter(c => c !== 'Home') as Exclude<Category, 'Home'>[];
 
   return (
@@ -27,12 +28,12 @@ const CategoryNav: React.FC<CategoryNavProps> = ({ activeCategory, onCategoryCha
             const isActive = activeCategory === category;
             
             return (
-              <button
+              <NavLink
                 key={category}
-                onClick={() => onCategoryChange(category)}
-                className={`
+                to={`/category/${category.toLowerCase()}`}
+                className={({ isActive: linkActive }) => `
                   group relative flex flex-shrink-0 items-center gap-1.5 sm:gap-2.5 px-5 sm:px-8 py-2.5 sm:py-3 rounded-full transition-all duration-300 overflow-hidden
-                  ${isActive 
+                  ${linkActive 
                     ? 'text-white shadow-lg shadow-orange-500/25 ring-2 ring-orange-500 ring-offset-2 ring-offset-sky-50' 
                     : 'bg-white text-gray-600 hover:text-orange-600 shadow-sm hover:shadow-md border border-gray-50'}
                 `}
@@ -44,7 +45,7 @@ const CategoryNav: React.FC<CategoryNavProps> = ({ activeCategory, onCategoryCha
                   <IconComponent className={`h-4 w-4 sm:h-5 sm:w-5 transition-transform duration-300 ${isActive ? 'scale-110' : 'group-hover:scale-110'}`} />
                   <span className="font-extrabold text-xs sm:text-sm tracking-widest uppercase whitespace-nowrap">{category}</span>
                 </div>
-              </button>
+              </NavLink>
             );
           })}
         </div>
