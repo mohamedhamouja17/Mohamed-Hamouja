@@ -13,9 +13,6 @@ import PrivacyPage from './components/PrivacyPage.tsx';
 import TermsPage from './components/TermsPage.tsx';
 import ContactPage from './components/ContactPage.tsx';
 import SEO from './components/SEO.tsx';
-import PhoneWallpaperSlideshow from './components/PhoneWallpaperSlideshow.tsx';
-import DesktopWallpaperSlideshow from './components/DesktopWallpaperSlideshow.tsx';
-import TabletWallpaperSlideshow from './components/TabletWallpaperSlideshow.tsx';
 import HomePageContent from './components/HomePageContent.tsx';
 import { type Category, type Wallpaper } from './types.ts';
 import { WALLPAPER_DATA, MY_IMAGES } from './constants.ts';
@@ -87,10 +84,7 @@ function App() {
         return <ContactPage />;
       case 'Home':
         return (
-          <div className="space-y-12 mb-12 animate-fade-in">
-            <DesktopWallpaperSlideshow onWallpaperSelect={handleWallpaperSelect} />
-            <PhoneWallpaperSlideshow onWallpaperSelect={handleWallpaperSelect} />
-            <TabletWallpaperSlideshow onWallpaperSelect={handleWallpaperSelect} />
+          <div className="space-y-12 mb-12 animate-fade-in text-center">
             <HomePageContent /> 
           </div>
         );
