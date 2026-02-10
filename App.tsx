@@ -12,22 +12,23 @@ import AboutPage from './components/AboutPage.tsx';
 import PrivacyPage from './components/PrivacyPage.tsx';
 import TermsPage from './components/TermsPage.tsx';
 import ContactPage from './components/ContactPage.tsx';
+import SEO from './components/SEO.tsx';
+import PhoneWallpaperSlideshow from './components/PhoneWallpaperSlideshow.tsx';
+import DesktopWallpaperSlideshow from './components/DesktopWallpaperSlideshow.tsx';
+import TabletWallpaperSlideshow from './components/TabletWallpaperSlideshow.tsx';
+import HomePageContent from './components/HomePageContent.tsx';
 import { type Category, type Wallpaper } from './types.ts';
-import { WALLPAPER_DATA } from './constants.ts';
+import { WALLPAPER_DATA, MY_IMAGES } from './constants.ts';
 
-type View = 'Home' | 'Desktop' | 'Phone' | 'Tablet' | 'Privacy' | 'About' | 'Blog' | 'Contact' | 'Terms' | 'Detail';
+type View = Category | 'Wallpaper' | 'Blog' | 'About' | 'Privacy' | 'Terms' | 'Contact';
 
 function App() {
   const [view, setView] = useState<View>('Home');
   const [selectedWallpaper, setSelectedWallpaper] = useState<Wallpaper | null>(null);
-  const [activeSubCategory, setActiveSubCategory] = useState<string>('All');
+  const [activeSubCategory, setActiveSubCategory] = useState('All');
   const [currentPage, setCurrentPage] = useState(1);
   const [isPricingModalOpen, setIsPricingModalOpen] = useState(false);
   const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1024);
-
-  const itemsPerPage = useMemo(() => {
-    return windowWidth >= 1024 ? 12 : 10;
-  }, [windowWidth]);
 
   useEffect(() => {
     const handleResize = () => setWindowWidth(window.innerWidth);
@@ -35,80 +36,88 @@ function App() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  // Scroll to top on view change
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [view, selectedWallpaper]);
 
-  const activeCategory: Category = useMemo(() => {
-    if (['Home', 'Desktop', 'Phone', 'Tablet'].includes(view)) {
-      return view as Category;
-    }
-    return 'Home';
-  }, [view]);
+  const itemsPerPage = useMemo(() => {
+    return windowWidth >= 1024 ? 12 : 10;
+  }, [windowWidth]);
 
-  const handleNavigate = (newView: View) => {
-    setView(newView);
-    setSelectedWallpaper(null);
+  const handleCategoryChange = (cat: Category) => {
+    setView(cat);
     setActiveSubCategory('All');
     setCurrentPage(1);
   };
 
   const handleWallpaperSelect = (wallpaper: Wallpaper) => {
     setSelectedWallpaper(wallpaper);
-    setView('Detail');
+    setView('Wallpaper');
   };
 
   const totalPages = useMemo(() => {
-    const deviceWallpapers = WALLPAPER_DATA[activeCategory] || [];
+    if (view === 'Home' || view === 'Wallpaper' || view === 'Blog' || view === 'About' || view === 'Privacy' || view === 'Terms' || view === 'Contact') return 1;
+    const deviceWallpapers = WALLPAPER_DATA[view as Category] || [];
     const filteredCount = activeSubCategory === 'All' 
       ? deviceWallpapers.length 
       : deviceWallpapers.filter(w => w.subCategory === activeSubCategory).length;
     
     return Math.max(1, Math.ceil(filteredCount / itemsPerPage));
-  }, [activeCategory, activeSubCategory, itemsPerPage]);
+  }, [view, activeSubCategory, itemsPerPage]);
 
   const renderContent = () => {
     switch (view) {
-      case 'Privacy': return <PrivacyPage />;
-      case 'About': return <AboutPage />;
-      case 'Blog': return <BlogPage />;
-      case 'Contact': return <ContactPage />;
-      case 'Terms': return <TermsPage />;
-      case 'Detail': 
+      case 'Wallpaper':
         return selectedWallpaper ? (
           <WallpaperPageView 
             wallpaper={selectedWallpaper} 
             onBack={() => setView(selectedWallpaper.category)} 
           />
-        ) : <NavigateToHome />;
-      default:
+        ) : null;
+      case 'Blog':
+        return <BlogPage />;
+      case 'About':
+        return <AboutPage />;
+      case 'Privacy':
+        return <PrivacyPage />;
+      case 'Terms':
+        return <TermsPage />;
+      case 'Contact':
+        return <ContactPage />;
+      case 'Home':
         return (
-          <>
-            <CategoryNav activeCategory={activeCategory} onCategoryChange={handleNavigate} />
-            {activeCategory !== 'Home' && (
-              <SearchBar 
-                activeSubCategory={activeSubCategory} 
-                onSubCategoryChange={(cat) => {
-                  setActiveSubCategory(cat);
-                  setCurrentPage(1);
-                }} 
-              />
-            )}
+          <div className="space-y-12 mb-12 animate-fade-in">
+            <DesktopWallpaperSlideshow onWallpaperSelect={handleWallpaperSelect} />
+            <PhoneWallpaperSlideshow onWallpaperSelect={handleWallpaperSelect} />
+            <TabletWallpaperSlideshow onWallpaperSelect={handleWallpaperSelect} />
+            <HomePageContent /> 
+          </div>
+        );
+      default:
+        // Desktop, Phone, Tablet views
+        return (
+          <div className="animate-fade-in">
+            <SearchBar 
+              activeSubCategory={activeSubCategory} 
+              onSubCategoryChange={(cat) => {
+                setActiveSubCategory(cat);
+                setCurrentPage(1);
+              }} 
+            />
             <ContentGrid 
-              activeCategory={activeCategory} 
+              activeCategory={view as Category} 
               activeSubCategory={activeSubCategory}
-              onWallpaperSelect={handleWallpaperSelect}
               currentPage={currentPage}
               itemsPerPage={itemsPerPage}
+              onWallpaperSelect={handleWallpaperSelect}
             />
-            {activeCategory !== 'Home' && (
-              <Pagination 
-                currentPage={currentPage} 
-                totalPages={totalPages} 
-                onPageChange={setCurrentPage}
-              />
-            )}
-          </>
+            <Pagination 
+              currentPage={currentPage} 
+              totalPages={totalPages} 
+              onPageChange={setCurrentPage}
+            />
+          </div>
         );
     }
   };
@@ -117,24 +126,27 @@ function App() {
     <div className="bg-sky-50 text-gray-800 min-h-screen font-sans selection:bg-orange-200">
       <div className="container mx-auto px-4 sm:px-6 lg:px-12 py-6 flex flex-col min-h-screen">
         <Header 
+          onLogoClick={() => handleCategoryChange('Home')}
           onSupportClick={() => setIsPricingModalOpen(true)} 
-          onLogoClick={() => handleNavigate('Home')} 
         />
         
         <main className="mt-8 flex-grow">
+          <SEO title={view === 'Home' ? undefined : `${view} Wallpapers`} />
+          <CategoryNav 
+            activeCategory={view as Category} 
+            onCategoryChange={handleCategoryChange} 
+          />
           {renderContent()}
         </main>
 
-        <Footer onNavigate={handleNavigate} />
+        <Footer onNavigate={(v) => {
+          setView(v as View);
+          setCurrentPage(1);
+        }} />
       </div>
       {isPricingModalOpen && <PricingModal onClose={() => setIsPricingModalOpen(false)} />}
     </div>
   );
 }
-
-const NavigateToHome = () => {
-  useEffect(() => { window.location.reload(); }, []);
-  return null;
-};
 
 export default App;

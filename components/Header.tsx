@@ -3,17 +3,17 @@ import { TigerClawsIcon } from './icons/TigerClawsIcon.tsx';
 import { HeartIcon } from './icons/HeartIcon.tsx';
 
 interface HeaderProps {
-  onSupportClick: () => void;
   onLogoClick: () => void;
+  onSupportClick: () => void;
 }
 
-const Header: React.FC<HeaderProps> = ({ onSupportClick, onLogoClick }) => {
+const Header: React.FC<HeaderProps> = ({ onLogoClick, onSupportClick }) => {
   return (
     <header className="flex justify-between items-center">
       <button 
         onClick={onLogoClick}
         className="flex items-center gap-2 hover:opacity-80 transition-opacity"
-        aria-label="Go to Home"
+        aria-label="Walzoo Home"
       >
         <TigerClawsIcon className="h-8 w-8 text-yellow-500" />
         <span 

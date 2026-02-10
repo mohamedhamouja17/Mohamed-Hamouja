@@ -6,7 +6,7 @@ import { TabletIcon } from './icons/TabletIcon.tsx';
 
 interface CategoryNavProps {
   activeCategory: Category;
-  onCategoryChange: (category: any) => void;
+  onCategoryChange: (category: Category) => void;
 }
 
 const categoryIcons: Record<Exclude<Category, 'Home'>, React.FC<{className: string}>> = {

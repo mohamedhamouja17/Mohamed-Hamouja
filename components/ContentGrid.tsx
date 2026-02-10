@@ -1,46 +1,36 @@
-
 import React from 'react';
 import { type Category, type Wallpaper } from '../types.ts';
 import { WALLPAPER_DATA } from '../constants.ts';
 import WallpaperCard from './WallpaperCard.tsx';
-import HomePageContent from './HomePageContent.tsx';
 
 interface ContentGridProps {
   activeCategory: Category;
   activeSubCategory: string;
-  onWallpaperSelect: (wallpaper: Wallpaper) => void;
   currentPage: number;
   itemsPerPage: number;
+  onWallpaperSelect: (wallpaper: Wallpaper) => void;
 }
 
 const ContentGrid: React.FC<ContentGridProps> = ({ 
   activeCategory, 
   activeSubCategory, 
-  onWallpaperSelect,
   currentPage,
-  itemsPerPage
+  itemsPerPage,
+  onWallpaperSelect
 }) => {
+  // Home content is handled outside in the new state-based App logic
   if (activeCategory === 'Home') {
-    return <HomePageContent onWallpaperSelect={onWallpaperSelect} />;
+    return null;
   }
 
-  // 1. Get wallpapers for the current device category
   const deviceWallpapers = WALLPAPER_DATA[activeCategory] || [];
-
-  // 2. Filter by subcategory theme (Nature, Space, etc.)
   const filteredWallpapers = activeSubCategory === 'All' 
     ? deviceWallpapers 
     : deviceWallpapers.filter(w => w.subCategory === activeSubCategory);
 
-  // 3. Paginate the filtered results using the dynamic itemsPerPage
   const startIndex = (currentPage - 1) * itemsPerPage;
   const paginatedWallpapers = filteredWallpapers.slice(startIndex, startIndex + itemsPerPage);
 
-  /**
-   * REVISED: Grid logic for mobile optimization
-   * Specifically for 'Desktop' category: 1 column on mobile, 2 columns on desktop
-   * For other categories (Phone/Tablet): 2 columns on mobile, 4 columns on desktop
-   */
   const getGridClasses = () => {
     if (activeCategory === 'Desktop') {
       return "mt-10 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 animate-fade-in";
@@ -56,7 +46,7 @@ const ContentGrid: React.FC<ContentGridProps> = ({
             <WallpaperCard 
               key={`${wallpaper.id}-${wallpaper.subCategory}-${wallpaper.category}`} 
               wallpaper={wallpaper} 
-              onViewClick={onWallpaperSelect}
+              onSelect={() => onWallpaperSelect(wallpaper)}
             />
           ))}
         </div>
@@ -69,12 +59,6 @@ const ContentGrid: React.FC<ContentGridProps> = ({
           </div>
           <h3 className="text-xl font-bold text-gray-800">No Wallpapers Found</h3>
           <p className="text-gray-500 mt-2">We haven't added any {activeSubCategory} wallpapers for {activeCategory} yet on this page.</p>
-          <button 
-            onClick={() => window.location.reload()}
-            className="mt-6 text-orange-500 font-bold hover:underline"
-          >
-            Clear Filters
-          </button>
         </div>
       )}
     </div>

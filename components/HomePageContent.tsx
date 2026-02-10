@@ -1,11 +1,6 @@
 import React from 'react';
-import { type Wallpaper } from '../types.ts';
 
-interface HomePageContentProps {
-  onWallpaperSelect: (wallpaper: Wallpaper) => void;
-}
-
-const HomePageContent: React.FC<HomePageContentProps> = ({ onWallpaperSelect }) => {
+const HomePageContent: React.FC = () => {
   return (
     <div className="mt-10 space-y-20 pb-20">
       {/* Hero Header */}

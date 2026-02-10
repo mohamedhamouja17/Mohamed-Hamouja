@@ -3,10 +3,10 @@ import { type Wallpaper } from '../types.ts';
 
 interface WallpaperCardProps {
   wallpaper: Wallpaper;
-  onViewClick: (wallpaper: Wallpaper) => void;
+  onSelect: () => void;
 }
 
-const WallpaperCard: React.FC<WallpaperCardProps> = ({ wallpaper, onViewClick }) => {
+const WallpaperCard: React.FC<WallpaperCardProps> = ({ wallpaper, onSelect }) => {
   const getAspectRatioClass = () => {
     switch (wallpaper.category) {
       case 'Phone':
@@ -21,8 +21,8 @@ const WallpaperCard: React.FC<WallpaperCardProps> = ({ wallpaper, onViewClick })
   };
 
   return (
-    <button 
-      onClick={() => onViewClick(wallpaper)}
+    <div 
+      onClick={onSelect}
       className="group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 ease-in-out cursor-pointer border border-gray-100 flex flex-col h-full animate-fade-in block w-full text-left"
     >
       <div className={`overflow-hidden relative ${getAspectRatioClass()}`}>
@@ -46,7 +46,7 @@ const WallpaperCard: React.FC<WallpaperCardProps> = ({ wallpaper, onViewClick })
             {wallpaper.subCategory}
         </div>
       </div>
-    </button>
+    </div>
   );
 };
 

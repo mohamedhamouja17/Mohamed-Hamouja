@@ -10,7 +10,7 @@ import { BlueskyIcon } from './icons/BlueskyIcon.tsx';
 import { ThreadsIcon } from './icons/ThreadsIcon.tsx';
 
 interface FooterProps {
-  onNavigate: (view: any) => void;
+  onNavigate: (view: string) => void;
 }
 
 const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
@@ -25,9 +25,9 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
         <div className="text-sm">
           <h3 className="font-bold text-base text-gray-800 mb-4">Quick Links</h3>
           <ul className="space-y-3">
-            <li><button onClick={() => onNavigate('About')} className="text-gray-600 hover:text-gray-900 transition-colors text-left font-medium">About</button></li>
-            <li><button onClick={() => onNavigate('Blog')} className="text-gray-600 hover:text-gray-900 transition-colors text-left font-medium">Blog</button></li>
-            <li><button onClick={() => onNavigate('Contact')} className="text-gray-600 hover:text-gray-900 transition-colors text-left font-medium">Contact</button></li>
+            <li><button onClick={() => onNavigate('About')} className="text-gray-600 hover:text-gray-900 transition-colors text-left font-medium block">About</button></li>
+            <li><button onClick={() => onNavigate('Blog')} className="text-gray-600 hover:text-gray-900 transition-colors text-left font-medium block">Blog</button></li>
+            <li><button onClick={() => onNavigate('Contact')} className="text-gray-600 hover:text-gray-900 transition-colors text-left font-medium block">Contact</button></li>
           </ul>
         </div>
         
@@ -76,8 +76,8 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
         <div className="text-sm">
           <h3 className="font-bold text-base text-gray-800 mb-4">Legal</h3>
           <ul className="space-y-3">
-            <li><button onClick={() => onNavigate('Privacy')} className="text-gray-600 hover:text-gray-900 transition-colors text-left font-medium">Privacy Policy</button></li>
-            <li><button onClick={() => onNavigate('Terms')} className="text-gray-600 hover:text-gray-900 transition-colors text-left font-medium">Terms of Use</button></li>
+            <li><button onClick={() => onNavigate('Privacy')} className="text-gray-600 hover:text-gray-900 transition-colors text-left font-medium block">Privacy Policy</button></li>
+            <li><button onClick={() => onNavigate('Terms')} className="text-gray-600 hover:text-gray-900 transition-colors text-left font-medium block">Terms of Use</button></li>
           </ul>
         </div>
       </div>
