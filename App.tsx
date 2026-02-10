@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useMemo } from 'react';
 import Header from './components/Header.tsx';
 import CategoryNav from './components/CategoryNav.tsx';
@@ -34,6 +33,20 @@ function App() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  // Open the pricing modal automatically on home page load if it's the first visit
+  useEffect(() => {
+    if (view === 'Home') {
+      const timer = setTimeout(() => {
+        const hasSeenModal = localStorage.getItem('hasSeenPricingModal');
+        if (!hasSeenModal) {
+          setIsPricingModalOpen(true);
+          localStorage.setItem('hasSeenPricingModal', 'true');
+        }
+      }, 1500);
+      return () => clearTimeout(timer);
+    }
+  }, [view]);
+
   // Scroll to top on view change
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -55,7 +68,7 @@ function App() {
   };
 
   const totalPages = useMemo(() => {
-    if (view === 'Home' || view === 'Wallpaper' || view === 'Blog' || view === 'About' || view === 'Privacy' || view === 'Terms' || view === 'Contact') return 1;
+    if (view === 'Wallpaper' || view === 'Blog' || view === 'About' || view === 'Privacy' || view === 'Terms' || view === 'Contact') return 1;
     const deviceWallpapers = WALLPAPER_DATA[view as Category] || [];
     const filteredCount = activeSubCategory === 'All' 
       ? deviceWallpapers.length 
@@ -85,8 +98,27 @@ function App() {
         return <ContactPage />;
       case 'Home':
         return (
-          <div className="space-y-12 mb-12 animate-fade-in text-center">
-            <HomePageContent /> 
+          <div className="animate-fade-in">
+            <HomePageContent />
+            <SearchBar 
+              activeSubCategory={activeSubCategory} 
+              onSubCategoryChange={(cat) => {
+                setActiveSubCategory(cat);
+                setCurrentPage(1);
+              }} 
+            />
+            <ContentGrid 
+              activeCategory="Home" 
+              activeSubCategory={activeSubCategory}
+              currentPage={currentPage}
+              itemsPerPage={itemsPerPage}
+              onWallpaperSelect={handleWallpaperSelect}
+            />
+            <Pagination 
+              currentPage={currentPage} 
+              totalPages={totalPages} 
+              onPageChange={setCurrentPage}
+            />
           </div>
         );
       default:
