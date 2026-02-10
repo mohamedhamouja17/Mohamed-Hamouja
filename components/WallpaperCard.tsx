@@ -1,13 +1,14 @@
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { type Wallpaper } from '../types.ts';
 
 interface WallpaperCardProps {
   wallpaper: Wallpaper;
-  onSelect: () => void;
+  onSelect?: () => void;
 }
 
-const WallpaperCard: React.FC<WallpaperCardProps> = ({ wallpaper, onSelect }) => {
+const WallpaperCard: React.FC<WallpaperCardProps> = ({ wallpaper }) => {
   const getAspectRatioClass = () => {
     switch (wallpaper.category) {
       case 'Phone':
@@ -22,8 +23,8 @@ const WallpaperCard: React.FC<WallpaperCardProps> = ({ wallpaper, onSelect }) =>
   };
 
   return (
-    <div 
-      onClick={onSelect}
+    <Link 
+      to={`/wallpaper/${wallpaper.slug}`}
       className="group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 ease-in-out cursor-pointer border border-gray-100 flex flex-col h-full animate-fade-in block w-full text-left"
     >
       <div className={`overflow-hidden relative ${getAspectRatioClass()}`}>
@@ -47,7 +48,7 @@ const WallpaperCard: React.FC<WallpaperCardProps> = ({ wallpaper, onSelect }) =>
             {wallpaper.subCategory}
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 

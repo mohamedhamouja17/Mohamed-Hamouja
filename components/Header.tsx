@@ -1,17 +1,18 @@
+
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { TigerClawsIcon } from './icons/TigerClawsIcon.tsx';
 import { HeartIcon } from './icons/HeartIcon.tsx';
 
 interface HeaderProps {
-  onLogoClick: () => void;
   onSupportClick: () => void;
 }
 
-const Header: React.FC<HeaderProps> = ({ onLogoClick, onSupportClick }) => {
+const Header: React.FC<HeaderProps> = ({ onSupportClick }) => {
   return (
     <header className="flex justify-between items-center">
-      <button 
-        onClick={onLogoClick}
+      <Link 
+        to="/"
         className="flex items-center gap-2 hover:opacity-80 transition-opacity"
         aria-label="Walzoo Home"
       >
@@ -22,7 +23,7 @@ const Header: React.FC<HeaderProps> = ({ onLogoClick, onSupportClick }) => {
         >
           WALZOO
         </span>
-      </button>
+      </Link>
 
       <button
         onClick={onSupportClick}
