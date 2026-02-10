@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { type Category } from '../types.ts';
+import { type Category, type Wallpaper } from '../types.ts';
 import { WALLPAPER_DATA } from '../constants.ts';
 import WallpaperCard from './WallpaperCard.tsx';
 
@@ -9,13 +9,15 @@ interface ContentGridProps {
   activeSubCategory: string;
   currentPage: number;
   itemsPerPage: number;
+  onWallpaperSelect: (wallpaper: Wallpaper) => void;
 }
 
 const ContentGrid: React.FC<ContentGridProps> = ({ 
   activeCategory, 
   activeSubCategory, 
   currentPage,
-  itemsPerPage
+  itemsPerPage,
+  onWallpaperSelect
 }) => {
   if (activeCategory === 'Home') return null;
 
@@ -42,6 +44,7 @@ const ContentGrid: React.FC<ContentGridProps> = ({
             <WallpaperCard 
               key={`${wallpaper.id}-${wallpaper.subCategory}-${wallpaper.category}`} 
               wallpaper={wallpaper} 
+              onSelect={() => onWallpaperSelect(wallpaper)}
             />
           ))}
         </div>
