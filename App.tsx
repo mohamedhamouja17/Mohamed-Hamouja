@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useMemo } from 'react';
 import { Routes, Route, useLocation, useParams, Navigate, useNavigate } from 'react-router-dom';
 import Header from './components/Header.tsx';
@@ -14,7 +13,6 @@ import AboutPage from './components/AboutPage.tsx';
 import PrivacyPage from './components/PrivacyPage.tsx';
 import TermsPage from './components/TermsPage.tsx';
 import ContactPage from './components/ContactPage.tsx';
-import SEO from './components/SEO.tsx';
 import HomePageContent from './components/HomePageContent.tsx';
 import DesktopWallpaperSlideshow from './components/DesktopWallpaperSlideshow.tsx';
 import PhoneWallpaperSlideshow from './components/PhoneWallpaperSlideshow.tsx';
@@ -189,8 +187,6 @@ function App() {
         <Header onSupportClick={() => setIsPricingModalOpen(true)} />
         
         <main className="mt-8 flex-grow">
-          <SEO title={location.pathname === '/' ? undefined : `${location.pathname.split('/').pop()?.replace(/-/g, ' ')} Wallpapers`} />
-          
           {/* Main Category Navigation shows on all browsable routes */}
           {(location.pathname === '/' || ['/desktop', '/phone', '/tablet'].includes(location.pathname)) && (
              <CategoryNav />
