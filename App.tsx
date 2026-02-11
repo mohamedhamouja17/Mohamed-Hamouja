@@ -14,13 +14,10 @@ import PrivacyPage from './components/PrivacyPage.tsx';
 import TermsPage from './components/TermsPage.tsx';
 import ContactPage from './components/ContactPage.tsx';
 import HomePageContent from './components/HomePageContent.tsx';
-import DesktopWallpaperSlideshow from './components/DesktopWallpaperSlideshow.tsx';
-import PhoneWallpaperSlideshow from './components/PhoneWallpaperSlideshow.tsx';
-import TabletWallpaperSlideshow from './components/TabletWallpaperSlideshow.tsx';
 import { type Category, type Wallpaper } from './types.ts';
 import { WALLPAPER_DATA, MY_IMAGES } from './constants.ts';
 
-// Dedicated view for the home page with hero content and slideshows
+// Dedicated view for the home page with hero content and browseable grid
 const GalleryView = () => {
   const [activeSubCategory, setActiveSubCategory] = useState('All');
   const [currentPage, setCurrentPage] = useState(1);
@@ -49,23 +46,6 @@ const GalleryView = () => {
     <div className="animate-fade-in">
       <HomePageContent />
       
-      <div className="space-y-16 my-16">
-        <section>
-          <h2 className="text-3xl font-bold text-center text-gray-800 mb-8" style={{ fontFamily: "'Baloo 2', cursive" }}>Latest Desktop Wallpapers</h2>
-          <DesktopWallpaperSlideshow onWallpaperSelect={() => {}} />
-        </section>
-        
-        <section>
-          <h2 className="text-3xl font-bold text-center text-gray-800 mb-8" style={{ fontFamily: "'Baloo 2', cursive" }}>Latest Phone Wallpapers</h2>
-          <PhoneWallpaperSlideshow onWallpaperSelect={() => {}} />
-        </section>
-        
-        <section>
-          <h2 className="text-3xl font-bold text-center text-gray-800 mb-8" style={{ fontFamily: "'Baloo 2', cursive" }}>Latest Tablet Wallpapers</h2>
-          <TabletWallpaperSlideshow onWallpaperSelect={() => {}} />
-        </section>
-      </div>
-
       <div className="pt-8 border-t border-sky-100">
         <h2 className="text-3xl font-bold text-center text-gray-800 mb-8" style={{ fontFamily: "'Baloo 2', cursive" }}>Browse All Collections</h2>
         <SearchBar 
