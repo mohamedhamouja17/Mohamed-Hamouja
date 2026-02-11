@@ -1,4 +1,3 @@
-
 import fs from 'fs';
 import path from 'path';
 import { SUB_CATEGORIES, MY_IMAGES } from './constants.ts';
@@ -11,8 +10,28 @@ import { SUB_CATEGORIES, MY_IMAGES } from './constants.ts';
  */
 
 const BASE_URL = 'https://walzoo.com';
-const TODAY = '2026-02-09';
+const TODAY = '2026-02-11';
 const HISTORICAL_DATE = '2026-01-24';
+
+// Batch Dates
+const BATCH_DATES = {
+  1: '2026-01-26', // IDs 1-6
+  2: '2026-01-27', // IDs 7-12
+  3: '2026-01-28', // IDs 13-18
+  4: '2026-01-29', // IDs 19-24
+  6: '2026-01-30', // IDs 31-36
+  7: '2026-01-31', // IDs 37-42
+  8: '2026-02-01', // IDs 43-48
+  9: '2026-02-02', // IDs 49-54
+  10: '2026-02-03', // IDs 55-60
+  11: '2026-02-04', // IDs 61-66
+  12: '2026-02-05', // IDs 67-72
+  13: '2026-02-06', // IDs 73-78
+  14: '2026-02-07', // IDs 79-84
+  15: '2026-02-08', // IDs 85-90
+  16: '2026-02-09', // IDs 91-96
+  17: '2026-02-11'  // IDs 97-102
+};
 
 const staticRoutes = [
   '/',
@@ -54,13 +73,32 @@ const generateSitemap = () => {
   }).join('\n');
 
   const wallpaperEntries = MY_IMAGES.map(img => {
+    // Logic to determine lastmod based on batch
+    let imgDate = TODAY;
+    if (img.id <= 6) imgDate = BATCH_DATES[1];
+    else if (img.id <= 12) imgDate = BATCH_DATES[2];
+    else if (img.id <= 18) imgDate = BATCH_DATES[3];
+    else if (img.id <= 24) imgDate = BATCH_DATES[4];
+    else if (img.id <= 36) imgDate = BATCH_DATES[6];
+    else if (img.id <= 42) imgDate = BATCH_DATES[7];
+    else if (img.id <= 48) imgDate = BATCH_DATES[8];
+    else if (img.id <= 54) imgDate = BATCH_DATES[9];
+    else if (img.id <= 60) imgDate = BATCH_DATES[10];
+    else if (img.id <= 66) imgDate = BATCH_DATES[11];
+    else if (img.id <= 72) imgDate = BATCH_DATES[12];
+    else if (img.id <= 78) imgDate = BATCH_DATES[13];
+    else if (img.id <= 84) imgDate = BATCH_DATES[14];
+    else if (img.id <= 90) imgDate = BATCH_DATES[15];
+    else if (img.id <= 96) imgDate = BATCH_DATES[16];
+    else if (img.id <= 102) imgDate = BATCH_DATES[17];
+
     // Escape characters for XML compatibility
     const title = img.title.replace(/&/g, '&amp;');
     const description = img.description.replace(/&/g, '&amp;');
     
     return `  <url>
     <loc>${BASE_URL}/wallpaper/${img.slug}</loc>
-    <lastmod>${TODAY}</lastmod>
+    <lastmod>${imgDate}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>

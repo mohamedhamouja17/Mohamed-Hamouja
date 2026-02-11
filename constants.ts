@@ -1,4 +1,3 @@
-
 import { type Wallpaper, type Category } from './types.ts';
 
 const R2_BASE_URL = "https://cdn.walzoo.com";
@@ -1100,6 +1099,78 @@ export const MY_IMAGES: Wallpaper[] = [
     imageUrl: `${R2_BASE_URL}/Tablet/Cars/blue-modern-supercar-modern-architecture-tablet.webp`,
     category: 'Tablet',
     subCategory: 'Cars',
+    width: 2048,
+    height: 2732,
+    extension: 'webp'
+  },
+  {
+    id: 97,
+    slug: "white-cliffs-turquoise-beach-mediterranean-coast",
+    title: "White Cliffs Turquoise Beach",
+    description: "A stunning view of white cliffs meeting the turquoise Mediterranean waters. High-quality 4K Seasons wallpaper.",
+    imageUrl: "https://cdn.walzoo.com/Desktop/Seasons/white-cliffs-turquoise-beach-mediterranean-coast.webp",
+    category: 'Desktop',
+    subCategory: 'Seasons',
+    width: 3840,
+    height: 2160,
+    extension: 'webp'
+  },
+  {
+    id: 98,
+    slug: "macro-white-rope-mesh-black-background",
+    title: "Macro White Rope Mesh",
+    description: "An artistic macro view of a white rope mesh set against a stark black background. Minimalist sports aesthetic for desktop.",
+    imageUrl: "https://cdn.walzoo.com/Desktop/Sports/macro-white-rope-mesh-black-background-pc.webp",
+    category: 'Desktop',
+    subCategory: 'Sports',
+    width: 3840,
+    height: 2160,
+    extension: 'webp'
+  },
+  {
+    id: 99,
+    slug: "ronin-samurai-ink-art-blue-moon",
+    title: "Ronin Samurai Ink Art",
+    description: "A striking ink art style illustration of a Ronin samurai under a blue moon. Beautiful anime wallpaper for mobile.",
+    imageUrl: "https://cdn.walzoo.com/Phone/Anime/ronin-samurai-ink-art-blue-moon-wallpaper.webp",
+    category: 'Phone',
+    subCategory: 'Anime',
+    width: 1080,
+    height: 2340,
+    extension: 'webp'
+  },
+  {
+    id: 100,
+    slug: "gold-airplane-inspirational-travel-quote",
+    title: "Gold Airplane Travel Quote",
+    description: "An inspirational travel quote featuring a golden airplane. Perfect motivational typography for your phone.",
+    imageUrl: "https://cdn.walzoo.com/Phone/Quotes/gold-airplane-inspirational-travel-quote-wallpaper.webp",
+    category: 'Phone',
+    subCategory: 'Quotes',
+    width: 1080,
+    height: 2340,
+    extension: 'webp'
+  },
+  {
+    id: 101,
+    slug: "cute-cartoon-lion-blue-overalls",
+    title: "Cute Cartoon Lion",
+    description: "An adorable cartoon lion character wearing blue overalls. Fun and colorful 4K wallpaper for kids' tablets.",
+    imageUrl: "https://cdn.walzoo.com/Tablet/Kids/cute-cartoon-lion-character-blue-overalls.webp",
+    category: 'Tablet',
+    subCategory: 'Kids',
+    width: 2048,
+    height: 2732,
+    extension: 'webp'
+  },
+  {
+    id: 102,
+    slug: "hassan-tower-rabat-morocco-historical-landmark",
+    title: "Hassan Tower Rabat Morocco",
+    description: "A historical landmark view of the Hassan Tower in Rabat, Morocco. Stunning culture-themed tablet wallpaper.",
+    imageUrl: "https://cdn.walzoo.com/Tablet/Culture/hassan-tower-rabat-morocco-historical-landmark-wallpaper.webp",
+    category: 'Tablet',
+    subCategory: 'Culture',
     width: 2048,
     height: 2732,
     extension: 'webp'

@@ -3,7 +3,7 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://walzoo.com</loc>
-    <lastmod>2026-02-09</lastmod>
+    <lastmod>2026-02-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -1121,6 +1121,72 @@
       <image:loc>https://cdn.walzoo.com/Tablet/Cars/blue-modern-supercar-modern-architecture-tablet.webp</image:loc>
       <image:title>Blue Supercar Modern Architecture</image:title>
       <image:caption>A sleek blue modern supercar parked in front of striking contemporary architecture. Stylish background for tablets.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/white-cliffs-turquoise-beach-mediterranean-coast</loc>
+    <lastmod>2026-02-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Desktop/Seasons/white-cliffs-turquoise-beach-mediterranean-coast.webp</image:loc>
+      <image:title>White Cliffs Turquoise Beach</image:title>
+      <image:caption>A stunning view of white cliffs meeting the turquoise Mediterranean waters. High-quality 4K Seasons wallpaper.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/macro-white-rope-mesh-black-background</loc>
+    <lastmod>2026-02-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Desktop/Sports/macro-white-rope-mesh-black-background-pc.webp</image:loc>
+      <image:title>Macro White Rope Mesh</image:title>
+      <image:caption>An artistic macro view of a white rope mesh set against a stark black background. Minimalist sports aesthetic for desktop.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/ronin-samurai-ink-art-blue-moon</loc>
+    <lastmod>2026-02-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Phone/Anime/ronin-samurai-ink-art-blue-moon-wallpaper.webp</image:loc>
+      <image:title>Ronin Samurai Ink Art</image:title>
+      <image:caption>A striking ink art style illustration of a Ronin samurai under a blue moon. Beautiful anime wallpaper for mobile.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/gold-airplane-inspirational-travel-quote</loc>
+    <lastmod>2026-02-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Phone/Quotes/gold-airplane-inspirational-travel-quote-wallpaper.webp</image:loc>
+      <image:title>Gold Airplane Travel Quote</image:title>
+      <image:caption>An inspirational travel quote featuring a golden airplane. Perfect motivational typography for your phone.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/cute-cartoon-lion-blue-overalls</loc>
+    <lastmod>2026-02-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Tablet/Kids/cute-cartoon-lion-character-blue-overalls.webp</image:loc>
+      <image:title>Cute Cartoon Lion</image:title>
+      <image:caption>An adorable cartoon lion character wearing blue overalls. Fun and colorful 4K wallpaper for kids' tablets.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/hassan-tower-rabat-morocco-historical-landmark</loc>
+    <lastmod>2026-02-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Tablet/Culture/hassan-tower-rabat-morocco-historical-landmark-wallpaper.webp</image:loc>
+      <image:title>Hassan Tower Rabat Morocco</image:title>
+      <image:caption>A historical landmark view of the Hassan Tower in Rabat, Morocco. Stunning culture-themed tablet wallpaper.</image:caption>
     </image:image>
   </url>
 </urlset>
