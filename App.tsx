@@ -17,54 +17,11 @@ import HomePageContent from './components/HomePageContent.tsx';
 import { type Category, type Wallpaper } from './types.ts';
 import { WALLPAPER_DATA, MY_IMAGES } from './constants.ts';
 
-// Dedicated view for the home page with hero content and browseable grid
+// Dedicated view for the home page with hero content
 const GalleryView = () => {
-  const [activeSubCategory, setActiveSubCategory] = useState('All');
-  const [currentPage, setCurrentPage] = useState(1);
-  const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1024);
-
-  useEffect(() => {
-    const handleResize = () => setWindowWidth(window.innerWidth);
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-  const itemsPerPage = useMemo(() => {
-    return windowWidth >= 1024 ? 12 : 10;
-  }, [windowWidth]);
-
-  const totalPages = useMemo(() => {
-    const deviceWallpapers = WALLPAPER_DATA['Home'] || [];
-    const filteredCount = activeSubCategory === 'All' 
-      ? deviceWallpapers.length 
-      : deviceWallpapers.filter(w => w.subCategory === activeSubCategory).length;
-    
-    return Math.max(1, Math.ceil(filteredCount / itemsPerPage));
-  }, [activeSubCategory, itemsPerPage]);
-
   return (
     <div className="animate-fade-in">
       <HomePageContent />
-      
-      <div className="pt-8 border-t border-sky-100">
-        <h2 className="text-3xl font-bold text-center text-gray-800 mb-8" style={{ fontFamily: "'Baloo 2', cursive" }}>Browse All Collections</h2>
-        <SearchBar 
-          activeSubCategory={activeSubCategory} 
-          onSubCategoryChange={setActiveSubCategory} 
-        />
-        <ContentGrid 
-          activeCategory="Home" 
-          activeSubCategory={activeSubCategory}
-          currentPage={currentPage}
-          itemsPerPage={itemsPerPage}
-          onWallpaperSelect={() => {}} 
-        />
-        <Pagination 
-          currentPage={currentPage} 
-          totalPages={totalPages} 
-          onPageChange={setCurrentPage}
-        />
-      </div>
     </div>
   );
 };
