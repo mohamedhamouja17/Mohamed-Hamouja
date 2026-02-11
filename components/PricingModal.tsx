@@ -43,8 +43,8 @@ const PricingModal: React.FC<PricingModalProps> = ({ onClose }) => {
         </div>
 
         <div className="mx-6 mb-8 bg-white rounded-3xl p-8 shadow-xl shadow-amber-900/5 border border-amber-100">
-            <p className="text-gray-700 text-center mb-8 leading-relaxed font-medium">
-                Enjoy unlimited downloads of our 4K wallpapers and icon packs. If you enjoy our content, sharing Walzoo with your friends is the best way to support us!
+            <p className="text-gray-700 text-center mb-8 leading-relaxed font-bold text-lg">
+                God is the Creator, and there is no creator besides Him.
             </p>
             
             <div className="text-center">
