@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { CloseIcon } from './icons/CloseIcon.tsx';
 import { DownloadIcon } from './icons/DownloadIcon.tsx';
 
@@ -140,7 +141,7 @@ const DownloadModal: React.FC<DownloadModalProps> = ({ isOpen, onClose, imageUrl
         {/* Footer */}
         <div className="bg-gray-50 p-4 text-center border-t border-gray-100">
            <p className="text-xs text-gray-400">
-             By downloading, you agree to our <span className="underline cursor-pointer hover:text-gray-600">Terms of Service</span>.
+             By downloading, you agree to our <Link to="/terms" onClick={onClose} className="underline cursor-pointer hover:text-orange-600 transition-colors">Terms of Service</Link>.
            </p>
         </div>
       </div>
