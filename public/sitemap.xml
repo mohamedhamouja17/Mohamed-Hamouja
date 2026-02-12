@@ -3,7 +3,7 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://walzoo.com</loc>
-    <lastmod>2026-02-11</lastmod>
+    <lastmod>2026-02-12</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -1187,6 +1187,72 @@
       <image:loc>https://cdn.walzoo.com/Tablet/Culture/hassan-tower-rabat-morocco-historical-landmark-wallpaper.webp</image:loc>
       <image:title>Hassan Tower Rabat Morocco</image:title>
       <image:caption>A historical landmark view of the Hassan Tower in Rabat, Morocco. Stunning culture-themed tablet wallpaper.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/tropical-beach-cave-view-turquoise-water</loc>
+    <lastmod>2026-02-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Desktop/Nature/tropical-beach-cave-view-turquoise-water-wallpaper.webp</image:loc>
+      <image:title>Tropical Beach Cave View</image:title>
+      <image:caption>A stunning view of a tropical beach with turquoise water seen from inside a sea cave. 4K Nature wallpaper.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/glowing-saturn-rings-space-nebula</loc>
+    <lastmod>2026-02-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Desktop/Space/glowing-saturn-rings-space-nebula-wallpaper.webp</image:loc>
+      <image:title>Glowing Saturn Rings</image:title>
+      <image:caption>A majestic view of Saturn with its glowing rings set against a vibrant space nebula. 4K Space art.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/white-zen-pebbles-green-leaves</loc>
+    <lastmod>2026-02-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Phone/Abstract/white-zen-pebbles-green-leaves-phone-wallpaper.webp</image:loc>
+      <image:title>White Zen Pebbles</image:title>
+      <image:caption>A peaceful minimalist scene featuring white zen pebbles and fresh green leaves. Abstract wallpaper for mobile.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/manhattan-bridge-dumbo-brooklyn-nyc</loc>
+    <lastmod>2026-02-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Phone/Cities%20%26%20Landmarks/manhattan-bridge-dumbo-brooklyn-nyc-phone-wallpaper.webp</image:loc>
+      <image:title>Manhattan Bridge Dumbo NYC</image:title>
+      <image:caption>The iconic view of the Manhattan Bridge from the streets of Dumbo, Brooklyn in New York City. Phone wallpaper.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/abstract-purple-gold-flowing-silk</loc>
+    <lastmod>2026-02-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Tablet/Minimalist/abstract-purple-gold-flowing-silk-tablet-wallpaper.webp</image:loc>
+      <image:title>Purple Gold Flowing Silk</image:title>
+      <image:caption>Elegant abstract art featuring flowing waves of purple and gold silk textures. Minimalist tablet background.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/abstract-industrial-tech-circuit-board</loc>
+    <lastmod>2026-02-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Tablet/Technology/abstract-industrial-tech-circuit-board-tablet-wallpaper.webp</image:loc>
+      <image:title>Industrial Tech Circuit Board</image:title>
+      <image:caption>A futuristic industrial technology circuit board pattern. Detailed technology wallpaper for tablets.</image:caption>
     </image:image>
   </url>
 </urlset>

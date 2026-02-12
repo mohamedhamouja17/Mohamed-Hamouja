@@ -1174,6 +1174,78 @@ export const MY_IMAGES: Wallpaper[] = [
     width: 2048,
     height: 2732,
     extension: 'webp'
+  },
+  {
+    id: 103,
+    slug: "tropical-beach-cave-view-turquoise-water",
+    title: "Tropical Beach Cave View",
+    description: "A stunning view of a tropical beach with turquoise water seen from inside a sea cave. 4K Nature wallpaper.",
+    imageUrl: "https://cdn.walzoo.com/Desktop/Nature/tropical-beach-cave-view-turquoise-water-wallpaper.webp",
+    category: 'Desktop',
+    subCategory: 'Nature',
+    width: 3840,
+    height: 2160,
+    extension: 'webp'
+  },
+  {
+    id: 104,
+    slug: "glowing-saturn-rings-space-nebula",
+    title: "Glowing Saturn Rings",
+    description: "A majestic view of Saturn with its glowing rings set against a vibrant space nebula. 4K Space art.",
+    imageUrl: "https://cdn.walzoo.com/Desktop/Space/glowing-saturn-rings-space-nebula-wallpaper.webp",
+    category: 'Desktop',
+    subCategory: 'Space',
+    width: 3840,
+    height: 2160,
+    extension: 'webp'
+  },
+  {
+    id: 105,
+    slug: "white-zen-pebbles-green-leaves",
+    title: "White Zen Pebbles",
+    description: "A peaceful minimalist scene featuring white zen pebbles and fresh green leaves. Abstract wallpaper for mobile.",
+    imageUrl: "https://cdn.walzoo.com/Phone/Abstract/white-zen-pebbles-green-leaves-phone-wallpaper.webp",
+    category: 'Phone',
+    subCategory: 'Abstract',
+    width: 1080,
+    height: 2340,
+    extension: 'webp'
+  },
+  {
+    id: 106,
+    slug: "manhattan-bridge-dumbo-brooklyn-nyc",
+    title: "Manhattan Bridge Dumbo NYC",
+    description: "The iconic view of the Manhattan Bridge from the streets of Dumbo, Brooklyn in New York City. Phone wallpaper.",
+    imageUrl: "https://cdn.walzoo.com/Phone/Cities%20%26%20Landmarks/manhattan-bridge-dumbo-brooklyn-nyc-phone-wallpaper.webp",
+    category: 'Phone',
+    subCategory: 'Cities & Landmarks',
+    width: 1080,
+    height: 2340,
+    extension: 'webp'
+  },
+  {
+    id: 107,
+    slug: "abstract-purple-gold-flowing-silk",
+    title: "Purple Gold Flowing Silk",
+    description: "Elegant abstract art featuring flowing waves of purple and gold silk textures. Minimalist tablet background.",
+    imageUrl: "https://cdn.walzoo.com/Tablet/Minimalist/abstract-purple-gold-flowing-silk-tablet-wallpaper.webp",
+    category: 'Tablet',
+    subCategory: 'Minimalist',
+    width: 2048,
+    height: 2732,
+    extension: 'webp'
+  },
+  {
+    id: 108,
+    slug: "abstract-industrial-tech-circuit-board",
+    title: "Industrial Tech Circuit Board",
+    description: "A futuristic industrial technology circuit board pattern. Detailed technology wallpaper for tablets.",
+    imageUrl: "https://cdn.walzoo.com/Tablet/Technology/abstract-industrial-tech-circuit-board-tablet-wallpaper.webp",
+    category: 'Tablet',
+    subCategory: 'Technology',
+    width: 2048,
+    height: 2732,
+    extension: 'webp'
   }
 ];
 

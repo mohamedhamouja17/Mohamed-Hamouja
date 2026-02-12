@@ -1,4 +1,3 @@
-
 import fs from 'fs';
 import path from 'path';
 // Use the global process object available in Node.js to ensure correct typing of cwd() and exit()
@@ -24,10 +23,14 @@ import { SUB_CATEGORIES, MY_IMAGES } from './constants.ts';
  * Batch 14 (IDs 79-84): 2026-02-07
  * Batch 15 (IDs 85-90): 2026-02-08
  * Batch 16 (IDs 91-96): 2026-02-09
+ * Batch 17 (IDs 97-102): 2026-02-11
+ * Batch 18 (IDs 103-108): 2026-02-12
  */
 
 const BASE_URL = 'https://walzoo.com';
-const today = '2026-02-09';
+const today = '2026-02-12';
+const batch17Date = '2026-02-11';
+const batch16Date = '2026-02-09';
 const batch15Date = '2026-02-08';
 const batch14Date = '2026-02-07';
 const batch13Date = '2026-02-06';
@@ -108,6 +111,10 @@ ${MY_IMAGES.map(img => {
     imgDate = batch14Date;
   } else if (img.id <= 90) {
     imgDate = batch15Date;
+  } else if (img.id <= 96) {
+    imgDate = batch16Date;
+  } else if (img.id <= 102) {
+    imgDate = batch17Date;
   }
   
   return `  <url>
