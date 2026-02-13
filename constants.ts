@@ -1246,6 +1246,78 @@ export const MY_IMAGES: Wallpaper[] = [
     width: 2048,
     height: 2732,
     extension: 'webp'
+  },
+  {
+    id: 109,
+    slug: "vibrant-colored-river-rocks-abstract",
+    title: "Vibrant Colored River Rocks",
+    description: "A stunning abstract digital art piece featuring vibrantly colored river rocks. High-quality 4K Desktop wallpaper.",
+    imageUrl: "https://cdn.walzoo.com/Desktop/Digital%20Art/vibrant-colored-river-rocks-abstract-wallpaper.webp",
+    category: 'Desktop',
+    subCategory: 'Digital Art',
+    width: 3840,
+    height: 2160,
+    extension: 'webp'
+  },
+  {
+    id: 110,
+    slug: "black-gold-ace-cards-dice-luxury",
+    title: "Black Gold Ace Cards & Dice",
+    description: "A luxury gaming themed wallpaper featuring black and gold ace cards and dice. Premium 4K Desktop background.",
+    imageUrl: "https://cdn.walzoo.com/Desktop/Gaming/black-gold-ace-cards-dice-luxury-wallpaper.webp",
+    category: 'Desktop',
+    subCategory: 'Gaming',
+    width: 3840,
+    height: 2160,
+    extension: 'webp'
+  },
+  {
+    id: 111,
+    slug: "majestic-bald-eagle-perched",
+    title: "Majestic Bald Eagle Perched",
+    description: "A powerful close-up of a majestic bald eagle perched with sharp detail. Beautiful animal wallpaper for phone.",
+    imageUrl: "https://cdn.walzoo.com/Phone/Animals/majestic-bald-eagle-perched-phone-wallpaper.webp",
+    category: 'Phone',
+    subCategory: 'Animals',
+    width: 1080,
+    height: 2340,
+    extension: 'webp'
+  },
+  {
+    id: 112,
+    slug: "red-supercar-yellow-smoke",
+    title: "Red Supercar Yellow Smoke",
+    description: "A sleek red supercar surrounded by dynamic yellow smoke effects. Premium car wallpaper for mobile.",
+    imageUrl: "https://cdn.walzoo.com/Phone/Cars/red-supercar-yellow-smoke-phone-wallpaper.webp",
+    category: 'Phone',
+    subCategory: 'Cars',
+    width: 1080,
+    height: 2340,
+    extension: 'webp'
+  },
+  {
+    id: 113,
+    slug: "vintage-orange-vw-beetle-brick-wall",
+    title: "Vintage Orange VW Beetle",
+    description: "A classic vintage orange Volkswagen Beetle parked against a rustic red brick wall. Seasonal tablet background.",
+    imageUrl: "https://cdn.walzoo.com/Tablet/Seasons/vintage-orange-volkswagen-beetle-red-brick-wall.webp",
+    category: 'Tablet',
+    subCategory: 'Seasons',
+    width: 2048,
+    height: 2732,
+    extension: 'webp'
+  },
+  {
+    id: 114,
+    slug: "3d-basketball-hoop-dunk-art",
+    title: "3D Basketball Hoop Dunk",
+    description: "Epic 3D digital art of a basketball dunking through a hoop. Dynamic sports theme for tablet screens.",
+    imageUrl: "https://cdn.walzoo.com/Tablet/Sports/3d-basketball-hoop-dunk-tablet-wallpaper.webp",
+    category: 'Tablet',
+    subCategory: 'Sports',
+    width: 2048,
+    height: 2732,
+    extension: 'webp'
   }
 ];
 

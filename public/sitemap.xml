@@ -3,7 +3,7 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://walzoo.com</loc>
-    <lastmod>2026-02-12</lastmod>
+    <lastmod>2026-02-13</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -1253,6 +1253,72 @@
       <image:loc>https://cdn.walzoo.com/Tablet/Technology/abstract-industrial-tech-circuit-board-tablet-wallpaper.webp</image:loc>
       <image:title>Industrial Tech Circuit Board</image:title>
       <image:caption>A futuristic industrial technology circuit board pattern. Detailed technology wallpaper for tablets.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/vibrant-colored-river-rocks-abstract</loc>
+    <lastmod>2026-02-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Desktop/Digital%20Art/vibrant-colored-river-rocks-abstract-wallpaper.webp</image:loc>
+      <image:title>Vibrant Colored River Rocks</image:title>
+      <image:caption>A stunning abstract digital art piece featuring vibrantly colored river rocks. High-quality 4K Desktop wallpaper.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/black-gold-ace-cards-dice-luxury</loc>
+    <lastmod>2026-02-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Desktop/Gaming/black-gold-ace-cards-dice-luxury-wallpaper.webp</image:loc>
+      <image:title>Black Gold Ace Cards &amp; Dice</image:title>
+      <image:caption>A luxury gaming themed wallpaper featuring black and gold ace cards and dice. Premium 4K Desktop background.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/majestic-bald-eagle-perched</loc>
+    <lastmod>2026-02-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Phone/Animals/majestic-bald-eagle-perched-phone-wallpaper.webp</image:loc>
+      <image:title>Majestic Bald Eagle Perched</image:title>
+      <image:caption>A powerful close-up of a majestic bald eagle perched with sharp detail. Beautiful animal wallpaper for phone.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/red-supercar-yellow-smoke</loc>
+    <lastmod>2026-02-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Phone/Cars/red-supercar-yellow-smoke-phone-wallpaper.webp</image:loc>
+      <image:title>Red Supercar Yellow Smoke</image:title>
+      <image:caption>A sleek red supercar surrounded by dynamic yellow smoke effects. Premium car wallpaper for mobile.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/vintage-orange-vw-beetle-brick-wall</loc>
+    <lastmod>2026-02-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Tablet/Seasons/vintage-orange-volkswagen-beetle-red-brick-wall.webp</image:loc>
+      <image:title>Vintage Orange VW Beetle</image:title>
+      <image:caption>A classic vintage orange Volkswagen Beetle parked against a rustic red brick wall. Seasonal tablet background.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/3d-basketball-hoop-dunk-art</loc>
+    <lastmod>2026-02-13</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Tablet/Sports/3d-basketball-hoop-dunk-tablet-wallpaper.webp</image:loc>
+      <image:title>3D Basketball Hoop Dunk</image:title>
+      <image:caption>Epic 3D digital art of a basketball dunking through a hoop. Dynamic sports theme for tablet screens.</image:caption>
     </image:image>
   </url>
 </urlset>
