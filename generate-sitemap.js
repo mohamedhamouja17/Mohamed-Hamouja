@@ -10,7 +10,7 @@ import { SUB_CATEGORIES, MY_IMAGES } from './constants.ts';
  */
 
 const BASE_URL = 'https://walzoo.com';
-const TODAY = '2026-02-13';
+const TODAY = '2026-02-14';
 const HISTORICAL_DATE = '2026-01-24';
 
 // Batch Dates
@@ -32,7 +32,8 @@ const BATCH_DATES = {
   16: '2026-02-09', // IDs 91-96
   17: '2026-02-11', // IDs 97-102
   18: '2026-02-12', // IDs 103-108
-  19: '2026-02-13'  // IDs 109-114
+  19: '2026-02-13', // IDs 109-114
+  20: '2026-02-14'  // IDs 115-120
 };
 
 const staticRoutes = [
@@ -95,6 +96,7 @@ const generateSitemap = () => {
     else if (img.id <= 102) imgDate = BATCH_DATES[17];
     else if (img.id <= 108) imgDate = BATCH_DATES[18];
     else if (img.id <= 114) imgDate = BATCH_DATES[19];
+    else if (img.id <= 120) imgDate = BATCH_DATES[20];
 
     // Escape characters for XML compatibility
     const title = img.title.replace(/&/g, '&amp;');

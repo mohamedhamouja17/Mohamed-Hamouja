@@ -1318,6 +1318,78 @@ export const MY_IMAGES: Wallpaper[] = [
     width: 2048,
     height: 2732,
     extension: 'webp'
+  },
+  {
+    id: 115,
+    slug: "ronin-samurai-sunset-red-sun",
+    title: "Ronin Samurai Sunset",
+    description: "A striking anime-style ronin samurai standing against a massive red sun at sunset. Epic 4K desktop background.",
+    imageUrl: "https://cdn.walzoo.com/Desktop/Anime/ronin-samurai-sunset-red-sun-desktop-wallpaper.webp",
+    category: 'Desktop',
+    subCategory: 'Anime',
+    width: 3840,
+    height: 2160,
+    extension: 'webp'
+  },
+  {
+    id: 116,
+    slug: "time-to-change-the-game-motivational",
+    title: "Time to Change the Game",
+    description: "Inspirational motivational quote 'Time to Change the Game' in bold typography for your PC. High-quality 4K.",
+    imageUrl: "https://cdn.walzoo.com/Desktop/Quotes/time-to-change-the-game-motivational-pc-wallpaper.webp",
+    category: 'Desktop',
+    subCategory: 'Quotes',
+    width: 3840,
+    height: 2160,
+    extension: 'webp'
+  },
+  {
+    id: 117,
+    slug: "colorful-italian-coastal-village-boats",
+    title: "Italian Coastal Village",
+    description: "A vibrant view of a colorful Italian coastal village with boats in the harbor. Beautiful culture-themed phone wallpaper.",
+    imageUrl: "https://cdn.walzoo.com/Phone/Culture/colorful-italian-coastal-village-boats-phone-wallpaper.webp",
+    category: 'Phone',
+    subCategory: 'Culture',
+    width: 1080,
+    height: 2340,
+    extension: 'webp'
+  },
+  {
+    id: 118,
+    slug: "tropical-fish-coral-reef-underwater",
+    title: "Tropical Fish Coral Reef",
+    description: "A lively underwater scene featuring tropical fish swimming around a colorful coral reef. Adorable wallpaper for kids.",
+    imageUrl: "https://cdn.walzoo.com/Phone/Kids/tropical-fish-coral-reef-underwater-phone-wallpaper.webp",
+    category: 'Phone',
+    subCategory: 'Kids',
+    width: 1080,
+    height: 2340,
+    extension: 'webp'
+  },
+  {
+    id: 119,
+    slug: "aerial-tropical-beach-palm-trees-tablet",
+    title: "Aerial Tropical Beach",
+    description: "A breathtaking aerial view of a tropical beach with turquoise water and palm trees. Stunning nature wallpaper for tablets.",
+    imageUrl: "https://cdn.walzoo.com/Tablet/Nature/aerial-tropical-beach-palm-trees-tablet-wallpaper.webp",
+    category: 'Tablet',
+    subCategory: 'Nature',
+    width: 2048,
+    height: 2732,
+    extension: 'webp'
+  },
+  {
+    id: 120,
+    slug: "earth-from-space-city-lights-night-tablet",
+    title: "Earth Night Lights",
+    description: "A mesmerizing view of Earth from space at night, showing glowing city lights across the globe. 4K Space wallpaper.",
+    imageUrl: "https://cdn.walzoo.com/Tablet/Space/earth-from-space-city-lights-night-tablet-wallpaper.webp",
+    category: 'Tablet',
+    subCategory: 'Space',
+    width: 2048,
+    height: 2732,
+    extension: 'webp'
   }
 ];
 

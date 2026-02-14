@@ -3,7 +3,7 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://walzoo.com</loc>
-    <lastmod>2026-02-13</lastmod>
+    <lastmod>2026-02-14</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -1319,6 +1319,72 @@
       <image:loc>https://cdn.walzoo.com/Tablet/Sports/3d-basketball-hoop-dunk-tablet-wallpaper.webp</image:loc>
       <image:title>3D Basketball Hoop Dunk</image:title>
       <image:caption>Epic 3D digital art of a basketball dunking through a hoop. Dynamic sports theme for tablet screens.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/ronin-samurai-sunset-red-sun</loc>
+    <lastmod>2026-02-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Desktop/Anime/ronin-samurai-sunset-red-sun-desktop-wallpaper.webp</image:loc>
+      <image:title>Ronin Samurai Sunset</image:title>
+      <image:caption>A striking anime-style ronin samurai standing against a massive red sun at sunset. Epic 4K desktop background.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/time-to-change-the-game-motivational</loc>
+    <lastmod>2026-02-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Desktop/Quotes/time-to-change-the-game-motivational-pc-wallpaper.webp</image:loc>
+      <image:title>Time to Change the Game</image:title>
+      <image:caption>Inspirational motivational quote 'Time to Change the Game' in bold typography for your PC. High-quality 4K.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/colorful-italian-coastal-village-boats</loc>
+    <lastmod>2026-02-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Phone/Culture/colorful-italian-coastal-village-boats-phone-wallpaper.webp</image:loc>
+      <image:title>Italian Coastal Village</image:title>
+      <image:caption>A vibrant view of a colorful Italian coastal village with boats in the harbor. Beautiful culture-themed phone wallpaper.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/tropical-fish-coral-reef-underwater</loc>
+    <lastmod>2026-02-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Phone/Kids/tropical-fish-coral-reef-underwater-phone-wallpaper.webp</image:loc>
+      <image:title>Tropical Fish Coral Reef</image:title>
+      <image:caption>A lively underwater scene featuring tropical fish swimming around a colorful coral reef. Adorable wallpaper for kids.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/aerial-tropical-beach-palm-trees-tablet</loc>
+    <lastmod>2026-02-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Tablet/Nature/aerial-tropical-beach-palm-trees-tablet-wallpaper.webp</image:loc>
+      <image:title>Aerial Tropical Beach</image:title>
+      <image:caption>A breathtaking aerial view of a tropical beach with turquoise water and palm trees. Stunning nature wallpaper for tablets.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/earth-from-space-city-lights-night-tablet</loc>
+    <lastmod>2026-02-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Tablet/Space/earth-from-space-city-lights-night-tablet-wallpaper.webp</image:loc>
+      <image:title>Earth Night Lights</image:title>
+      <image:caption>A mesmerizing view of Earth from space at night, showing glowing city lights across the globe. 4K Space wallpaper.</image:caption>
     </image:image>
   </url>
 </urlset>
