@@ -1,4 +1,6 @@
+
 import React from 'react';
+import { useParams, NavLink } from 'react-router-dom';
 import { TigerClawsIcon } from './icons/TigerClawsIcon.tsx';
 
 const BLOG_POSTS = [
@@ -8,7 +10,8 @@ const BLOG_POSTS = [
     excerpt: "Discover the latest styles taking over screens everywhere, from minimalist 3D renders to retro vaporwave aesthetics.",
     date: "October 15, 2024",
     imageUrl: "https://picsum.photos/seed/blog1/800/600",
-    author: "Alex Design"
+    author: "Alex Design",
+    device: "Desktop"
   },
   {
     id: 2,
@@ -16,7 +19,8 @@ const BLOG_POSTS = [
     excerpt: "A comprehensive guide to using our icon packs and widgets to create a truly unique mobile experience.",
     date: "October 22, 2024",
     imageUrl: "https://picsum.photos/seed/blog2/800/600",
-    author: "Sarah Tech"
+    author: "Sarah Tech",
+    device: "Phone"
   },
   {
     id: 3,
@@ -24,7 +28,8 @@ const BLOG_POSTS = [
     excerpt: "Learn how the colors on your screen can affect your mood, productivity, and creativity throughout the day.",
     date: "November 5, 2024",
     imageUrl: "https://picsum.photos/seed/blog3/800/600",
-    author: "Dr. Hue"
+    author: "Dr. Hue",
+    device: "Desktop"
   },
   {
     id: 4,
@@ -32,55 +37,92 @@ const BLOG_POSTS = [
     excerpt: "We sat down with one of our most popular creators to discuss inspiration, tools, and the future of digital art.",
     date: "November 12, 2024",
     imageUrl: "https://picsum.photos/seed/blog4/800/600",
-    author: "Walzoo Team"
+    author: "Walzoo Team",
+    device: "Tablet"
   }
 ];
 
 const BlogPage: React.FC = () => {
+  const { device } = useParams<{ device: string }>();
+  
+  const filteredPosts = device 
+    ? BLOG_POSTS.filter(post => post.device.toLowerCase() === device.toLowerCase())
+    : BLOG_POSTS;
+
   return (
     <div className="mt-10 animate-fade-in">
       <div className="text-center mb-12">
         <h1 className="text-4xl sm:text-5xl font-bold text-gray-800 mb-4" style={{ fontFamily: "'Baloo 2', cursive" }}>
           Walzoo Blog
         </h1>
-        <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+        <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-10">
           News, tips, and inspiration from the world of digital customization.
         </p>
+
+        {/* Category Filters */}
+        <div className="flex flex-wrap justify-center gap-3 mb-12">
+            {[
+                { label: 'All Articles', path: '/blog' },
+                { label: 'Desktop', path: '/blog/desktop' },
+                { label: 'Phone', path: '/blog/phone' },
+                { label: 'Tablet', path: '/blog/tablet' }
+            ].map((btn) => (
+                <NavLink
+                    key={btn.path}
+                    to={btn.path}
+                    end
+                    className={({ isActive }) => `
+                        px-6 py-2.5 rounded-full text-sm font-bold transition-all duration-300 border
+                        ${isActive 
+                            ? 'bg-gradient-to-r from-orange-500 to-amber-500 text-white border-orange-500 shadow-lg shadow-orange-500/25 scale-105' 
+                            : 'bg-white text-gray-600 border-gray-200 hover:border-orange-300 hover:text-orange-500 shadow-sm'}
+                    `}
+                >
+                    {btn.label}
+                </NavLink>
+            ))}
+        </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12">
-        {BLOG_POSTS.map((post) => (
-          <article key={post.id} className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col h-full border border-gray-100">
-            <div className="h-48 sm:h-64 overflow-hidden relative">
-                <img 
-                    src={post.imageUrl} 
-                    alt={post.title} 
-                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-                />
-                <div className="absolute top-4 left-4 bg-orange-500 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide">
-                    Article
+      {filteredPosts.length > 0 ? (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12">
+            {filteredPosts.map((post) => (
+            <article key={post.id} className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col h-full border border-gray-100">
+                <div className="h-48 sm:h-64 overflow-hidden relative">
+                    <img 
+                        src={post.imageUrl} 
+                        alt={post.title} 
+                        className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                    />
+                    <div className="absolute top-4 left-4 bg-orange-500 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-lg">
+                        {post.device}
+                    </div>
                 </div>
-            </div>
-            <div className="p-6 sm:p-8 flex flex-col flex-grow">
-              <div className="flex items-center text-sm text-gray-500 mb-3 space-x-4">
-                  <span>{post.date}</span>
-                  <span className="w-1 h-1 bg-gray-300 rounded-full"></span>
-                  <span>{post.author}</span>
-              </div>
-              <h2 className="text-2xl font-bold text-gray-800 mb-3 leading-tight hover:text-orange-500 transition-colors cursor-pointer">
-                {post.title}
-              </h2>
-              <p className="text-gray-600 mb-6 leading-relaxed flex-grow">
-                {post.excerpt}
-              </p>
-              <button className="self-start text-orange-500 font-bold hover:text-orange-600 transition-colors flex items-center gap-2 group">
-                Read Article 
-                <span className="transform group-hover:translate-x-1 transition-transform">→</span>
-              </button>
-            </div>
-          </article>
-        ))}
-      </div>
+                <div className="p-6 sm:p-8 flex flex-col flex-grow">
+                <div className="flex items-center text-sm text-gray-500 mb-3 space-x-4">
+                    <span>{post.date}</span>
+                    <span className="w-1 h-1 bg-gray-300 rounded-full"></span>
+                    <span>{post.author}</span>
+                </div>
+                <h2 className="text-2xl font-bold text-gray-800 mb-3 leading-tight hover:text-orange-500 transition-colors cursor-pointer">
+                    {post.title}
+                </h2>
+                <p className="text-gray-600 mb-6 leading-relaxed flex-grow">
+                    {post.excerpt}
+                </p>
+                <button className="self-start text-orange-500 font-bold hover:text-orange-600 transition-colors flex items-center gap-2 group">
+                    Read Article 
+                    <span className="transform group-hover:translate-x-1 transition-transform">→</span>
+                </button>
+                </div>
+            </article>
+            ))}
+        </div>
+      ) : (
+          <div className="text-center py-20 bg-white rounded-3xl border border-dashed border-gray-200">
+              <p className="text-gray-500 font-medium">No articles found in this category yet.</p>
+          </div>
+      )}
 
         {/* Newsletter Section */}
       <div className="mt-20 bg-gradient-to-br from-gray-900 to-gray-800 rounded-3xl p-8 sm:p-12 text-center text-white relative overflow-hidden">
