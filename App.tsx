@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { Routes, Route, useLocation, useParams, Navigate, useNavigate, Link } from 'react-router-dom';
+import { Routes, Route, useLocation, useParams, Navigate, useNavigate, Link, useSearchParams } from 'react-router-dom';
 import Header from './components/Header.tsx';
 import CategoryNav from './components/CategoryNav.tsx';
 import CategoriesCarousel from './components/CategoriesCarousel.tsx';
@@ -28,6 +28,7 @@ const getCategoryNameFromSlug = (slug: string) =>
  */
 const GalleryView = () => {
   const location = useLocation();
+  const [searchParams] = useSearchParams();
   const { categoryName: subCategorySlug } = useParams<{ categoryName: string }>();
   const [currentPage, setCurrentPage] = useState(1);
   const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1024);
@@ -38,9 +39,11 @@ const GalleryView = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+  // Reset pagination when any filter changes
+  const topicQuery = searchParams.get('topic');
   useEffect(() => {
     setCurrentPage(1);
-  }, [location.pathname, subCategorySlug]);
+  }, [location.pathname, subCategorySlug, topicQuery]);
 
   const activeDeviceCategory: Category | 'All' = useMemo(() => {
     if (location.pathname.startsWith('/desktop')) return 'Desktop';
@@ -50,8 +53,12 @@ const GalleryView = () => {
   }, [location.pathname]);
 
   const activeSubCategory = useMemo(() => {
-    return subCategorySlug ? getCategoryNameFromSlug(subCategorySlug) : 'All';
-  }, [subCategorySlug]);
+    // If we are on a dedicated category route: /category/nature
+    if (subCategorySlug) return getCategoryNameFromSlug(subCategorySlug);
+    // If we are on a device route with a query filter: /desktop?topic=nature
+    if (topicQuery) return getCategoryNameFromSlug(topicQuery);
+    return 'All';
+  }, [subCategorySlug, topicQuery]);
 
   const filteredWallpapers = useMemo(() => {
     let result = [...MY_IMAGES].reverse();
@@ -121,7 +128,8 @@ const GalleryView = () => {
       
       {isHomePage && <HomePageContent />}
       
-      <CategoriesCarousel />
+      {/* Categories Carousel is removed from Home Page and only appears on deep routes */}
+      {!isHomePage && <CategoriesCarousel />}
       
       <div className="min-h-[400px] mt-10">
         {isHomePage ? (
@@ -132,6 +140,15 @@ const GalleryView = () => {
           </div>
         ) : (
           <>
+            {/* Show category title if filtering by carousel */}
+            {activeSubCategory !== 'All' && (
+              <h2 className="text-2xl font-black text-gray-800 mb-8 flex items-center gap-3">
+                <span className="w-2 h-8 bg-orange-500 rounded-full"></span>
+                {activeSubCategory} Wallpapers 
+                <span className="text-gray-300 font-light ml-2">({filteredWallpapers.length})</span>
+              </h2>
+            )}
+
             {paginatedItems.length > 0 ? (
               <div className={`grid gap-4 sm:gap-6 lg:gap-8 animate-fade-in ${
                 activeDeviceCategory === 'Desktop' 
@@ -206,6 +223,7 @@ function App() {
 
   const showNav = location.pathname === '/' || 
                  location.pathname.startsWith('/category/') || 
+                 location.pathname.startsWith('/wallpaper/') ||
                  ['/desktop', '/phone', '/tablet'].includes(location.pathname);
 
   return (

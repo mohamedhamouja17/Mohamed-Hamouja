@@ -1,11 +1,11 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { NavLink, useLocation } from 'react-router-dom';
+import { NavLink, useLocation, useSearchParams } from 'react-router-dom';
 import { SUB_CATEGORIES } from '../constants.ts';
 
 /**
  * CategoriesCarousel
  * A horizontal scrolling navigation bar for thematic wallpaper categories.
- * Each item is a Link that updates the URL and triggers the main GalleryView filter.
+ * Restructured to be context-aware: preserving device type filters when applicable.
  */
 
 // Helper to convert category names to URL-friendly slugs
@@ -16,6 +16,11 @@ const CategoriesCarousel: React.FC = () => {
   const [showLeftArrow, setShowLeftArrow] = useState(false);
   const [showRightArrow, setShowRightArrow] = useState(true);
   const location = useLocation();
+  const [searchParams] = useSearchParams();
+  const currentTopic = searchParams.get('topic');
+
+  // Determine if we are on a specific device route
+  const isDeviceRoute = ['/desktop', '/phone', '/tablet'].includes(location.pathname);
 
   // Handle visibility of desktop navigation arrows based on scroll position
   const handleScroll = () => {
@@ -40,15 +45,28 @@ const CategoriesCarousel: React.FC = () => {
     const el = scrollRef.current;
     if (el) {
       el.addEventListener('scroll', handleScroll);
-      // Run once on mount to set initial arrow visibility
       handleScroll();
       return () => el.removeEventListener('scroll', handleScroll);
     }
   }, []);
 
+  // Helper to generate context-aware links
+  const getCategoryLink = (categoryName?: string) => {
+    if (!categoryName) return location.pathname; // "All" state
+    
+    const slug = getCategorySlug(categoryName);
+    
+    // If on a device page, use query parameters to preserve the device filter
+    if (isDeviceRoute) {
+      return `${location.pathname}?topic=${slug}`;
+    }
+    
+    // Otherwise use standard category route
+    return `/category/${slug}`;
+  };
+
   return (
     <div className="mt-8 relative group">
-      {/* Desktop Navigation: Left Arrow */}
       {showLeftArrow && (
         <button
           onClick={() => scroll('left')}
@@ -61,43 +79,53 @@ const CategoriesCarousel: React.FC = () => {
         </button>
       )}
 
-      {/* Main Horizontal Scroll Container */}
       <div 
         ref={scrollRef}
         className="flex overflow-x-auto no-scrollbar gap-3 pb-2 px-2 -mx-2 scroll-smooth touch-pan-x"
         style={{ scrollSnapType: 'x proximity' }}
       >
-        {/* "All Wallpapers" Pill - Links to the base home route */}
         <NavLink
-          to="/"
-          className={({ isActive }) => `
-            px-6 py-2.5 rounded-full text-sm font-bold whitespace-nowrap transition-all duration-300 border flex-shrink-0 scroll-snap-align-start
-            ${isActive && location.pathname === '/'
-              ? 'bg-gradient-to-r from-orange-500 to-amber-500 text-white border-orange-500 shadow-lg shadow-orange-500/25 scale-105' 
-              : 'bg-white text-gray-600 border-gray-200 hover:border-orange-300 hover:text-orange-500 shadow-sm'}
-          `}
-        >
-          All Wallpapers
-        </NavLink>
-
-        {/* Dynamic Category Link Pills */}
-        {SUB_CATEGORIES.map((category) => (
-          <NavLink
-            key={category}
-            to={`/category/${getCategorySlug(category)}`}
-            className={({ isActive }) => `
+          to={getCategoryLink()}
+          end
+          className={({ isActive }) => {
+            const isAllActive = isActive && (!isDeviceRoute || !currentTopic);
+            return `
               px-6 py-2.5 rounded-full text-sm font-bold whitespace-nowrap transition-all duration-300 border flex-shrink-0 scroll-snap-align-start
-              ${isActive 
+              ${isAllActive
                 ? 'bg-gradient-to-r from-orange-500 to-amber-500 text-white border-orange-500 shadow-lg shadow-orange-500/25 scale-105' 
                 : 'bg-white text-gray-600 border-gray-200 hover:border-orange-300 hover:text-orange-500 shadow-sm'}
-            `}
-          >
-            {category}
-          </NavLink>
-        ))}
+            `;
+          }}
+        >
+          All {isDeviceRoute ? location.pathname.substring(1) : ''} Wallpapers
+        </NavLink>
+
+        {SUB_CATEGORIES.map((category) => {
+          const slug = getCategorySlug(category);
+          return (
+            <NavLink
+              key={category}
+              to={getCategoryLink(category)}
+              className={({ isActive }) => {
+                // Determine active state manually for query-param based links
+                const isSelected = isDeviceRoute 
+                  ? currentTopic === slug 
+                  : isActive;
+                  
+                return `
+                  px-6 py-2.5 rounded-full text-sm font-bold whitespace-nowrap transition-all duration-300 border flex-shrink-0 scroll-snap-align-start
+                  ${isSelected 
+                    ? 'bg-gradient-to-r from-orange-500 to-amber-500 text-white border-orange-500 shadow-lg shadow-orange-500/25 scale-105' 
+                    : 'bg-white text-gray-600 border-gray-200 hover:border-orange-300 hover:text-orange-500 shadow-sm'}
+                `;
+              }}
+            >
+              {category}
+            </NavLink>
+          );
+        })}
       </div>
 
-      {/* Desktop Navigation: Right Arrow */}
       {showRightArrow && (
         <button
           onClick={() => scroll('right')}
@@ -110,7 +138,6 @@ const CategoriesCarousel: React.FC = () => {
         </button>
       )}
 
-      {/* Visual Affordance Fades */}
       <div className={`absolute left-0 top-0 bottom-2 w-12 bg-gradient-to-r from-sky-50 to-transparent pointer-events-none transition-opacity duration-300 ${showLeftArrow ? 'opacity-100' : 'opacity-0'}`}></div>
       <div className={`absolute right-0 top-0 bottom-2 w-12 bg-gradient-to-l from-sky-50 to-transparent pointer-events-none transition-opacity duration-300 ${showRightArrow ? 'opacity-100' : 'opacity-0'}`}></div>
     </div>
