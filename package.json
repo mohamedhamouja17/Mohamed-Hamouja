@@ -5,9 +5,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsx generate-sitemap.js && vite build",
+    "build": "tsx generate-sitemap.ts && vite build",
     "preview": "vite preview",
-    "sitemap": "tsx generate-sitemap.js"
+    "sitemap": "tsx generate-sitemap.ts"
   },
   "dependencies": {
     "react": "19.0.0",
