@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, useMemo } from 'react';
 import { Routes, Route, useLocation, useParams, Navigate, useNavigate, Link, useSearchParams } from 'react-router-dom';
 import Header from './components/Header.tsx';
@@ -88,23 +89,25 @@ const GalleryView = () => {
 
   // Section Component for Home Page
   const HomeSection = ({ title, category, link }: { title: string, category: Category, link: string }) => {
-    const sectionItems = [...MY_IMAGES].reverse().filter(w => w.category === category).slice(0, 6);
+    // Slice 8 items to perfectly fill 2 rows on a 4-column desktop grid
+    const sectionItems = [...MY_IMAGES].reverse().filter(w => w.category === category).slice(0, 8);
     
     return (
-      <section className="mb-24 last:mb-0">
-        <div className="flex items-center justify-between mb-8">
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-800 tracking-tight" style={{ fontFamily: "'Baloo 2', cursive" }}>
+      <section className="mb-32 last:mb-0">
+        <div className="flex items-center justify-between mb-10">
+          <h2 className="text-3xl sm:text-4xl font-extrabold text-gray-800 tracking-tight" style={{ fontFamily: "'Baloo 2', cursive" }}>
             {title}
           </h2>
         </div>
         
-        <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+        {/* Uniform Grid: 2 columns on mobile, 4 columns on desktop for all sections */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
           {sectionItems.map(wallpaper => (
             <WallpaperCard key={`${wallpaper.id}-${wallpaper.slug}`} wallpaper={wallpaper} />
           ))}
         </div>
 
-        <div className="mt-12 flex justify-center">
+        <div className="mt-14 flex justify-center">
           <Link 
             to={link}
             className="inline-flex items-center gap-2 px-8 py-3.5 bg-white border-2 border-orange-500 text-orange-600 font-black rounded-2xl hover:bg-orange-500 hover:text-white transition-all shadow-lg shadow-orange-500/10 active:scale-95 uppercase tracking-widest text-xs"
@@ -133,7 +136,7 @@ const GalleryView = () => {
       
       <div className="min-h-[400px] mt-10">
         {isHomePage ? (
-          <div className="space-y-24">
+          <div className="space-y-32">
             <HomeSection title="Desktop Wallpapers" category="Desktop" link="/desktop" />
             <HomeSection title="Phone Wallpapers" category="Phone" link="/phone" />
             <HomeSection title="Tablet Wallpapers" category="Tablet" link="/tablet" />
