@@ -5,11 +5,7 @@ import { SUB_CATEGORIES } from '../constants.ts';
 /**
  * CategoriesCarousel
  * A premium horizontal scrolling carousel for thematic categories.
- * Features:
- * - Momentum scroll on mobile.
- * - Navigation arrows on desktop.
- * - Dynamic URL routing.
- * - Active state tracking.
+ * Syncs with /category/:slug routes.
  */
 
 const getCategorySlug = (name: string) => name.toLowerCase().replace(/ & /g, '-').replace(/ /g, '-');
@@ -42,7 +38,6 @@ const CategoriesCarousel: React.FC = () => {
     const el = scrollRef.current;
     if (el) {
       el.addEventListener('scroll', handleScroll);
-      // Initial check
       handleScroll();
       return () => el.removeEventListener('scroll', handleScroll);
     }
@@ -50,11 +45,11 @@ const CategoriesCarousel: React.FC = () => {
 
   return (
     <div className="mt-8 relative group">
-      {/* Left Navigation Arrow (Desktop Only) */}
+      {/* Left Arrow */}
       {showLeftArrow && (
         <button
           onClick={() => scroll('left')}
-          className="absolute left-0 top-1/2 -translate-y-1/2 z-20 bg-white/90 backdrop-blur-sm p-2 rounded-full shadow-lg border border-gray-100 text-gray-600 hover:text-orange-500 hover:scale-110 transition-all hidden lg:flex items-center justify-center -translate-x-4"
+          className="absolute left-0 top-1/2 -translate-y-1/2 z-20 bg-white/95 backdrop-blur-sm p-2 rounded-full shadow-lg border border-gray-100 text-gray-600 hover:text-orange-500 transition-all hidden lg:flex items-center justify-center -translate-x-4"
           aria-label="Scroll Left"
         >
           <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -63,12 +58,12 @@ const CategoriesCarousel: React.FC = () => {
         </button>
       )}
 
-      {/* Main Scrollable Container */}
+      {/* Categories Scroll Container */}
       <div 
         ref={scrollRef}
         className="flex overflow-x-auto no-scrollbar gap-3 pb-2 px-2 -mx-2 scroll-smooth touch-pan-x"
       >
-        {/* "All" Pill */}
+        {/* All Wallpapers Link */}
         <NavLink
           to="/"
           className={({ isActive }) => `
@@ -81,7 +76,7 @@ const CategoriesCarousel: React.FC = () => {
           All Wallpapers
         </NavLink>
 
-        {/* Dynamic Category Pills */}
+        {/* Dynamic Category Links */}
         {SUB_CATEGORIES.map((category) => (
           <NavLink
             key={category}
@@ -98,11 +93,11 @@ const CategoriesCarousel: React.FC = () => {
         ))}
       </div>
 
-      {/* Right Navigation Arrow (Desktop Only) */}
+      {/* Right Arrow */}
       {showRightArrow && (
         <button
           onClick={() => scroll('right')}
-          className="absolute right-0 top-1/2 -translate-y-1/2 z-20 bg-white/90 backdrop-blur-sm p-2 rounded-full shadow-lg border border-gray-100 text-gray-600 hover:text-orange-500 hover:scale-110 transition-all hidden lg:flex items-center justify-center translate-x-4"
+          className="absolute right-0 top-1/2 -translate-y-1/2 z-20 bg-white/95 backdrop-blur-sm p-2 rounded-full shadow-lg border border-gray-100 text-gray-600 hover:text-orange-500 transition-all hidden lg:flex items-center justify-center translate-x-4"
           aria-label="Scroll Right"
         >
           <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -111,9 +106,9 @@ const CategoriesCarousel: React.FC = () => {
         </button>
       )}
 
-      {/* Edge Fades for visual affordance */}
-      <div className={`absolute left-0 top-0 bottom-2 w-16 bg-gradient-to-r from-sky-50 to-transparent pointer-events-none transition-opacity duration-300 ${showLeftArrow ? 'opacity-100' : 'opacity-0'}`}></div>
-      <div className={`absolute right-0 top-0 bottom-2 w-16 bg-gradient-to-l from-sky-50 to-transparent pointer-events-none transition-opacity duration-300 ${showRightArrow ? 'opacity-100' : 'opacity-0'}`}></div>
+      {/* Visual Fade Edges */}
+      <div className={`absolute left-0 top-0 bottom-2 w-12 bg-gradient-to-r from-sky-50 to-transparent pointer-events-none transition-opacity duration-300 ${showLeftArrow ? 'opacity-100' : 'opacity-0'}`}></div>
+      <div className={`absolute right-0 top-0 bottom-2 w-12 bg-gradient-to-l from-sky-50 to-transparent pointer-events-none transition-opacity duration-300 ${showRightArrow ? 'opacity-100' : 'opacity-0'}`}></div>
     </div>
   );
 };

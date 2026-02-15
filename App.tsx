@@ -44,13 +44,13 @@ const GalleryView = () => {
   // Reset pagination on route change
   useEffect(() => {
     setCurrentPage(1);
-  }, [location.pathname]);
+  }, [location.pathname, subCategorySlug]);
 
-  // Determine active filters from URL
+  // Determine active filters from URL path
   const activeDeviceCategory: Category | 'All' = useMemo(() => {
-    if (location.pathname === '/desktop') return 'Desktop';
-    if (location.pathname === '/phone') return 'Phone';
-    if (location.pathname === '/tablet') return 'Tablet';
+    if (location.pathname.startsWith('/desktop')) return 'Desktop';
+    if (location.pathname.startsWith('/phone')) return 'Phone';
+    if (location.pathname.startsWith('/tablet')) return 'Tablet';
     return 'All';
   }, [location.pathname]);
 
@@ -58,7 +58,7 @@ const GalleryView = () => {
     return subCategorySlug ? getCategoryNameFromSlug(subCategorySlug) : 'All';
   }, [subCategorySlug]);
 
-  // Filter Logic
+  // Filter Logic based on URL params
   const filteredWallpapers = useMemo(() => {
     let result = [...MY_IMAGES].reverse(); // Newest first
 
@@ -77,7 +77,7 @@ const GalleryView = () => {
   const totalPages = Math.max(1, Math.ceil(filteredWallpapers.length / itemsPerPage));
   const paginatedItems = filteredWallpapers.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
 
-  // SEO Title Logic
+  // Dynamic SEO Title
   const seoTitle = useMemo(() => {
     if (activeSubCategory !== 'All') return `Free ${activeSubCategory} 4K Wallpapers`;
     if (activeDeviceCategory !== 'All') return `Free ${activeDeviceCategory} 4K Wallpapers`;
@@ -95,7 +95,7 @@ const GalleryView = () => {
       
       {isHomePage && <HomePageContent />}
       
-      {/* Category Pills Carousel replacing SearchBar */}
+      {/* Horizontal Category Carousel replacement for SearchBar */}
       <CategoriesCarousel />
       
       <div className="min-h-[400px]">
@@ -131,7 +131,7 @@ const GalleryView = () => {
   );
 };
 
-// Component to find wallpaper by slug from URL using react-router-dom useParams
+// Detail view wrapper that pulls slug from URL
 const WallpaperDetailWrapper = () => {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
@@ -153,7 +153,7 @@ function App() {
   const [isPricingModalOpen, setIsPricingModalOpen] = useState(false);
   const location = useLocation();
 
-  // Open pricing modal on first visit to Home
+  // Show pricing modal to new users on home
   useEffect(() => {
     if (location.pathname === '/') {
       const timer = setTimeout(() => {
@@ -167,7 +167,6 @@ function App() {
     }
   }, [location.pathname]);
 
-  // Scroll to top on navigation
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [location.pathname]);
@@ -185,14 +184,12 @@ function App() {
           {showNav && <CategoryNav />}
 
           <Routes>
-            {/* Unified Listing Routes */}
             <Route path="/" element={<GalleryView />} />
             <Route path="/desktop" element={<GalleryView />} />
             <Route path="/phone" element={<GalleryView />} />
             <Route path="/tablet" element={<GalleryView />} />
             <Route path="/category/:categoryName" element={<GalleryView />} />
             
-            {/* Other Pages */}
             <Route path="/wallpaper/:slug" element={<WallpaperDetailWrapper />} />
             <Route path="/blog" element={<BlogPage />} />
             <Route path="/about" element={<AboutPage />} />
