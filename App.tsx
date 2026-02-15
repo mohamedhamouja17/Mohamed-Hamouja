@@ -17,6 +17,7 @@ import HomePageContent from './components/HomePageContent.tsx';
 import SEO from './components/SEO.tsx';
 import { type Category, type Wallpaper } from './types.ts';
 import { MY_IMAGES, SUB_CATEGORIES } from './constants.ts';
+import WallpaperCard from './components/WallpaperCard.tsx';
 
 // Helper to convert category name to slug and back
 const getCategorySlug = (name: string) => name.toLowerCase().replace(/ & /g, '-').replace(/ /g, '-');
@@ -105,7 +106,7 @@ const GalleryView = () => {
               : 'grid-cols-2 lg:grid-cols-4'
           }`}>
             {paginatedItems.map(wallpaper => (
-              <WallpaperCard key={wallpaper.id} wallpaper={wallpaper} />
+              <WallpaperCard key={`${wallpaper.id}-${wallpaper.slug}`} wallpaper={wallpaper} />
             ))}
           </div>
         ) : (
@@ -129,8 +130,6 @@ const GalleryView = () => {
     </div>
   );
 };
-
-import WallpaperCard from './components/WallpaperCard.tsx';
 
 // Component to find wallpaper by slug from URL using react-router-dom useParams
 const WallpaperDetailWrapper = () => {
