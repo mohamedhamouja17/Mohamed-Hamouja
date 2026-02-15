@@ -16,29 +16,21 @@ import ContactPage from './components/ContactPage.tsx';
 import HomePageContent from './components/HomePageContent.tsx';
 import SEO from './components/SEO.tsx';
 import { type Category, type Wallpaper } from './types.ts';
-import { WALLPAPER_DATA, MY_IMAGES, SUB_CATEGORIES } from './constants.ts';
+import { MY_IMAGES, SUB_CATEGORIES } from './constants.ts';
 
 // Helper to convert category name to slug and back
 const getCategorySlug = (name: string) => name.toLowerCase().replace(/ & /g, '-').replace(/ /g, '-');
 const getCategoryNameFromSlug = (slug: string) => 
   SUB_CATEGORIES.find(cat => getCategorySlug(cat) === slug) || 'All';
 
-// Dedicated view for the home page with hero content
+/**
+ * Unified Gallery View Component
+ * Handles Home, Device Categories (Desktop, Phone, Tablet), 
+ * and Thematic Categories (Nature, Space, etc.)
+ */
 const GalleryView = () => {
-  return (
-    <div className="animate-fade-in">
-      <SEO 
-        title="Walzoo - Free 4K Wallpapers & Backgrounds" 
-        description="Discover high-quality backgrounds for Mobile, Tablet, and Desktop — 100% Free."
-      />
-      <HomePageContent />
-    </div>
-  );
-};
-
-// Component to handle category-specific views (Desktop, Phone, Tablet)
-const CategoryView = ({ category }: { category: Category }) => {
-  const [activeSubCategory, setActiveSubCategory] = useState('All');
+  const location = useLocation();
+  const { categoryName: subCategorySlug } = useParams<{ categoryName: string }>();
   const [currentPage, setCurrentPage] = useState(1);
   const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1024);
 
@@ -48,97 +40,80 @@ const CategoryView = ({ category }: { category: Category }) => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  const itemsPerPage = useMemo(() => {
-    return windowWidth >= 1024 ? 12 : 10;
-  }, [windowWidth]);
-
-  const totalPages = useMemo(() => {
-    const deviceWallpapers = WALLPAPER_DATA[category] || [];
-    const filteredCount = activeSubCategory === 'All' 
-      ? deviceWallpapers.length 
-      : deviceWallpapers.filter(w => w.subCategory === activeSubCategory).length;
-    
-    return Math.max(1, Math.ceil(filteredCount / itemsPerPage));
-  }, [category, activeSubCategory, itemsPerPage]);
-
+  // Reset pagination on route change
   useEffect(() => {
     setCurrentPage(1);
-  }, [category, activeSubCategory]);
+  }, [location.pathname]);
 
-  return (
-    <div className="animate-fade-in">
-      <SEO 
-        title={`Free ${category} 4K Wallpapers - Walzoo`} 
-        description={`Download the best 4K ${category} wallpapers and backgrounds for free.`}
-      />
-      <SearchBar 
-        activeSubCategory={activeSubCategory} 
-        onSubCategoryChange={setActiveSubCategory} 
-      />
-      <ContentGrid 
-        activeCategory={category} 
-        activeSubCategory={activeSubCategory}
-        currentPage={currentPage}
-        itemsPerPage={itemsPerPage}
-        onWallpaperSelect={() => {}} 
-      />
-      <Pagination 
-        currentPage={currentPage} 
-        totalPages={totalPages} 
-        onPageChange={setCurrentPage}
-      />
-    </div>
-  );
-};
+  // Determine active filters from URL
+  const activeDeviceCategory: Category | 'All' = useMemo(() => {
+    if (location.pathname === '/desktop') return 'Desktop';
+    if (location.pathname === '/phone') return 'Phone';
+    if (location.pathname === '/tablet') return 'Tablet';
+    return 'All';
+  }, [location.pathname]);
 
-// New Component to handle global Sub-Category views (e.g., /category/space)
-const SubCategoryView = () => {
-  const { categoryName: slug } = useParams<{ categoryName: string }>();
-  const activeSubCategory = useMemo(() => getCategoryNameFromSlug(slug || ''), [slug]);
-  const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 12;
+  const activeSubCategory = useMemo(() => {
+    return subCategorySlug ? getCategoryNameFromSlug(subCategorySlug) : 'All';
+  }, [subCategorySlug]);
 
+  // Filter Logic
   const filteredWallpapers = useMemo(() => {
-    return activeSubCategory === 'All' 
-      ? MY_IMAGES 
-      : MY_IMAGES.filter(w => w.subCategory === activeSubCategory);
-  }, [activeSubCategory]);
+    let result = [...MY_IMAGES].reverse(); // Newest first
 
+    if (activeDeviceCategory !== 'All') {
+      result = result.filter(w => w.category === activeDeviceCategory);
+    }
+
+    if (activeSubCategory !== 'All') {
+      result = result.filter(w => w.subCategory === activeSubCategory);
+    }
+
+    return result;
+  }, [activeDeviceCategory, activeSubCategory]);
+
+  const itemsPerPage = windowWidth >= 1024 ? 12 : 10;
   const totalPages = Math.max(1, Math.ceil(filteredWallpapers.length / itemsPerPage));
+  const paginatedItems = filteredWallpapers.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
 
-  useEffect(() => {
-    setCurrentPage(1);
-  }, [activeSubCategory]);
+  // SEO Title Logic
+  const seoTitle = useMemo(() => {
+    if (activeSubCategory !== 'All') return `Free ${activeSubCategory} 4K Wallpapers`;
+    if (activeDeviceCategory !== 'All') return `Free ${activeDeviceCategory} 4K Wallpapers`;
+    return "Walzoo - Free 4K Wallpapers & Backgrounds";
+  }, [activeDeviceCategory, activeSubCategory]);
 
-  // For the ContentGrid, we'll bypass the device-specific WALLPAPER_DATA 
-  // by providing a custom implementation or passing the filtered list
-  const paginatedItems = useMemo(() => {
-    const start = (currentPage - 1) * itemsPerPage;
-    return filteredWallpapers.slice(start, start + itemsPerPage);
-  }, [filteredWallpapers, currentPage]);
+  const isHomePage = location.pathname === '/';
 
   return (
     <div className="animate-fade-in">
       <SEO 
-        title={`Free ${activeSubCategory} 4K Wallpapers - Walzoo`} 
-        description={`Discover stunning 4K ${activeSubCategory} wallpapers and backgrounds for all your devices.`}
+        title={seoTitle} 
+        description={`Download stunning 4K ${activeSubCategory !== 'All' ? activeSubCategory : 'wallpapers'} for ${activeDeviceCategory !== 'All' ? activeDeviceCategory : 'all your devices'} — 100% Free.`}
       />
+      
+      {isHomePage && <HomePageContent />}
+      
       <SearchBar 
         activeSubCategory={activeSubCategory} 
-        onSubCategoryChange={() => {}} // Navigation handled by SearchBar component internally
+        onSubCategoryChange={() => {}} // Navigation handled by component internally
       />
       
       <div className="min-h-[400px]">
         {paginatedItems.length > 0 ? (
-          <div className="mt-10 grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 animate-fade-in">
+          <div className={`mt-10 grid gap-4 sm:gap-6 lg:gap-8 animate-fade-in ${
+            activeDeviceCategory === 'Desktop' 
+              ? 'grid-cols-1 lg:grid-cols-2' 
+              : 'grid-cols-2 lg:grid-cols-4'
+          }`}>
             {paginatedItems.map(wallpaper => (
-              <WallpaperPageView key={wallpaper.id} wallpaper={wallpaper} onBack={() => {}} />
+              <WallpaperCard key={wallpaper.id} wallpaper={wallpaper} />
             ))}
           </div>
         ) : (
           <div className="mt-20 text-center flex flex-col items-center">
             <h3 className="text-xl font-bold text-gray-800">No Wallpapers Found</h3>
-            <p className="text-gray-500 mt-2">We haven't added any {activeSubCategory} wallpapers yet.</p>
+            <p className="text-gray-500 mt-2">We haven't added any wallpapers for this selection yet.</p>
           </div>
         )}
       </div>
@@ -152,7 +127,6 @@ const SubCategoryView = () => {
   );
 };
 
-// Custom simple wrapper for WallpaperPageView because ContentGrid uses WallpaperCard
 import WallpaperCard from './components/WallpaperCard.tsx';
 
 // Component to find wallpaper by slug from URL using react-router-dom useParams
@@ -196,23 +170,27 @@ function App() {
     window.scrollTo(0, 0);
   }, [location.pathname]);
 
+  const showNav = location.pathname === '/' || 
+                 location.pathname.startsWith('/category/') || 
+                 ['/desktop', '/phone', '/tablet'].includes(location.pathname);
+
   return (
     <div className="bg-sky-50 text-gray-800 min-h-screen font-sans selection:bg-orange-200">
       <div className="container mx-auto px-4 sm:px-6 lg:px-12 py-6 flex flex-col min-h-screen">
         <Header onSupportClick={() => setIsPricingModalOpen(true)} />
         
         <main className="mt-8 flex-grow">
-          {/* Main Category Navigation shows on all browsable routes */}
-          {(location.pathname === '/' || location.pathname.startsWith('/category/') || ['/desktop', '/phone', '/tablet'].includes(location.pathname)) && (
-             <CategoryNav />
-          )}
+          {showNav && <CategoryNav />}
 
           <Routes>
+            {/* Unified Listing Routes */}
             <Route path="/" element={<GalleryView />} />
-            <Route path="/desktop" element={<CategoryView category="Desktop" />} />
-            <Route path="/phone" element={<CategoryView category="Phone" />} />
-            <Route path="/tablet" element={<CategoryView category="Tablet" />} />
-            <Route path="/category/:categoryName" element={<SubCategoryView />} />
+            <Route path="/desktop" element={<GalleryView />} />
+            <Route path="/phone" element={<GalleryView />} />
+            <Route path="/tablet" element={<GalleryView />} />
+            <Route path="/category/:categoryName" element={<GalleryView />} />
+            
+            {/* Other Pages */}
             <Route path="/wallpaper/:slug" element={<WallpaperDetailWrapper />} />
             <Route path="/blog" element={<BlogPage />} />
             <Route path="/about" element={<AboutPage />} />
