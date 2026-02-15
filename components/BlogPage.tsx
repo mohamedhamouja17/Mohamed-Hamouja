@@ -18,7 +18,7 @@ const BLOG_POSTS = [
     title: "How to Customize Your Android Home Screen",
     excerpt: "A comprehensive guide to using our icon packs and widgets to create a truly unique mobile experience.",
     date: "October 22, 2024",
-    imageUrl: "https://picsum.photos/seed/blog2/800/600",
+    imageUrl: "https://picsum.photos/seed/blog2/800/1200",
     author: "Sarah Tech",
     device: "Phone"
   },
@@ -36,7 +36,7 @@ const BLOG_POSTS = [
     title: "Interview with Featured Artist: PixelMaster",
     excerpt: "We sat down with one of our most popular creators to discuss inspiration, tools, and the future of digital art.",
     date: "November 12, 2024",
-    imageUrl: "https://picsum.photos/seed/blog4/800/600",
+    imageUrl: "https://picsum.photos/seed/blog4/800/1000",
     author: "Walzoo Team",
     device: "Tablet"
   }
@@ -49,6 +49,15 @@ const BlogPage: React.FC = () => {
     ? BLOG_POSTS.filter(post => post.device.toLowerCase() === device.toLowerCase())
     : BLOG_POSTS;
 
+  const getPostAspectRatio = (deviceType: string) => {
+    switch (deviceType) {
+      case 'Phone': return 'aspect-[9/16]';
+      case 'Tablet': return 'aspect-[3/4]';
+      case 'Desktop': 
+      default: return 'aspect-[16/9]';
+    }
+  };
+
   return (
     <div className="mt-10 animate-fade-in">
       <div className="text-center mb-12">
@@ -59,10 +68,9 @@ const BlogPage: React.FC = () => {
           News, tips, and inspiration from the world of digital customization.
         </p>
 
-        {/* Category Filters */}
+        {/* Category Filters - "All Articles" removed as requested */}
         <div className="flex flex-wrap justify-center gap-3 mb-12">
             {[
-                { label: 'All Articles', path: '/blog' },
                 { label: 'Desktop', path: '/blog/desktop' },
                 { label: 'Phone', path: '/blog/phone' },
                 { label: 'Tablet', path: '/blog/tablet' }
@@ -70,9 +78,8 @@ const BlogPage: React.FC = () => {
                 <NavLink
                     key={btn.path}
                     to={btn.path}
-                    end
                     className={({ isActive }) => `
-                        px-6 py-2.5 rounded-full text-sm font-bold transition-all duration-300 border
+                        px-8 py-2.5 rounded-full text-sm font-bold transition-all duration-300 border
                         ${isActive 
                             ? 'bg-gradient-to-r from-orange-500 to-amber-500 text-white border-orange-500 shadow-lg shadow-orange-500/25 scale-105' 
                             : 'bg-white text-gray-600 border-gray-200 hover:border-orange-300 hover:text-orange-500 shadow-sm'}
@@ -88,13 +95,13 @@ const BlogPage: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12">
             {filteredPosts.map((post) => (
             <article key={post.id} className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col h-full border border-gray-100">
-                <div className="h-48 sm:h-64 overflow-hidden relative">
+                <div className={`overflow-hidden relative ${getPostAspectRatio(post.device)}`}>
                     <img 
                         src={post.imageUrl} 
                         alt={post.title} 
                         className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
                     />
-                    <div className="absolute top-4 left-4 bg-orange-500 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-lg">
+                    <div className="absolute top-4 left-4 bg-orange-500 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-lg z-10">
                         {post.device}
                     </div>
                 </div>
