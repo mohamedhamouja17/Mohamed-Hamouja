@@ -72,7 +72,6 @@ ${MY_IMAGES.map(img => {
   const publicSitemap = path.join(publicDir, 'sitemap.xml');
   const rootSitemap = path.join(cwd, 'sitemap.xml');
   
-  // Ensure the public directory exists before writing
   if (!fs.existsSync(publicDir)) {
     fs.mkdirSync(publicDir, { recursive: true });
   }
@@ -80,7 +79,7 @@ ${MY_IMAGES.map(img => {
   try {
     fs.writeFileSync(publicSitemap, sitemap, 'utf8');
     fs.writeFileSync(rootSitemap, sitemap, 'utf8');
-    console.log(`✅ Sitemap successfully generated at ${publicSitemap}`);
+    console.log(`✅ Sitemap successfully generated.`);
   } catch (err) {
     console.error('❌ Error writing sitemap:', err);
     process.exit(1);
