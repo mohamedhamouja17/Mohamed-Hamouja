@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { SearchIcon } from './icons/SearchIcon.tsx';
 import { ChevronDownIcon } from './icons/ChevronDownIcon.tsx';
 import { SUB_CATEGORIES } from '../constants.ts';
@@ -11,6 +12,20 @@ interface SearchBarProps {
 }
 
 const SearchBar: React.FC<SearchBarProps> = ({ activeSubCategory, onSubCategoryChange }) => {
+  const navigate = useNavigate();
+
+  const handleCategoryChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const category = e.target.value;
+    onSubCategoryChange(category);
+
+    if (category === 'All') {
+      navigate('/');
+    } else {
+      const slug = category.toLowerCase().replace(/ & /g, '-').replace(/ /g, '-');
+      navigate(`/category/${slug}`);
+    }
+  };
+
   return (
     <div className="mt-8 flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
       <div className="relative flex-grow">
@@ -24,7 +39,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ activeSubCategory, onSubCategoryC
       <div className="relative min-w-[160px]">
         <select 
           value={activeSubCategory}
-          onChange={(e) => onSubCategoryChange(e.target.value)}
+          onChange={handleCategoryChange}
           className="appearance-none w-full bg-white border border-gray-200 rounded-2xl py-3.5 pl-5 pr-12 text-gray-800 focus:outline-none focus:ring-2 focus:ring-orange-400 cursor-pointer shadow-sm font-semibold text-sm"
         >
           {filterCategories.map((category) => (

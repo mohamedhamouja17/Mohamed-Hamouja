@@ -14,13 +14,23 @@ import PrivacyPage from './components/PrivacyPage.tsx';
 import TermsPage from './components/TermsPage.tsx';
 import ContactPage from './components/ContactPage.tsx';
 import HomePageContent from './components/HomePageContent.tsx';
+import SEO from './components/SEO.tsx';
 import { type Category, type Wallpaper } from './types.ts';
-import { WALLPAPER_DATA, MY_IMAGES } from './constants.ts';
+import { WALLPAPER_DATA, MY_IMAGES, SUB_CATEGORIES } from './constants.ts';
+
+// Helper to convert category name to slug and back
+const getCategorySlug = (name: string) => name.toLowerCase().replace(/ & /g, '-').replace(/ /g, '-');
+const getCategoryNameFromSlug = (slug: string) => 
+  SUB_CATEGORIES.find(cat => getCategorySlug(cat) === slug) || 'All';
 
 // Dedicated view for the home page with hero content
 const GalleryView = () => {
   return (
     <div className="animate-fade-in">
+      <SEO 
+        title="Walzoo - Free 4K Wallpapers & Backgrounds" 
+        description="Discover high-quality backgrounds for Mobile, Tablet, and Desktop — 100% Free."
+      />
       <HomePageContent />
     </div>
   );
@@ -57,6 +67,10 @@ const CategoryView = ({ category }: { category: Category }) => {
 
   return (
     <div className="animate-fade-in">
+      <SEO 
+        title={`Free ${category} 4K Wallpapers - Walzoo`} 
+        description={`Download the best 4K ${category} wallpapers and backgrounds for free.`}
+      />
       <SearchBar 
         activeSubCategory={activeSubCategory} 
         onSubCategoryChange={setActiveSubCategory} 
@@ -76,6 +90,70 @@ const CategoryView = ({ category }: { category: Category }) => {
     </div>
   );
 };
+
+// New Component to handle global Sub-Category views (e.g., /category/space)
+const SubCategoryView = () => {
+  const { categoryName: slug } = useParams<{ categoryName: string }>();
+  const activeSubCategory = useMemo(() => getCategoryNameFromSlug(slug || ''), [slug]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 12;
+
+  const filteredWallpapers = useMemo(() => {
+    return activeSubCategory === 'All' 
+      ? MY_IMAGES 
+      : MY_IMAGES.filter(w => w.subCategory === activeSubCategory);
+  }, [activeSubCategory]);
+
+  const totalPages = Math.max(1, Math.ceil(filteredWallpapers.length / itemsPerPage));
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [activeSubCategory]);
+
+  // For the ContentGrid, we'll bypass the device-specific WALLPAPER_DATA 
+  // by providing a custom implementation or passing the filtered list
+  const paginatedItems = useMemo(() => {
+    const start = (currentPage - 1) * itemsPerPage;
+    return filteredWallpapers.slice(start, start + itemsPerPage);
+  }, [filteredWallpapers, currentPage]);
+
+  return (
+    <div className="animate-fade-in">
+      <SEO 
+        title={`Free ${activeSubCategory} 4K Wallpapers - Walzoo`} 
+        description={`Discover stunning 4K ${activeSubCategory} wallpapers and backgrounds for all your devices.`}
+      />
+      <SearchBar 
+        activeSubCategory={activeSubCategory} 
+        onSubCategoryChange={() => {}} // Navigation handled by SearchBar component internally
+      />
+      
+      <div className="min-h-[400px]">
+        {paginatedItems.length > 0 ? (
+          <div className="mt-10 grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 animate-fade-in">
+            {paginatedItems.map(wallpaper => (
+              <WallpaperPageView key={wallpaper.id} wallpaper={wallpaper} onBack={() => {}} />
+            ))}
+          </div>
+        ) : (
+          <div className="mt-20 text-center flex flex-col items-center">
+            <h3 className="text-xl font-bold text-gray-800">No Wallpapers Found</h3>
+            <p className="text-gray-500 mt-2">We haven't added any {activeSubCategory} wallpapers yet.</p>
+          </div>
+        )}
+      </div>
+
+      <Pagination 
+        currentPage={currentPage} 
+        totalPages={totalPages} 
+        onPageChange={setCurrentPage}
+      />
+    </div>
+  );
+};
+
+// Custom simple wrapper for WallpaperPageView because ContentGrid uses WallpaperCard
+import WallpaperCard from './components/WallpaperCard.tsx';
 
 // Component to find wallpaper by slug from URL using react-router-dom useParams
 const WallpaperDetailWrapper = () => {
@@ -125,7 +203,7 @@ function App() {
         
         <main className="mt-8 flex-grow">
           {/* Main Category Navigation shows on all browsable routes */}
-          {(location.pathname === '/' || ['/desktop', '/phone', '/tablet'].includes(location.pathname)) && (
+          {(location.pathname === '/' || location.pathname.startsWith('/category/') || ['/desktop', '/phone', '/tablet'].includes(location.pathname)) && (
              <CategoryNav />
           )}
 
@@ -134,6 +212,7 @@ function App() {
             <Route path="/desktop" element={<CategoryView category="Desktop" />} />
             <Route path="/phone" element={<CategoryView category="Phone" />} />
             <Route path="/tablet" element={<CategoryView category="Tablet" />} />
+            <Route path="/category/:categoryName" element={<SubCategoryView />} />
             <Route path="/wallpaper/:slug" element={<WallpaperDetailWrapper />} />
             <Route path="/blog" element={<BlogPage />} />
             <Route path="/about" element={<AboutPage />} />
