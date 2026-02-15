@@ -9,7 +9,7 @@ const BLOG_POSTS = [
     title: "Top 10 Wallpaper Trends for 2025",
     excerpt: "Discover the latest styles taking over screens everywhere, from minimalist 3D renders to retro vaporwave aesthetics.",
     date: "October 15, 2024",
-    imageUrl: "https://picsum.photos/seed/blog1/800/600",
+    imageUrl: "https://picsum.photos/seed/blog1/800/450",
     author: "Alex Design",
     device: "Desktop"
   },
@@ -18,7 +18,7 @@ const BLOG_POSTS = [
     title: "How to Customize Your Android Home Screen",
     excerpt: "A comprehensive guide to using our icon packs and widgets to create a truly unique mobile experience.",
     date: "October 22, 2024",
-    imageUrl: "https://picsum.photos/seed/blog2/800/1200",
+    imageUrl: "https://picsum.photos/seed/blog2/800/1422",
     author: "Sarah Tech",
     device: "Phone"
   },
@@ -27,16 +27,16 @@ const BLOG_POSTS = [
     title: "The Psychology of Color in Desktop Backgrounds",
     excerpt: "Learn how the colors on your screen can affect your mood, productivity, and creativity throughout the day.",
     date: "November 5, 2024",
-    imageUrl: "https://picsum.photos/seed/blog3/800/600",
+    imageUrl: "https://picsum.photos/seed/blog3/800/450",
     author: "Dr. Hue",
     device: "Desktop"
   },
   {
     id: 4,
-    title: "Interview with Featured Artist: PixelMaster",
-    excerpt: "We sat down with one of our most popular creators to discuss inspiration, tools, and the future of digital art.",
+    title: "The Ultimate Guide to Tablet Productivity",
+    excerpt: "Transform your tablet into a powerhouse with these essential layout tips and wallpaper choices.",
     date: "November 12, 2024",
-    imageUrl: "https://picsum.photos/seed/blog4/800/1000",
+    imageUrl: "https://picsum.photos/seed/blog4/800/1066",
     author: "Walzoo Team",
     device: "Tablet"
   }
@@ -44,10 +44,9 @@ const BLOG_POSTS = [
 
 const BlogPage: React.FC = () => {
   const { device } = useParams<{ device: string }>();
+  const activeDevice = device?.toLowerCase() || 'desktop';
   
-  const filteredPosts = device 
-    ? BLOG_POSTS.filter(post => post.device.toLowerCase() === device.toLowerCase())
-    : BLOG_POSTS;
+  const filteredPosts = BLOG_POSTS.filter(post => post.device.toLowerCase() === activeDevice);
 
   const getPostAspectRatio = (deviceType: string) => {
     switch (deviceType) {
@@ -58,18 +57,32 @@ const BlogPage: React.FC = () => {
     }
   };
 
+  // Adjust columns based on the orientation of the images
+  // Vertical images (Phone/Tablet) need more columns so they aren't too wide/tall
+  const getGridClasses = () => {
+    switch (activeDevice) {
+      case 'phone':
+        return "grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-8";
+      case 'tablet':
+        return "grid grid-cols-2 md:grid-cols-3 gap-6 sm:gap-10";
+      case 'desktop':
+      default:
+        return "grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12";
+    }
+  };
+
   return (
-    <div className="mt-10 animate-fade-in">
+    <div className="mt-10 animate-fade-in max-w-7xl mx-auto">
       <div className="text-center mb-12">
         <h1 className="text-4xl sm:text-5xl font-bold text-gray-800 mb-4" style={{ fontFamily: "'Baloo 2', cursive" }}>
           Walzoo Blog
         </h1>
-        <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-10">
-          News, tips, and inspiration from the world of digital customization.
+        <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-10 px-4">
+          Expert guides and inspiration tailored for your {activeDevice} screens.
         </p>
 
-        {/* Category Filters - "All Articles" removed as requested */}
-        <div className="flex flex-wrap justify-center gap-3 mb-12">
+        {/* Category Filters */}
+        <div className="flex flex-wrap justify-center gap-3 mb-16">
             {[
                 { label: 'Desktop', path: '/blog/desktop' },
                 { label: 'Phone', path: '/blog/phone' },
@@ -91,49 +104,51 @@ const BlogPage: React.FC = () => {
         </div>
       </div>
 
-      {filteredPosts.length > 0 ? (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12">
-            {filteredPosts.map((post) => (
-            <article key={post.id} className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col h-full border border-gray-100">
-                <div className={`overflow-hidden relative ${getPostAspectRatio(post.device)}`}>
-                    <img 
-                        src={post.imageUrl} 
-                        alt={post.title} 
-                        className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-                    />
-                    <div className="absolute top-4 left-4 bg-orange-500 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow-lg z-10">
-                        {post.device}
+      <div className="px-4">
+        {filteredPosts.length > 0 ? (
+            <div className={getGridClasses()}>
+                {filteredPosts.map((post) => (
+                <article key={post.id} className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col h-full border border-gray-100 group">
+                    <div className={`overflow-hidden relative ${getPostAspectRatio(post.device)}`}>
+                        <img 
+                            src={post.imageUrl} 
+                            alt={post.title} 
+                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                            loading="lazy"
+                        />
+                        <div className="absolute top-4 left-4 bg-orange-500 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-widest shadow-lg z-10">
+                            {post.device}
+                        </div>
                     </div>
-                </div>
-                <div className="p-6 sm:p-8 flex flex-col flex-grow">
-                <div className="flex items-center text-sm text-gray-500 mb-3 space-x-4">
-                    <span>{post.date}</span>
-                    <span className="w-1 h-1 bg-gray-300 rounded-full"></span>
-                    <span>{post.author}</span>
-                </div>
-                <h2 className="text-2xl font-bold text-gray-800 mb-3 leading-tight hover:text-orange-500 transition-colors cursor-pointer">
-                    {post.title}
-                </h2>
-                <p className="text-gray-600 mb-6 leading-relaxed flex-grow">
-                    {post.excerpt}
-                </p>
-                <button className="self-start text-orange-500 font-bold hover:text-orange-600 transition-colors flex items-center gap-2 group">
-                    Read Article 
-                    <span className="transform group-hover:translate-x-1 transition-transform">→</span>
-                </button>
-                </div>
-            </article>
-            ))}
-        </div>
-      ) : (
-          <div className="text-center py-20 bg-white rounded-3xl border border-dashed border-gray-200">
-              <p className="text-gray-500 font-medium">No articles found in this category yet.</p>
-          </div>
-      )}
+                    <div className="p-6 sm:p-8 flex flex-col flex-grow">
+                        <div className="flex items-center text-[10px] sm:text-xs font-bold text-gray-400 mb-3 space-x-3 uppercase tracking-wider">
+                            <span>{post.date}</span>
+                            <span className="w-1 h-1 bg-gray-200 rounded-full"></span>
+                            <span>{post.author}</span>
+                        </div>
+                        <h2 className={`font-bold text-gray-800 mb-3 leading-tight group-hover:text-orange-500 transition-colors cursor-pointer ${activeDevice === 'phone' ? 'text-lg' : 'text-2xl'}`}>
+                            {post.title}
+                        </h2>
+                        <p className={`text-gray-500 mb-6 leading-relaxed flex-grow line-clamp-3 ${activeDevice === 'phone' ? 'text-sm' : 'text-base'}`}>
+                            {post.excerpt}
+                        </p>
+                        <button className="self-start text-orange-500 font-black text-xs uppercase tracking-widest hover:text-orange-600 transition-colors flex items-center gap-2 group-link">
+                            Read More
+                            <span className="transform group-hover:translate-x-1 transition-transform">→</span>
+                        </button>
+                    </div>
+                </article>
+                ))}
+            </div>
+        ) : (
+            <div className="text-center py-20 bg-white rounded-3xl border border-dashed border-gray-200">
+                <p className="text-gray-500 font-medium">No articles found for {activeDevice} yet.</p>
+            </div>
+        )}
+      </div>
 
-        {/* Newsletter Section */}
-      <div className="mt-20 bg-gradient-to-br from-gray-900 to-gray-800 rounded-3xl p-8 sm:p-12 text-center text-white relative overflow-hidden">
-         {/* Decorative element */}
+      {/* Newsletter Section */}
+      <div className="mt-20 mx-4 bg-gradient-to-br from-gray-900 to-gray-800 rounded-3xl p-8 sm:p-12 text-center text-white relative overflow-hidden">
          <div className="absolute top-0 right-0 -mt-10 -mr-10 text-gray-700 opacity-20 transform rotate-12">
              <TigerClawsIcon className="w-64 h-64" />
          </div>
@@ -153,15 +168,6 @@ const BlogPage: React.FC = () => {
             </div>
          </div>
       </div>
-      <style>{`
-        @keyframes fade-in {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .animate-fade-in {
-            animation: fade-in 0.4s ease-out forwards;
-        }
-      `}</style>
     </div>
   );
 };
