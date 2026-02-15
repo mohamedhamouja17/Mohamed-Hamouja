@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { Routes, Route, useLocation, useParams, Navigate, useNavigate } from 'react-router-dom';
+import { Routes, Route, useLocation, useParams, Navigate, useNavigate, Link } from 'react-router-dom';
 import Header from './components/Header.tsx';
 import CategoryNav from './components/CategoryNav.tsx';
 import CategoriesCarousel from './components/CategoriesCarousel.tsx';
@@ -79,6 +79,39 @@ const GalleryView = () => {
 
   const isHomePage = location.pathname === '/';
 
+  // Section Component for Home Page
+  const HomeSection = ({ title, category, link }: { title: string, category: Category, link: string }) => {
+    const sectionItems = [...MY_IMAGES].reverse().filter(w => w.category === category).slice(0, 6);
+    
+    return (
+      <section className="mb-24 last:mb-0">
+        <div className="flex items-center justify-between mb-8">
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-gray-800 tracking-tight" style={{ fontFamily: "'Baloo 2', cursive" }}>
+            {title}
+          </h2>
+        </div>
+        
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+          {sectionItems.map(wallpaper => (
+            <WallpaperCard key={`${wallpaper.id}-${wallpaper.slug}`} wallpaper={wallpaper} />
+          ))}
+        </div>
+
+        <div className="mt-12 flex justify-center">
+          <Link 
+            to={link}
+            className="inline-flex items-center gap-2 px-8 py-3.5 bg-white border-2 border-orange-500 text-orange-600 font-black rounded-2xl hover:bg-orange-500 hover:text-white transition-all shadow-lg shadow-orange-500/10 active:scale-95 uppercase tracking-widest text-xs"
+          >
+            View All {title}
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </Link>
+        </div>
+      </section>
+    );
+  };
+
   return (
     <div className="animate-fade-in">
       <SEO 
@@ -90,35 +123,45 @@ const GalleryView = () => {
       
       <CategoriesCarousel />
       
-      <div className="min-h-[400px]">
-        {paginatedItems.length > 0 ? (
-          <div className={`mt-10 grid gap-4 sm:gap-6 lg:gap-8 animate-fade-in ${
-            activeDeviceCategory === 'Desktop' 
-              ? 'grid-cols-1 lg:grid-cols-2' 
-              : 'grid-cols-2 lg:grid-cols-4'
-          }`}>
-            {paginatedItems.map(wallpaper => (
-              <WallpaperCard key={`${wallpaper.id}-${wallpaper.slug}`} wallpaper={wallpaper} />
-            ))}
+      <div className="min-h-[400px] mt-10">
+        {isHomePage ? (
+          <div className="space-y-24">
+            <HomeSection title="Desktop Wallpapers" category="Desktop" link="/desktop" />
+            <HomeSection title="Phone Wallpapers" category="Phone" link="/phone" />
+            <HomeSection title="Tablet Wallpapers" category="Tablet" link="/tablet" />
           </div>
         ) : (
-          <div className="mt-20 text-center flex flex-col items-center">
-            <div className="bg-orange-100/50 p-6 rounded-full mb-4">
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 text-orange-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-              </svg>
-            </div>
-            <h3 className="text-xl font-bold text-gray-800">No Wallpapers Found</h3>
-            <p className="text-gray-500 mt-2">We haven't added any wallpapers for this selection yet.</p>
-          </div>
+          <>
+            {paginatedItems.length > 0 ? (
+              <div className={`grid gap-4 sm:gap-6 lg:gap-8 animate-fade-in ${
+                activeDeviceCategory === 'Desktop' 
+                  ? 'grid-cols-1 lg:grid-cols-2' 
+                  : 'grid-cols-2 lg:grid-cols-4'
+              }`}>
+                {paginatedItems.map(wallpaper => (
+                  <WallpaperCard key={`${wallpaper.id}-${wallpaper.slug}`} wallpaper={wallpaper} />
+                ))}
+              </div>
+            ) : (
+              <div className="mt-20 text-center flex flex-col items-center">
+                <div className="bg-orange-100/50 p-6 rounded-full mb-4">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 text-orange-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                </div>
+                <h3 className="text-xl font-bold text-gray-800">No Wallpapers Found</h3>
+                <p className="text-gray-500 mt-2">We haven't added any wallpapers for this selection yet.</p>
+              </div>
+            )}
+            
+            <Pagination 
+              currentPage={currentPage} 
+              totalPages={totalPages} 
+              onPageChange={setCurrentPage}
+            />
+          </>
         )}
       </div>
-
-      <Pagination 
-        currentPage={currentPage} 
-        totalPages={totalPages} 
-        onPageChange={setCurrentPage}
-      />
     </div>
   );
 };
