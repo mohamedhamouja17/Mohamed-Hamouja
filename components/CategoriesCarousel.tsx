@@ -1,14 +1,14 @@
+
 import React, { useRef, useState, useEffect } from 'react';
-import { NavLink, useLocation, useSearchParams } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import { SUB_CATEGORIES } from '../constants.ts';
 
 /**
  * CategoriesCarousel
  * A horizontal scrolling navigation bar for thematic wallpaper categories.
- * Restructured to be context-aware: preserving device type filters when applicable.
+ * Updated for clean nested URL structures: /device/topic
  */
 
-// Helper to convert category names to URL-friendly slugs
 const getCategorySlug = (name: string) => name.toLowerCase().replace(/ & /g, '-').replace(/ /g, '-');
 
 const CategoriesCarousel: React.FC = () => {
@@ -16,13 +16,11 @@ const CategoriesCarousel: React.FC = () => {
   const [showLeftArrow, setShowLeftArrow] = useState(false);
   const [showRightArrow, setShowRightArrow] = useState(true);
   const location = useLocation();
-  const [searchParams] = useSearchParams();
-  const currentTopic = searchParams.get('topic');
 
-  // Determine if we are on a specific device route
-  const isDeviceRoute = ['/desktop', '/phone', '/tablet'].includes(location.pathname);
+  // Detect the current device path from the URL
+  const deviceMatch = location.pathname.match(/^\/(desktop|phone|tablet)/);
+  const devicePath = deviceMatch ? deviceMatch[0] : null;
 
-  // Handle visibility of desktop navigation arrows based on scroll position
   const handleScroll = () => {
     if (scrollRef.current) {
       const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
@@ -50,18 +48,18 @@ const CategoriesCarousel: React.FC = () => {
     }
   }, []);
 
-  // Helper to generate context-aware links
+  // Construct context-aware clean URLs
   const getCategoryLink = (categoryName?: string) => {
-    if (!categoryName) return location.pathname; // "All" state
+    if (!categoryName) return devicePath || '/'; // Clicking "All" goes back to device root or homepage
     
     const slug = getCategorySlug(categoryName);
     
-    // If on a device page, use query parameters to preserve the device filter
-    if (isDeviceRoute) {
-      return `${location.pathname}?topic=${slug}`;
+    // If we are currently browsing a specific device, stay within that path
+    if (devicePath) {
+      return `${devicePath}/${slug}`;
     }
     
-    // Otherwise use standard category route
+    // Otherwise, use a standard cross-device category route
     return `/category/${slug}`;
   };
 
@@ -84,46 +82,34 @@ const CategoriesCarousel: React.FC = () => {
         className="flex overflow-x-auto no-scrollbar gap-3 pb-2 px-2 -mx-2 scroll-smooth touch-pan-x"
         style={{ scrollSnapType: 'x proximity' }}
       >
+        {/* "All" button handles resetting to device root or home */}
         <NavLink
           to={getCategoryLink()}
           end
-          className={({ isActive }) => {
-            const isAllActive = isActive && (!isDeviceRoute || !currentTopic);
-            return `
-              px-6 py-2.5 rounded-full text-sm font-bold whitespace-nowrap transition-all duration-300 border flex-shrink-0 scroll-snap-align-start
-              ${isAllActive
-                ? 'bg-gradient-to-r from-orange-500 to-amber-500 text-white border-orange-500 shadow-lg shadow-orange-500/25 scale-105' 
-                : 'bg-white text-gray-600 border-gray-200 hover:border-orange-300 hover:text-orange-500 shadow-sm'}
-            `;
-          }}
+          className={({ isActive }) => `
+            px-6 py-2.5 rounded-full text-sm font-bold whitespace-nowrap transition-all duration-300 border flex-shrink-0 scroll-snap-align-start
+            ${isActive 
+              ? 'bg-gradient-to-r from-orange-500 to-amber-500 text-white border-orange-500 shadow-lg shadow-orange-500/25 scale-105' 
+              : 'bg-white text-gray-600 border-gray-200 hover:border-orange-300 hover:text-orange-500 shadow-sm'}
+          `}
         >
-          All {isDeviceRoute ? location.pathname.substring(1) : ''} Wallpapers
+          All {devicePath ? devicePath.substring(1) : ''} Wallpapers
         </NavLink>
 
-        {SUB_CATEGORIES.map((category) => {
-          const slug = getCategorySlug(category);
-          return (
-            <NavLink
-              key={category}
-              to={getCategoryLink(category)}
-              className={({ isActive }) => {
-                // Determine active state manually for query-param based links
-                const isSelected = isDeviceRoute 
-                  ? currentTopic === slug 
-                  : isActive;
-                  
-                return `
-                  px-6 py-2.5 rounded-full text-sm font-bold whitespace-nowrap transition-all duration-300 border flex-shrink-0 scroll-snap-align-start
-                  ${isSelected 
-                    ? 'bg-gradient-to-r from-orange-500 to-amber-500 text-white border-orange-500 shadow-lg shadow-orange-500/25 scale-105' 
-                    : 'bg-white text-gray-600 border-gray-200 hover:border-orange-300 hover:text-orange-500 shadow-sm'}
-                `;
-              }}
-            >
-              {category}
-            </NavLink>
-          );
-        })}
+        {SUB_CATEGORIES.map((category) => (
+          <NavLink
+            key={category}
+            to={getCategoryLink(category)}
+            className={({ isActive }) => `
+              px-6 py-2.5 rounded-full text-sm font-bold whitespace-nowrap transition-all duration-300 border flex-shrink-0 scroll-snap-align-start
+              ${isActive 
+                ? 'bg-gradient-to-r from-orange-500 to-amber-500 text-white border-orange-500 shadow-lg shadow-orange-500/25 scale-105' 
+                : 'bg-white text-gray-600 border-gray-200 hover:border-orange-300 hover:text-orange-500 shadow-sm'}
+            `}
+          >
+            {category}
+          </NavLink>
+        ))}
       </div>
 
       {showRightArrow && (

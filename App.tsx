@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect, useMemo } from 'react';
-import { Routes, Route, useLocation, useParams, Navigate, useNavigate, Link, useSearchParams } from 'react-router-dom';
+import { Routes, Route, useLocation, useParams, Navigate, useNavigate, Link } from 'react-router-dom';
 import Header from './components/Header.tsx';
 import CategoryNav from './components/CategoryNav.tsx';
 import CategoriesCarousel from './components/CategoriesCarousel.tsx';
@@ -29,8 +29,7 @@ const getCategoryNameFromSlug = (slug: string) =>
  */
 const GalleryView = () => {
   const location = useLocation();
-  const [searchParams] = useSearchParams();
-  const { categoryName: subCategorySlug } = useParams<{ categoryName: string }>();
+  const { topic: topicSlug } = useParams<{ topic: string }>();
   const [currentPage, setCurrentPage] = useState(1);
   const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1024);
 
@@ -40,11 +39,10 @@ const GalleryView = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Reset pagination when any filter changes
-  const topicQuery = searchParams.get('topic');
+  // Reset pagination when the path changes
   useEffect(() => {
     setCurrentPage(1);
-  }, [location.pathname, subCategorySlug, topicQuery]);
+  }, [location.pathname]);
 
   const activeDeviceCategory: Category | 'All' = useMemo(() => {
     if (location.pathname.startsWith('/desktop')) return 'Desktop';
@@ -54,12 +52,9 @@ const GalleryView = () => {
   }, [location.pathname]);
 
   const activeSubCategory = useMemo(() => {
-    // If we are on a dedicated category route: /category/nature
-    if (subCategorySlug) return getCategoryNameFromSlug(subCategorySlug);
-    // If we are on a device route with a query filter: /desktop?topic=nature
-    if (topicQuery) return getCategoryNameFromSlug(topicQuery);
+    if (topicSlug) return getCategoryNameFromSlug(topicSlug);
     return 'All';
-  }, [subCategorySlug, topicQuery]);
+  }, [topicSlug]);
 
   const filteredWallpapers = useMemo(() => {
     let result = [...MY_IMAGES].reverse();
@@ -80,8 +75,11 @@ const GalleryView = () => {
   const paginatedItems = filteredWallpapers.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
 
   const seoTitle = useMemo(() => {
-    if (activeSubCategory !== 'All') return `Free ${activeSubCategory} 4K Wallpapers`;
-    if (activeDeviceCategory !== 'All') return `Free ${activeDeviceCategory} 4K Wallpapers`;
+    if (activeSubCategory !== 'All' && activeDeviceCategory !== 'All') {
+      return `Best ${activeSubCategory} Wallpapers for ${activeDeviceCategory} - Walzoo`;
+    }
+    if (activeSubCategory !== 'All') return `Best ${activeSubCategory} Wallpapers - 4K Backgrounds`;
+    if (activeDeviceCategory !== 'All') return `Stunning ${activeDeviceCategory} 4K Wallpapers - Walzoo`;
     return "Walzoo - Free 4K Wallpapers & Backgrounds";
   }, [activeDeviceCategory, activeSubCategory]);
 
@@ -89,7 +87,6 @@ const GalleryView = () => {
 
   // Section Component for Home Page
   const HomeSection = ({ title, category, link }: { title: string, category: Category, link: string }) => {
-    // Slice 8 items to perfectly fill 2 rows on a 4-column desktop grid
     const sectionItems = [...MY_IMAGES].reverse().filter(w => w.category === category).slice(0, 8);
     
     return (
@@ -100,7 +97,6 @@ const GalleryView = () => {
           </h2>
         </div>
         
-        {/* Uniform Grid: 2 columns on mobile, 4 columns on desktop for all sections */}
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
           {sectionItems.map(wallpaper => (
             <WallpaperCard key={`${wallpaper.id}-${wallpaper.slug}`} wallpaper={wallpaper} />
@@ -130,8 +126,6 @@ const GalleryView = () => {
       />
       
       {isHomePage && <HomePageContent />}
-      
-      {/* Categories Carousel is removed from Home Page and only appears on deep routes */}
       {!isHomePage && <CategoriesCarousel />}
       
       <div className="min-h-[400px] mt-10">
@@ -143,7 +137,6 @@ const GalleryView = () => {
           </div>
         ) : (
           <>
-            {/* Show category title if filtering by carousel */}
             {activeSubCategory !== 'All' && (
               <h2 className="text-2xl font-black text-gray-800 mb-8 flex items-center gap-3">
                 <span className="w-2 h-8 bg-orange-500 rounded-full"></span>
@@ -227,7 +220,7 @@ function App() {
   const showNav = location.pathname === '/' || 
                  location.pathname.startsWith('/category/') || 
                  location.pathname.startsWith('/wallpaper/') ||
-                 ['/desktop', '/phone', '/tablet'].includes(location.pathname);
+                 ['/desktop', '/phone', '/tablet'].some(path => location.pathname.startsWith(path));
 
   return (
     <div className="bg-sky-50 text-gray-800 min-h-screen font-sans selection:bg-orange-200">
@@ -239,10 +232,19 @@ function App() {
 
           <Routes>
             <Route path="/" element={<GalleryView />} />
+            
+            {/* Device Roots */}
             <Route path="/desktop" element={<GalleryView />} />
             <Route path="/phone" element={<GalleryView />} />
             <Route path="/tablet" element={<GalleryView />} />
-            <Route path="/category/:categoryName" element={<GalleryView />} />
+            
+            {/* Nested Clean Paths: /desktop/nature, /phone/space, etc. */}
+            <Route path="/desktop/:topic" element={<GalleryView />} />
+            <Route path="/phone/:topic" element={<GalleryView />} />
+            <Route path="/tablet/:topic" element={<GalleryView />} />
+
+            {/* General category (cross-device) */}
+            <Route path="/category/:topic" element={<GalleryView />} />
             
             <Route path="/wallpaper/:slug" element={<WallpaperDetailWrapper />} />
             <Route path="/blog" element={<BlogPage />} />
