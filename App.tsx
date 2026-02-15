@@ -3,7 +3,6 @@ import { Routes, Route, useLocation, useParams, Navigate, useNavigate } from 're
 import Header from './components/Header.tsx';
 import CategoryNav from './components/CategoryNav.tsx';
 import CategoriesCarousel from './components/CategoriesCarousel.tsx';
-import ContentGrid from './components/ContentGrid.tsx';
 import Pagination from './components/Pagination.tsx';
 import Footer from './components/Footer.tsx';
 import PricingModal from './components/PricingModal.tsx';
@@ -15,7 +14,7 @@ import TermsPage from './components/TermsPage.tsx';
 import ContactPage from './components/ContactPage.tsx';
 import HomePageContent from './components/HomePageContent.tsx';
 import SEO from './components/SEO.tsx';
-import { type Category, type Wallpaper } from './types.ts';
+import { type Category } from './types.ts';
 import { MY_IMAGES, SUB_CATEGORIES } from './constants.ts';
 import WallpaperCard from './components/WallpaperCard.tsx';
 
@@ -28,6 +27,7 @@ const getCategoryNameFromSlug = (slug: string) =>
  * Unified Gallery View Component
  * Handles Home, Device Categories (Desktop, Phone, Tablet), 
  * and Thematic Categories (Nature, Space, etc.)
+ * Strictly uses URL parameters to drive state.
  */
 const GalleryView = () => {
   const location = useLocation();
@@ -58,7 +58,7 @@ const GalleryView = () => {
     return subCategorySlug ? getCategoryNameFromSlug(subCategorySlug) : 'All';
   }, [subCategorySlug]);
 
-  // Filter Logic based on URL params
+  // Filter Logic based on URL params - No local state used for filtering
   const filteredWallpapers = useMemo(() => {
     let result = [...MY_IMAGES].reverse(); // Newest first
 
@@ -95,7 +95,7 @@ const GalleryView = () => {
       
       {isHomePage && <HomePageContent />}
       
-      {/* Horizontal Category Carousel replacement for SearchBar */}
+      {/* Horizontal Category Carousel replaces the SearchBar */}
       <CategoriesCarousel />
       
       <div className="min-h-[400px]">
@@ -131,7 +131,7 @@ const GalleryView = () => {
   );
 };
 
-// Detail view wrapper that pulls slug from URL
+// Detail view wrapper that pulls slug from URL for dynamic rendering
 const WallpaperDetailWrapper = () => {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
@@ -171,6 +171,7 @@ function App() {
     window.scrollTo(0, 0);
   }, [location.pathname]);
 
+  // Determine if main navigation elements should be visible
   const showNav = location.pathname === '/' || 
                  location.pathname.startsWith('/category/') || 
                  ['/desktop', '/phone', '/tablet'].includes(location.pathname);
@@ -184,18 +185,22 @@ function App() {
           {showNav && <CategoryNav />}
 
           <Routes>
+            {/* All main gallery views share the GalleryView component */}
             <Route path="/" element={<GalleryView />} />
             <Route path="/desktop" element={<GalleryView />} />
             <Route path="/phone" element={<GalleryView />} />
             <Route path="/tablet" element={<GalleryView />} />
             <Route path="/category/:categoryName" element={<GalleryView />} />
             
+            {/* Detail and Static Pages */}
             <Route path="/wallpaper/:slug" element={<WallpaperDetailWrapper />} />
             <Route path="/blog" element={<BlogPage />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/privacy" element={<PrivacyPage />} />
             <Route path="/terms" element={<TermsPage />} />
             <Route path="/contact" element={<ContactPage />} />
+            
+            {/* Fallback to home */}
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </main>
