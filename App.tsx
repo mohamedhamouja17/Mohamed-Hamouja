@@ -27,7 +27,7 @@ const getCategoryNameFromSlug = (slug: string) =>
  * Unified Gallery View Component
  * Handles Home, Device Categories (Desktop, Phone, Tablet), 
  * and Thematic Categories (Nature, Space, etc.)
- * Strictly uses URL parameters to drive state.
+ * Strictly uses URL parameters to drive state and ensures URL bar updates.
  */
 const GalleryView = () => {
   const location = useLocation();
@@ -41,12 +41,12 @@ const GalleryView = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Reset pagination on route change
+  // Reset pagination on route change to start fresh on new categories
   useEffect(() => {
     setCurrentPage(1);
   }, [location.pathname, subCategorySlug]);
 
-  // Determine active filters from URL path
+  // Determine active device filters from URL path
   const activeDeviceCategory: Category | 'All' = useMemo(() => {
     if (location.pathname.startsWith('/desktop')) return 'Desktop';
     if (location.pathname.startsWith('/phone')) return 'Phone';
@@ -54,11 +54,12 @@ const GalleryView = () => {
     return 'All';
   }, [location.pathname]);
 
+  // Determine active thematic category from URL slug
   const activeSubCategory = useMemo(() => {
     return subCategorySlug ? getCategoryNameFromSlug(subCategorySlug) : 'All';
   }, [subCategorySlug]);
 
-  // Filter Logic based on URL params - No local state used for filtering
+  // Filter Logic based exclusively on URL derived state
   const filteredWallpapers = useMemo(() => {
     let result = [...MY_IMAGES].reverse(); // Newest first
 
@@ -77,7 +78,7 @@ const GalleryView = () => {
   const totalPages = Math.max(1, Math.ceil(filteredWallpapers.length / itemsPerPage));
   const paginatedItems = filteredWallpapers.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
 
-  // Dynamic SEO Title
+  // Dynamic SEO Title based on current selection
   const seoTitle = useMemo(() => {
     if (activeSubCategory !== 'All') return `Free ${activeSubCategory} 4K Wallpapers`;
     if (activeDeviceCategory !== 'All') return `Free ${activeDeviceCategory} 4K Wallpapers`;
@@ -95,7 +96,7 @@ const GalleryView = () => {
       
       {isHomePage && <HomePageContent />}
       
-      {/* Horizontal Category Carousel replaces the SearchBar */}
+      {/* Horizontal Category Carousel replacement for SearchBar */}
       <CategoriesCarousel />
       
       <div className="min-h-[400px]">
@@ -131,7 +132,7 @@ const GalleryView = () => {
   );
 };
 
-// Detail view wrapper that pulls slug from URL for dynamic rendering
+// Detail view wrapper that pulls slug from URL
 const WallpaperDetailWrapper = () => {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
@@ -153,7 +154,7 @@ function App() {
   const [isPricingModalOpen, setIsPricingModalOpen] = useState(false);
   const location = useLocation();
 
-  // Show pricing modal to new users on home
+  // Handle first-time visitor logic
   useEffect(() => {
     if (location.pathname === '/') {
       const timer = setTimeout(() => {
@@ -171,7 +172,7 @@ function App() {
     window.scrollTo(0, 0);
   }, [location.pathname]);
 
-  // Determine if main navigation elements should be visible
+  // Determine visibility of global nav elements
   const showNav = location.pathname === '/' || 
                  location.pathname.startsWith('/category/') || 
                  ['/desktop', '/phone', '/tablet'].includes(location.pathname);
@@ -185,14 +186,12 @@ function App() {
           {showNav && <CategoryNav />}
 
           <Routes>
-            {/* All main gallery views share the GalleryView component */}
             <Route path="/" element={<GalleryView />} />
             <Route path="/desktop" element={<GalleryView />} />
             <Route path="/phone" element={<GalleryView />} />
             <Route path="/tablet" element={<GalleryView />} />
             <Route path="/category/:categoryName" element={<GalleryView />} />
             
-            {/* Detail and Static Pages */}
             <Route path="/wallpaper/:slug" element={<WallpaperDetailWrapper />} />
             <Route path="/blog" element={<BlogPage />} />
             <Route path="/about" element={<AboutPage />} />
@@ -200,7 +199,6 @@ function App() {
             <Route path="/terms" element={<TermsPage />} />
             <Route path="/contact" element={<ContactPage />} />
             
-            {/* Fallback to home */}
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </main>
