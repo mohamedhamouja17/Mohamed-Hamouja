@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useParams, NavLink } from 'react-router-dom';
 import { TigerClawsIcon } from './icons/TigerClawsIcon.tsx';
@@ -13,9 +12,8 @@ import { TigerClawsIcon } from './icons/TigerClawsIcon.tsx';
  *   "tags": ["..."],
  *   "category": "Must match the primary device the images are intended for"
  * }
- * RULE: Tag the post as "Phone" if images are vertical (9:16), "Desktop" if horizontal (16:9), and "Tablet" for 3:4.
  */
-export const BLOG_AI_PROMPT_GUIDE = "Always include a 'device' property (Desktop, Phone, or Tablet) in the JSON output. Tag as Phone if content is mobile-focused.";
+export const BLOG_AI_PROMPT_GUIDE = "Always include a 'device' property (Desktop, Phone, or Tablet) in the JSON output.";
 
 const BLOG_POSTS = [
   {
@@ -64,10 +62,10 @@ const BlogPage: React.FC = () => {
   const filteredPosts = BLOG_POSTS.filter(post => post.device.toLowerCase() === activeDevice);
 
   const getPostAspectRatio = (deviceType: string) => {
-    switch (deviceType) {
-      case 'Phone': return 'aspect-[9/16]';
-      case 'Tablet': return 'aspect-[3/4]';
-      case 'Desktop': 
+    switch (deviceType.toLowerCase()) {
+      case 'phone': return 'aspect-[9/16]';
+      case 'tablet': return 'aspect-[3/4]';
+      case 'desktop': 
       default: return 'aspect-[16/9]';
     }
   };
@@ -85,13 +83,13 @@ const BlogPage: React.FC = () => {
   };
 
   return (
-    <div className="mt-10 animate-fade-in max-w-7xl mx-auto">
+    <div className="mt-10 animate-fade-in max-w-7xl mx-auto px-4">
       <div className="text-center mb-12">
         <h1 className="text-4xl sm:text-5xl font-bold text-gray-800 mb-4" style={{ fontFamily: "'Baloo 2', cursive" }}>
           Walzoo Blog
         </h1>
-        <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-10 px-4">
-          Expert guides and inspiration tailored for your <span className="text-orange-500 font-bold capitalize">{activeDevice}</span> screens.
+        <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-10">
+          Tailored inspiration for your <span className="text-orange-500 font-bold capitalize">{activeDevice}</span> screens.
         </p>
 
         {/* Category Filters */}
@@ -117,7 +115,7 @@ const BlogPage: React.FC = () => {
         </div>
       </div>
 
-      <div className="px-4">
+      <div>
         {filteredPosts.length > 0 ? (
             <div className={getGridClasses()}>
                 {filteredPosts.map((post) => (
@@ -161,14 +159,14 @@ const BlogPage: React.FC = () => {
       </div>
 
       {/* Newsletter Section */}
-      <div className="mt-20 mx-4 bg-gradient-to-br from-gray-900 to-gray-800 rounded-3xl p-8 sm:p-12 text-center text-white relative overflow-hidden">
+      <div className="mt-20 bg-gradient-to-br from-gray-900 to-gray-800 rounded-3xl p-8 sm:p-12 text-center text-white relative overflow-hidden">
          <div className="absolute top-0 right-0 -mt-10 -mr-10 text-gray-700 opacity-20 transform rotate-12">
              <TigerClawsIcon className="w-64 h-64" />
          </div>
          
          <div className="relative z-10">
             <h2 className="text-3xl font-bold mb-4">Stay in the loop</h2>
-            <p className="text-gray-300 mb-8 max-w-xl mx-auto">Get the latest wallpapers, icon packs, and design tips delivered straight to your inbox.</p>
+            <p className="text-gray-300 mb-8 max-w-xl mx-auto">Get the latest wallpapers and design tips delivered straight to your inbox.</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
                 <input 
                     type="email" 
