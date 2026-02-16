@@ -3,6 +3,20 @@ import React from 'react';
 import { useParams, NavLink } from 'react-router-dom';
 import { TigerClawsIcon } from './icons/TigerClawsIcon.tsx';
 
+/**
+ * GEMINI AI SYSTEM INSTRUCTION:
+ * When generating blog posts for Walzoo, use the following schema:
+ * {
+ *   "title": "...",
+ *   "excerpt": "...",
+ *   "device": "Desktop" | "Phone" | "Tablet",
+ *   "tags": ["..."],
+ *   "category": "Must match the primary device the images are intended for"
+ * }
+ * RULE: Tag the post as "Phone" if images are vertical (9:16), "Desktop" if horizontal (16:9), and "Tablet" for 3:4.
+ */
+export const BLOG_AI_PROMPT_GUIDE = "Always include a 'device' property (Desktop, Phone, or Tablet) in the JSON output. Tag as Phone if content is mobile-focused.";
+
 const BLOG_POSTS = [
   {
     id: 1,
@@ -44,6 +58,7 @@ const BLOG_POSTS = [
 
 const BlogPage: React.FC = () => {
   const { device } = useParams<{ device: string }>();
+  // Normalize the device string for comparison
   const activeDevice = device?.toLowerCase() || 'desktop';
   
   const filteredPosts = BLOG_POSTS.filter(post => post.device.toLowerCase() === activeDevice);
@@ -57,8 +72,6 @@ const BlogPage: React.FC = () => {
     }
   };
 
-  // Adjust columns based on the orientation of the images
-  // Vertical images (Phone/Tablet) need more columns so they aren't too wide/tall
   const getGridClasses = () => {
     switch (activeDevice) {
       case 'phone':
@@ -78,7 +91,7 @@ const BlogPage: React.FC = () => {
           Walzoo Blog
         </h1>
         <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-10 px-4">
-          Expert guides and inspiration tailored for your {activeDevice} screens.
+          Expert guides and inspiration tailored for your <span className="text-orange-500 font-bold capitalize">{activeDevice}</span> screens.
         </p>
 
         {/* Category Filters */}
@@ -142,7 +155,7 @@ const BlogPage: React.FC = () => {
             </div>
         ) : (
             <div className="text-center py-20 bg-white rounded-3xl border border-dashed border-gray-200">
-                <p className="text-gray-500 font-medium">No articles found for {activeDevice} yet.</p>
+                <p className="text-gray-500 font-medium italic">No articles found for {activeDevice} yet.</p>
             </div>
         )}
       </div>
