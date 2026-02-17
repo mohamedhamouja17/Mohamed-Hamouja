@@ -10,11 +10,11 @@
     "sitemap": "tsx generate-sitemap.ts"
   },
   "dependencies": {
-    "react": "19.0.0",
-    "react-dom": "19.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
     "react-router-dom": "^7.1.5",
-    "react-helmet-async": "2.0.5",
-    "firebase": "11.1.0"
+    "react-helmet-async": "^2.0.5",
+    "firebase": "^11.1.0"
   },
   "devDependencies": {
     "@types/node": "^20.0.0",
