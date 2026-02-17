@@ -9,6 +9,7 @@ import Footer from './components/Footer.tsx';
 import PricingModal from './components/PricingModal.tsx';
 import WallpaperPageView from './components/WallpaperPageView.tsx';
 import BlogPage from './components/BlogPage.tsx';
+import BlogPostDetail from './components/BlogPostDetail.tsx';
 import AboutPage from './components/AboutPage.tsx';
 import PrivacyPage from './components/PrivacyPage.tsx';
 import TermsPage from './components/TermsPage.tsx';
@@ -233,22 +234,20 @@ function App() {
           <Routes>
             <Route path="/" element={<GalleryView />} />
             
-            {/* Device Roots */}
             <Route path="/desktop" element={<GalleryView />} />
             <Route path="/phone" element={<GalleryView />} />
             <Route path="/tablet" element={<GalleryView />} />
             
-            {/* Nested Clean Paths: /desktop/nature, /phone/space, etc. */}
             <Route path="/desktop/:topic" element={<GalleryView />} />
             <Route path="/phone/:topic" element={<GalleryView />} />
             <Route path="/tablet/:topic" element={<GalleryView />} />
 
-            {/* General category (cross-device) */}
             <Route path="/category/:topic" element={<GalleryView />} />
             
             <Route path="/wallpaper/:slug" element={<WallpaperDetailWrapper />} />
             <Route path="/blog" element={<BlogPage />} />
             <Route path="/blog/:device" element={<BlogPage />} />
+            <Route path="/blog/post/:slug" element={<BlogPostDetail />} />
             <Route path="/about" element={<AboutPage />} />
             <Route path="/privacy" element={<PrivacyPage />} />
             <Route path="/terms" element={<TermsPage />} />

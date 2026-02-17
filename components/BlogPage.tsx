@@ -1,65 +1,51 @@
-import React from 'react';
-import { useParams, NavLink } from 'react-router-dom';
+
+import React, { useMemo } from 'react';
+import { useParams, NavLink, Link } from 'react-router-dom';
 import { TigerClawsIcon } from './icons/TigerClawsIcon.tsx';
 
-/**
- * GEMINI AI SYSTEM INSTRUCTION:
- * When generating blog posts for Walzoo, use the following schema:
- * {
- *   "title": "...",
- *   "excerpt": "...",
- *   "device": "Desktop" | "Phone" | "Tablet",
- *   "tags": ["..."],
- *   "category": "Must match the primary device the images are intended for"
- * }
- */
-export const BLOG_AI_PROMPT_GUIDE = "Always include a 'device' property (Desktop, Phone, or Tablet) in the JSON output.";
-
-const BLOG_POSTS = [
-  {
-    id: 1,
-    title: "Top 10 Wallpaper Trends for 2025",
-    excerpt: "Discover the latest styles taking over screens everywhere, from minimalist 3D renders to retro vaporwave aesthetics.",
-    date: "October 15, 2024",
-    imageUrl: "https://picsum.photos/seed/blog1/800/450",
-    author: "Alex Design",
-    device: "Desktop"
-  },
-  {
-    id: 2,
-    title: "How to Customize Your Android Home Screen",
-    excerpt: "A comprehensive guide to using our icon packs and widgets to create a truly unique mobile experience.",
-    date: "October 22, 2024",
-    imageUrl: "https://picsum.photos/seed/blog2/800/1422",
-    author: "Sarah Tech",
-    device: "Phone"
-  },
-  {
-    id: 3,
-    title: "The Psychology of Color in Desktop Backgrounds",
-    excerpt: "Learn how the colors on your screen can affect your mood, productivity, and creativity throughout the day.",
-    date: "November 5, 2024",
-    imageUrl: "https://picsum.photos/seed/blog3/800/450",
-    author: "Dr. Hue",
-    device: "Desktop"
-  },
-  {
-    id: 4,
-    title: "The Ultimate Guide to Tablet Productivity",
-    excerpt: "Transform your tablet into a powerhouse with these essential layout tips and wallpaper choices.",
-    date: "November 12, 2024",
-    imageUrl: "https://picsum.photos/seed/blog4/800/1066",
-    author: "Walzoo Team",
-    device: "Tablet"
+// Simple parser for Markdown Frontmatter
+const parsePost = (filename: string, rawContent: string) => {
+  const slug = filename.split('/').pop()?.replace('.md', '') || '';
+  const frontmatterMatch = rawContent.match(/^---([\s\S]*?)---/);
+  const metadata: any = {};
+  
+  if (frontmatterMatch) {
+    frontmatterMatch[1].split('\n').forEach(line => {
+      const [key, ...value] = line.split(':');
+      if (key && value.length) {
+        metadata[key.trim()] = value.join(':').trim();
+      }
+    });
   }
-];
+
+  return {
+    slug,
+    title: metadata.title || 'Untitled Post',
+    excerpt: metadata.excerpt || '',
+    date: metadata.date || 'Recent',
+    imageUrl: metadata.imageUrl || 'https://picsum.photos/seed/walzoo/800/450',
+    author: metadata.author || 'Walzoo Team',
+    device: metadata.device || 'Desktop',
+    category: metadata.category || 'General'
+  };
+};
+
+// Use Vite's glob import to read all .md files in the content/blog directory
+// Fix: Cast import.meta to any to support Vite's glob feature in TypeScript
+const modules = (import.meta as any).glob('/content/blog/*.md', { eager: true, as: 'raw' });
+
+const ALL_POSTS = Object.entries(modules).map(([path, content]) => 
+  parsePost(path, content as string)
+);
 
 const BlogPage: React.FC = () => {
   const { device } = useParams<{ device: string }>();
-  // Normalize the device string for comparison
   const activeDevice = device?.toLowerCase() || 'desktop';
   
-  const filteredPosts = BLOG_POSTS.filter(post => post.device.toLowerCase() === activeDevice);
+  const filteredPosts = useMemo(() => 
+    ALL_POSTS.filter(post => post.device.toLowerCase() === activeDevice),
+    [activeDevice]
+  );
 
   const getPostAspectRatio = (deviceType: string) => {
     switch (deviceType.toLowerCase()) {
@@ -92,7 +78,6 @@ const BlogPage: React.FC = () => {
           Tailored inspiration for your <span className="text-orange-500 font-bold capitalize">{activeDevice}</span> screens.
         </p>
 
-        {/* Category Filters */}
         <div className="flex flex-wrap justify-center gap-3 mb-16">
             {[
                 { label: 'Desktop', path: '/blog/desktop' },
@@ -119,7 +104,7 @@ const BlogPage: React.FC = () => {
         {filteredPosts.length > 0 ? (
             <div className={getGridClasses()}>
                 {filteredPosts.map((post) => (
-                <article key={post.id} className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col h-full border border-gray-100 group">
+                <Link to={`/blog/post/${post.slug}`} key={post.slug} className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col h-full border border-gray-100 group">
                     <div className={`overflow-hidden relative ${getPostAspectRatio(post.device)}`}>
                         <img 
                             src={post.imageUrl} 
@@ -137,18 +122,18 @@ const BlogPage: React.FC = () => {
                             <span className="w-1 h-1 bg-gray-200 rounded-full"></span>
                             <span>{post.author}</span>
                         </div>
-                        <h2 className={`font-bold text-gray-800 mb-3 leading-tight group-hover:text-orange-500 transition-colors cursor-pointer ${activeDevice === 'phone' ? 'text-lg' : 'text-2xl'}`}>
+                        <h2 className={`font-bold text-gray-800 mb-3 leading-tight group-hover:text-orange-500 transition-colors ${activeDevice === 'phone' ? 'text-lg' : 'text-2xl'}`}>
                             {post.title}
                         </h2>
                         <p className={`text-gray-500 mb-6 leading-relaxed flex-grow line-clamp-3 ${activeDevice === 'phone' ? 'text-sm' : 'text-base'}`}>
                             {post.excerpt}
                         </p>
-                        <button className="self-start text-orange-500 font-black text-xs uppercase tracking-widest hover:text-orange-600 transition-colors flex items-center gap-2 group-link">
+                        <div className="self-start text-orange-500 font-black text-xs uppercase tracking-widest hover:text-orange-600 transition-colors flex items-center gap-2">
                             Read More
                             <span className="transform group-hover:translate-x-1 transition-transform">→</span>
-                        </button>
+                        </div>
                     </div>
-                </article>
+                </Link>
                 ))}
             </div>
         ) : (
@@ -158,7 +143,6 @@ const BlogPage: React.FC = () => {
         )}
       </div>
 
-      {/* Newsletter Section */}
       <div className="mt-20 bg-gradient-to-br from-gray-900 to-gray-800 rounded-3xl p-8 sm:p-12 text-center text-white relative overflow-hidden">
          <div className="absolute top-0 right-0 -mt-10 -mr-10 text-gray-700 opacity-20 transform rotate-12">
              <TigerClawsIcon className="w-64 h-64" />
