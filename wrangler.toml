@@ -1,0 +1,7 @@
+name = "walzoo"
+pages_build_output_dir = "dist"
+compatibility_date = "2026-02-16"
+
+[[kv_namespaces]]
+binding = "WALZOO_BLOG_KV"
+id = "7dea9c6cd6dc469cbd77cc665ed6cff2"
