@@ -40,7 +40,7 @@ const BlogPostDetail: React.FC = () => {
   if (!post) {
     return (
       <div className="min-h-[60vh] flex flex-col items-center justify-center text-center px-4 font-poppins">
-        <h1 className="text-2xl font-bold text-gray-800 mb-4 font-oswald uppercase tracking-wider">Post Not Found</h1>
+        <h1 className="text-xl font-bold text-gray-800 mb-4 font-oswald uppercase tracking-wider">Post Not Found</h1>
         <button onClick={() => navigate('/blog')} className="text-orange-500 font-bold hover:underline">
           Back to Blog
         </button>
@@ -50,66 +50,64 @@ const BlogPostDetail: React.FC = () => {
 
   const { metadata, content } = post;
 
-  // Modern Markdown renderer with feature-card support for lists
+  // Modern Markdown renderer with refined typography and feature cards
   const renderContent = (text: string) => {
     return text.split('\n\n').map((block, idx) => {
-      // H1 Header
+      // H1 Header - Refined to text-2xl
       if (block.startsWith('# ')) {
         return (
-          <h1 key={idx} className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 mb-12 leading-tight font-oswald uppercase tracking-tight">
+          <h1 key={idx} className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6 leading-tight font-oswald uppercase tracking-wider">
             {block.replace('# ', '')}
           </h1>
         );
       }
       
-      // H2 Header
+      // H2 Header - Refined to text-xl
       if (block.startsWith('## ')) {
         return (
-          <div key={idx} className="mt-16 mb-8 flex items-center gap-4">
-             <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 font-oswald uppercase tracking-wide">
+          <div key={idx} className="mt-12 mb-6 flex items-center gap-4">
+             <h2 className="text-xl font-bold text-gray-800 font-oswald uppercase tracking-wide">
                {block.replace('## ', '')}
              </h2>
-             <div className="flex-grow h-1 bg-gradient-to-r from-orange-100 to-transparent rounded-full"></div>
+             <div className="flex-grow h-[1px] bg-gray-100 rounded-full"></div>
           </div>
         );
       }
       
-      // H3 Header
+      // H3 Header - Refined to text-lg
       if (block.startsWith('### ')) {
         return (
-          <h3 key={idx} className="text-xl sm:text-2xl font-bold text-orange-600 mt-12 mb-6 font-oswald uppercase tracking-normal">
+          <h3 key={idx} className="text-lg font-bold text-orange-600 mt-8 mb-4 font-oswald uppercase tracking-normal">
             {block.replace('### ', '')}
           </h3>
         );
       }
       
-      // Feature List Cards (Bullets)
+      // Feature List Cards (Bullets) - Compact Professional Version
       if (block.startsWith('* ') || block.startsWith('- ')) {
         const items = block.split('\n').filter(i => i.trim().length > 0);
         return (
-          <div key={idx} className="grid grid-cols-1 md:grid-cols-2 gap-4 my-10">
+          <div key={idx} className="grid grid-cols-1 md:grid-cols-2 gap-3 my-8">
             {items.map((item, i) => (
               <div 
                 key={i} 
-                className="bg-gray-50 border border-gray-100 p-6 rounded-2xl flex items-start gap-4 shadow-sm hover:shadow-md hover:border-orange-200 transition-all duration-300 group"
+                className="bg-gray-50/50 border border-gray-100 p-4 rounded-xl flex items-start gap-3 hover:bg-white hover:shadow-sm hover:border-orange-100 transition-all duration-300 group"
               >
-                <div className="bg-orange-100 p-2.5 rounded-xl text-orange-500 flex-shrink-0 group-hover:scale-110 transition-transform">
-                   <SparklesIcon className="h-5 w-5" />
+                <div className="bg-orange-100 p-1.5 rounded-lg text-orange-500 flex-shrink-0 group-hover:scale-105 transition-transform">
+                   <SparklesIcon className="h-4 w-4" />
                 </div>
-                <div className="flex flex-col">
-                   <span className="text-gray-700 font-semibold font-poppins text-sm leading-relaxed">
-                     {item.replace(/^[*|-]\s/, '')}
-                   </span>
-                </div>
+                <span className="text-gray-600 font-medium font-poppins text-xs sm:text-sm leading-relaxed">
+                  {item.replace(/^[*|-]\s/, '')}
+                </span>
               </div>
             ))}
           </div>
         );
       }
       
-      // Formatted Paragraphs
+      // Formatted Paragraphs - text-base with breathable line height
       return (
-        <p key={idx} className="text-gray-600 leading-[1.8] mb-10 font-poppins font-light text-lg whitespace-pre-wrap">
+        <p key={idx} className="text-gray-500 leading-relaxed mb-6 font-poppins font-light text-sm sm:text-base whitespace-pre-wrap max-w-3xl">
           {block.replace(/\*\*/g, '').replace(/\*/g, '')}
         </p>
       );
@@ -122,18 +120,18 @@ const BlogPostDetail: React.FC = () => {
       
       <button 
         onClick={() => navigate(-1)}
-        className="mb-8 flex items-center gap-2 text-gray-400 hover:text-orange-500 transition-colors font-bold group uppercase tracking-widest text-[10px] font-oswald"
+        className="mb-8 flex items-center gap-2 text-gray-400 hover:text-orange-500 transition-colors font-bold group uppercase tracking-widest text-[9px] font-oswald"
       >
-        <div className="bg-white p-2 rounded-full border border-gray-100 shadow-sm group-hover:border-orange-200">
-           <span className="block rotate-90 group-hover:-translate-x-1 transition-transform">
-             <ChevronDownIcon className="h-4 w-4" />
+        <div className="bg-white p-1.5 rounded-full border border-gray-100 shadow-sm group-hover:border-orange-200">
+           <span className="block rotate-90 group-hover:-translate-x-0.5 transition-transform">
+             <ChevronDownIcon className="h-3 w-3" />
            </span>
         </div>
-        Back to list
+        Back to listing
       </button>
 
-      <article className="bg-white rounded-[3rem] shadow-2xl overflow-hidden border border-gray-100">
-        <div className="relative aspect-[16/9] overflow-hidden group">
+      <article className="bg-white rounded-[2rem] shadow-xl overflow-hidden border border-gray-100">
+        <div className="relative aspect-[21/9] overflow-hidden group border-b border-gray-50">
            <img 
              src={metadata.imageUrl} 
              alt={metadata.title} 
@@ -142,16 +140,16 @@ const BlogPostDetail: React.FC = () => {
              onDragStart={(e) => e.preventDefault()}
              style={{ WebkitTouchCallout: 'none', userSelect: 'none' }}
            />
-           <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
-           <div className="absolute top-8 left-8 bg-orange-500 text-white text-[10px] font-black px-5 py-2 rounded-full uppercase tracking-[0.3em] font-oswald shadow-xl">
+           <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent"></div>
+           <div className="absolute top-6 left-6 bg-orange-500 text-white text-[8px] font-black px-4 py-1.5 rounded-full uppercase tracking-[0.3em] font-oswald shadow-lg">
              {metadata.device}
            </div>
         </div>
 
-        <div className="p-8 sm:p-14 md:p-20">
-          <div className="flex items-center gap-6 text-[10px] font-bold text-gray-400 mb-12 uppercase tracking-[0.4em] font-oswald border-b border-gray-50 pb-6">
+        <div className="p-8 sm:p-12 md:px-16 md:py-14">
+          <div className="flex items-center gap-5 text-[9px] font-bold text-gray-400 mb-10 uppercase tracking-[0.4em] font-oswald border-b border-gray-50 pb-5">
             <span>{metadata.date}</span>
-            <div className="w-2 h-2 bg-orange-400 rounded-full"></div>
+            <div className="w-1.5 h-1.5 bg-orange-400 rounded-full"></div>
             <span>{metadata.author}</span>
           </div>
           
@@ -161,23 +159,20 @@ const BlogPostDetail: React.FC = () => {
         </div>
       </article>
 
-      {/* Modern Footer CTA */}
-      <div className="mt-20 text-center p-12 bg-gradient-to-br from-white to-orange-50 rounded-[3rem] border border-orange-100 shadow-xl relative overflow-hidden">
-         <div className="absolute -top-10 -right-10 text-orange-100 opacity-50 rotate-12">
-            <SparklesIcon className="w-48 h-48" />
+      {/* Elegant Footer CTA */}
+      <div className="mt-16 text-center p-10 bg-gray-50 rounded-[2rem] border border-gray-100">
+         <div className="mb-6 flex justify-center">
+            <SparklesIcon className="w-10 h-10 text-orange-200" />
          </div>
-         
-         <div className="relative z-10">
-            <h4 className="text-3xl font-bold text-gray-800 mb-6 font-oswald uppercase tracking-wider">Love this aesthetic?</h4>
-            <p className="text-gray-500 mb-10 max-w-md mx-auto font-poppins font-light text-lg">Download this wallpaper and thousands more in crisp 4K, absolutely free.</p>
-            <Link 
-              to={`/category/${metadata.category.toLowerCase()}`}
-              className="inline-flex items-center gap-3 px-12 py-5 bg-gray-900 text-white font-bold rounded-2xl hover:bg-gray-800 transition-all shadow-2xl shadow-gray-900/40 font-oswald uppercase tracking-[0.2em] text-sm hover:scale-105 active:scale-95"
-            >
-              Discover {metadata.category}
-              <span>→</span>
-            </Link>
-         </div>
+         <h4 className="text-xl font-bold text-gray-800 mb-3 font-oswald uppercase tracking-wider">Perfect your setup</h4>
+         <p className="text-gray-400 mb-8 max-w-sm mx-auto font-poppins font-light text-sm leading-loose">Get this exact wallpaper and more premium 4K designs for free.</p>
+         <Link 
+           to={`/category/${metadata.category.toLowerCase()}`}
+           className="inline-flex items-center gap-3 px-10 py-4 bg-gray-900 text-white font-bold rounded-xl hover:bg-gray-800 transition-all shadow-lg font-oswald uppercase tracking-[0.2em] text-[10px] hover:scale-105 active:scale-95"
+         >
+           Browse {metadata.category}
+           <span>→</span>
+         </Link>
       </div>
       
       <style>{`
@@ -185,7 +180,7 @@ const BlogPostDetail: React.FC = () => {
           margin-bottom: 0;
         }
         @keyframes fade-in {
-            from { opacity: 0; transform: translateY(20px); }
+            from { opacity: 0; transform: translateY(15px); }
             to { opacity: 1; transform: translateY(0); }
         }
       `}</style>
