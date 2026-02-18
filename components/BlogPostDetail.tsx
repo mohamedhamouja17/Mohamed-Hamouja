@@ -1,6 +1,6 @@
 
 import React, { useMemo } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, Link } from 'react-router-dom';
 import { ChevronDownIcon } from './icons/ChevronDownIcon.tsx';
 import { SparklesIcon } from './icons/SparklesIcon.tsx';
 import SEO from './SEO.tsx';
@@ -159,23 +159,14 @@ const BlogPostDetail: React.FC = () => {
         </div>
       </article>
 
-      {/* Elegant Footer CTA */}
-      <div className="mt-16 text-center p-10 bg-gray-50 rounded-[2rem] border border-gray-100">
-         <div className="mb-6 flex justify-center">
-            <SparklesIcon className="w-10 h-10 text-orange-200" />
-         </div>
-         <h4 className="text-xl font-bold text-gray-800 mb-3 font-oswald uppercase tracking-wider">Perfect your setup</h4>
-         <p className="text-gray-400 mb-8 max-w-sm mx-auto font-poppins font-light text-sm leading-loose">Get this exact wallpaper and more premium 4K designs for free.</p>
-         
-         <a 
-           href="https://www.walzoo.com/wallpaper/ronin-samurai-sunset-red-sun"
-           target="_blank"
-           rel="noopener noreferrer"
-           className="inline-flex items-center gap-3 px-12 py-4.5 bg-[#0F172A] text-white font-bold rounded-2xl hover:bg-black transition-all shadow-2xl shadow-gray-900/30 font-oswald uppercase tracking-[0.25em] text-[10px] hover:scale-[1.03] active:scale-95 group"
+      {/* Simplified Footer CTA */}
+      <div className="mt-16 text-center p-12 sm:p-16 bg-white rounded-[2rem] border border-gray-100 shadow-sm">
+         <Link 
+           to="/wallpaper/ronin-samurai-sunset-red-sun"
+           className="inline-flex items-center justify-center px-14 py-4 bg-[#0F172A] text-white font-bold rounded-full hover:bg-black transition-all shadow-2xl shadow-gray-900/20 font-oswald uppercase tracking-[0.25em] text-[11px] hover:scale-[1.03] active:scale-95 group"
          >
-           Open Only
-           <span className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform">↗</span>
-         </a>
+           Open
+         </Link>
       </div>
       
       <style>{`
