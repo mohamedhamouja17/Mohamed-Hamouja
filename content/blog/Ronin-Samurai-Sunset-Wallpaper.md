@@ -4,7 +4,6 @@ imageUrl: https://cdn.walzoo.com/Desktop/Anime/ronin-samurai-sunset-red-sun-desk
 device: Desktop
 category: Desktop
 date: 2026-02-18
-author: Mohamed Hamouja
 excerpt: Experience the breathtaking Ronin Samurai Sunset. A high-quality 4K wallpaper featuring a lone warrior against a crimson sun.
 ---
 
