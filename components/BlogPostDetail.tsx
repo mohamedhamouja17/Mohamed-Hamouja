@@ -1,4 +1,3 @@
-
 import React, { useMemo } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom'; // Fix: Added Link to imports
 import { ChevronDownIcon } from './icons/ChevronDownIcon.tsx';
@@ -98,7 +97,14 @@ const BlogPostDetail: React.FC = () => {
 
       <article className="bg-white rounded-[2.5rem] shadow-2xl overflow-hidden border border-gray-100">
         <div className="relative aspect-[16/9] overflow-hidden">
-           <img src={metadata.imageUrl} alt={metadata.title} className="w-full h-full object-cover" />
+           <img 
+             src={metadata.imageUrl} 
+             alt={metadata.title} 
+             className="w-full h-full object-cover"
+             onContextMenu={(e) => e.preventDefault()}
+             onDragStart={(e) => e.preventDefault()}
+             style={{ WebkitTouchCallout: 'none', userSelect: 'none' }}
+           />
            <div className="absolute top-6 left-6 bg-orange-500 text-white text-[10px] font-black px-4 py-1.5 rounded-full uppercase tracking-[0.2em]">
              {metadata.device}
            </div>

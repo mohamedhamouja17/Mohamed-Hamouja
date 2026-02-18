@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { type Wallpaper } from '../types.ts';
 import DownloadSection from './DownloadSection.tsx';
@@ -56,9 +55,12 @@ const WallpaperPageView: React.FC<WallpaperPageViewProps> = ({ wallpaper, onBack
             <img 
               src={currentUrl} 
               alt={wallpaper.title}
-              className="w-full h-full object-cover block bg-gray-200 pointer-events-none"
+              className="w-full h-full object-cover block bg-gray-200"
               loading="eager"
               onError={handleImageError}
+              onContextMenu={(e) => e.preventDefault()}
+              onDragStart={(e) => e.preventDefault()}
+              style={{ WebkitTouchCallout: 'none', userSelect: 'none' }}
             />
             <div className="absolute top-3 right-3 bg-black/40 backdrop-blur-md text-white text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-tighter z-20">
               {wallpaper.width >= 3840 ? '4K UHD' : 'HD READY'}

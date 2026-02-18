@@ -1,4 +1,3 @@
-
 import React, { useMemo } from 'react';
 import { useParams, NavLink, Link } from 'react-router-dom';
 import { TigerClawsIcon } from './icons/TigerClawsIcon.tsx';
@@ -111,6 +110,9 @@ const BlogPage: React.FC = () => {
                             alt={post.title} 
                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                             loading="lazy"
+                            onContextMenu={(e) => e.preventDefault()}
+                            onDragStart={(e) => e.preventDefault()}
+                            style={{ WebkitTouchCallout: 'none', userSelect: 'none' }}
                         />
                         <div className="absolute top-4 left-4 bg-orange-500 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-widest shadow-lg z-10">
                             {post.device}

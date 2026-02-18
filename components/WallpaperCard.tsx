@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { type Wallpaper } from '../types.ts';
@@ -31,8 +30,11 @@ const WallpaperCard: React.FC<WallpaperCardProps> = ({ wallpaper }) => {
         <img
           src={wallpaper.imageUrl}
           alt={wallpaper.title}
-          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 bg-gray-100 pointer-events-none"
+          className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 bg-gray-100"
           loading="lazy"
+          onContextMenu={(e) => e.preventDefault()}
+          onDragStart={(e) => e.preventDefault()}
+          style={{ WebkitTouchCallout: 'none', userSelect: 'none' }}
         />
         {/* Anti-selection overlay */}
         <div className="absolute inset-0 z-10 bg-transparent select-none" aria-hidden="true"></div>
