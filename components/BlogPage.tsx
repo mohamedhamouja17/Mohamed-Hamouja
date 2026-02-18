@@ -1,3 +1,4 @@
+
 import React, { useMemo } from 'react';
 import { useParams, NavLink, Link } from 'react-router-dom';
 import { TigerClawsIcon } from './icons/TigerClawsIcon.tsx';
@@ -68,13 +69,13 @@ const BlogPage: React.FC = () => {
   };
 
   return (
-    <div className="mt-10 animate-fade-in max-w-7xl mx-auto px-4">
+    <div className="mt-10 animate-fade-in max-w-7xl mx-auto px-4 font-poppins">
       <div className="text-center mb-12">
-        <h1 className="text-4xl sm:text-5xl font-bold text-gray-800 mb-4" style={{ fontFamily: "'Baloo 2', cursive" }}>
+        <h1 className="text-4xl sm:text-5xl font-bold text-gray-800 mb-4 font-baloo">
           Walzoo Blog
         </h1>
-        <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-10">
-          Tailored inspiration for your <span className="text-orange-500 font-bold capitalize">{activeDevice}</span> screens.
+        <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-10 leading-relaxed">
+          Tailored inspiration for your <span className="text-orange-500 font-bold capitalize font-baloo">{activeDevice}</span> screens.
         </p>
 
         <div className="flex flex-wrap justify-center gap-3 mb-16">
@@ -87,7 +88,7 @@ const BlogPage: React.FC = () => {
                     key={btn.path}
                     to={btn.path}
                     className={({ isActive }) => `
-                        px-8 py-2.5 rounded-full text-sm font-bold transition-all duration-300 border
+                        px-8 py-2.5 rounded-full text-sm font-bold transition-all duration-300 border uppercase tracking-widest
                         ${isActive 
                             ? 'bg-gradient-to-r from-orange-500 to-amber-500 text-white border-orange-500 shadow-lg shadow-orange-500/25 scale-105' 
                             : 'bg-white text-gray-600 border-gray-200 hover:border-orange-300 hover:text-orange-500 shadow-sm'}
@@ -114,23 +115,23 @@ const BlogPage: React.FC = () => {
                             onDragStart={(e) => e.preventDefault()}
                             style={{ WebkitTouchCallout: 'none', userSelect: 'none' }}
                         />
-                        <div className="absolute top-4 left-4 bg-orange-500 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-widest shadow-lg z-10">
+                        <div className="absolute top-4 left-4 bg-orange-500 text-white text-[10px] font-black px-3 py-1 rounded-full uppercase tracking-widest shadow-lg z-10 font-oswald">
                             {post.device}
                         </div>
                     </div>
                     <div className="p-6 sm:p-8 flex flex-col flex-grow">
-                        <div className="flex items-center text-[10px] sm:text-xs font-bold text-gray-400 mb-3 space-x-3 uppercase tracking-wider">
+                        <div className="flex items-center text-[10px] sm:text-xs font-bold text-gray-400 mb-4 space-x-3 uppercase tracking-[0.2em]">
                             <span>{post.date}</span>
                             <span className="w-1 h-1 bg-gray-200 rounded-full"></span>
                             <span>{post.author}</span>
                         </div>
-                        <h2 className={`font-bold text-gray-800 mb-3 leading-tight group-hover:text-orange-500 transition-colors ${activeDevice === 'phone' ? 'text-lg' : 'text-2xl'}`}>
+                        <h2 className={`font-bold text-gray-800 mb-3 leading-tight group-hover:text-orange-500 transition-colors font-oswald uppercase tracking-wide ${activeDevice === 'phone' ? 'text-xl' : 'text-2xl'}`}>
                             {post.title}
                         </h2>
-                        <p className={`text-gray-500 mb-6 leading-relaxed flex-grow line-clamp-3 ${activeDevice === 'phone' ? 'text-sm' : 'text-base'}`}>
+                        <p className={`text-gray-500 mb-6 leading-relaxed flex-grow line-clamp-3 font-light ${activeDevice === 'phone' ? 'text-sm' : 'text-base'}`}>
                             {post.excerpt}
                         </p>
-                        <div className="self-start text-orange-500 font-black text-xs uppercase tracking-widest hover:text-orange-600 transition-colors flex items-center gap-2">
+                        <div className="self-start text-orange-500 font-bold text-xs uppercase tracking-widest hover:text-orange-600 transition-colors flex items-center gap-2 font-oswald">
                             Read More
                             <span className="transform group-hover:translate-x-1 transition-transform">→</span>
                         </div>
@@ -151,15 +152,15 @@ const BlogPage: React.FC = () => {
          </div>
          
          <div className="relative z-10">
-            <h2 className="text-3xl font-bold mb-4">Stay in the loop</h2>
-            <p className="text-gray-300 mb-8 max-w-xl mx-auto">Get the latest wallpapers and design tips delivered straight to your inbox.</p>
+            <h2 className="text-3xl font-bold mb-4 font-baloo">Stay in the loop</h2>
+            <p className="text-gray-300 mb-8 max-w-xl mx-auto font-poppins font-light leading-relaxed">Get the latest wallpapers and design tips delivered straight to your inbox.</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
                 <input 
                     type="email" 
                     placeholder="Enter your email" 
-                    className="px-6 py-3 rounded-xl text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-500 flex-grow"
+                    className="px-6 py-3 rounded-xl text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-500 flex-grow font-poppins"
                 />
-                <button className="bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-3 rounded-xl transition-colors shadow-lg">
+                <button className="bg-orange-500 hover:bg-orange-600 text-white font-bold px-8 py-3 rounded-xl transition-colors shadow-lg font-oswald uppercase tracking-widest">
                     Subscribe
                 </button>
             </div>
