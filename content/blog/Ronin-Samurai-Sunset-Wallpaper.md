@@ -5,6 +5,7 @@ device: Desktop
 category: Desktop
 date: 2026-02-18
 excerpt: Experience the breathtaking Ronin Samurai Sunset. A high-quality 4K wallpaper featuring a lone warrior against a crimson sun.
+backlink: https://walzoo.com/desktop
 ---
 
 Ronin Samurai Sunset Wallpaper

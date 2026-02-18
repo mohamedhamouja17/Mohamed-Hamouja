@@ -1,6 +1,6 @@
 
 import React, { useMemo } from 'react';
-import { useParams, useNavigate, Link } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { ChevronDownIcon } from './icons/ChevronDownIcon.tsx';
 import { SparklesIcon } from './icons/SparklesIcon.tsx';
 import SEO from './SEO.tsx';
@@ -166,13 +166,16 @@ const BlogPostDetail: React.FC = () => {
          </div>
          <h4 className="text-xl font-bold text-gray-800 mb-3 font-oswald uppercase tracking-wider">Perfect your setup</h4>
          <p className="text-gray-400 mb-8 max-w-sm mx-auto font-poppins font-light text-sm leading-loose">Get this exact wallpaper and more premium 4K designs for free.</p>
-         <Link 
-           to={`/category/${metadata.category.toLowerCase()}`}
-           className="inline-flex items-center gap-3 px-10 py-4 bg-gray-900 text-white font-bold rounded-xl hover:bg-gray-800 transition-all shadow-lg font-oswald uppercase tracking-[0.2em] text-[10px] hover:scale-105 active:scale-95"
+         
+         <a 
+           href={metadata.backlink || `https://walzoo.com/category/${metadata.category?.toLowerCase()}`}
+           target="_blank"
+           rel="noopener noreferrer"
+           className="inline-flex items-center gap-3 px-12 py-4.5 bg-[#0F172A] text-white font-bold rounded-2xl hover:bg-black transition-all shadow-2xl shadow-gray-900/30 font-oswald uppercase tracking-[0.25em] text-[10px] hover:scale-[1.03] active:scale-95 group"
          >
-           Browse {metadata.category}
-           <span>→</span>
-         </Link>
+           Open Backlink
+           <span className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform">↗</span>
+         </a>
       </div>
       
       <style>{`
