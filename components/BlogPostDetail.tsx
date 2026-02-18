@@ -159,11 +159,11 @@ const BlogPostDetail: React.FC = () => {
         </div>
       </article>
 
-      {/* Simplified Footer CTA */}
-      <div className="mt-16 text-center p-12 sm:p-16 bg-white rounded-[2rem] border border-gray-100 shadow-sm">
+      {/* Simplified Footer CTA - Just the "Open" button on a pill */}
+      <div className="mt-16 text-center">
          <Link 
            to="/wallpaper/ronin-samurai-sunset-red-sun"
-           className="inline-flex items-center justify-center px-14 py-4 bg-[#0F172A] text-white font-bold rounded-full hover:bg-black transition-all shadow-2xl shadow-gray-900/20 font-oswald uppercase tracking-[0.25em] text-[11px] hover:scale-[1.03] active:scale-95 group"
+           className="inline-flex items-center justify-center px-20 py-5 bg-gradient-to-r from-orange-500 to-amber-500 text-white font-black rounded-full shadow-2xl shadow-orange-500/30 hover:shadow-orange-500/50 hover:scale-105 active:scale-95 transition-all duration-300 font-oswald uppercase tracking-[0.3em] text-[12px]"
          >
            Open
          </Link>
