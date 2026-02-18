@@ -15,3 +15,14 @@ Experience the fusion of traditional Japanese aesthetics and modern digital art.
 * *Minimalist Aesthetic*: Clean composition that won't clutter your icons.
 
 ---
+
+### Download the Wallpaper
+Click the button below to view and save the full-resolution 4K image directly to your device.
+
+[![Download](https://img.shields.io/badge/Download_Full_Resolution-orange?style=for-the-badge)](https://cdn.walzoo.com/Desktop/Anime/ronin-samurai-sunset-red-sun-desktop-wallpaper.webp)
+
+---
+
+### How to Apply
+1. Click the *Download* button to open the image.
+2. Right-click the image and select *"Set as Desktop Background"*.
