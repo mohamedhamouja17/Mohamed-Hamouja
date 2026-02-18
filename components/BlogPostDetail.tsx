@@ -168,12 +168,12 @@ const BlogPostDetail: React.FC = () => {
          <p className="text-gray-400 mb-8 max-w-sm mx-auto font-poppins font-light text-sm leading-loose">Get this exact wallpaper and more premium 4K designs for free.</p>
          
          <a 
-           href={metadata.backlink || `https://walzoo.com/category/${metadata.category?.toLowerCase()}`}
+           href="https://www.walzoo.com/wallpaper/ronin-samurai-sunset-red-sun"
            target="_blank"
            rel="noopener noreferrer"
            className="inline-flex items-center gap-3 px-12 py-4.5 bg-[#0F172A] text-white font-bold rounded-2xl hover:bg-black transition-all shadow-2xl shadow-gray-900/30 font-oswald uppercase tracking-[0.25em] text-[10px] hover:scale-[1.03] active:scale-95 group"
          >
-           Open Backlink
+           Open Only
            <span className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform">↗</span>
          </a>
       </div>
