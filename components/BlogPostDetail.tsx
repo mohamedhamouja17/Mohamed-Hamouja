@@ -50,13 +50,15 @@ const BlogPostDetail: React.FC = () => {
 
   const { metadata, content } = post;
 
+  const isPhone = metadata.device?.toLowerCase() === 'phone';
+
   // Modern Markdown renderer with refined typography and feature cards
   const renderContent = (text: string) => {
     return text.split('\n\n').map((block, idx) => {
-      // H1 Header - Refined to text-2xl
+      // H1 Header - Restricted to text-2xl
       if (block.startsWith('# ')) {
         return (
-          <h1 key={idx} className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6 leading-tight font-oswald uppercase tracking-wider">
+          <h1 key={idx} className="text-2xl font-bold text-gray-900 mb-6 leading-tight font-oswald uppercase tracking-wider">
             {block.replace('# ', '')}
           </h1>
         );
@@ -105,9 +107,9 @@ const BlogPostDetail: React.FC = () => {
         );
       }
       
-      // Formatted Paragraphs - text-base with breathable line height
+      // Formatted Paragraphs - set to text-base
       return (
-        <p key={idx} className="text-gray-500 leading-relaxed mb-6 font-poppins font-light text-sm sm:text-base whitespace-pre-wrap max-w-3xl">
+        <p key={idx} className="text-gray-500 leading-relaxed mb-6 font-poppins font-light text-base whitespace-pre-wrap max-w-3xl">
           {block.replace(/\*\*/g, '').replace(/\*/g, '')}
         </p>
       );
@@ -131,7 +133,8 @@ const BlogPostDetail: React.FC = () => {
       </button>
 
       <article className="bg-white rounded-[2rem] shadow-xl overflow-hidden border border-gray-100">
-        <div className="relative aspect-[21/9] overflow-hidden group border-b border-gray-50">
+        {/* Dynamic Aspect Ratio Container */}
+        <div className={`relative overflow-hidden group border-b border-gray-50 ${isPhone ? 'aspect-[9/16] max-w-sm mx-auto' : 'aspect-[16/9]'}`}>
            <img 
              src={metadata.imageUrl} 
              alt={metadata.title} 
@@ -159,13 +162,13 @@ const BlogPostDetail: React.FC = () => {
         </div>
       </article>
 
-      {/* Simplified Footer CTA - Just the "Open" button on a pill */}
+      {/* Professional Footer CTA - Large Rounded Orange "OPEN" Button */}
       <div className="mt-16 text-center">
          <Link 
-           to="/wallpaper/ronin-samurai-sunset-red-sun"
-           className="inline-flex items-center justify-center px-20 py-5 bg-gradient-to-r from-orange-500 to-amber-500 text-white font-black rounded-full shadow-2xl shadow-orange-500/30 hover:shadow-orange-500/50 hover:scale-105 active:scale-95 transition-all duration-300 font-oswald uppercase tracking-[0.3em] text-[12px]"
+           to={`/wallpaper/${slug}`}
+           className="inline-flex items-center justify-center px-24 py-5 bg-orange-500 text-white font-black rounded-full shadow-2xl shadow-orange-500/30 hover:bg-orange-600 hover:scale-105 active:scale-95 transition-all duration-300 font-oswald uppercase tracking-[0.3em] text-[13px]"
          >
-           Open
+           OPEN
          </Link>
       </div>
       

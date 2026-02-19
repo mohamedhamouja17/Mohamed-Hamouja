@@ -49,7 +49,7 @@ const BlogPage: React.FC = () => {
   const getPostAspectRatio = (deviceType: string) => {
     switch (deviceType.toLowerCase()) {
       case 'phone': return 'aspect-[9/16]';
-      case 'tablet': return 'aspect-[3/4]';
+      case 'tablet': return 'aspect-[16/9]';
       case 'desktop': 
       default: return 'aspect-[16/9]';
     }
@@ -57,15 +57,16 @@ const BlogPage: React.FC = () => {
 
   return (
     <div className="mt-10 animate-fade-in max-w-7xl mx-auto px-4 font-poppins pb-20">
+      {/* Refined Header (About Walzoo style) */}
       <div className="text-center mb-16">
-        <div className="inline-flex items-center justify-center p-3 bg-orange-50 rounded-full mb-6">
+        <div className="inline-flex items-center justify-center p-3 bg-orange-50 rounded-full mb-6 border border-orange-100 shadow-sm">
             <TigerClawsIcon className="h-10 w-10 text-orange-500" />
         </div>
-        <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4 font-baloo">
+        <h1 className="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-4 font-baloo tracking-tight">
           Walzoo Blog
         </h1>
-        <p className="text-lg text-gray-500 max-w-2xl mx-auto font-light leading-relaxed">
-          The intersection of art and utility. Curated insights for your <span className="text-orange-500 font-bold capitalize font-baloo">{activeDevice}</span> environment.
+        <p className="text-base sm:text-lg text-gray-500 max-w-2xl mx-auto font-light leading-relaxed">
+          Curated digital insights for your <span className="text-orange-500 font-bold capitalize font-baloo">{activeDevice}</span>. Discovery meets utility.
         </p>
 
         {/* Filter Navigation */}
@@ -79,10 +80,10 @@ const BlogPage: React.FC = () => {
                     key={btn.path}
                     to={btn.path}
                     className={({ isActive }) => `
-                        px-8 py-2.5 rounded-xl text-xs font-bold transition-all duration-300 border uppercase tracking-[0.2em]
+                        px-8 py-2.5 rounded-xl text-[10px] font-black transition-all duration-300 border uppercase tracking-[0.2em] font-oswald
                         ${isActive 
-                            ? 'bg-gray-900 text-white border-gray-900 shadow-xl scale-105' 
-                            : 'bg-white text-gray-400 border-gray-100 hover:border-orange-300 hover:text-orange-500 shadow-sm'}
+                            ? 'bg-orange-500 text-white border-orange-500 shadow-lg scale-105' 
+                            : 'bg-white text-gray-400 border-gray-100 hover:border-orange-200 hover:text-orange-500 shadow-sm'}
                     `}
                 >
                     {btn.label}
@@ -93,14 +94,14 @@ const BlogPage: React.FC = () => {
 
       <div>
         {filteredPosts.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10">
+            <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10`}>
                 {filteredPosts.map((post) => (
                 <Link 
                   to={`/blog/post/${post.slug}`} 
                   key={post.slug} 
                   className="group bg-white rounded-3xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 flex flex-col h-full"
                 >
-                    {/* Image Container */}
+                    {/* Image Container with Dynamic Aspect Ratio */}
                     <div className={`overflow-hidden relative ${getPostAspectRatio(post.device)}`}>
                         <img 
                             src={post.imageUrl} 
@@ -116,7 +117,7 @@ const BlogPage: React.FC = () => {
                         </div>
                     </div>
 
-                    {/* Content Section */}
+                    {/* Content Section - Uniform Styling */}
                     <div className="p-7 sm:p-9 flex flex-col flex-grow">
                         <div className="flex items-center text-[9px] font-bold text-gray-400 mb-4 space-x-3 uppercase tracking-[0.3em] font-oswald">
                             <span>{post.date}</span>
@@ -124,7 +125,7 @@ const BlogPage: React.FC = () => {
                             <span>{post.author}</span>
                         </div>
                         
-                        <h2 className="font-semibold text-gray-900 mb-4 leading-tight group-hover:text-orange-600 transition-colors font-poppins text-lg lg:text-xl">
+                        <h2 className="text-lg font-bold text-gray-900 mb-3 leading-tight group-hover:text-orange-600 transition-colors font-poppins">
                             {post.title}
                         </h2>
                         
