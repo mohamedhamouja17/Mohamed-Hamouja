@@ -1,6 +1,6 @@
 
 import React, { useMemo } from 'react';
-import { useParams, useNavigate, Link } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { ChevronDownIcon } from './icons/ChevronDownIcon.tsx';
 import { SparklesIcon } from './icons/SparklesIcon.tsx';
 import SEO from './SEO.tsx';
@@ -49,10 +49,9 @@ const BlogPostDetail: React.FC = () => {
   }
 
   const { metadata, content } = post;
-
   const isPhone = metadata.device?.toLowerCase() === 'phone';
 
-  // Modern Markdown renderer with refined typography and feature cards
+  // Professional renderer with typography controls
   const renderContent = (text: string) => {
     return text.split('\n\n').map((block, idx) => {
       // H1 Header - Restricted to text-2xl
@@ -76,29 +75,20 @@ const BlogPostDetail: React.FC = () => {
         );
       }
       
-      // H3 Header - Refined to text-lg
-      if (block.startsWith('### ')) {
-        return (
-          <h3 key={idx} className="text-lg font-bold text-orange-600 mt-8 mb-4 font-oswald uppercase tracking-normal">
-            {block.replace('### ', '')}
-          </h3>
-        );
-      }
-      
-      // Feature List Cards (Bullets) - Compact Professional Version
+      // Feature List Cards
       if (block.startsWith('* ') || block.startsWith('- ')) {
         const items = block.split('\n').filter(i => i.trim().length > 0);
         return (
-          <div key={idx} className="grid grid-cols-1 md:grid-cols-2 gap-3 my-8">
+          <div key={idx} className="grid grid-cols-1 md:grid-cols-2 gap-4 my-8">
             {items.map((item, i) => (
               <div 
                 key={i} 
-                className="bg-gray-50/50 border border-gray-100 p-4 rounded-xl flex items-start gap-3 hover:bg-white hover:shadow-sm hover:border-orange-100 transition-all duration-300 group"
+                className="bg-gray-50/50 border border-gray-100 p-5 rounded-2xl flex items-start gap-3"
               >
-                <div className="bg-orange-100 p-1.5 rounded-lg text-orange-500 flex-shrink-0 group-hover:scale-105 transition-transform">
+                <div className="bg-orange-100 p-1.5 rounded-lg text-orange-500 flex-shrink-0">
                    <SparklesIcon className="h-4 w-4" />
                 </div>
-                <span className="text-gray-600 font-medium font-poppins text-xs sm:text-sm leading-relaxed">
+                <span className="text-gray-600 font-medium font-poppins text-xs leading-relaxed">
                   {item.replace(/^[*|-]\s/, '')}
                 </span>
               </div>
@@ -107,7 +97,7 @@ const BlogPostDetail: React.FC = () => {
         );
       }
       
-      // Formatted Paragraphs - set to text-base
+      // Body text - Set to text-base
       return (
         <p key={idx} className="text-gray-500 leading-relaxed mb-6 font-poppins font-light text-base whitespace-pre-wrap max-w-3xl">
           {block.replace(/\*\*/g, '').replace(/\*/g, '')}
@@ -133,17 +123,15 @@ const BlogPostDetail: React.FC = () => {
       </button>
 
       <article className="bg-white rounded-[2rem] shadow-xl overflow-hidden border border-gray-100">
-        {/* Dynamic Aspect Ratio Container */}
-        <div className={`relative overflow-hidden group border-b border-gray-50 ${isPhone ? 'aspect-[9/16] max-w-sm mx-auto' : 'aspect-[16/9]'}`}>
+        {/* Device-Specific Aspect Ratio Container */}
+        <div className={`relative overflow-hidden group border-b border-gray-50 ${isPhone ? 'aspect-[9/16] max-w-sm mx-auto mt-8' : 'aspect-[16/9]'}`}>
            <img 
              src={metadata.imageUrl} 
              alt={metadata.title} 
              className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
              onContextMenu={(e) => e.preventDefault()}
              onDragStart={(e) => e.preventDefault()}
-             style={{ WebkitTouchCallout: 'none', userSelect: 'none' }}
            />
-           <div className="absolute inset-0 bg-gradient-to-t from-black/10 to-transparent"></div>
            <div className="absolute top-6 left-6 bg-orange-500 text-white text-[8px] font-black px-4 py-1.5 rounded-full uppercase tracking-[0.3em] font-oswald shadow-lg">
              {metadata.device}
            </div>
@@ -162,14 +150,14 @@ const BlogPostDetail: React.FC = () => {
         </div>
       </article>
 
-      {/* Professional Footer CTA - Large Rounded Orange "OPEN" Button */}
+      {/* Large Rounded Orange 'OPEN' Button linking to Wallpaper page */}
       <div className="mt-16 text-center">
-         <Link 
-           to={`/wallpaper/${slug}`}
-           className="inline-flex items-center justify-center px-24 py-5 bg-orange-500 text-white font-black rounded-full shadow-2xl shadow-orange-500/30 hover:bg-orange-600 hover:scale-105 active:scale-95 transition-all duration-300 font-oswald uppercase tracking-[0.3em] text-[13px]"
+         <a 
+           href={`https://www.walzoo.com/wallpaper/${slug}`}
+           className="inline-flex items-center justify-center px-24 py-5 bg-orange-500 text-white font-black rounded-full shadow-2xl shadow-orange-500/40 hover:bg-orange-600 hover:scale-105 active:scale-95 transition-all duration-300 font-oswald uppercase tracking-[0.3em] text-[14px]"
          >
            OPEN
-         </Link>
+         </a>
       </div>
       
       <style>{`
