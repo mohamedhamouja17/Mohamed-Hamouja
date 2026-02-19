@@ -4,7 +4,6 @@ imageUrl: https://cdn.walzoo.com/Desktop/Art/ronin-samurai-sunset-red-sun.webp
 device: Desktop
 category: Art
 date: 2026-02-19
-author: Mohamed Hamouja
 excerpt: Experience the fusion of traditional Japanese aesthetics and modern digital art. Optimized for high-resolution 4K displays.
 ---
 
