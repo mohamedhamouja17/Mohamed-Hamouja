@@ -74,6 +74,15 @@ const BlogPostDetail: React.FC = () => {
           </div>
         );
       }
+
+      // H3 Header - Minimalist text-lg
+      if (block.startsWith('### ')) {
+        return (
+          <h3 key={idx} className="text-lg font-bold text-gray-800 mt-10 mb-4 font-oswald uppercase tracking-wide">
+            {block.replace('### ', '')}
+          </h3>
+        );
+      }
       
       // Feature List Cards
       if (block.startsWith('* ') || block.startsWith('- ')) {
