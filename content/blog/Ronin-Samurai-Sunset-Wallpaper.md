@@ -4,7 +4,6 @@ imageUrl: https://cdn.walzoo.com/Desktop/Art/ronin-samurai-sunset-red-sun.webp
 device: Desktop
 category: Art
 date: 2026-02-19
-author: Walzoo Team
 excerpt: Experience the fusion of traditional Japanese aesthetics and modern digital art. A high-quality 4K wallpaper featuring a lone warrior against a crimson sun.
 ---
 
