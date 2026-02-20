@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "lint": "tsc --noEmit",
     "build": "tsx generate-sitemap.ts && vite build",
     "preview": "vite preview",
     "sitemap": "tsx generate-sitemap.ts"

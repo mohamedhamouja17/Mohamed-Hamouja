@@ -24,7 +24,3 @@ Tags
 ---
 
 Download This Wallpaper
-
-To download this wallpaper in its original high-quality resolution and apply it to your device, click the button below:
-
-[![View & Download](https://img.shields.io/badge/DOWNLOAD_THIS_WALLPAPER-orange?style=for-the-badge&logo=target)](https://www.walzoo.com/wallpaper/red-supercar-yellow-smoke)

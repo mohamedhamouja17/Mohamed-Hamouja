@@ -145,6 +145,9 @@ const BlogPostDetail: React.FC = () => {
           </div>
           
           <div className="max-w-none article-body">
+            <h1 className="text-2xl font-bold text-gray-900 mb-8 leading-tight font-oswald uppercase tracking-wider">
+              {metadata.title}
+            </h1>
             {renderContent(content)}
           </div>
         </div>
