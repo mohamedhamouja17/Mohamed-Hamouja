@@ -4,7 +4,7 @@ device: "Phone"
 imageUrl: "https://cdn.walzoo.com/Phone/Kids/cute-grey-cartoon-cat-peace-sign.webp"
 excerpt: "Spread positive vibes every time you unlock your phone with this adorable grey cartoon cat flashing a peace sign."
 category: "Kids"
-date: "2026-02-24"
+date: "2026-02-25"
 author: "Walzoo Team"
 ---
 

@@ -1,11 +1,11 @@
 ---
-title: "Ocean Wonders: Tropical Fish and Coral Reef Phone Wallpaper"
-device: "Phone"
-imageUrl: "https://cdn.walzoo.com/Phone/Kids/tropical-fish-coral-reef-underwater-phone-wallpaper.webp"
-excerpt: "Dive into a vibrant underwater paradise with this colorful tropical fish and coral reef wallpaper."
-category: "Kids"
-date: "2026-02-24"
-author: "Walzoo Team"
+title: Ocean Wonders: Tropical Fish and Coral Reef Phone Wallpaper
+device: Phone
+imageUrl: https://cdn.walzoo.com/Phone/Kids/tropical-fish-coral-reef-underwater-phone-wallpaper.webp
+excerpt: Dive into a vibrant underwater paradise with this colorful tropical fish and coral reef wallpaper.
+category: Kids
+date: 2026-02-25
+author: Walzoo Team
 ---
 
 ### Wallpaper Overview
@@ -14,9 +14,9 @@ This wallpaper captures the vibrant energy of a tropical coral reef, teeming wit
 
 ### Technical Specifications
 
-*   **Resolution:** 1080 x 1920 (Optimized for Phone)
-*   **Visual Style:** Vibrant Nature Photography
-*   **Vibe:** Lively, Colorful, and Adventurous
+* Resolution: 1080 x 1920 (Optimized for Phone)
+* Visual Style: Vibrant Nature Photography
+* Vibe: Lively, Colorful, and Adventurous
 
 ### Tags
 
