@@ -1,7 +1,8 @@
 
-import React, { useMemo } from 'react';
+import React, { useMemo, useState, useEffect } from 'react';
 import { useParams, NavLink, Link } from 'react-router-dom';
 import { TigerClawsIcon } from './icons/TigerClawsIcon.tsx';
+import Pagination from './Pagination.tsx';
 
 // Simple parser for Markdown Frontmatter
 const parsePost = (filename: string, rawContent: string) => {
@@ -40,11 +41,23 @@ const ALL_POSTS = Object.entries(modules).map(([path, content]) =>
 const BlogPage: React.FC = () => {
   const { device } = useParams<{ device: string }>();
   const activeDevice = device?.toLowerCase() || 'desktop';
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 12;
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [activeDevice]);
   
   const filteredPosts = useMemo(() => 
     ALL_POSTS.filter(post => post.device.toLowerCase() === activeDevice),
     [activeDevice]
   );
+
+  const totalPages = Math.ceil(filteredPosts.length / itemsPerPage);
+  const paginatedPosts = useMemo(() => {
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    return filteredPosts.slice(startIndex, startIndex + itemsPerPage);
+  }, [filteredPosts, currentPage, itemsPerPage]);
 
   const getPostAspectRatio = (deviceType: string) => {
     switch (deviceType.toLowerCase()) {
@@ -93,52 +106,60 @@ const BlogPage: React.FC = () => {
       </div>
 
       <div>
-        {filteredPosts.length > 0 ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-                {filteredPosts.map((post) => (
-                <Link 
-                  to={`/blog/post/${post.slug}`} 
-                  key={post.slug} 
-                  className="group bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-500 flex flex-col h-full"
-                >
-                    {/* Device-Specific Aspect Ratio */}
-                    <div className={`overflow-hidden relative bg-gray-50 ${getPostAspectRatio(post.device)}`}>
-                        <img 
-                            src={post.imageUrl} 
-                            alt={post.title} 
-                            className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
-                            loading="lazy"
-                            onContextMenu={(e) => e.preventDefault()}
-                            onDragStart={(e) => e.preventDefault()}
-                        />
-                        <div className="absolute top-3 left-3 bg-orange-500 text-white text-[7px] font-black px-2 py-1 rounded-full uppercase tracking-[0.2em] font-oswald shadow-md">
-                            {post.device}
+        {paginatedPosts.length > 0 ? (
+            <>
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                    {paginatedPosts.map((post) => (
+                    <Link 
+                      to={`/blog/post/${post.slug}`} 
+                      key={post.slug} 
+                      className="group bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-500 flex flex-col h-full"
+                    >
+                        {/* Device-Specific Aspect Ratio */}
+                        <div className={`overflow-hidden relative bg-gray-50 ${getPostAspectRatio(post.device)}`}>
+                            <img 
+                                src={post.imageUrl} 
+                                alt={post.title} 
+                                className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+                                loading="lazy"
+                                onContextMenu={(e) => e.preventDefault()}
+                                onDragStart={(e) => e.preventDefault()}
+                            />
+                            <div className="absolute top-3 left-3 bg-orange-500 text-white text-[7px] font-black px-2 py-1 rounded-full uppercase tracking-[0.2em] font-oswald shadow-md">
+                                {post.device}
+                            </div>
                         </div>
-                    </div>
 
-                    <div className="p-6 flex flex-col flex-grow">
-                        <div className="flex items-center text-[8px] font-bold text-gray-400 mb-3 space-x-3 uppercase tracking-[0.3em] font-oswald">
-                            <span>{post.date}</span>
-                        </div>
-                        
-                        {/* Title size restricted to text-base for elegant look */}
-                        <h2 className="text-base font-bold text-gray-900 mb-2 leading-tight group-hover:text-orange-500 transition-colors font-poppins">
-                            {post.title}
-                        </h2>
-                        
-                        <p className="text-gray-400 mb-6 leading-relaxed flex-grow line-clamp-2 font-light text-[11px]">
-                            {post.excerpt}
-                        </p>
+                        <div className="p-6 flex flex-col flex-grow">
+                            <div className="flex items-center text-[8px] font-bold text-gray-400 mb-3 space-x-3 uppercase tracking-[0.3em] font-oswald">
+                                <span>{post.date}</span>
+                            </div>
+                            
+                            {/* Title size restricted to text-base for elegant look */}
+                            <h2 className="text-base font-bold text-gray-900 mb-2 leading-tight group-hover:text-orange-500 transition-colors font-poppins">
+                                {post.title}
+                            </h2>
+                            
+                            <p className="text-gray-400 mb-6 leading-relaxed flex-grow line-clamp-2 font-light text-[11px]">
+                                {post.excerpt}
+                            </p>
 
-                        <div className="pt-4 border-t border-gray-50">
-                            <span className="text-orange-500 font-bold text-[8px] uppercase tracking-[0.3em] font-oswald inline-flex items-center gap-2 group-hover:translate-x-1 transition-transform">
-                                VIEW POST <span>→</span>
-                            </span>
+                            <div className="pt-4 border-t border-gray-50">
+                                <span className="text-orange-500 font-bold text-[8px] uppercase tracking-[0.3em] font-oswald inline-flex items-center gap-2 group-hover:translate-x-1 transition-transform">
+                                    VIEW POST <span>→</span>
+                                </span>
+                            </div>
                         </div>
-                    </div>
-                </Link>
-                ))}
-            </div>
+                    </Link>
+                    ))}
+                </div>
+
+                <Pagination 
+                    currentPage={currentPage} 
+                    totalPages={totalPages} 
+                    onPageChange={setCurrentPage} 
+                />
+            </>
         ) : (
             <div className="text-center py-20 bg-white rounded-[2.5rem] border-2 border-dashed border-gray-100">
                 <p className="text-gray-400 text-sm font-poppins">No content available for {activeDevice}.</p>
