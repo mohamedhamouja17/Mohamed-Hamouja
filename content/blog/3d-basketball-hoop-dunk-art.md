@@ -3,7 +3,7 @@ title: "Slam Dunk: 3D Basketball Hoop Action Tablet Wallpaper"
 device: "Tablet"
 imageUrl: "https://cdn.walzoo.com/Tablet/Sports/3d-basketball-hoop-dunk-tablet-wallpaper.webp"
 excerpt: "Feel the energy of the court with this dynamic 3D render of a powerful slam dunk in progress."
-category: "Sports"
+category: "Tablet"
 date: "2026-02-26"
 author: "Walzoo Team"
 ---
