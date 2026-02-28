@@ -49,7 +49,7 @@ const BlogPage: React.FC = () => {
   }, [activeDevice]);
   
   const filteredPosts = useMemo(() => 
-    ALL_POSTS.filter(post => post.device.toLowerCase() === activeDevice),
+    ALL_POSTS.filter(post => post.device.toLowerCase() === activeDevice || post.category.toLowerCase() === activeDevice),
     [activeDevice]
   );
 
