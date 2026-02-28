@@ -14,7 +14,12 @@ const parsePost = (filename: string, rawContent: string) => {
     frontmatterMatch[1].split('\n').forEach(line => {
       const [key, ...value] = line.split(':');
       if (key && value.length) {
-        metadata[key.trim()] = value.join(':').trim();
+        let val = value.join(':').trim();
+        // Strip quotes if they exist
+        if ((val.startsWith('"') && val.endsWith('"')) || (val.startsWith("'") && val.endsWith("'"))) {
+          val = val.substring(1, val.length - 1);
+        }
+        metadata[key.trim()] = val;
       }
     });
   }
