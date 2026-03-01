@@ -15,10 +15,8 @@ const parsePost = (filename: string, rawContent: string) => {
       const [key, ...value] = line.split(':');
       if (key && value.length) {
         let val = value.join(':').trim();
-        // Strip quotes if they exist
-        if ((val.startsWith('"') && val.endsWith('"')) || (val.startsWith("'") && val.endsWith("'"))) {
-          val = val.substring(1, val.length - 1);
-        }
+        // Strip quotes if they exist (more robust regex)
+        val = val.replace(/^["'](.*)["']$/, '$1');
         metadata[key.trim()] = val;
       }
     });
