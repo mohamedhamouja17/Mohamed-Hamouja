@@ -3,7 +3,19 @@ const path = require('path');
 const { google } = require('googleapis');
 
 // 1. Authentication
-const serviceAccount = require('./service-account.json');
+let serviceAccount;
+try {
+  if (process.env.GOOGLE_CREDS) {
+    serviceAccount = JSON.parse(process.env.GOOGLE_CREDS);
+  } else {
+    // Fallback for local development if file exists
+    serviceAccount = require('./service-account.json');
+  }
+} catch (e) {
+  console.error('Failed to load Google credentials. Please set GOOGLE_CREDS environment variable.');
+  process.exit(1);
+}
+
 const jwtClient = new google.auth.JWT(
   serviceAccount.client_email,
   null,
@@ -64,6 +76,14 @@ async function run() {
     const wallpaperSlugs = await getWallpaperSlugs();
 
     const urls = [
+      `${BASE_URL}/`,
+      `${BASE_URL}/blog`,
+      `${BASE_URL}/blog/phone`,
+      `${BASE_URL}/blog/tablet`,
+      `${BASE_URL}/blog/desktop`,
+      `${BASE_URL}/desktop`,
+      `${BASE_URL}/phone`,
+      `${BASE_URL}/tablet`,
       ...blogSlugs.map(slug => `${BASE_URL}/blog/post/${slug}`),
       ...wallpaperSlugs.map(slug => `${BASE_URL}/wallpaper/${slug}`)
     ];
