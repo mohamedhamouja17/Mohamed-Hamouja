@@ -9,7 +9,7 @@ const __dirname = path.dirname(__filename);
 async function run() {
   const creds = process.env.GOOGLE_CREDS;
   if (!creds) {
-    console.log('Push mode: No local credentials needed. Waiting for GitHub deployment.');
+    console.log('No credentials found. This is normal if running locally without secrets.');
     return;
   }
 
@@ -23,55 +23,48 @@ async function run() {
 
   const BASE_URL = 'https://www.walzoo.com';
 
-  const getBlogSlugs = (dir) => {
+  // دالة لجلب أسماء المقالات من المجلد
+  const getSlugs = (dir) => {
     if (!fs.existsSync(dir)) return [];
     return fs.readdirSync(dir).filter(f => f.endsWith('.md')).map(f => f.replace('.md', ''));
   };
 
-  const getWallpaperSlugs = () => {
-    let constantsPath = path.join(process.cwd(), 'constants.ts');
-    if (!fs.existsSync(constantsPath)) {
-      constantsPath = path.join(process.cwd(), 'src', 'constants.ts');
-    }
-    if (!fs.existsSync(constantsPath)) return [];
-    const content = fs.readFileSync(constantsPath, 'utf8');
-    const slugRegex = /slug:\s*["']([^"']+)["']/g;
-    const slugs = [];
-    let match;
-    while ((match = slugRegex.exec(content)) !== null) {
-      slugs.push(match[1]);
-    }
-    return [...new Set(slugs)];
-  };
-
   const blogDir = fs.existsSync('./src/content/blog') ? './src/content/blog' : './content/blog';
-  const blogSlugs = getBlogSlugs(path.join(process.cwd(), blogDir));
-  const wallpaperSlugs = getWallpaperSlugs();
+  const blogSlugs = getSlugs(path.join(process.cwd(), blogDir));
 
+  // قائمة الروابط الشاملة
   const urls = [
-    `${BASE_URL}/`, 
-    `${BASE_URL}/blog`, 
+    `${BASE_URL}/`,
+    `${BASE_URL}/blog`,
     `${BASE_URL}/blog/phone`,
-    `${BASE_URL}/blog/tablet`, 
+    `${BASE_URL}/blog/tablet`,
     `${BASE_URL}/blog/desktop`,
-    ...blogSlugs.map(slug => `${BASE_URL}/blog/post/${slug}`),
-    ...wallpaperSlugs.map(slug => `${BASE_URL}/wallpaper/${slug}`)
+    `${BASE_URL}/phone`,
+    `${BASE_URL}/tablet`,
+    `${BASE_URL}/desktop`,
+    ...blogSlugs.map(slug => `${BASE_URL}/blog/post/${slug}`)
   ];
 
-  console.log(`📊 Found ${urls.length} URLs. Authenticating...`);
-  await jwtClient.authorize();
-  const indexing = google.indexing('v3');
+  console.log(`📊 Found ${urls.length} URLs. Sending to Google...`);
 
-  for (const url of urls) {
-    try {
-      await indexing.urlNotifications.publish({
-        auth: jwtClient,
-        requestBody: { url, type: 'URL_UPDATED' }
-      });
-      console.log(`✅ Indexed: ${url}`);
-    } catch (e) { 
-      console.error(`❌ Error: ${url}`, e.message); 
+  try {
+    await jwtClient.authorize();
+    const indexing = google.indexing('v3');
+
+    for (const url of urls) {
+      try {
+        await indexing.urlNotifications.publish({
+          auth: jwtClient,
+          requestBody: { url, type: 'URL_UPDATED' }
+        });
+        console.log(`✅ Indexed: ${url}`);
+      } catch (e) {
+        console.error(`❌ Error indexing ${url}:`, e.message);
+      }
     }
+    console.log('✨ All done! Walzoo is now in Google queue.');
+  } catch (err) {
+    console.error('💥 Auth Error:', err.message);
   }
 }
 
