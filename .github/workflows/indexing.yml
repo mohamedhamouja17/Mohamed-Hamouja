@@ -1,0 +1,26 @@
+name: Global Indexing
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  index:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          
+      - name: Install Dependencies
+        run: npm install googleapis
+        
+      - name: Run Global Indexing
+        env:
+          GOOGLE_CREDS: ${{ secrets.GOOGLE_CREDS }}
+        run: node index-urls.js
