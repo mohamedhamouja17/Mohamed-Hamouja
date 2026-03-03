@@ -13,11 +13,12 @@
   },
   "dependencies": {
     "firebase": "^11.1.0",
-    "googleapis": "^171.4.0",
+    "googleapis": "^126.0.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-helmet-async": "^2.0.5",
-    "react-router-dom": "^7.1.5"
+    "react-router-dom": "^7.1.5",
+    "sitemapper": "^3.2.1"
   },
   "devDependencies": {
     "@types/node": "^20.0.0",
