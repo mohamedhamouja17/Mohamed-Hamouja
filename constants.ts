@@ -1390,6 +1390,78 @@ export const MY_IMAGES: Wallpaper[] = [
     width: 2048,
     height: 2732,
     extension: 'webp'
+  },
+  {
+    id: 121,
+    slug: "flatiron-building-manhattan-nyc-architecture",
+    title: "Flatiron Building Manhattan NYC Architecture",
+    description: "A stunning view of the iconic Flatiron Building in Manhattan, NYC, showcasing its unique architecture. High-quality 4K Cities & Landmarks wallpaper.",
+    imageUrl: "https://cdn.walzoo.com/Desktop/Cities%20%26%20Landmarks/flatiron-building-manhattan-nyc-architecture-pc-wallpaper.webp",
+    category: 'Desktop',
+    subCategory: 'Cities & Landmarks',
+    width: 3840,
+    height: 2160,
+    extension: 'webp'
+  },
+  {
+    id: 122,
+    slug: "abstract-blue-glass-spheres-minimalist",
+    title: "Abstract Blue Glass Spheres Minimalist",
+    description: "A minimalist abstract wallpaper featuring blue glass spheres with a clean and modern aesthetic. Perfect for 4K desktop screens.",
+    imageUrl: "https://cdn.walzoo.com/Desktop/Abstract/abstract-blue-glass-spheres-minimalist-pc-wallpaper.webp",
+    category: 'Desktop',
+    subCategory: 'Abstract',
+    width: 3840,
+    height: 2160,
+    extension: 'webp'
+  },
+  {
+    id: 123,
+    slug: "white-pampas-grass-minimalist-sky",
+    title: "White Pampas Grass Minimalist Sky",
+    description: "Elegant white pampas grass against a minimalist sky background, perfect for a clean phone look. High-resolution minimalist wallpaper.",
+    imageUrl: "https://cdn.walzoo.com/Phone/Minimalist/white-pampas-grass-minimalist-sky-phone-wallpaper.webp",
+    category: 'Phone',
+    subCategory: 'Minimalist',
+    width: 1080,
+    height: 2340,
+    extension: 'webp'
+  },
+  {
+    id: 124,
+    slug: "neon-light-streaks-abstract-black-background",
+    title: "Neon Light Streaks Abstract Black Background",
+    description: "Dynamic neon light streaks on a deep black background, creating a high-tech abstract vibe. Stunning technology wallpaper for mobile.",
+    imageUrl: "https://cdn.walzoo.com/Phone/Technology/neon-light-streaks-abstract-black-background-phone-wallpaper.webp",
+    category: 'Phone',
+    subCategory: 'Technology',
+    width: 1080,
+    height: 2340,
+    extension: 'webp'
+  },
+  {
+    id: 125,
+    slug: "abstract-blue-orange-liquid-droplets",
+    title: "Abstract Blue Orange Liquid Droplets",
+    description: "Vibrant digital art featuring abstract blue and orange liquid droplets with intricate details. Artistic background for tablets.",
+    imageUrl: "https://cdn.walzoo.com/Tablet/Digital%20Art/abstract-blue-orange-liquid-droplets-tablet-wallpaper.webp",
+    category: 'Tablet',
+    subCategory: 'Digital Art',
+    width: 2048,
+    height: 2732,
+    extension: 'webp'
+  },
+  {
+    id: 126,
+    slug: "ornate-katana-sword-blue-smoke",
+    title: "Ornate Katana Sword Blue Smoke",
+    description: "A detailed ornate katana sword surrounded by mysterious blue smoke, ideal for gaming enthusiasts. Epic gaming theme for tablet screens.",
+    imageUrl: "https://cdn.walzoo.com/Tablet/Gaming/ornate-katana-sword-blue-smoke-tablet-wallpaper.webp",
+    category: 'Tablet',
+    subCategory: 'Gaming',
+    width: 2048,
+    height: 2732,
+    extension: 'webp'
   }
 ];
 

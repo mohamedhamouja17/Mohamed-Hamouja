@@ -3,7 +3,7 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://walzoo.com</loc>
-    <lastmod>2026-02-14</lastmod>
+    <lastmod>2026-03-15</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -1385,6 +1385,72 @@
       <image:loc>https://cdn.walzoo.com/Tablet/Space/earth-from-space-city-lights-night-tablet-wallpaper.webp</image:loc>
       <image:title>Earth Night Lights</image:title>
       <image:caption>A mesmerizing view of Earth from space at night, showing glowing city lights across the globe. 4K Space wallpaper.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/flatiron-building-manhattan-nyc-architecture</loc>
+    <lastmod>2026-03-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Desktop/Cities%20%26%20Landmarks/flatiron-building-manhattan-nyc-architecture-pc-wallpaper.webp</image:loc>
+      <image:title>Flatiron Building Manhattan NYC Architecture</image:title>
+      <image:caption>A stunning view of the iconic Flatiron Building in Manhattan, NYC, showcasing its unique architecture. High-quality 4K Cities &amp; Landmarks wallpaper.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/abstract-blue-glass-spheres-minimalist</loc>
+    <lastmod>2026-03-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Desktop/Abstract/abstract-blue-glass-spheres-minimalist-pc-wallpaper.webp</image:loc>
+      <image:title>Abstract Blue Glass Spheres Minimalist</image:title>
+      <image:caption>A minimalist abstract wallpaper featuring blue glass spheres with a clean and modern aesthetic. Perfect for 4K desktop screens.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/white-pampas-grass-minimalist-sky</loc>
+    <lastmod>2026-03-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Phone/Minimalist/white-pampas-grass-minimalist-sky-phone-wallpaper.webp</image:loc>
+      <image:title>White Pampas Grass Minimalist Sky</image:title>
+      <image:caption>Elegant white pampas grass against a minimalist sky background, perfect for a clean phone look. High-resolution minimalist wallpaper.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/neon-light-streaks-abstract-black-background</loc>
+    <lastmod>2026-03-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Phone/Technology/neon-light-streaks-abstract-black-background-phone-wallpaper.webp</image:loc>
+      <image:title>Neon Light Streaks Abstract Black Background</image:title>
+      <image:caption>Dynamic neon light streaks on a deep black background, creating a high-tech abstract vibe. Stunning technology wallpaper for mobile.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/abstract-blue-orange-liquid-droplets</loc>
+    <lastmod>2026-03-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Tablet/Digital%20Art/abstract-blue-orange-liquid-droplets-tablet-wallpaper.webp</image:loc>
+      <image:title>Abstract Blue Orange Liquid Droplets</image:title>
+      <image:caption>Vibrant digital art featuring abstract blue and orange liquid droplets with intricate details. Artistic background for tablets.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/ornate-katana-sword-blue-smoke</loc>
+    <lastmod>2026-03-15</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Tablet/Gaming/ornate-katana-sword-blue-smoke-tablet-wallpaper.webp</image:loc>
+      <image:title>Ornate Katana Sword Blue Smoke</image:title>
+      <image:caption>A detailed ornate katana sword surrounded by mysterious blue smoke, ideal for gaming enthusiasts. Epic gaming theme for tablet screens.</image:caption>
     </image:image>
   </url>
 </urlset>
