@@ -24,7 +24,6 @@ const Footer: React.FC = () => {
           <h3 className="font-bold text-base text-gray-800 mb-4">Quick Links</h3>
           <ul className="space-y-3">
             <li><Link to="/about" className="text-gray-600 hover:text-gray-900 transition-colors text-left font-medium block">About</Link></li>
-            <li><Link to="/blog" className="text-gray-600 hover:text-gray-900 transition-colors text-left font-medium block">Blog</Link></li>
             <li><Link to="/contact" className="text-gray-600 hover:text-gray-900 transition-colors text-left font-medium block">Contact</Link></li>
           </ul>
         </div>
