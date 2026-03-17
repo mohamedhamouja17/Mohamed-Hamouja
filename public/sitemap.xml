@@ -3,7 +3,7 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://walzoo.com</loc>
-    <lastmod>2026-03-16</lastmod>
+    <lastmod>2026-03-17</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -1517,6 +1517,72 @@
       <image:loc>https://cdn.walzoo.com/Tablet/Quotes/motivational-now-or-never-metallic-typography-tablet-wallpaper.webp</image:loc>
       <image:title>Motivational Now or Never Metallic Typography</image:title>
       <image:caption>Inspirational 'Now or Never' quote in metallic typography. Motivational background for your tablet.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/colorful-italian-coastal-village-sunset-pc-wallpaper</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Desktop/Culture/colorful-italian-coastal-village-sunset-pc-wallpaper.webp</image:loc>
+      <image:title>Colorful Italian Coastal Village Sunset</image:title>
+      <image:caption>A vibrant sunset view over a colorful Italian coastal village. High-quality 4K culture wallpaper for your desktop.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/cool-panda-streetwear-orange-background-pc-wallpaper</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Desktop/Kids/cool-panda-streetwear-orange-background-pc-wallpaper.webp</image:loc>
+      <image:title>Cool Panda Streetwear Orange Background</image:title>
+      <image:caption>An adorable panda wearing streetwear against a bright orange background. Fun and stylish 4K kids wallpaper.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/tropical-lagoon-wooden-boats-clear-water-phone-wallpaper</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Phone/Nature/tropical-lagoon-wooden-boats-clear-water-phone-wallpaper.webp</image:loc>
+      <image:title>Tropical Lagoon Wooden Boats</image:title>
+      <image:caption>Serene wooden boats floating in a tropical lagoon with crystal clear water. Beautiful nature wallpaper for your phone.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/cosmic-desert-city-sunset-planet-rise-phone-wallpaper</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Phone/Space/cosmic-desert-city-sunset-planet-rise-phone-wallpaper.webp</image:loc>
+      <image:title>Cosmic Desert City Sunset</image:title>
+      <image:caption>A futuristic desert city at sunset with a majestic planet rising in the background. Epic space wallpaper for mobile.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/historic-leaning-tower-of-pisa-italy-tablet-wallpaper</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Tablet/Cities%20%26%20Landmarks/historic-leaning-tower-of-pisa-italy-tablet-wallpaper.webp</image:loc>
+      <image:title>Historic Leaning Tower of Pisa</image:title>
+      <image:caption>A classic view of the historic Leaning Tower of Pisa in Italy. Iconic landmark wallpaper for tablets.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/abstract-stacked-translucent-glass-spheres-tablet-wallpaper</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Tablet/Abstract/abstract-stacked-translucent-glass-spheres-tablet-wallpaper.webp</image:loc>
+      <image:title>Abstract Stacked Translucent Glass Spheres</image:title>
+      <image:caption>Modern abstract art featuring stacked translucent glass spheres with soft lighting. Clean background for tablets.</image:caption>
     </image:image>
   </url>
 </urlset>
