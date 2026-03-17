@@ -11,7 +11,7 @@ interface SEOProps {
 const SEO: React.FC<SEOProps> = ({ 
   title = "Walzoo - Free 4K Wallpapers & Backgrounds", 
   description = "Download stunning 4K wallpapers for Phone, Desktop, and Tablet. Everything on Walzoo is 100% Free.",
-  image = "/favicon.png",
+  image = "https://cdn.walzoo.com/Desktop/Abstract/modern-wood-panel-wall-blue-backlight-pc.webp",
   url = "https://walzoo.com"
 }) => {
   const fullTitle = title.includes("Walzoo") ? title : `${title} | Walzoo`;
