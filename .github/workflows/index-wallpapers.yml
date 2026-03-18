@@ -2,12 +2,14 @@ name: Index Wallpapers to Google
 
 on:
   schedule:
-    - cron: '0 0 * * *' # Runs daily at midnight
-  workflow_dispatch: # Allows manual trigger
+    - cron: '0 0 * * *' # Runs automatically every day at midnight
+  workflow_dispatch: # Allows you to trigger it manually via the Actions tab
 
 jobs:
   index:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write # Required to allow the bot to save the indexed-cache.json
 
     steps:
       - name: Checkout repository
@@ -18,7 +20,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '22'
+          node-version: '22' # Uses the latest stable Node.js version
 
       - name: Install dependencies
         run: npm install googleapis
@@ -30,7 +32,12 @@ jobs:
 
       - name: Commit and push indexed-cache.json
         run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          
+          # Stage the cache file
           git add indexed-cache.json
-          git diff --quiet && git diff --staged --quiet || (git commit -m "chore: update indexed-cache.json [skip ci]" && git push)
+          
+          # The logic: If no changes, say so and exit with success (Green). 
+          # If changes exist, commit and push them.
+          git diff --quiet && git diff --staged --quiet || (git commit -m "chore: update indexed-cache.json [skip ci]" && git push) || echo "No new changes to commit. Skipping push."
