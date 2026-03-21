@@ -1,0 +1,38 @@
+name: Index Wallpapers to Google
+
+on:
+  schedule:
+    - cron: '0 0 * * *' 
+  workflow_dispatch: 
+
+jobs:
+  index:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write 
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install dependencies
+        run: npm install googleapis
+
+      - name: Run indexing script
+        env:
+          GOOGLE_CREDS: ${{ secrets.GOOGLE_CREDS }}
+        run: node index-urls.js
+
+      - name: Commit and push indexed-cache.json
+        run: |
+          git config --local user.name "github-actions[bot]"
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git add indexed-cache.json
+          git diff --quiet && git diff --staged --quiet || (git commit -m "chore: update indexed-cache.json [skip ci]" && git push) || echo "Nothing to update today!"
