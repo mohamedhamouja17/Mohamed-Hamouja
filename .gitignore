@@ -30,10 +30,13 @@ yarn-error.log*
 .vscode
 .idea
 *.suo
-*.ntvs*
+.ntvs
 *.njsproj
 *.sln
 *.sw?
 
 # Walzoo Specific Secrets
 service-account.json
+
+# 🛡️ GitHub Workflow Protection
+.github/
