@@ -37,3 +37,4 @@ yarn-error.log*
 
 # Walzoo Specific Secrets
 service-account.json
+.github/
