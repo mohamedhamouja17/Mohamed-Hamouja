@@ -1,8 +1,8 @@
 import { google } from 'googleapis';
 import fs from 'fs';
 import path from 'path';
-import * as admin from 'firebase-admin';
-import { MY_IMAGES } from '../constants';
+import admin from 'firebase-admin';
+import { MY_IMAGES } from '../constants.js';
 
 // Initialize Firebase Admin SDK
 if (!admin.apps.length) {
@@ -84,7 +84,6 @@ export default async function handler(req: any, res: any) {
     const allUrls = [...new Set([...staticUrls, ...blogUrls, ...wallpaperUrls])];
 
     // 4. Check tracking system (Firestore) to find unindexed URLs
-    // We use Firestore because local filesystem (indexed-cache.json) is not persistent on Vercel
     const cacheRef = db.collection('indexing').doc('cache');
     const cacheSnap = await cacheRef.get();
     let indexedUrls: string[] = [];
@@ -118,7 +117,6 @@ export default async function handler(req: any, res: any) {
         newlyIndexed.push(url);
       } catch (e: any) {
         console.error(`❌ Error indexing ${url}:`, e.message);
-        // Continue with other URLs even if one fails
       }
     }
 
