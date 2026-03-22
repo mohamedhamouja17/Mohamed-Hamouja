@@ -1,9 +1,25 @@
 import { google } from 'googleapis';
 import fs from 'fs';
 import path from 'path';
-import { db } from '../firebase';
-import { doc, getDoc, setDoc } from 'firebase/firestore';
+import * as admin from 'firebase-admin';
 import { MY_IMAGES } from '../constants';
+
+// Initialize Firebase Admin SDK
+if (!admin.apps.length) {
+  const creds = process.env.GOOGLE_CREDS;
+  if (creds) {
+    try {
+      const serviceAccount = JSON.parse(creds);
+      admin.initializeApp({
+        credential: admin.credential.cert(serviceAccount),
+      });
+    } catch (e) {
+      console.error('Failed to parse GOOGLE_CREDS for Firebase Admin:', e);
+    }
+  }
+}
+
+const db = admin.firestore();
 
 export default async function handler(req: any, res: any) {
   // 1. Keep the existing CRON_SECRET authorization check
@@ -69,12 +85,12 @@ export default async function handler(req: any, res: any) {
 
     // 4. Check tracking system (Firestore) to find unindexed URLs
     // We use Firestore because local filesystem (indexed-cache.json) is not persistent on Vercel
-    const cacheRef = doc(db, 'indexing', 'cache');
-    const cacheSnap = await getDoc(cacheRef);
+    const cacheRef = db.collection('indexing').doc('cache');
+    const cacheSnap = await cacheRef.get();
     let indexedUrls: string[] = [];
     
-    if (cacheSnap.exists()) {
-      indexedUrls = cacheSnap.data().urls || [];
+    if (cacheSnap.exists) {
+      indexedUrls = cacheSnap.data()?.urls || [];
     }
 
     // Filter out already indexed URLs and limit to 200 (Google's daily limit)
@@ -109,7 +125,7 @@ export default async function handler(req: any, res: any) {
     // 6. Update tracking system (Firestore)
     if (newlyIndexed.length > 0) {
       const updatedCache = [...new Set([...indexedUrls, ...newlyIndexed])];
-      await setDoc(cacheRef, { 
+      await cacheRef.set({ 
         urls: updatedCache,
         lastUpdated: new Date().toISOString(),
         lastBatchCount: newlyIndexed.length
