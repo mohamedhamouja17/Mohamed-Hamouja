@@ -25,7 +25,7 @@ export default async function handler(req: any, res: any) {
     const serviceAccount = JSON.parse(creds);
     const jwtClient = new google.auth.JWT(
       serviceAccount.client_email,
-      null,
+      undefined,
       serviceAccount.private_key,
       ['https://www.googleapis.com/auth/indexing']
     );
