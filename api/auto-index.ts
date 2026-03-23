@@ -5,21 +5,19 @@ import admin from 'firebase-admin';
 import { MY_IMAGES } from '../constants.js';
 
 // Initialize Firebase Admin SDK
-if (!admin.apps.length) {
-  const creds = process.env.GOOGLE_CREDS;
-  if (creds) {
-    try {
-      const serviceAccount = JSON.parse(creds);
-      admin.initializeApp({
-        credential: admin.credential.cert(serviceAccount),
-      });
-    } catch (e) {
-      console.error('Failed to parse GOOGLE_CREDS for Firebase Admin:', e);
-    }
+const creds = process.env.GOOGLE_CREDS;
+if (!admin.apps.length && creds) {
+  try {
+    const serviceAccount = JSON.parse(creds);
+    admin.initializeApp({
+      credential: admin.credential.cert(serviceAccount),
+      projectId: serviceAccount.project_id,
+    });
+    console.log('Firebase Admin initialized for project:', serviceAccount.project_id);
+  } catch (e) {
+    console.error('Failed to initialize Firebase Admin:', e);
   }
 }
-
-const db = admin.firestore();
 
 export default async function handler(req: any, res: any) {
   // 1. Keep the existing CRON_SECRET authorization check
@@ -30,7 +28,6 @@ export default async function handler(req: any, res: any) {
 
   try {
     // 2. Authenticate with Google Indexing API
-    const creds = process.env.GOOGLE_CREDS;
     if (!creds) {
       return res.status(500).json({ 
         success: false, 
@@ -84,6 +81,16 @@ export default async function handler(req: any, res: any) {
     const allUrls = [...new Set([...staticUrls, ...blogUrls, ...wallpaperUrls])];
 
     // 4. Check tracking system (Firestore) to find unindexed URLs
+    let db: admin.firestore.Firestore;
+    try {
+      db = admin.firestore();
+      const currentProjectId = admin.app().options.projectId;
+      console.log(`Attempting to access Firestore. Project ID: ${currentProjectId}`);
+    } catch (e: any) {
+      console.error('Firestore Access Error:', e.message);
+      throw new Error(`Failed to access Firestore: ${e.message}`);
+    }
+
     const cacheRef = db.collection('indexing').doc('cache');
     const cacheSnap = await cacheRef.get();
     let indexedUrls: string[] = [];
