@@ -44,19 +44,25 @@ export default async function handler(req: any, res: any) {
     );
 
     // 3. Fetch wallpaper URLs and other site URLs
-    const BASE_URL = 'https://www.walzoo.com';
+    const BASE_URL = 'https://walzoo.com'; // Match sitemap.xml
     
     // Static main pages
     const staticUrls = [
       `${BASE_URL}/`,
+      `${BASE_URL}/desktop`,
+      `${BASE_URL}/phone`,
+      `${BASE_URL}/tablet`,
       `${BASE_URL}/blog`,
-      `${BASE_URL}/blog/phone`,
-      `${BASE_URL}/blog/tablet`,
-      `${BASE_URL}/blog/desktop`,
+      `${BASE_URL}/about`,
+      `${BASE_URL}/privacy`,
+      `${BASE_URL}/terms`,
+      `${BASE_URL}/contact`
     ];
 
     // Wallpaper URLs from constants.ts
     const wallpaperUrls = MY_IMAGES.map(img => `${BASE_URL}/wallpaper/${img.slug}`);
+    console.log('Total images found in constants:', MY_IMAGES.length);
+    console.log('Total wallpaper URLs generated:', wallpaperUrls.length);
 
     // Blog URLs from filesystem (if available in deployment)
     let blogUrls: string[] = [];
@@ -71,6 +77,7 @@ export default async function handler(req: any, res: any) {
           const files = fs.readdirSync(dir);
           const slugs = files.filter(f => f.endsWith('.md')).map(f => f.replace('.md', ''));
           blogUrls = slugs.map(slug => `${BASE_URL}/blog/post/${slug}`);
+          console.log(`Found ${blogUrls.length} blog posts in ${dir}`);
           break;
         } catch (e) {
           console.error(`Error reading blog dir ${dir}:`, e);
@@ -79,6 +86,10 @@ export default async function handler(req: any, res: any) {
     }
 
     const allUrls = [...new Set([...staticUrls, ...blogUrls, ...wallpaperUrls])];
+    console.log('Total unique URLs discovered for indexing:', allUrls.length);
+    if (allUrls.length > 0) {
+      console.log('First 3 URLs discovered:', allUrls.slice(0, 3));
+    }
 
     // 4. Check tracking system (Firestore) to find unindexed URLs
     let db: admin.firestore.Firestore;
@@ -97,10 +108,20 @@ export default async function handler(req: any, res: any) {
     
     if (cacheSnap.exists) {
       indexedUrls = cacheSnap.data()?.urls || [];
+      console.log('Found existing indexed URLs in Firestore:', indexedUrls.length);
+      if (indexedUrls.length > 0) {
+        console.log('First 3 indexed URLs in Firestore:', indexedUrls.slice(0, 3));
+      }
+    } else {
+      console.log('No existing indexing cache found in Firestore. Starting fresh.');
     }
 
     // Filter out already indexed URLs and limit to 200 (Google's daily limit)
     const urlsToProcess = allUrls.filter(url => !indexedUrls.includes(url)).slice(0, 200);
+    console.log('URLs remaining to process (after filtering and 200 limit):', urlsToProcess.length);
+    if (urlsToProcess.length > 0) {
+      console.log('First 3 URLs to be processed:', urlsToProcess.slice(0, 3));
+    }
 
     if (urlsToProcess.length === 0) {
       return res.status(200).json({ 
