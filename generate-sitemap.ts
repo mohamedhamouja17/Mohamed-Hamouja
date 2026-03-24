@@ -10,7 +10,7 @@ import { SUB_CATEGORIES, MY_IMAGES } from './constants.ts';
  */
 
 const BASE_URL = 'https://walzoo.com';
-const today = new Date().toISOString().split('T')[0];
+const homeDate = '2026-03-24';
 const historicalDate = '2026-01-24';
 
 const staticRoutes = [
@@ -34,7 +34,7 @@ ${staticRoutes
     const isHome = route === '/';
     return `  <url>
     <loc>${BASE_URL}${isHome ? '' : route}</loc>
-    <lastmod>${isHome ? today : historicalDate}</lastmod>
+    <lastmod>${isHome ? homeDate : historicalDate}</lastmod>
     <changefreq>${isHome ? 'daily' : 'weekly'}</changefreq>
     <priority>${isHome ? '1.0' : '0.8'}</priority>
   </url>`;
@@ -55,7 +55,7 @@ ${MY_IMAGES.map(img => {
   
   return `  <url>
     <loc>${BASE_URL}/wallpaper/${img.slug}</loc>
-    <lastmod>${today}</lastmod>
+    <lastmod>${historicalDate}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
     <image:image>
