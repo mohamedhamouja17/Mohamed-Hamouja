@@ -3,7 +3,7 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://walzoo.com</loc>
-    <lastmod>2026-03-24</lastmod>
+    <lastmod>2026-03-25</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -1733,6 +1733,138 @@
       <image:loc>https://cdn.walzoo.com/Tablet/Kids/cute-scruffy-brown-dog-3d-character-tablet-wallpaper.webp</image:loc>
       <image:title>Cute Scruffy Brown Dog</image:title>
       <image:caption>An adorable 3D character of a scruffy brown dog. Perfect for kids' tablets and animal lovers.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/glowing-ringed-planet-dark-space-stars</loc>
+    <lastmod>2026-03-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Desktop/Space/glowing-ringed-planet-dark-space-stars-wallpaper.webp</image:loc>
+      <image:title>Glowing Ringed Planet in Dark Space</image:title>
+      <image:caption>A majestic glowing ringed planet surrounded by distant stars in the deep dark space. High-quality 4K Space wallpaper.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/colorful-blooming-tree-vibrant-flowers-blue-sky</loc>
+    <lastmod>2026-03-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Desktop/Nature/colorful-blooming-tree-vibrant-flowers-blue-sky-wallpaper.webp</image:loc>
+      <image:title>Colorful Blooming Tree with Vibrant Flowers</image:title>
+      <image:caption>A beautiful tree in full bloom with vibrant colorful flowers against a clear blue sky. High-quality 4K Nature wallpaper.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/sydney-opera-house-sunset-harbor-reflection</loc>
+    <lastmod>2026-03-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Desktop/Cities%20%26%20Landmarks/sydney-opera-house-sunset-harbor-reflection-wallpaper.webp</image:loc>
+      <image:title>Sydney Opera House Sunset Harbor Reflection</image:title>
+      <image:caption>The iconic Sydney Opera House at sunset with a stunning reflection in the harbor waters. High-quality 4K Cities &amp; Landmarks wallpaper.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/transparent-turquoise-water-smooth-pebbles-shore</loc>
+    <lastmod>2026-03-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Desktop/Abstract/transparent-turquoise-water-smooth-pebbles-shore-wallpaper.webp</image:loc>
+      <image:title>Transparent Turquoise Water and Smooth Pebbles</image:title>
+      <image:caption>Crystal clear transparent turquoise water washing over smooth pebbles on the shore. High-quality 4K Abstract wallpaper.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/colosseum-rome-night-water-reflection</loc>
+    <lastmod>2026-03-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Phone/Digital%20Art/colosseum-rome-night-water-reflection-mobile-wallpaper.webp</image:loc>
+      <image:title>Colosseum Rome Night Water Reflection</image:title>
+      <image:caption>The magnificent Colosseum in Rome at night with a beautiful water reflection. Stunning Digital Art phone wallpaper.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/abstract-red-white-black-paint-stroke</loc>
+    <lastmod>2026-03-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Phone/Gaming/abstract-red-white-black-paint-stroke-mobile-wallpaper.webp</image:loc>
+      <image:title>Abstract Red White and Black Paint Stroke</image:title>
+      <image:caption>A dynamic abstract design featuring bold red, white, and black paint strokes. Perfect for gaming phone setups.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/cute-golden-retriever-puppy-running-indoors</loc>
+    <lastmod>2026-03-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Phone/Animals/cute-golden-retriever-puppy-running-indoors-mobile-wallpaper.webp</image:loc>
+      <image:title>Cute Golden Retriever Puppy Running</image:title>
+      <image:caption>An adorable golden retriever puppy running happily indoors. High-quality Animals phone wallpaper.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/matte-grey-lamborghini-aventador-urban-graffiti</loc>
+    <lastmod>2026-03-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Phone/Cars/matte-grey-lamborghini-aventador-urban-graffiti-mobile-wallpaper.webp</image:loc>
+      <image:title>Matte Grey Lamborghini Aventador Urban Graffiti</image:title>
+      <image:caption>A sleek matte grey Lamborghini Aventador parked against a vibrant urban graffiti wall. High-end Car phone wallpaper.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/stay-focused-stay-strong-motivational-street</loc>
+    <lastmod>2026-03-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Tablet/Quotes/stay-focused-stay-strong-motivational-street-mobile-wallpaper.webp</image:loc>
+      <image:title>Stay Focused Stay Strong Motivational Quote</image:title>
+      <image:caption>A motivational street-style quote 'Stay Focused, Stay Strong' to keep you inspired. High-quality Quotes tablet wallpaper.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/samurai-warrior-action-ink-splatter-red-sun</loc>
+    <lastmod>2026-03-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Tablet/Anime/samurai-warrior-action-ink-splatter-red-sun-mobile-wallpaper.webp</image:loc>
+      <image:title>Samurai Warrior Action Ink Splatter</image:title>
+      <image:caption>An action-packed samurai warrior silhouette with ink splatter effects and a red sun. Epic Anime tablet wallpaper.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/sidi-bou-said-tunisia-blue-white-street</loc>
+    <lastmod>2026-03-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Tablet/Culture/sidi-bou-said-tunisia-blue-white-street-mobile-wallpaper.webp</image:loc>
+      <image:title>Sidi Bou Said Tunisia Blue and White Street</image:title>
+      <image:caption>The picturesque blue and white streets of Sidi Bou Said, Tunisia. High-quality Culture tablet wallpaper.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/cute-chibi-ninja-glowing-hands-yellow-background</loc>
+    <lastmod>2026-03-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Tablet/Kids/cute-chibi-ninja-glowing-hands-yellow-background-mobile-wallpaper.webp</image:loc>
+      <image:title>Cute Chibi Ninja with Glowing Hands</image:title>
+      <image:caption>An adorable chibi ninja with glowing hands against a bright yellow background. Perfect for kids' tablets.</image:caption>
     </image:image>
   </url>
 </urlset>
