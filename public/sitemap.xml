@@ -3,7 +3,7 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://walzoo.com</loc>
-    <lastmod>2026-03-25</lastmod>
+    <lastmod>2026-03-26</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -1865,6 +1865,138 @@
       <image:loc>https://cdn.walzoo.com/Tablet/Kids/cute-chibi-ninja-glowing-hands-yellow-background-mobile-wallpaper.webp</image:loc>
       <image:title>Cute Chibi Ninja with Glowing Hands</image:title>
       <image:caption>An adorable chibi ninja with glowing hands against a bright yellow background. Perfect for kids' tablets.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/rain-drops-on-green-leaves-serene-nature</loc>
+    <lastmod>2026-03-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Desktop/Seasons/rain-drops-on-green-leaves-serene-nature-wallpaper.webp</image:loc>
+      <image:title>Rain Drops on Green Leaves</image:title>
+      <image:caption>Serene nature wallpaper featuring rain drops on lush green leaves. High-quality 4K Seasons desktop background.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/ferrari-f1-racing-car-sf-24-livery</loc>
+    <lastmod>2026-03-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Desktop/Sports/ferrari-f1-racing-car-sf-24-livery-wallpaper.webp</image:loc>
+      <image:title>Ferrari F1 Racing Car SF-24</image:title>
+      <image:caption>The iconic Ferrari F1 racing car with the SF-24 livery. Dynamic 4K sports wallpaper for desktop.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/matrix-code-binary-digital-rain-green-glowing</loc>
+    <lastmod>2026-03-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Desktop/Technology/matrix-code-binary-digital-rain-green-glowing-effect.webp</image:loc>
+      <image:title>Matrix Code Binary Digital Rain</image:title>
+      <image:caption>Classic matrix code binary digital rain with a green glowing effect. High-tech 4K technology wallpaper.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/transparent-turquoise-water-smooth-pebbles-shore</loc>
+    <lastmod>2026-03-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Desktop/Minimalist/transparent-turquoise-water-smooth-pebbles-shore-wallpaper.webp</image:loc>
+      <image:title>Transparent Turquoise Water and Pebbles</image:title>
+      <image:caption>Minimalist view of transparent turquoise water and smooth pebbles on the shore. Clean 4K desktop background.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/earth-from-space-blue-glow-city-lights</loc>
+    <lastmod>2026-03-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Phone/Space/earth-from-space-blue-glow-city-lights-mobile-wallpaper.webp</image:loc>
+      <image:title>Earth from Space Blue Glow</image:title>
+      <image:caption>Stunning view of Earth from space with a blue glow and city lights. Beautiful Space wallpaper for phone.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/snow-dusted-evergreen-pine-tree-winter-forest</loc>
+    <lastmod>2026-03-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Phone/Nature/snow-dusted-evergreen-pine-tree-winter-forest-wallpaper.webp</image:loc>
+      <image:title>Snow Dusted Evergreen Pine Tree</image:title>
+      <image:caption>A snow-dusted evergreen pine tree in a serene winter forest. Peaceful nature background for mobile.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/manhattan-bridge-night-city-skyline-reflection</loc>
+    <lastmod>2026-03-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Phone/Cities%20%26%20Landmarks/manhattan-bridge-night-city-skyline-reflection-wallpaper.webp</image:loc>
+      <image:title>Manhattan Bridge Night Skyline</image:title>
+      <image:caption>Iconic Manhattan Bridge at night with city skyline reflections. High-resolution landmark wallpaper for phone.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/abstract-3d-fluid-waves-green-magenta-textures</loc>
+    <lastmod>2026-03-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Phone/Abstract/abstract-3d-fluid-waves-green-magenta-textures-wallpaper.webp</image:loc>
+      <image:title>Abstract 3D Fluid Waves</image:title>
+      <image:caption>Vibrant abstract 3D fluid waves with green and magenta textures. Modern abstract art for mobile.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/lonely-fisherman-boat-blood-moon-birds-silhouette</loc>
+    <lastmod>2026-03-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Tablet/Digital%20Art/lonely-fisherman-boat-blood-moon-birds-silhouette-mobile-wallpaper.webp</image:loc>
+      <image:title>Lonely Fisherman Blood Moon Silhouette</image:title>
+      <image:caption>Artistic silhouette of a lonely fisherman in a boat under a blood moon. Stunning digital art for tablet.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/samurai-silhouette-full-moon-red-petals-minimalist</loc>
+    <lastmod>2026-03-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Tablet/Gaming/samurai-silhouette-full-moon-red-petals-minimalist-mobile-wallpaper.webp</image:loc>
+      <image:title>Samurai Silhouette Full Moon</image:title>
+      <image:caption>Minimalist samurai silhouette against a full moon with red petals. Epic gaming-themed tablet wallpaper.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/blue-and-yellow-macaw-tropical-ocean-coastline</loc>
+    <lastmod>2026-03-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Tablet/Animals/blue-and-yellow-macaw-tropical-ocean-coastline-mobile-wallpaper.webp</image:loc>
+      <image:title>Blue and Yellow Macaw Coastline</image:title>
+      <image:caption>A vibrant blue and yellow macaw on a tropical ocean coastline. Beautiful animal wallpaper for tablet.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/bmw-s1000rr-m-sport-performance-superbike-night</loc>
+    <lastmod>2026-03-26</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Tablet/Cars/bmw-s1000rr-m-sport-performance-superbike-night-mobile-wallpaper.webp</image:loc>
+      <image:title>BMW S1000RR M Sport Superbike</image:title>
+      <image:caption>The high-performance BMW S1000RR M Sport superbike at night. Sleek car and bike wallpaper for tablet.</image:caption>
     </image:image>
   </url>
 </urlset>
