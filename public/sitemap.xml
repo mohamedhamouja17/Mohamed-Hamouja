@@ -3,7 +3,7 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://walzoo.com</loc>
-    <lastmod>2026-03-26</lastmod>
+    <lastmod>2026-03-27</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -1997,6 +1997,138 @@
       <image:loc>https://cdn.walzoo.com/Tablet/Cars/bmw-s1000rr-m-sport-performance-superbike-night-mobile-wallpaper.webp</image:loc>
       <image:title>BMW S1000RR M Sport Superbike</image:title>
       <image:caption>The high-performance BMW S1000RR M Sport superbike at night. Sleek car and bike wallpaper for tablet.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/just-do-it-minimalist-clock-motivation</loc>
+    <lastmod>2026-03-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Desktop/Quotes/just-do-it-minimalist-clock-motivation-wallpaper.webp</image:loc>
+      <image:title>Just Do It Minimalist Clock Motivation</image:title>
+      <image:caption>A minimalist motivational wallpaper featuring a clock and the 'Just Do It' quote. Perfect 4K desktop background for staying focused.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/samurai-warrior-black-wolf-minimalist-silhouette</loc>
+    <lastmod>2026-03-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Desktop/Anime/samurai-warrior-black-wolf-minimalist-silhouette-wallpaper.webp</image:loc>
+      <image:title>Samurai Warrior and Black Wolf Silhouette</image:title>
+      <image:caption>Epic minimalist silhouette of a samurai warrior and a black wolf. High-quality 4K anime wallpaper for desktop.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/great-wall-of-china-mountains-sunset</loc>
+    <lastmod>2026-03-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Desktop/Culture/great-wall-of-china-mountains-sunset-wallpaper.webp</image:loc>
+      <image:title>Great Wall of China Mountains Sunset</image:title>
+      <image:caption>Breathtaking sunset view of the Great Wall of China winding through the mountains. Stunning 4K culture wallpaper.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/be-kind-to-everyone-cute-hamster-minimalist</loc>
+    <lastmod>2026-03-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Desktop/Kids/be-kind-to-everyone-cute-hamster-minimalist-wallpaper.webp</image:loc>
+      <image:title>Be Kind to Everyone Cute Hamster</image:title>
+      <image:caption>Adorable minimalist wallpaper featuring a cute hamster and the message 'Be Kind to Everyone'. Fun 4K background for kids.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/tropical-beach-paradise</loc>
+    <lastmod>2026-03-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Phone/Seasons/tropical-beach-paradise-wallpaper.webp</image:loc>
+      <image:title>Tropical Beach Paradise</image:title>
+      <image:caption>Escape to a tropical beach paradise with this serene phone wallpaper. Beautiful seasonal background for mobile.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/minimalist-white-number-seven</loc>
+    <lastmod>2026-03-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Phone/Sports/minimalist-white-number-seven-wallpaper.webp</image:loc>
+      <image:title>Minimalist White Number Seven</image:title>
+      <image:caption>A clean and minimalist phone wallpaper featuring a white number seven. Stylish sports-themed background for mobile.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/black-and-white-skyscraper-airplane</loc>
+    <lastmod>2026-03-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Phone/Technology/black-and-white-skyscraper-airplane-wallpaper.webp</image:loc>
+      <image:title>Black and White Skyscraper and Airplane</image:title>
+      <image:caption>Stunning black and white photography of a skyscraper and an airplane. Modern technology-themed wallpaper for phone.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/abstract-colorful-fluid-waves</loc>
+    <lastmod>2026-03-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Phone/Minimalist/abstract-colorful-fluid-waves-wallpaper.webp</image:loc>
+      <image:title>Abstract Colorful Fluid Waves</image:title>
+      <image:caption>Vibrant abstract colorful fluid waves for a modern and clean phone background. High-resolution minimalist wallpaper.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/starry-night-sky-milky-way-over-canyon-cliffs</loc>
+    <lastmod>2026-03-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Tablet/Space/starry-night-sky-milky-way-over-canyon-cliffs.webp</image:loc>
+      <image:title>Starry Night Sky Milky Way Over Canyon</image:title>
+      <image:caption>A majestic view of the starry night sky and Milky Way over canyon cliffs. Breathtaking space wallpaper for tablet.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/green-leaves-water-drops</loc>
+    <lastmod>2026-03-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Tablet/Nature/green-leaves-water-drops-wallpaper.webp</image:loc>
+      <image:title>Green Leaves with Water Drops</image:title>
+      <image:caption>Serene nature wallpaper featuring lush green leaves with delicate water drops. High-quality background for tablet.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/modern-stacked-glass-skyscraper-architecture</loc>
+    <lastmod>2026-03-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Tablet/Cities%20%26%20Landmarks/modern-stacked-glass-skyscraper-architecture-wallpaper.webp</image:loc>
+      <image:title>Modern Stacked Glass Skyscraper Architecture</image:title>
+      <image:caption>Impressive modern architecture featuring a stacked glass skyscraper. High-resolution city landmark wallpaper for tablet.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/minimalist-peach-poppy-flower-green-background</loc>
+    <lastmod>2026-03-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Tablet/Abstract/minimalist-peach-poppy-flower-green-background-wallpaper.webp</image:loc>
+      <image:title>Minimalist Peach Poppy Flower</image:title>
+      <image:caption>A beautiful minimalist peach poppy flower against a soft green background. Elegant abstract wallpaper for tablet.</image:caption>
     </image:image>
   </url>
 </urlset>
