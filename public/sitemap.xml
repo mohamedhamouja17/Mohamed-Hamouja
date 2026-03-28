@@ -3,7 +3,7 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://walzoo.com</loc>
-    <lastmod>2026-03-27</lastmod>
+    <lastmod>2026-03-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -2129,6 +2129,138 @@
       <image:loc>https://cdn.walzoo.com/Tablet/Abstract/minimalist-peach-poppy-flower-green-background-wallpaper.webp</image:loc>
       <image:title>Minimalist Peach Poppy Flower</image:title>
       <image:caption>A beautiful minimalist peach poppy flower against a soft green background. Elegant abstract wallpaper for tablet.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/minimalist-white-glass-dahlia-flower-on-black-background</loc>
+    <lastmod>2026-03-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Desktop/Digital%20Art/minimalist-white-glass-dahlia-flower-on-black-background.webp</image:loc>
+      <image:title>Minimalist White Glass Dahlia</image:title>
+      <image:caption>A stunning minimalist white glass dahlia flower set against a deep black background. Elegant 4K digital art for desktop.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/abstract-3d-digital-wave-of-blue-and-pink-glowing-dots</loc>
+    <lastmod>2026-03-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Desktop/Gaming/abstract-3d-digital-wave-of-blue-and-pink-glowing-dots.webp</image:loc>
+      <image:title>Abstract 3D Digital Wave</image:title>
+      <image:caption>A futuristic abstract 3D digital wave composed of blue and pink glowing dots. Dynamic 4K gaming wallpaper for desktop.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/flamingo-standing-still-in-pink-lake-at-sunset</loc>
+    <lastmod>2026-03-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Desktop/Animals/flamingo-standing-still-in-pink-lake-at-sunset.webp</image:loc>
+      <image:title>Flamingo in Pink Lake at Sunset</image:title>
+      <image:caption>A serene view of a flamingo standing still in a pink lake during a beautiful sunset. High-quality 4K nature wallpaper.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/sleek-black-sports-car-in-golden-grassy-field</loc>
+    <lastmod>2026-03-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Desktop/Cars/sleek-black-sports-car-in-golden-grassy-field.webp</image:loc>
+      <image:title>Sleek Black Sports Car</image:title>
+      <image:caption>A sleek black sports car parked in a golden grassy field at golden hour. Premium 4K car wallpaper for desktop.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/today-decides-tomorrow-motivational-quote-yellow-art</loc>
+    <lastmod>2026-03-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Phone/Quotes/today-decides-tomorrow-motivational-quote-yellow-art.webp</image:loc>
+      <image:title>Today Decides Tomorrow Quote</image:title>
+      <image:caption>Motivational quote 'Today Decides Tomorrow' in vibrant yellow typography. Inspiring phone wallpaper.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/kneeling-knight-armor-sword-dark-fantasy-art</loc>
+    <lastmod>2026-03-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Phone/Anime/kneeling-knight-armor-sword-dark-fantasy-art.webp</image:loc>
+      <image:title>Kneeling Knight Dark Fantasy Art</image:title>
+      <image:caption>Epic dark fantasy art of a kneeling knight in full armor with a sword. Stunning anime-style phone wallpaper.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/osaka-castle-cherry-blossoms-japan-architecture-spring</loc>
+    <lastmod>2026-03-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Phone/Culture/osaka-castle-cherry-blossoms-japan-architecture-spring.webp</image:loc>
+      <image:title>Osaka Castle Cherry Blossoms</image:title>
+      <image:caption>The historic Osaka Castle in Japan surrounded by beautiful cherry blossoms in spring. High-resolution culture wallpaper for phone.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/cute-3d-panda-waving-green-background-character</loc>
+    <lastmod>2026-03-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Phone/Kids/cute-3d-panda-waving-green-background-character-wallpaper.webp</image:loc>
+      <image:title>Cute 3D Panda Waving</image:title>
+      <image:caption>An adorable 3D panda character waving against a bright green background. Fun and playful wallpaper for kids' phones.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/yellow-white-flowers-hanging-minimalist-aesthetic-shadows</loc>
+    <lastmod>2026-03-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Tablet/Seasons/yellow-white-flowers-hanging-minimalist-aesthetic-shadows.webp</image:loc>
+      <image:title>Yellow and White Flowers Aesthetic</image:title>
+      <image:caption>Minimalist aesthetic wallpaper featuring yellow and white flowers with soft shadows. Serene seasonal background for tablet.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/snowboarder-jumping-vector-illustration-winter-sports-art</loc>
+    <lastmod>2026-03-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Tablet/Sports/snowboarder-jumping-vector-illustration-winter-sports-art.webp</image:loc>
+      <image:title>Snowboarder Jumping Vector Art</image:title>
+      <image:caption>Dynamic vector illustration of a snowboarder jumping. Cool winter sports art for tablet screens.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/glass-jellyfish-3d-render-futuristic-abstract-art</loc>
+    <lastmod>2026-03-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Tablet/Technology/glass-jellyfish-3d-render-futuristic-abstract-art.webp</image:loc>
+      <image:title>Glass Jellyfish 3D Render</image:title>
+      <image:caption>Futuristic 3D render of a glass jellyfish. Intricate abstract digital art for your tablet background.</image:caption>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://walzoo.com/wallpaper/white-blue-flowers-blooming-blue-sky-nature</loc>
+    <lastmod>2026-03-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://cdn.walzoo.com/Tablet/Minimalist/white-blue-flowers-blooming-blue-sky-nature-wallpaper.webp</image:loc>
+      <image:title>White and Blue Flowers Nature</image:title>
+      <image:caption>Beautiful white and blue flowers blooming against a clear blue sky. Clean minimalist nature wallpaper for tablet.</image:caption>
     </image:image>
   </url>
 </urlset>
