@@ -26,6 +26,19 @@ const staticRoutes = [
 ];
 
 const generateSitemap = () => {
+  const escapeXml = (unsafe: string) => {
+    return unsafe.replace(/[<>&'"]/g, (c) => {
+      switch (c) {
+        case '<': return '&lt;';
+        case '>': return '&gt;';
+        case '&': return '&amp;';
+        case '\'': return '&apos;';
+        case '"': return '&quot;';
+        default: return c;
+      }
+    });
+  };
+
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
@@ -34,7 +47,7 @@ ${staticRoutes
     const isHome = route === '/';
     return `  <url>
     <loc>${BASE_URL}${isHome ? '' : route}</loc>
-    <lastmod>${isHome ? today : historicalDate}</lastmod>
+    <lastmod>${today}</lastmod>
     <changefreq>${isHome ? 'daily' : 'weekly'}</changefreq>
     <priority>${isHome ? '1.0' : '0.8'}</priority>
   </url>`;
@@ -42,16 +55,27 @@ ${staticRoutes
   .join('\n')}
 ${SUB_CATEGORIES.map(cat => {
   const slug = cat.toLowerCase().replace(/ & /g, '-').replace(/ /g, '-');
-  return `  <url>
+  const devices = ['desktop', 'phone', 'tablet'];
+  
+  const categoryUrl = `  <url>
     <loc>${BASE_URL}/category/${slug}</loc>
-    <lastmod>${historicalDate}</lastmod>
+    <lastmod>${today}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>`;
+
+  const deviceCategoryUrls = devices.map(device => `  <url>
+    <loc>${BASE_URL}/${device}/${slug}</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>`).join('\n');
+
+  return `${categoryUrl}\n${deviceCategoryUrls}`;
 }).join('\n')}
 ${MY_IMAGES.map(img => {
-  const title = img.title.replace(/&/g, '&amp;');
-  const description = img.description.replace(/&/g, '&amp;');
+  const title = escapeXml(img.title);
+  const description = escapeXml(img.description);
   
   return `  <url>
     <loc>${BASE_URL}/wallpaper/${img.slug}</loc>
