@@ -8,7 +8,7 @@
   "theme_color": "#F59E0B",
   "icons": [
     {
-      "src": "/favicon.png",
+      "src": "https://cdn.walzoo.com/favicon.png",
       "sizes": "48x48",
       "type": "image/png"
     }
