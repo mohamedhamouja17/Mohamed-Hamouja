@@ -30,7 +30,7 @@ const getCategoryNameFromSlug = (slug: string) =>
  */
 const GalleryView = () => {
   const location = useLocation();
-  const { topic: topicSlug } = useParams<{ topic: string }>();
+  const { topic: topicSlug } = useParams<{ topic?: string }>();
   const [currentPage, setCurrentPage] = useState(1);
   const [windowWidth, setWindowWidth] = useState(typeof window !== 'undefined' ? window.innerWidth : 1024);
 
@@ -179,6 +179,7 @@ const GalleryView = () => {
     </div>
   );
 };
+;
 
 const WallpaperDetailWrapper = () => {
   const { slug } = useParams<{ slug: string }>();
