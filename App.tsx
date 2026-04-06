@@ -19,6 +19,7 @@ import SEO from './components/SEO.tsx';
 import { type Category } from './types.ts';
 import { MY_IMAGES, SUB_CATEGORIES } from './constants.ts';
 import WallpaperCard from './components/WallpaperCard.tsx';
+import AdsterraBanner from './components/AdsterraBanner.tsx';
 
 // Helper to convert category name to slug and back
 const getCategorySlug = (name: string) => name.toLowerCase().replace(/ & /g, '-').replace(/ /g, '-');
@@ -128,6 +129,11 @@ const GalleryView = () => {
       
       {isHomePage && <HomePageContent />}
       {!isHomePage && <CategoriesCarousel />}
+      
+      {/* 728x90 Banner - Desktop/Tablet only */}
+      <div className="hidden sm:flex justify-center mt-12 mb-4">
+        <AdsterraBanner adKey="cf6be9da5c1b9bb85e4a42c5926f49c7" format="728x90" />
+      </div>
       
       <div className="min-h-[400px] mt-10">
         {isHomePage ? (
