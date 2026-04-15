@@ -41,7 +41,7 @@ const AdsterraBanner: React.FC<AdsterraBannerProps> = ({ id, className = "" }) =
   return (
     <div 
       ref={bannerRef} 
-      className={`flex justify-center items-center w-full my-8 ${className}`}
+      className={`flex justify-center items-center w-full my-5 ${className}`}
       style={{ minHeight }}
     />
   );
