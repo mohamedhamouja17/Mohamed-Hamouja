@@ -16,6 +16,7 @@ import TermsPage from './components/TermsPage.tsx';
 import ContactPage from './components/ContactPage.tsx';
 import HomePageContent from './components/HomePageContent.tsx';
 import SEO from './components/SEO.tsx';
+import AdsterraBanner from './components/AdsterraBanner.tsx';
 import { type Category } from './types.ts';
 import { MY_IMAGES, SUB_CATEGORIES } from './constants.ts';
 import WallpaperCard from './components/WallpaperCard.tsx';
@@ -129,12 +130,20 @@ const GalleryView = () => {
       {isHomePage && <HomePageContent />}
       {!isHomePage && <CategoriesCarousel />}
       
+      {/* Top Gallery Banner */}
+      <AdsterraBanner id="728x90" className="hidden md:flex" />
+      <AdsterraBanner id="300x250" className="flex md:hidden" />
+      
       <div className="min-h-[400px] mt-10">
         {isHomePage ? (
           <div className="space-y-32">
             <HomeSection title="Desktop Wallpapers" category="Desktop" link="/desktop" />
             <HomeSection title="Phone Wallpapers" category="Phone" link="/phone" />
             <HomeSection title="Tablet Wallpapers" category="Tablet" link="/tablet" />
+            
+            {/* Bottom Home Banner */}
+            <AdsterraBanner id="728x90" className="hidden md:flex" />
+            <AdsterraBanner id="300x250" className="flex md:hidden" />
           </div>
         ) : (
           <>
@@ -168,6 +177,10 @@ const GalleryView = () => {
               </div>
             )}
             
+            {/* Bottom Gallery Banner (Above Pagination) */}
+            <AdsterraBanner id="728x90" className="hidden md:flex" />
+            <AdsterraBanner id="300x250" className="flex md:hidden" />
+
             <Pagination 
               currentPage={currentPage} 
               totalPages={totalPages} 

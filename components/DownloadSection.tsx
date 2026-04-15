@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { DownloadIcon } from './icons/DownloadIcon.tsx';
+import AdsterraBanner from './AdsterraBanner.tsx';
 
 const COUNTDOWN_SECONDS = 20;
 
@@ -108,22 +109,12 @@ const DownloadSection: React.FC<DownloadSectionProps> = ({
     <div className="mt-8 p-6 sm:p-10 bg-white rounded-[2rem] border-2 border-orange-50 shadow-xl animate-fade-in max-w-2xl mx-auto">
       <div className="flex flex-col items-center">
         
-        {/* Sponsored Video Placeholder */}
-        <div className="w-full bg-black rounded-2xl mb-8 flex flex-col items-center justify-center min-h-[250px] relative overflow-hidden group shadow-inner">
-          <div className="absolute top-4 left-4 bg-orange-500/80 text-[10px] font-bold text-white px-2 py-0.5 rounded-sm uppercase tracking-widest z-10">
+        {/* Sponsored Ad Content */}
+        <div className="w-full mb-8 relative bg-gray-50 rounded-2xl overflow-hidden border border-gray-100 shadow-inner">
+          <div className="absolute top-2 left-2 bg-orange-500/80 text-[10px] font-bold text-white px-2 py-0.5 rounded-sm uppercase tracking-widest z-10">
             Sponsored Content
           </div>
-          
-          <div className="flex flex-col items-center justify-center p-8 text-center">
-             <div className="mb-4 text-orange-400">
-               <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 animate-pulse" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-               </svg>
-             </div>
-             <p className="text-gray-400 text-sm font-medium">Video Ad Loading...</p>
-             <p className="text-gray-500 text-xs mt-2 italic px-4">Support us by viewing this ad while your high-quality download prepares.</p>
-          </div>
+          <AdsterraBanner id="300x250" className="my-0" />
         </div>
 
         <div className="text-center mb-8">
