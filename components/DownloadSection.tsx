@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { DownloadIcon } from './icons/DownloadIcon.tsx';
-import AdsterraBanner from './AdsterraBanner.tsx';
 
 const COUNTDOWN_SECONDS = 20;
 
@@ -109,14 +108,6 @@ const DownloadSection: React.FC<DownloadSectionProps> = ({
     <div className="mt-8 p-6 sm:p-10 bg-white rounded-[2rem] border-2 border-orange-50 shadow-xl animate-fade-in max-w-2xl mx-auto">
       <div className="flex flex-col items-center">
         
-        {/* Sponsored Ad Content */}
-        <div className="w-full mb-8 relative bg-gray-50 rounded-2xl overflow-hidden border border-gray-100 shadow-inner">
-          <div className="absolute top-2 left-2 bg-orange-500/80 text-[10px] font-bold text-white px-2 py-0.5 rounded-sm uppercase tracking-widest z-10">
-            Sponsored Content
-          </div>
-          <AdsterraBanner id="300x250" className="my-0" />
-        </div>
-
         <div className="text-center mb-8">
           <h3 className="text-xl font-bold text-gray-800 mb-2">
             {isTimerFinished 

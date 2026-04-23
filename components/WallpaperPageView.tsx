@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { type Wallpaper } from '../types.ts';
 import DownloadSection from './DownloadSection.tsx';
 import { ChevronDownIcon } from './icons/ChevronDownIcon.tsx';
-import AdsterraBanner from './AdsterraBanner.tsx';
 
 interface WallpaperPageViewProps {
   wallpaper: Wallpaper;
@@ -49,10 +48,6 @@ const WallpaperPageView: React.FC<WallpaperPageViewProps> = ({ wallpaper, onBack
         </span>
         Back to Gallery
       </button>
-
-      {/* Upper Ad Placement */}
-      <AdsterraBanner id="728x90" className="hidden md:flex" />
-      <AdsterraBanner id="300x250" className="flex md:hidden" />
 
       <div className="bg-white rounded-3xl overflow-hidden shadow-2xl border border-gray-100">
         <div className="bg-gray-50 p-4 sm:p-8 flex justify-center items-center min-h-[40vh]">
@@ -130,9 +125,6 @@ const WallpaperPageView: React.FC<WallpaperPageViewProps> = ({ wallpaper, onBack
         </div>
       </div>
 
-      {/* Lower Ad Placement */}
-      <AdsterraBanner id="728x90" className="hidden md:flex" />
-      <AdsterraBanner id="300x250" className="flex md:hidden" />
     </div>
   );
 };

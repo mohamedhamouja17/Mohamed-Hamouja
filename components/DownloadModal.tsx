@@ -99,15 +99,6 @@ const DownloadModal: React.FC<DownloadModalProps> = ({ isOpen, onClose, imageUrl
             Download Content
           </h2>
 
-          {/* Ad Block Placeholder */}
-          <div className="w-full h-64 bg-gray-100 border-2 border-dashed border-gray-300 rounded-lg flex flex-col items-center justify-center mb-6 relative overflow-hidden group">
-            <span className="text-gray-400 font-semibold tracking-widest text-sm uppercase mb-2">Advertisement</span>
-            <div className="text-xs text-gray-400 px-8">
-              Support us by viewing this ad while we prepare your download.
-            </div>
-            <div className="absolute inset-0 bg-gradient-to-tr from-gray-50 to-gray-100 opacity-50 pointer-events-none"></div>
-          </div>
-
           {/* Countdown / Download Section */}
           <div className="w-full min-h-[80px] flex flex-col items-center justify-center">
             {!isTimerFinished ? (
