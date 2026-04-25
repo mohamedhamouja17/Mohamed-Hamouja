@@ -1,7 +1,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 <url>
 <loc>https://walzoo.com</loc>
-<lastmod>2026-04-24</lastmod>
+<lastmod>2026-04-25</lastmod>
 <changefreq>daily</changefreq>
 <priority>1.0</priority>
 </url>
@@ -5515,6 +5515,105 @@
 <image:loc>https://cdn.walzoo.com/Tablet/Animals/majestic-lion-forest-birds-sunlight-mobile-wallpaper.webp</image:loc>
 <image:title>Majestic Lion Forest Sunlight</image:title>
 <image:caption>A majestic lion in a forest setting with birds and beautiful sunlight filtering through. Stunning animal wallpaper for tablets.</image:caption>
+</image:image>
+</url>
+<url>
+<loc>https://walzoo.com/wallpaper/man-leaping-blood-moon-cosmic-galaxy</loc>
+<lastmod>2026-04-25</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.8</priority>
+<image:image>
+<image:loc>https://cdn.walzoo.com/Desktop/Anime/man-leaping-blood-moon-cosmic-galaxy-wallpaper.webp</image:loc>
+<image:title>Man Leaping Blood Moon Cosmic Galaxy</image:title>
+<image:caption>An epic scene of a man leaping towards a blood moon in a cosmic galaxy setting. High-resolution anime wallpaper for desktop.</image:caption>
+</image:image>
+</url>
+<url>
+<loc>https://walzoo.com/wallpaper/tampa-skyline-sunset-riverfront-marina</loc>
+<lastmod>2026-04-25</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.8</priority>
+<image:image>
+<image:loc>https://cdn.walzoo.com/Desktop/Cities%20%26%20Landmarks/tampa-skyline-sunset-riverfront-marina-wallpaper.webp</image:loc>
+<image:title>Tampa Skyline Sunset Riverfront Marina</image:title>
+<image:caption>A beautiful sunset view of the Tampa skyline from the riverfront marina. Stunning landmark wallpaper for desktop.</image:caption>
+</image:image>
+</url>
+<url>
+<loc>https://walzoo.com/wallpaper/majestic-stag-glowing-antlers-winter-forest</loc>
+<lastmod>2026-04-25</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.8</priority>
+<image:image>
+<image:loc>https://cdn.walzoo.com/Desktop/Animals/majestic-stag-glowing-antlers-winter-forest-wallpaper.webp</image:loc>
+<image:title>Majestic Stag Glowing Antlers Winter Forest</image:title>
+<image:caption>A majestic stag with glowing antlers standing in a serene winter forest. Enchanting animal wallpaper for desktop.</image:caption>
+</image:image>
+</url>
+<url>
+<loc>https://walzoo.com/wallpaper/milky-way-desert-twilight</loc>
+<lastmod>2026-04-25</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.8</priority>
+<image:image>
+<image:loc>https://cdn.walzoo.com/Phone/Space/milky-way-desert-twilight-wallpaper.webp</image:loc>
+<image:title>Milky Way Desert Twilight</image:title>
+<image:caption>The Milky Way shining brightly over a desert landscape during twilight. Breathtaking space wallpaper for phone.</image:caption>
+</image:image>
+</url>
+<url>
+<loc>https://walzoo.com/wallpaper/tropical-bay-cave-view</loc>
+<lastmod>2026-04-25</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.8</priority>
+<image:image>
+<image:loc>https://cdn.walzoo.com/Phone/Nature/tropical-bay-cave-view-wallpaper.webp</image:loc>
+<image:title>Tropical Bay Cave View</image:title>
+<image:caption>A stunning view of a tropical bay from inside a sea cave. Serene nature wallpaper for phone.</image:caption>
+</image:image>
+</url>
+<url>
+<loc>https://walzoo.com/wallpaper/abstract-cosmic-spheres-blue</loc>
+<lastmod>2026-04-25</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.8</priority>
+<image:image>
+<image:loc>https://cdn.walzoo.com/Phone/Abstract/abstract-cosmic-spheres-blue-wallpaper.webp</image:loc>
+<image:title>Abstract Cosmic Spheres Blue</image:title>
+<image:caption>A vibrant abstract design featuring cosmic spheres in shades of blue. Modern abstract wallpaper for phone.</image:caption>
+</image:image>
+</url>
+<url>
+<loc>https://walzoo.com/wallpaper/f1-car-night-race-track-overhead</loc>
+<lastmod>2026-04-25</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.8</priority>
+<image:image>
+<image:loc>https://cdn.walzoo.com/Tablet/Sports/f1-car-night-race-track-overhead-wallpaper.webp</image:loc>
+<image:title>F1 Car Night Race Track Overhead</image:title>
+<image:caption>An overhead shot of an F1 car racing on a track at night. High-speed sports wallpaper for tablets.</image:caption>
+</image:image>
+</url>
+<url>
+<loc>https://walzoo.com/wallpaper/tropical-island-resort-turquoise-water</loc>
+<lastmod>2026-04-25</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.8</priority>
+<image:image>
+<image:loc>https://cdn.walzoo.com/Tablet/Minimalist/tropical-island-resort-turquoise-water-wallpaper.webp</image:loc>
+<image:title>Tropical Island Resort Turquoise Water</image:title>
+<image:caption>A minimalist view of a tropical island resort surrounded by turquoise water. Relaxing wallpaper for tablets.</image:caption>
+</image:image>
+</url>
+<url>
+<loc>https://walzoo.com/wallpaper/luxury-suv-forest-road-overhead</loc>
+<lastmod>2026-04-25</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.8</priority>
+<image:image>
+<image:loc>https://cdn.walzoo.com/Tablet/Cars/luxury-suv-forest-road-overhead-wallpaper.webp</image:loc>
+<image:title>Luxury SUV Forest Road Overhead</image:title>
+<image:caption>An overhead view of a luxury SUV driving through a lush forest road. Professional car wallpaper for tablets.</image:caption>
 </image:image>
 </url>
 </urlset>
