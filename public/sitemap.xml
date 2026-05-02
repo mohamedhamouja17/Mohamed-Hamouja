@@ -1,7 +1,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 <url>
 <loc>https://walzoo.com</loc>
-<lastmod>2026-05-01</lastmod>
+<lastmod>2026-05-02</lastmod>
 <changefreq>daily</changefreq>
 <priority>1.0</priority>
 </url>
@@ -6208,6 +6208,105 @@
 <image:loc>https://cdn.walzoo.com/Tablet/Cars/white-sports-coupe-tunnel-motion-blur-wallpaper.webp</image:loc>
 <image:title>White Sports Coupe Tunnel Motion</image:title>
 <image:caption>A sleek white sports coupe driving through a tunnel with cinematic motion blur. High-speed car wallpaper for tablet backdrops.</image:caption>
+</image:image>
+</url>
+<url>
+<loc>https://walzoo.com/wallpaper/orange-race-car-rear-wing-track</loc>
+<lastmod>2026-05-02</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.8</priority>
+<image:image>
+<image:loc>https://cdn.walzoo.com/Desktop/Sports/orange-race-car-rear-wing-track-wallpaper.webp</image:loc>
+<image:title>Orange Race Car Rear Wing</image:title>
+<image:caption>A close-up of an orange race car's rear wing on a racing track. High-speed 4K Sports wallpaper for desktop.</image:caption>
+</image:image>
+</url>
+<url>
+<loc>https://walzoo.com/wallpaper/tropical-banana-leaf-minimalist-wall</loc>
+<lastmod>2026-05-02</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.8</priority>
+<image:image>
+<image:loc>https://cdn.walzoo.com/Desktop/Minimalist/tropical-banana-leaf-plant-minimalist-wall-wallpaper.webp</image:loc>
+<image:title>Tropical Banana Leaf Minimalist</image:title>
+<image:caption>A minimalist view of a tropical banana leaf against a clean wall. Serene 4K Minimalist wallpaper for desktop.</image:caption>
+</image:image>
+</url>
+<url>
+<loc>https://walzoo.com/wallpaper/luxury-convertible-manor-driveway-autumn</loc>
+<lastmod>2026-05-02</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.8</priority>
+<image:image>
+<image:loc>https://cdn.walzoo.com/Desktop/Cars/luxury-convertible-manor-driveway-autumn-wallpaper.webp</image:loc>
+<image:title>Luxury Convertible Manor Driveway</image:title>
+<image:caption>A luxury convertible parked in a manor driveway during a beautiful autumn day. Elegant 4K car wallpaper for desktop.</image:caption>
+</image:image>
+</url>
+<url>
+<loc>https://walzoo.com/wallpaper/superhero-shield-buried-snow</loc>
+<lastmod>2026-05-02</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.8</priority>
+<image:image>
+<image:loc>https://cdn.walzoo.com/Phone/Anime/superhero-shield-buried-snow-wallpaper.webp</image:loc>
+<image:title>Superhero Shield Buried in Snow</image:title>
+<image:caption>A dramatic image of a superhero's shield partially buried in fresh snow. Epic Anime and comic-themed wallpaper for phone.</image:caption>
+</image:image>
+</url>
+<url>
+<loc>https://walzoo.com/wallpaper/philippine-airlines-plane-landing-lax</loc>
+<lastmod>2026-05-02</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.8</priority>
+<image:image>
+<image:loc>https://cdn.walzoo.com/Phone/Cities%20%26%20Landmarks/philippine-airlines-plane-landing-lax-wallpaper.webp</image:loc>
+<image:title>Philippine Airlines Plane Landing LAX</image:title>
+<image:caption>A Philippine Airlines plane captured during landing at LAX airport. Stunning aviation wallpaper for your phone.</image:caption>
+</image:image>
+</url>
+<url>
+<loc>https://walzoo.com/wallpaper/tiger-face-snow-winter</loc>
+<lastmod>2026-05-02</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.8</priority>
+<image:image>
+<image:loc>https://cdn.walzoo.com/Phone/Animals/tiger-face-snow-winter-wallpaper.webp</image:loc>
+<image:title>Tiger Face in Snow</image:title>
+<image:caption>A powerful close-up of a tiger's face in a snowy winter landscape. Majestic wildlife wallpaper for mobile.</image:caption>
+</image:image>
+</url>
+<url>
+<loc>https://walzoo.com/wallpaper/snowy-mountain-starry-night-sunset</loc>
+<lastmod>2026-05-02</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.8</priority>
+<image:image>
+<image:loc>https://cdn.walzoo.com/Tablet/Space/snowy-mountain-starry-night-sunset-wallpaper.webp</image:loc>
+<image:title>Snowy Mountain Starry Night Sunset</image:title>
+<image:caption>A breathtaking view of a snowy mountain peak under a starry night sky during sunset. Captivating Space wallpaper for tablets.</image:caption>
+</image:image>
+</url>
+<url>
+<loc>https://walzoo.com/wallpaper/snow-capped-mountain-green-valley</loc>
+<lastmod>2026-05-02</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.8</priority>
+<image:image>
+<image:loc>https://cdn.walzoo.com/Tablet/Nature/snow-capped-mountain-green-valley-wallpaper.webp</image:loc>
+<image:title>Snow Capped Mountain Green Valley</image:title>
+<image:caption>A stunning contrast between snow-capped mountains and a lush green valley. Beautiful Nature wallpaper for tablet backgrounds.</image:caption>
+</image:image>
+</url>
+<url>
+<loc>https://walzoo.com/wallpaper/abstract-glass-curves-dark-minimalist</loc>
+<lastmod>2026-05-02</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.8</priority>
+<image:image>
+<image:loc>https://cdn.walzoo.com/Tablet/Abstract/abstract-glass-curves-dark-minimalist-wallpaper.webp</image:loc>
+<image:title>Abstract Glass Curves Dark Minimalist</image:title>
+<image:caption>Elegant abstract glass curves in a dark, minimalist setting. Modern and artistic wallpaper for your tablet.</image:caption>
 </image:image>
 </url>
 </urlset>
